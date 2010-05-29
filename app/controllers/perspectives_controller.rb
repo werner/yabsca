@@ -1,0 +1,2 @@
+class PerspectivesController < ApplicationController
+end

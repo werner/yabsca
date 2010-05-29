@@ -1,0 +1,21 @@
+= stylesheet_link_tag "FormyCSS/form"
+= error_messages_for :organization
+- form_for @organization do |f|
+  %div.container
+    %fieldset
+      %legend
+        Organization
+      = f.label :name
+      = f.text_field :name, :tabindex => "1"
+      %br
+      = f.label :vision
+      = f.text_area :vision, :rows => 3, :tabindex => "2"
+      %br
+      = f.label :goal
+      = f.text_area :goal, :rows => 3, :tabindex => "3"
+      %br
+      = f.label :description
+      = f.text_area :description, :rows => 3, :tabindex => "4"
+      %br
+      = f.submit "Save", :class => "button", :tabindex => "5"
+      = link_to "Back", organizations_path, :id => "back"
