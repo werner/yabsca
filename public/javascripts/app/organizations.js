@@ -1,6 +1,7 @@
 var organization=new Object();
 
 organization.id=0;
+organization.parent_id=0;
 organization.url="";
 organization.method="";
 organization.form= new Ext.FormPanel({
@@ -46,11 +47,21 @@ organization.treePanel= new Ext.tree.TreePanel({
     useArrows: true,
     animate: true,
     loader:new Ext.tree.TreeLoader({
-        dataUrl:'/org_and_strat'
+        dataUrl:function(){
+            return '/org_and_strat?organization_id='+organization.parent_id
+        }
     }),
     listeners:{
         click: function(n){
-            organization.id=n.id;
+            if (n.attributes.type=="organization"){
+                organization.parent_id=n.parentNode.id;
+                organization.id=n.id;
+            }else{
+                organization.parent_id=n.parentNode.id;
+                organization.id=n.parentNode.id;
+                strategy.id=n.id;
+            }
+
         }
     },
     root: new Ext.tree.AsyncTreeNode()
@@ -73,7 +84,7 @@ organization.win= new Ext.Window({
                     organization.treePanel.getRootNode().reload();
                     organization.win.hide();
                 },
-                failure: function(form, action) {
+                failure: function() {
                     Ext.Msg.alert("Error",
                     "Make sure about all data is correct.");
                 }

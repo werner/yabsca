@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def default_destroy(model,id,path)
+  def default_destroy(model,id)
     @object=model.find(id)
     @object.destroy
     render :json => {:success => true}

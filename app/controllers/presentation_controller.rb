@@ -1,11 +1,14 @@
 class PresentationController < ApplicationController
 
-  def index
-  end
-
   def org_and_strat
 
     @organizations=Organization.all :order => :id
+
+    @nodes=[]
+    unless params[:organization_id].to_i==0
+      @organization=Organization.find(params[:organization_id])
+      nodes_expanded(@organization)
+    end
 
     @taken=[]
     return_data=[]
@@ -27,12 +30,28 @@ class PresentationController < ApplicationController
         @taken.push(u.id)
         child={:id => u.id,
         :text => u.name,
-        :children => join_nodes(u.organizations)}
-        child[:leaf]=true if u.organizations.empty?
+        :expanded => @nodes.include?(u.id),
+        :type => u.class==Organization ? "organization" : "strategy",
+        :children => join_nodes(get_next_node(u))}
+        child[:leaf]=true if (u.class == Organization ? (u.strategies.empty? and u.organizations.empty?) : true)
         child
       end
     end
   end
 
+  def nodes_expanded(data)
+    unless data.nil?
+      @nodes.push(data.id)
+      nodes_expanded data.organization
+    end
+  end
 
+  def get_next_node(object)
+    if object.class==Organization
+      object.strategies.empty? ?
+        object.organizations : object.strategies
+    else
+      []
+    end
+  end
 end

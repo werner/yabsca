@@ -17,15 +17,41 @@ Ext.onReady(function(){
               },{
                 text:"Edit",
                 handler:function(){
-                    organization.method="PUT";
-                    organization.url="/organizations/"+organization.id;
-                    organization.form.getForm().load(
-                        {method:'GET',
-                         url:'/organizations/'+organization.id+'/edit'});
-                    organization.win.show();
+                    if (organization.id>0){
+                        organization.method="PUT";
+                        organization.url="/organizations/"+organization.id;
+                        organization.form.getForm().load(
+                            {method:'GET',
+                             url:'/organizations/'+organization.id+'/edit'});
+                        organization.win.show();
+                    }else{
+                        Ext.Msg.alert("Error","You must select an item");
+                    }
                 }
               },{
-                text:"Delete"
+                text:"Delete",
+                handler:function(){
+                    if (organization.id>0){
+                        Ext.Msg.show({
+                           title:'Delete',
+                           msg: 'Are you sure you want to delete it?',
+                           buttons: Ext.Msg.YESNO,
+                           fn: function(){
+                               Ext.Ajax.request({
+                                   url:"/organizations/"+organization.id,
+                                   method:"DELETE",
+                                   success:function(){
+                                       organization.treePanel.getRootNode().reload();
+                                   }
+                               });
+                           },
+                           animEl: 'elId',
+                           icon: Ext.MessageBox.QUESTION
+                        });
+                    }else{
+                        Ext.Msg.alert("Error","You must select an item");
+                    }
+                }
               }]
             }
         },{
@@ -33,7 +59,17 @@ Ext.onReady(function(){
             menu:{
               items:[{
                 text:"New",
-                handler:function(btn,e){
+                handler:function(){
+                    if (organization.id>0){
+                        strategy.method="POST";
+                        strategy.url="strategies/create";
+                        strategy.form.getForm().reset();
+                        strategy.form.items.map.strategy_organization_id.
+                            setValue(organization.id);
+                        strategy.win.show();
+                    }else{
+                        Ext.Msg.alert("Error","You must select an item");
+                    }
                 }
               },{
                 text:"Edit"
