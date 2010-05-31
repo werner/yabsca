@@ -58,7 +58,7 @@ organization.treePanel= new Ext.tree.TreePanel({
                 organization.id=n.id;
             }else{
                 organization.parent_id=n.parentNode.id;
-                organization.id=n.parentNode.id;
+                organization.id=n.id;
                 strategy.id=n.id;
             }
 

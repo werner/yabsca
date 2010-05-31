@@ -2,7 +2,7 @@ class PresentationController < ApplicationController
 
   def org_and_strat
 
-    @organizations=Organization.all :order => :id
+    @organizations=Organization.find_all_by_organization_id(0)
 
     @nodes=[]
     unless params[:organization_id].to_i==0
@@ -18,7 +18,6 @@ class PresentationController < ApplicationController
         :children=>join_nodes(@organizations)
     })
 
-    return_data[0][:children].delete_if { |i| i.nil? }
     respond_to do |format|
       format.json { render :json => return_data }
     end    
@@ -26,16 +25,18 @@ class PresentationController < ApplicationController
 
   def join_nodes(tree)
     tree.map do |u|
-      unless @taken.include?(u.id)
-        @taken.push(u.id)
-        child={:id => u.id,
+        {:id => u.id,
         :text => u.name,
-        :expanded => @nodes.include?(u.id),
-        :type => u.class==Organization ? "organization" : "strategy",
-        :children => join_nodes(get_next_node(u))}
-        child[:leaf]=true if (u.class == Organization ? (u.strategies.empty? and u.organizations.empty?) : true)
-        child
-      end
+        :leaf => (u.strategies.empty? and u.organizations.empty?),
+        :type => "organization",
+        :children => join_nodes(u.organizations).concat(
+          u.strategies.map { |i| {
+            :id => i.id,
+            :text => i.name,
+            :leaf => true,
+            :type => "strategy",
+            :children => []}}
+        )}
     end
   end
 
