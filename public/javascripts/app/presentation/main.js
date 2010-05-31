@@ -36,14 +36,16 @@ Ext.onReady(function(){
                            title:'Delete',
                            msg: 'Are you sure you want to delete it?',
                            buttons: Ext.Msg.YESNO,
-                           fn: function(){
-                               Ext.Ajax.request({
-                                   url:"/organizations/"+organization.id,
-                                   method:"DELETE",
-                                   success:function(){
-                                       organization.treePanel.getRootNode().reload();
-                                   }
-                               });
+                           fn: function(btn){
+                               if (btn=='yes'){
+                                   Ext.Ajax.request({
+                                       url:"/organizations/"+organization.id,
+                                       method:"DELETE",
+                                       success:function(){
+                                           organization.treePanel.getRootNode().reload();
+                                       }
+                                   });
+                               }
                            },
                            animEl: 'elId',
                            icon: Ext.MessageBox.QUESTION
