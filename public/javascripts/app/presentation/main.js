@@ -1,3 +1,4 @@
+var actualNode;
 Ext.onReady(function(){
 
     var toolBar = new Ext.Toolbar({
@@ -7,17 +8,22 @@ Ext.onReady(function(){
               items:[{
                 text:"New",
                 handler:function(){
-                    organization.method="POST";
-                    organization.url="organizations/create";
-                    organization.form.getForm().reset();
-                    organization.form.items.map.organization_organization_id.
-                        setValue(organization.id);
-                    organization.win.show();
+                    if (actualNode.attributes.type=="organization"){
+                        organization.method="POST";
+                        organization.url="organizations/create";
+                        organization.form.getForm().reset();
+                        organization.form.items.map.organization_organization_id.
+                            setValue(organization.id);
+                        organization.win.show();
+                    }else{
+                        Ext.Msg.alert("Error","You must select an organization");
+                    }
                 }
               },{
                 text:"Edit",
                 handler:function(){
-                    if (organization.id>0){
+                    if (organization.id>0 &&
+                            actualNode.attributes.type=="organization"){
                         organization.method="PUT";
                         organization.url="/organizations/"+organization.id;
                         organization.form.getForm().load(
@@ -25,13 +31,14 @@ Ext.onReady(function(){
                              url:'/organizations/'+organization.id+'/edit'});
                         organization.win.show();
                     }else{
-                        Ext.Msg.alert("Error","You must select an item");
+                        Ext.Msg.alert("Error","You must select an organization");
                     }
                 }
               },{
                 text:"Delete",
                 handler:function(){
-                    if (organization.id>0){
+                    if (organization.id>0 &&
+                            actualNode.attributes.type=="organization"){
                         Ext.Msg.show({
                            title:'Delete',
                            msg: 'Are you sure you want to delete it?',
@@ -51,7 +58,7 @@ Ext.onReady(function(){
                            icon: Ext.MessageBox.QUESTION
                         });
                     }else{
-                        Ext.Msg.alert("Error","You must select an item");
+                        Ext.Msg.alert("Error","You must select an organization");
                     }
                 }
               }]
@@ -62,7 +69,8 @@ Ext.onReady(function(){
               items:[{
                 text:"New",
                 handler:function(){
-                    if (organization.id>0){
+                    if (organization.id>0 &&
+                            actualNode.attributes.type=="organization"){
                         strategy.method="POST";
                         strategy.url="strategies/create";
                         strategy.form.getForm().reset();
@@ -70,13 +78,51 @@ Ext.onReady(function(){
                             setValue(organization.id);
                         strategy.win.show();
                     }else{
-                        Ext.Msg.alert("Error","You must select an item");
+                        Ext.Msg.alert("Error","You must select an organization");
                     }
                 }
               },{
-                text:"Edit"
+                text:"Edit",
+                handler:function(){
+                    if (strategy.id>0 &&
+                            actualNode.attributes.type=="strategy"){
+                        strategy.method="PUT";
+                        strategy.url="/strategies/"+strategy.id;
+                        strategy.form.getForm().load(
+                            {method:'GET',
+                             url:'/strategies/'+strategy.id+'/edit'});
+                        strategy.win.show();
+                    }else{
+                        Ext.Msg.alert("Error","You must select an organization");
+                    }                    
+                }
               },{
-                text:"Delete"
+                text:"Delete",
+                handler:function(){
+                    if (strategy.id>0 &&
+                            actualNode.attributes.type=="strategy"){
+                        Ext.Msg.show({
+                           title:'Delete',
+                           msg: 'Are you sure you want to delete it?',
+                           buttons: Ext.Msg.YESNO,
+                           fn: function(btn){
+                               if (btn=='yes'){
+                                   Ext.Ajax.request({
+                                       url:"/strategies/"+strategy.id,
+                                       method:"DELETE",
+                                       success:function(){
+                                           organization.treePanel.getRootNode().reload();
+                                       }
+                                   });
+                               }
+                           },
+                           animEl: 'elId',
+                           icon: Ext.MessageBox.QUESTION
+                        });
+                    }else{
+                        Ext.Msg.alert("Error","You must select an organization");
+                    }
+                }
               }]
             }            
         }]

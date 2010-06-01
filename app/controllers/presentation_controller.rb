@@ -27,6 +27,7 @@ class PresentationController < ApplicationController
     tree.map do |u|
         {:id => u.id,
         :text => u.name,
+        :expanded => @nodes.include?(u.id),
         :leaf => (u.strategies.empty? and u.organizations.empty?),
         :type => "organization",
         :children => join_nodes(u.organizations).concat(

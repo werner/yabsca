@@ -53,6 +53,7 @@ organization.treePanel= new Ext.tree.TreePanel({
     }),
     listeners:{
         click: function(n){
+            actualNode=n;
             if (n.attributes.type=="organization"){
                 organization.parent_id=n.parentNode.id;
                 organization.id=n.id;
