@@ -39,24 +39,7 @@ Ext.onReady(function(){
                 handler:function(){
                     if (organization.id>0 &&
                             actualNode.attributes.type=="organization"){
-                        Ext.Msg.show({
-                           title:'Delete',
-                           msg: 'Are you sure you want to delete it?',
-                           buttons: Ext.Msg.YESNO,
-                           fn: function(btn){
-                               if (btn=='yes'){
-                                   Ext.Ajax.request({
-                                       url:"/organizations/"+organization.id,
-                                       method:"DELETE",
-                                       success:function(){
-                                           organization.treePanel.getRootNode().reload();
-                                       }
-                                   });
-                               }
-                           },
-                           animEl: 'elId',
-                           icon: Ext.MessageBox.QUESTION
-                        });
+                          general.deletion("/organizations/"+organization.id,organization.treePanel);
                     }else{
                         Ext.Msg.alert("Error","You must select an organization");
                     }
@@ -93,7 +76,7 @@ Ext.onReady(function(){
                              url:'/strategies/'+strategy.id+'/edit'});
                         strategy.win.show();
                     }else{
-                        Ext.Msg.alert("Error","You must select an organization");
+                        Ext.Msg.alert("Error","You must select a strategy");
                     }                    
                 }
               },{
@@ -101,26 +84,9 @@ Ext.onReady(function(){
                 handler:function(){
                     if (strategy.id>0 &&
                             actualNode.attributes.type=="strategy"){
-                        Ext.Msg.show({
-                           title:'Delete',
-                           msg: 'Are you sure you want to delete it?',
-                           buttons: Ext.Msg.YESNO,
-                           fn: function(btn){
-                               if (btn=='yes'){
-                                   Ext.Ajax.request({
-                                       url:"/strategies/"+strategy.id,
-                                       method:"DELETE",
-                                       success:function(){
-                                           organization.treePanel.getRootNode().reload();
-                                       }
-                                   });
-                               }
-                           },
-                           animEl: 'elId',
-                           icon: Ext.MessageBox.QUESTION
-                        });
+                          general.deletion("/strategies/"+strategy.id,organization.treePanel);
                     }else{
-                        Ext.Msg.alert("Error","You must select an organization");
+                        Ext.Msg.alert("Error","You must select a strategy");
                     }
                 }
               }]
@@ -167,7 +133,6 @@ Ext.onReady(function(){
 
     var viewport = new Ext.Viewport({
         layout: 'border',
-        title:'A Balanced ScoreCard Application',
         items: [{
             xtype: 'box',
             region: 'north',

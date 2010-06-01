@@ -1,3 +1,8 @@
+#header{
+    background: url("../images/bar.gif") repeat-x scroll 0 0 #1E4176;
+    color: white;
+}
+
 body {
     margin: 0;
     padding: 0 0 20px;
