@@ -15,6 +15,7 @@ class PresentationController < ApplicationController
     return_data.push({
         :text=>"Organizations",
         :expanded=>true,
+        :type => "organization",
         :children=>join_nodes(@organizations)
     })
 

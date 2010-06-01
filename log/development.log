@@ -1,0 +1,144 @@
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2010-06-01 09:44:08) [GET]
+  [4;36;1mSQL (1.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Completed in 40ms (View: 2, DB: 1) | 200 OK [http://localhost/rails/info/properties]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-01 09:44:13) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 73ms (View: 71, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-01 09:44:15) [POST]
+  Parameters: {"node"=>"xnode-4", "organization_id"=>"0"}
+  [4;36;1mOrganization Load (0.5ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 48) [0m
+  [4;36;1mOrganization Load (0.6ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 48) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 49) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 49) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 50) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 50) [0m
+  [4;35;1mOrganization Load (0.3ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 50) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 58) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 58) [0m
+  [4;36;1mOrganization Load (0.3ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 58) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 59) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 59) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 51) [0m
+  [4;36;1mOrganization Load (0.1ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 51) [0m
+  [4;35;1mStrategy Load (0.2ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 51) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 52) [0m
+  [4;35;1mOrganization Load (0.1ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 52) [0m
+  [4;36;1mStrategy Load (0.2ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 52) [0m
+  [4;35;1mStrategy Load (0.2ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 48) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 55) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 55) [0m
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 55) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 56) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 56) [0m
+Completed in 58ms (View: 3, DB: 5) | 200 OK [http://localhost/org_and_strat?organization_id=0]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-01 09:44:15) [POST]
+  Parameters: {"node"=>"xnode-6"}
+  [4;35;1mOrganization Load (0.4ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 48) [0m
+  [4;35;1mOrganization Load (0.5ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 48) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 49) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 49) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 50) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 50) [0m
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 50) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 58) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 58) [0m
+  [4;35;1mOrganization Load (0.2ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 58) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 59) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 59) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 51) [0m
+  [4;35;1mOrganization Load (0.1ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 51) [0m
+  [4;36;1mStrategy Load (0.2ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 51) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 52) [0m
+  [4;36;1mOrganization Load (0.4ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 52) [0m
+  [4;35;1mStrategy Load (0.6ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 52) [0m
+  [4;36;1mStrategy Load (0.2ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 48) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 55) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 55) [0m
+  [4;35;1mOrganization Load (0.3ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 55) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 56) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 56) [0m
+Completed in 81ms (View: 4, DB: 5) | 200 OK [http://localhost/org_and_strat]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-01 09:44:15) [POST]
+  Parameters: {"node"=>"xnode-7"}
+  [4;36;1mOrganization Load (0.4ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 48) [0m
+  [4;36;1mOrganization Load (0.6ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 48) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 49) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 49) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 50) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 50) [0m
+  [4;35;1mOrganization Load (0.3ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 50) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 58) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 58) [0m
+  [4;36;1mOrganization Load (0.3ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 58) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 59) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 59) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 51) [0m
+  [4;36;1mOrganization Load (0.1ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 51) [0m
+  [4;35;1mStrategy Load (0.2ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 51) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 52) [0m
+  [4;35;1mOrganization Load (0.1ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 52) [0m
+  [4;36;1mStrategy Load (0.2ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 52) [0m
+  [4;35;1mStrategy Load (0.2ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 48) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 55) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 55) [0m
+  [4;36;1mOrganization Load (0.3ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 55) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 56) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 56) [0m
+Completed in 38ms (View: 3, DB: 5) | 200 OK [http://localhost/org_and_strat]
+
+
+Processing OrganizationsController#create (for 127.0.0.1 at 2010-06-01 09:44:26) [POST]
+  Parameters: {"organization"=>{"name"=>"Tercer", "goal"=>"", "description"=>"", "vision"=>"", "organization_id"=>"xnode-41"}}
+  [4;35;1mOrganization Load (0.1ms)[0m   [0mSELECT "organizations".id FROM "organizations" WHERE ("organizations"."name" = 'Tercer') LIMIT 1[0m
+  [4;36;1mOrganization Create (0.2ms)[0m   [0;1mINSERT INTO "organizations" ("name", "goal", "created_at", "updated_at", "vision", "description", "organization_id") VALUES('Tercer', '', '2010-06-01 14:14:26', '2010-06-01 14:14:26', '', '', 0)[0m
+Completed in 106ms (View: 1, DB: 0) | 200 OK [http://localhost/organizations/create]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-01 09:44:26) [POST]
+  Parameters: {"node"=>"xnode-4", "organization_id"=>"xnode-4"}
+  [4;35;1mOrganization Load (0.5ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 48) [0m
+  [4;35;1mOrganization Load (0.6ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 48) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 49) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 49) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 50) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 50) [0m
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 50) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 58) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 58) [0m
+  [4;35;1mOrganization Load (0.3ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 58) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 59) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 59) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 51) [0m
+  [4;35;1mOrganization Load (0.1ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 51) [0m
+  [4;36;1mStrategy Load (0.2ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 51) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 52) [0m
+  [4;36;1mOrganization Load (0.1ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 52) [0m
+  [4;35;1mStrategy Load (0.2ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 52) [0m
+  [4;36;1mStrategy Load (0.2ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 48) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 55) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 55) [0m
+  [4;35;1mOrganization Load (0.2ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 55) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 56) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 56) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 61) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 61) [0m
+Completed in 79ms (View: 3, DB: 5) | 200 OK [http://localhost/org_and_strat?organization_id=xnode-4]
