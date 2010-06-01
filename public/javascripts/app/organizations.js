@@ -38,14 +38,9 @@ organization.form= new Ext.FormPanel({
 
 organization.treePanel= new Ext.tree.TreePanel({
     id: 'tree-panel_org',
-    split: true,
-    minSize: 150,
     autoScroll: true,
-    rootVisible: false,
-    lines: false,
-    singleExpand: true,
     useArrows: true,
-    animate: true,
+    rootVisible: false,
     loader:new Ext.tree.TreeLoader({
         dataUrl:function(){
             return '/org_and_strat?organization_id='+organization.parent_id

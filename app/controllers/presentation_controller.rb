@@ -15,6 +15,7 @@ class PresentationController < ApplicationController
     return_data.push({
         :text=>"Organizations",
         :expanded=>true,
+        :iconCls => "home",
         :type => "organization",
         :children=>join_nodes(@organizations)
     })
@@ -28,6 +29,7 @@ class PresentationController < ApplicationController
     tree.map do |u|
         {:id => u.id,
         :text => u.name,
+        :iconCls => "orgs",
         :expanded => @nodes.include?(u.id),
         :leaf => (u.strategies.empty? and u.organizations.empty?),
         :type => "organization",
@@ -36,6 +38,7 @@ class PresentationController < ApplicationController
             :id => i.id,
             :text => i.name,
             :leaf => true,
+            :iconCls => "strats",
             :type => "strategy",
             :children => []}}
         )}
