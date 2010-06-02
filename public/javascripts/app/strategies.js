@@ -39,7 +39,7 @@ strategy.win= new Ext.Window({
                 url:strategy.url,
                 method:strategy.method,
                 success: function(){
-                    organization.treePanel.getRootNode().reload();
+                    treePanelOrgs.getRootNode().reload();
                     strategy.win.hide();
                 },
                 failure: function() {

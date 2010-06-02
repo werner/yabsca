@@ -10,13 +10,13 @@ class PresentationController < ApplicationController
       nodes_expanded(@organization)
     end
 
-    @taken=[]
     return_data=[]
     return_data.push({
         :text=>"Organizations",
         :expanded=>true,
+        :iconCls => "home",
         :type => "organization",
-        :children=>join_nodes(@organizations)
+        :children=>join_nodes_orgs(@organizations)
     })
 
     respond_to do |format|
@@ -24,37 +24,23 @@ class PresentationController < ApplicationController
     end    
   end
 
-  def join_nodes(tree)
-    tree.map do |u|
-        {:id => u.id,
-        :text => u.name,
-        :expanded => @nodes.include?(u.id),
-        :leaf => (u.strategies.empty? and u.organizations.empty?),
-        :type => "organization",
-        :children => join_nodes(u.organizations).concat(
-          u.strategies.map { |i| {
-            :id => i.id,
-            :text => i.name,
-            :leaf => true,
-            :type => "strategy",
-            :children => []}}
-        )}
+  def persp_and_objs
+
+    @perspectives=Perspective.find_all_by_strategy_id(params[:strategy_id])
+
+    return_data=[]
+    return_data.push({
+        :text=>"Perspectives",
+        :expanded=>true,
+        :iconCls=>"home",
+        :type=>"perspective",
+        :children=>join_nodes_perspectives(@perspectives)
+    })
+
+    respond_to do |format|
+      format.json { render :json => return_data }
     end
+
   end
 
-  def nodes_expanded(data)
-    unless data.nil?
-      @nodes.push(data.id)
-      nodes_expanded data.organization
-    end
-  end
-
-  def get_next_node(object)
-    if object.class==Organization
-      object.strategies.empty? ?
-        object.organizations : object.strategies
-    else
-      []
-    end
-  end
 end
