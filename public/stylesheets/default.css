@@ -1,6 +1,54 @@
+.objs {
+  background-image: url("../images/connect.gif") !important;
+  background-repeat: no-repeat;
+}
+
+.persp {
+  background-image: url("../images/obs.png") !important;
+  background-repeat: no-repeat;
+}
+
+.del {
+  background-image: url("../images/delete.gif") !important;
+  background-repeat: no-repeat;
+}
+
+.edit {
+  background-image: url("../images/edit.png") !important;
+  background-repeat: no-repeat;
+}
+
+.new {
+  background-image: url("../images/add.gif") !important;
+  background-repeat: no-repeat;
+}
+
+.home {
+  background-image: url("../images/home.png") !important;
+  background-repeat: no-repeat;
+}
+
+.orgs {
+  background-image: url("../images/mail.png") !important;
+  background-repeat: no-repeat;
+}
+
+.strats {
+  background-image: url("../images/plugin.gif") !important;
+  background-repeat: no-repeat;
+}
+
 #header{
+    padding-top: 2px;
+    padding-left: 10px;
     background: url("../images/bar.gif") repeat-x scroll 0 0 #1E4176;
     color: white;
+}
+
+#maintitle{
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    font-size:16px;
 }
 
 body {
