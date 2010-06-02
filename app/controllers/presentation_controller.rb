@@ -24,7 +24,29 @@ class PresentationController < ApplicationController
     end    
   end
 
+<<<<<<< HEAD:app/controllers/presentation_controller.rb
   def persp_and_objs
+=======
+  def join_nodes(tree)
+    tree.map do |u|
+        {:id => u.id,
+        :text => u.name,
+        :iconCls => "orgs",
+        :expanded => @nodes.include?(u.id),
+        :leaf => (u.strategies.empty? and u.organizations.empty?),
+        :type => "organization",
+        :children => join_nodes(u.organizations).concat(
+          u.strategies.map { |i| {
+            :id => i.id,
+            :text => i.name,
+            :leaf => true,
+            :iconCls => "strats",
+            :type => "strategy",
+            :children => []}}
+        )}
+    end
+  end
+>>>>>>> a149077af53dbb74a6ec7bc5d621ff4addcf23eb:app/controllers/presentation_controller.rb
 
     @perspectives=Perspective.find_all_by_strategy_id(params[:strategy_id])
 

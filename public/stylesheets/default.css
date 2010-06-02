@@ -1,3 +1,4 @@
+<<<<<<< HEAD:public/stylesheets/default.css
 .objs {
   background-image: url("../images/connect.gif") !important;
   background-repeat: no-repeat;
@@ -8,6 +9,8 @@
   background-repeat: no-repeat;
 }
 
+=======
+>>>>>>> a149077af53dbb74a6ec7bc5d621ff4addcf23eb:public/stylesheets/default.css
 .del {
   background-image: url("../images/delete.gif") !important;
   background-repeat: no-repeat;

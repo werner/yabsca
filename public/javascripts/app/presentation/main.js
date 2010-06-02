@@ -3,9 +3,11 @@ Ext.onReady(function(){
 
     var toolBar = new Ext.Toolbar({
         items:[{
+            iconCls:"orgs",
             text:"Organizations",
             menu:{
               items:[{
+                iconCls:"new",
                 text:"New",
                 handler:function(){
                     if (actualNode.attributes.type=="organization"){
@@ -20,6 +22,7 @@ Ext.onReady(function(){
                     }
                 }
               },{
+                iconCls:"edit",
                 text:"Edit",
                 handler:function(){
                     if (organization.id>0 &&
@@ -35,6 +38,7 @@ Ext.onReady(function(){
                     }
                 }
               },{
+                iconCls:"del",
                 text:"Delete",
                 handler:function(){
                     if (organization.id>0 &&
@@ -47,9 +51,11 @@ Ext.onReady(function(){
               }]
             }
         },{
+            iconCls:"strats",
             text:"Strategies",
             menu:{
               items:[{
+                iconCls:"new",
                 text:"New",
                 handler:function(){
                     if (organization.id>0 &&
@@ -65,6 +71,7 @@ Ext.onReady(function(){
                     }
                 }
               },{
+                iconCls:"edit",
                 text:"Edit",
                 handler:function(){
                     if (strategy.id>0 &&
@@ -80,6 +87,7 @@ Ext.onReady(function(){
                     }                    
                 }
               },{
+                iconCls:"del",
                 text:"Delete",
                 handler:function(){
                     if (strategy.id>0 &&
