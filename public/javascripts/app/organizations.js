@@ -45,6 +45,7 @@ organization.win= new Ext.Window({
     items:[organization.form],
     buttons:[{
         text:'Save',
+        iconCls:'save',
         handler: function(){
             organization.form.getForm().submit({
                 url:organization.url,
@@ -61,6 +62,7 @@ organization.win= new Ext.Window({
         }
     },{
         text:'Close',
+        iconCls:'close',
         handler:function(){
             organization.win.hide();
         }

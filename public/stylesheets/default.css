@@ -1,3 +1,13 @@
+.save {
+  background-image: url("../images/accept.png") !important;
+  background-repeat: no-repeat;
+}
+
+.close {
+  background-image: url("../images/cancel.png") !important;
+  background-repeat: no-repeat;
+}
+
 .objs {
   background-image: url("../images/connect.gif") !important;
   background-repeat: no-repeat;
