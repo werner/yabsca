@@ -33,5 +33,47 @@ class ApplicationController < ActionController::Base
     @object.destroy
     render :json => {:success => true}
   end
-  
+
+  def join_nodes_orgs(tree)
+    tree.map do |u|
+        {:id => u.id,
+        :text => u.name,
+        :iconCls => "orgs",
+        :expanded => @nodes.include?(u.id),
+        :leaf => (u.strategies.empty? and u.organizations.empty?),
+        :type => "organization",
+        :children => join_nodes_orgs(u.organizations).concat(
+          u.strategies.map { |i| {
+            :id => i.id,
+            :text => i.name,
+            :leaf => true,
+            :iconCls => "strats",
+            :type => "strategy",
+            :children => []}}
+        )}
+    end
+  end
+
+  def join_nodes_perspectives(tree)
+    tree.map do |u|
+      {:id => u.id,
+       :text => u.name,
+       :iconCls => "persp",
+       :type => "perspective",
+       :children=>[u.objectives.map { |i|
+            {:id => i.id,
+            :name => i.name,
+            :children=> []}
+          }]
+       }
+    end
+  end
+
+  def nodes_expanded(data)
+    unless data.nil?
+      @nodes.push(data.id)
+      nodes_expanded data.organization
+    end
+  end
+
 end

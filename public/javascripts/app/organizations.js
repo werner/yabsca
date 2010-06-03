@@ -36,38 +36,6 @@ organization.form= new Ext.FormPanel({
     ]
 });
 
-organization.treePanel= new Ext.tree.TreePanel({
-    id: 'tree-panel_org',
-    split: true,
-    minSize: 150,
-    autoScroll: true,
-    rootVisible: false,
-    lines: false,
-    singleExpand: true,
-    useArrows: true,
-    animate: true,
-    loader:new Ext.tree.TreeLoader({
-        dataUrl:function(){
-            return '/org_and_strat?organization_id='+organization.parent_id
-        }
-    }),
-    listeners:{
-        click: function(n){
-            actualNode=n;
-            if (n.attributes.type=="organization"){
-                organization.parent_id=n.parentNode.id;
-                organization.id=n.id;
-            }else{
-                organization.parent_id=n.parentNode.id;
-                organization.id=n.id;
-                strategy.id=n.id;
-            }
-
-        }
-    },
-    root: new Ext.tree.AsyncTreeNode()
-});
-
 organization.win= new Ext.Window({
     layout:'fit',
     width:400,
@@ -82,7 +50,7 @@ organization.win= new Ext.Window({
                 url:organization.url,
                 method:organization.method,
                 success: function(){
-                    organization.treePanel.getRootNode().reload();
+                    treePanelOrgs.getRootNode().reload();
                     organization.win.hide();
                 },
                 failure: function() {
