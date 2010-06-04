@@ -30,6 +30,7 @@ perspective.win=new Ext.Window({
     items:[perspective.form],
     buttons:[{
         text:"Save",
+        iconCls:'save',
         handler:function(){
             perspective.form.getForm().submit({
                url:perspective.url,
@@ -46,6 +47,7 @@ perspective.win=new Ext.Window({
         }
     },{
         text:"Close",
+        iconCls:'close',
         handler:function(){
             perspective.win.hide();
         }

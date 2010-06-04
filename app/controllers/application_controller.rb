@@ -36,7 +36,8 @@ class ApplicationController < ActionController::Base
 
   def join_nodes_orgs(tree)
     tree.map do |u|
-        {:id => u.id,
+        {:id => 'o'+u.id.to_s,
+        :iddb => u.id,
         :text => u.name,
         :iconCls => "orgs",
         :expanded => @nodes.include?(u.id),
@@ -44,7 +45,8 @@ class ApplicationController < ActionController::Base
         :type => "organization",
         :children => join_nodes_orgs(u.organizations).concat(
           u.strategies.map { |i| {
-            :id => i.id,
+            :id => 's'+i.id.to_s,
+            :iddb => i.id,
             :text => i.name,
             :leaf => true,
             :iconCls => "strats",
@@ -56,19 +58,29 @@ class ApplicationController < ActionController::Base
 
   def join_nodes_perspectives(tree)
     tree.map do |u|
-      {:id => u.id,
+      {:id => 'p'+u.id.to_s,
+       :iddb => u.id,
        :text => u.name,
        :iconCls => "persp",
        :type => "perspective",
-       :children=>[u.objectives.map { |i|
-            {:id => i.id,
-            :name => i.name,
-            :children=> []}
-          }]
+       :leaf => u.objectives.empty?,
+       :children=>join_nodes_objs(u.objectives)
        }
     end
   end
 
+  def join_nodes_objs(tree)
+    tree.map do |u|
+      {:id => 'o'+u.id.to_s,
+      :iddb => u.id,
+      :text => u.name,
+      :iconCls => "objs",
+      :leaf => u.objectives.empty?,
+      :type => "objective",
+      :children=> join_nodes_objs(u.objectives)}
+    end
+  end
+  
   def nodes_expanded(data)
     unless data.nil?
       @nodes.push(data.id)

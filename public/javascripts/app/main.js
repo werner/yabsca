@@ -62,16 +62,47 @@ Ext.onReady(function(){
                     iconCls:"new",
                     text:"New",
                     handler:function(){
+                        if (actualNode2.attributes.type=="perspective" ||
+                                actualNode2.attributes.type=="objective"){
+                            objective.method="POST";
+                            objective.url="objectives/create";
+                            objective.form.getForm().reset();
+                            objective.form.items.map.objective_perspective_id.
+                                setValue(perspective.id);
+                            objective.form.items.map.objective_objective_id.
+                                setValue(objective.id);
+                            objective.win.show();
+                        }else{
+                            Ext.Msg.alert("Error","You must select a perspective or objective");
+                        }
                     }
                 },{
                     iconCls:"edit",
                     text:"Edit",
                     handler:function(){
+                        if (objective.id>0 &&
+                                actualNode2.attributes.type=="objective"){
+                            objective.method="PUT";
+                            objective.url="/objectives/"+objective.id;
+                            objective.form.getForm().load({
+                               method:"GET",
+                               url:"/objectives/"+objective.id+"/edit"
+                            });
+                            objective.win.show();
+                        }else{
+                            Ext.Msg.alert("Error","You must select an objective");
+                        }
                     }
                 },{
                     iconCls:"del",
                     text:"Delete",
                     handler:function(){
+                        if (objective.id>0 &&
+                                actualNode2.attributes.type=="objective"){
+                              general.deletion("/objectives/"+objective.id,treePanelPersp);
+                        }else{
+                            Ext.Msg.alert("Error","You must select an objective");
+                        }
                     }
                 }]
             }
@@ -183,16 +214,11 @@ Ext.onReady(function(){
     treePanelPersp = new Ext.tree.TreePanel({
     	id: 'tree-panel_persp',
         title: 'Perspectives and Objectives',
-        split: true,
-        minSize: 150,
         region: 'north',
         height: 300,
         autoScroll: true,
         rootVisible: false,
-        lines: false,
-        singleExpand: true,
         useArrows: true,
-        width:100,
         tbar:[toolBarPers],
         loader: new Ext.tree.TreeLoader({
             dataUrl:function() {return '/persp_and_objs?strategy_id='+strategy.id;}
@@ -201,7 +227,11 @@ Ext.onReady(function(){
             click:function(n){
                 actualNode2=n;
                 if (n.attributes.type=="perspective"){
-                    perspective.id=n.id;
+                    perspective.id=n.attributes.iddb;
+                    objective.id=0;
+                }else{
+                    perspective.id=0;
+                    objective.id=n.attributes.iddb;
                 }
             }
         },

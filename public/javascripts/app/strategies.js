@@ -34,6 +34,7 @@ strategy.win= new Ext.Window({
     items:[strategy.form],
     buttons:[{
         text:'Save',
+        iconCls:'save',
         handler: function(){
             strategy.form.getForm().submit({
                 url:strategy.url,
@@ -50,6 +51,7 @@ strategy.win= new Ext.Window({
         }
     },{
         text:'Close',
+        iconCls:'close',
         handler:function(){
             strategy.win.hide();
         }

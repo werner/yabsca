@@ -1,0 +1,2 @@
+class UnitsController < ApplicationController
+end

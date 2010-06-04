@@ -35,13 +35,13 @@ var treePanelOrgs= new Ext.tree.TreePanel({
         click: function(n){
             actualNode=n;
             if (n.attributes.type=="organization"){
-                organization.parent_id=n.parentNode.id;
-                organization.id=n.id;
+                organization.parent_id=n.parentNode.attributes.iddb;
+                organization.id=n.attributes.iddb;
                 strategy.id=0;
             }else{
-                organization.parent_id=n.parentNode.id;
-                organization.id=n.id;
-                strategy.id=n.id;
+                organization.parent_id=n.parentNode.attributes.iddb;
+                organization.id=n.attributes.iddb;
+                strategy.id=n.attributes.iddb;
             }
             treePanelPersp.getRootNode().reload();
         }
