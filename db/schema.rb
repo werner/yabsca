@@ -9,7 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100602193426) do
+ActiveRecord::Schema.define(:version => 20100604131719) do
+
+  create_table "measures", :force => true do |t|
+    t.text     "description"
+    t.string   "name"
+    t.string   "frecuency"
+    t.integer  "unit_id"
+    t.integer  "objective_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "objectives", :force => true do |t|
     t.string   "name"
@@ -40,6 +50,12 @@ ActiveRecord::Schema.define(:version => 20100602193426) do
     t.string   "name"
     t.text     "description"
     t.integer  "organization_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "units", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

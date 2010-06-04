@@ -29,4 +29,5 @@ class ObjectivesController < ApplicationController
   def destroy
     self.default_destroy(Objective, params[:id])
   end
+  
 end

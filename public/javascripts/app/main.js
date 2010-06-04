@@ -238,6 +238,16 @@ Ext.onReady(function(){
         root: new Ext.tree.AsyncTreeNode()
     });
 
+    var mainToolBar=new Ext.Toolbar({
+        items:[{
+           text:"Units",
+           iconCls:"unit",
+           handler:function(){
+                unit.win.show();
+           }
+        }]
+    });
+
     var treePanelM = new Ext.tree.TreePanel({
     	id: 'tree-panel_m',
         title: 'Measures',
@@ -250,6 +260,7 @@ Ext.onReady(function(){
         singleExpand: true,
         width:100,
         useArrows: true,
+        tbar:[mainToolBar],
         loader: new Ext.tree.TreeLoader({
             dataUrl:'/org_and_strat'
         }),
@@ -262,7 +273,8 @@ Ext.onReady(function(){
             xtype: 'box',
             region: 'north',
             applyTo: 'header',
-            height: 30
+            height: 30,
+            items:[mainToolBar]
         }, {
             region: 'west',
             title: 'Organizations and Strategies',

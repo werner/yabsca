@@ -1,3 +1,8 @@
+.unit {
+  background-image: url("../images/wrench.png") !important;
+  background-repeat: no-repeat;
+}
+
 .save {
   background-image: url("../images/accept.png") !important;
   background-repeat: no-repeat;

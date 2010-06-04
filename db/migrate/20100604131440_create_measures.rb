@@ -8,6 +8,7 @@ class CreateMeasures < ActiveRecord::Migration
       t.double :alert
       t.string :frecuency
       t.belongs_to :unit
+      t.belongs_to :objective
       
       t.timestamps
     end
