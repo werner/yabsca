@@ -11,13 +11,7 @@ class PresentationController < ApplicationController
     end
 
     return_data=[]
-    return_data.push({
-        :text=>"Organizations",
-        :expanded=>true,
-        :iconCls => "home",
-        :type => "organization",
-        :children=>join_nodes_orgs(@organizations)
-    })
+    return_data=join_nodes_orgs(@organizations)
 
     respond_to do |format|
       format.json { render :json => return_data }
@@ -29,13 +23,7 @@ class PresentationController < ApplicationController
     @perspectives=Perspective.find_all_by_strategy_id(params[:strategy_id])
 
     return_data=[]
-    return_data.push({
-        :text=>"Perspectives",
-        :expanded=>true,
-        :iconCls=>"home",
-        :type=>"perspective",
-        :children=>join_nodes_perspectives(@perspectives)
-    })
+    return_data=join_nodes_perspectives(@perspectives)
 
     respond_to do |format|
       format.json { render :json => return_data }

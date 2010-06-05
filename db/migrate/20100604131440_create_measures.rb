@@ -1,11 +1,11 @@
 class CreateMeasures < ActiveRecord::Migration
   def self.up
     create_table :measures do |t|
-      t.text :description
       t.string :name
-      t.double :target
-      t.double :satisfactory
-      t.double :alert
+      t.text :description
+      t.float :target
+      t.float :satisfactory
+      t.float :alert
       t.string :frecuency
       t.belongs_to :unit
       t.belongs_to :objective

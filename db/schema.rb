@@ -12,8 +12,11 @@
 ActiveRecord::Schema.define(:version => 20100604131719) do
 
   create_table "measures", :force => true do |t|
-    t.text     "description"
     t.string   "name"
+    t.text     "description"
+    t.float    "target"
+    t.float    "satisfactory"
+    t.float    "alert"
     t.string   "frecuency"
     t.integer  "unit_id"
     t.integer  "objective_id"

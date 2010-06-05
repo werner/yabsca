@@ -1,6 +1,7 @@
 var actualNode;
 var actualNode2;
 var treePanelPersp;
+var treePanelM;
 Ext.onReady(function(){
 
     var toolBarPers = new Ext.Toolbar({
@@ -221,6 +222,7 @@ Ext.onReady(function(){
         useArrows: true,
         tbar:[toolBarPers],
         loader: new Ext.tree.TreeLoader({
+            requestMethod:"GET",
             dataUrl:function() {return '/persp_and_objs?strategy_id='+strategy.id;}
         }),
         listeners:{
@@ -232,14 +234,42 @@ Ext.onReady(function(){
                 }else{
                     perspective.id=0;
                     objective.id=n.attributes.iddb;
+                    treePanelM.getRootNode().reload();
                 }
             }
         },
         root: new Ext.tree.AsyncTreeNode()
     });
 
-    var mainToolBar=new Ext.Toolbar({
+    var measuresToolBar=new Ext.Toolbar({
         items:[{
+           text:"Measures",
+           iconCls:"measure",
+           menu:{
+               items:[{
+                   text: "New",
+                   iconCls: "new",
+                   handler:function(){
+                        if (objective.id>0){
+                            measure.method="POST";
+                            measure.url="measures/create";
+                            measure.form.getForm().reset();
+                            measure.form.items.map.measure_objective_id.
+                                setValue(objective.id);
+                            measure.win.show();
+                        }else{
+                            Ext.Msg.alert("Error","You must select an objective");
+                        }
+                   }
+               },{
+                   text:"Edit",
+                   iconCls: "edit"
+               },{
+                   text: "Delete",
+                   iconCls: "del"
+               }]
+           }
+        },{
            text:"Units",
            iconCls:"unit",
            handler:function(){
@@ -248,7 +278,7 @@ Ext.onReady(function(){
         }]
     });
 
-    var treePanelM = new Ext.tree.TreePanel({
+    treePanelM = new Ext.tree.TreePanel({
     	id: 'tree-panel_m',
         title: 'Measures',
         split: true,
@@ -260,9 +290,10 @@ Ext.onReady(function(){
         singleExpand: true,
         width:100,
         useArrows: true,
-        tbar:[mainToolBar],
+        tbar:[measuresToolBar],
         loader: new Ext.tree.TreeLoader({
-            dataUrl:'/org_and_strat'
+            requestMethod:"GET",
+            dataUrl:function() {return '/measures?objective_id='+objective.id}
         }),
         root: new Ext.tree.AsyncTreeNode()
     });
@@ -273,8 +304,7 @@ Ext.onReady(function(){
             xtype: 'box',
             region: 'north',
             applyTo: 'header',
-            height: 30,
-            items:[mainToolBar]
+            height: 30
         }, {
             region: 'west',
             title: 'Organizations and Strategies',

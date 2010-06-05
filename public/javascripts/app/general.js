@@ -27,6 +27,7 @@ var treePanelOrgs= new Ext.tree.TreePanel({
     useArrows: true,
     rootVisible: false,
     loader:new Ext.tree.TreeLoader({
+        requestMethod:"GET",
         dataUrl:function(){
             return '/org_and_strat?organization_id='+organization.parent_id;
         }

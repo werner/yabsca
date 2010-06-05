@@ -6,7 +6,7 @@ unit.url=""
 unit.method=""
 unit.params=""
 
-unit.proxy=new Ext.data.HttpProxy({url: "/units"});
+unit.proxy=new Ext.data.HttpProxy({url: "/units", method:"GET"});
 
 unit.reader=new Ext.data.JsonReader({
     idProperty: "id",

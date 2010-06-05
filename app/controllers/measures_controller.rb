@@ -1,5 +1,21 @@
 class MeasuresController < ApplicationController
 
+  def index
+    @measures=Measure.find_all_by_objective_id(params[:objective_id])
+
+    return_data=[]
+    return_data=@measures.collect { |u| {
+        :id => u.id,
+        :text => u.name,
+        :iconCls => "measure",
+        :leaf => true
+      }}
+
+    respond_to do |format|
+      format.json { render :json => return_data }
+    end
+  end
+  
   def new
     @measures=Measure.new
   end

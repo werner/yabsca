@@ -1,3 +1,7 @@
+.measure {
+  background-image: url("../images/time_go.png") !important;
+  background-repeat: no-repeat;
+}
 .unit {
   background-image: url("../images/wrench.png") !important;
   background-repeat: no-repeat;
@@ -19,7 +23,7 @@
 }
 
 .persp {
-  background-image: url("../images/obs.png") !important;
+  background-image: url("../images/package.png") !important;
   background-repeat: no-repeat;
 }
 
