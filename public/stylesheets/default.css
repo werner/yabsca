@@ -1,8 +1,11 @@
+<<<<<<< HEAD:public/stylesheets/default.css
 .unit {
   background-image: url("../images/wrench.png") !important;
   background-repeat: no-repeat;
 }
 
+=======
+>>>>>>> 9e849be0639bad61de9505adc272b67a349dc32e:public/stylesheets/default.css
 .save {
   background-image: url("../images/accept.png") !important;
   background-repeat: no-repeat;
