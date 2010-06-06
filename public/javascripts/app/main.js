@@ -119,17 +119,12 @@ Ext.onReady(function(){
                 iconCls:"new",
                 text:"New",
                 handler:function(){
-                    if (actualNode!=undefined &&
-                            actualNode.attributes.type=="organization"){
-                        organization.method="POST";
-                        organization.url="organizations/create";
-                        organization.form.getForm().reset();
-                        organization.form.items.map.organization_organization_id.
-                            setValue(organization.id);
-                        organization.win.show();
-                    }else{
-                        Ext.Msg.alert("Error","You must select an organization");
-                    }
+                    organization.method="POST";
+                    organization.url="organizations/create";
+                    organization.form.getForm().reset();
+                    organization.form.items.map.organization_organization_id.
+                        setValue(organization.id);
+                    organization.win.show();
                 }
               },{
                 iconCls:"edit",
