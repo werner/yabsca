@@ -229,8 +229,12 @@ Ext.onReady(function(){
                 }else{
                     perspective.id=0;
                     objective.id=n.attributes.iddb;
-                    treePanelM.getRootNode().reload();
                 }
+                treePanelM.getRootNode().reload();
+            },
+            load:function(n){
+                perspective.id=0;
+                objective.id=0;
             }
         },
         root: new Ext.tree.AsyncTreeNode()
@@ -258,10 +262,29 @@ Ext.onReady(function(){
                    }
                },{
                    text:"Edit",
-                   iconCls: "edit"
+                   iconCls: "edit",
+                   handler:function(){
+                       if (measure.id>0){
+                           measure.method="PUT";
+                           measure.url="/measures/"+measure.id;
+                           measure.form.getForm().load(
+                                {method:'GET',
+                                 url:'/measures/'+measure.id+'/edit'});
+                           measure.win.show();
+                        }else{
+                            Ext.Msg.alert("Error","You must select a measure");
+                        }
+                   }
                },{
                    text: "Delete",
-                   iconCls: "del"
+                   iconCls: "del",
+                   handler:function(){
+                        if (measure.id>0){
+                            general.deletion("/measures/"+measure.id,treePanelM);
+                        }else{
+                            Ext.Msg.alert("Error","You must select a measure");
+                        }
+                   }
                }]
            }
         },{
@@ -290,6 +313,14 @@ Ext.onReady(function(){
             requestMethod:"GET",
             dataUrl:function() {return '/measures?objective_id='+objective.id}
         }),
+        listeners:{
+            click:function(n){
+                measure.id=n.id;
+            },
+            load:function(n){
+                measure.id=0;
+            }
+        },
         root: new Ext.tree.AsyncTreeNode()
     });
 

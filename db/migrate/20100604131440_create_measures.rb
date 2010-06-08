@@ -4,10 +4,10 @@ class CreateMeasures < ActiveRecord::Migration
       t.string :code
       t.string :name
       t.text :description
-      t.string :challenge
+      t.integer :challenge
       t.float :satisfactory
       t.float :alert
-      t.string :frecuency
+      t.integer :frecuency
       t.date :period_from
       t.date :period_to
       t.belongs_to :unit

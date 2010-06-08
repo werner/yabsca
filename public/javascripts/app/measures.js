@@ -5,13 +5,13 @@ measure.url="";
 measure.method="";
 
 measure.frecuency_store=new Ext.data.ArrayStore({
-   fields: ["id","frecuency"],
+   fields: ["id","name"],
    data: [[1,"weekly"],[2,"monthly"],[3,"bimonthly"],
           [4,"three-monthly"],[5,"four-monthly"],[6,"yearly"]]
 });
 
 measure.challenge_store=new Ext.data.ArrayStore({
-   fields: ["id","challenge"],
+   fields: ["id","name"],
    data: [[1,"increasing"],[2,"decreasing"]]
 });
 
@@ -37,13 +37,17 @@ measure.form=new Ext.FormPanel({
         name: "measure[description]"
     }), new Ext.form.ComboBox({
         fieldLabel: "Challenge",
-        displayField: "challenge",
+        displayField: "name",
+        valueField: "id",
+        hiddenName:"measure[challenge]",
+        name: "measure[challenge]",
         typeAhead: true,
         store: measure.challenge_store,
         mode: "local",
         forceSelection: true,
         triggerAction: 'all',
         selectOnFocus:true,
+        valueNotFoundText:"Select a challenge...",
         emptyText: "Select a challenge..."
     }), new Ext.form.NumberField({
         fieldLabel: "Satisfactory",
@@ -55,13 +59,17 @@ measure.form=new Ext.FormPanel({
         name: "measure[alert]"
     }), new Ext.form.ComboBox({
         fieldLabel: "Frecuency",
-        displayField: "frecuency",
+        displayField: "name",
+        valueField: "id",
+        hiddenName:"measure[frecuency]",
+        name: "measure[frecuency]",
         typeAhead: true,
         store: measure.frecuency_store,
         mode: "local",
         forceSelection: true,
         triggerAction: 'all',
         selectOnFocus:true,
+        valueNotFoundText:"Select a frecuency...",
         emptyText: "Select a frecuency..."
     }), new Ext.form.DateField({
         fieldLabel: "From",
@@ -77,12 +85,14 @@ measure.form=new Ext.FormPanel({
         store: unit.store,
         displayField: "name",
         valueField: "id",
+        hiddenName:"measure[unit_id]",
         typeAhead: true,
         triggerAction: 'all',
         forceSelection: true,
         selectOnFocus:true,
         mode: "remote",
-        emptyText: "select an unit"
+        valueNotFoundText:"Select an unit...",
+        emptyText: "Select an unit..."
     }),new Ext.form.Hidden({
         id:"measure_objective_ids",
         name:"measure[objective_ids][]"

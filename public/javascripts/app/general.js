@@ -45,6 +45,10 @@ var treePanelOrgs= new Ext.tree.TreePanel({
                 strategy.id=n.attributes.iddb;
             }
             treePanelPersp.getRootNode().reload();
+        },
+        load:function(n){
+            organization.id=0;
+            strategy.id=0;
         }
     },
     root: new Ext.tree.AsyncTreeNode()

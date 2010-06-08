@@ -129,3 +129,1802 @@ Migrating to CreateTargets (20100606203601)
   [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("strategies")[0m
   [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("targets")[0m
   [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("units")[0m
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 09:04:49) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 28ms (View: 26, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 09:04:50) [GET]
+  Parameters: {"_dc"=>"1276004090300"}
+  [4;36;1mUnit Load (0.9ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 8ms (View: 1, DB: 1) | 200 OK [http://localhost/units?_dc=1276004090300]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 09:04:50) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276004090421", "organization_id"=>"0"}
+  [4;35;1mOrganization Load (0.2ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+Completed in 32ms (View: 0, DB: 0) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276004090421&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 09:04:50) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276004090510", "strategy_id"=>"0"}
+  [4;36;1mPerspective Load (0.1ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 8ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276004090510&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 09:04:50) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276004090542"}
+  [4;35;1mObjective Load (0.1ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Objective with ID=0):
+  app/controllers/measures_controller.rb:4:in `index'
+  haml (2.2.20) lib/sass/plugin/rails.rb:20:in `process'
+
+Rendered rescues/_trace (28.4ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (not_found)
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 09:06:27) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 09:06:28) [GET]
+  Parameters: {"_dc"=>"1276004188702"}
+  [4;36;1mUnit Load (0.3ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 5ms (View: 0, DB: 0) | 200 OK [http://localhost/units?_dc=1276004188702]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 09:06:28) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276004188847", "organization_id"=>"0"}
+  [4;35;1mOrganization Load (0.1ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+Completed in 10ms (View: 0, DB: 0) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276004188847&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 09:06:28) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276004188952", "strategy_id"=>"0"}
+  [4;36;1mPerspective Load (0.1ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276004188952&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 09:06:29) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276004188987"}
+  [4;35;1mObjective Load (0.1ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Objective with ID=0):
+  app/controllers/measures_controller.rb:4:in `index'
+  haml (2.2.20) lib/sass/plugin/rails.rb:20:in `process'
+
+Rendered rescues/_trace (24.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 09:08:03) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 09:08:05) [GET]
+  Parameters: {"_dc"=>"1276004285155"}
+  [4;36;1mUnit Load (0.3ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 7ms (View: 0, DB: 0) | 200 OK [http://localhost/units?_dc=1276004285155]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 09:08:05) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276004285288", "organization_id"=>"0"}
+  [4;35;1mOrganization Load (0.1ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+Completed in 9ms (View: 0, DB: 0) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276004285288&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 09:08:05) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276004285376", "strategy_id"=>"0"}
+  [4;36;1mPerspective Load (0.1ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276004285376&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 09:08:05) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276004285410"}
+  [4;35;1mObjective Load (0.1ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 9ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276004285410&node=xnode-10]
+
+
+Processing OrganizationsController#create (for 127.0.0.1 at 2010-06-08 09:08:17) [POST]
+  Parameters: {"organization"=>{"name"=>"new_org", "goal"=>"", "description"=>"", "vision"=>"", "organization_id"=>"0"}}
+  [4;36;1mOrganization Create (0.3ms)[0m   [0;1mINSERT INTO "organizations" ("name", "goal", "created_at", "updated_at", "vision", "description", "organization_id") VALUES('new_org', '', '2010-06-08 13:38:17', '2010-06-08 13:38:17', '', '', 0)[0m
+Completed in 91ms (View: 1, DB: 0) | 200 OK [http://localhost/organizations/create]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 09:08:17) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276004297250", "organization_id"=>"0"}
+  [4;35;1mOrganization Load (0.2ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+Completed in 11ms (View: 1, DB: 0) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276004297250&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 09:08:18) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276004298674", "strategy_id"=>"0"}
+  [4;36;1mPerspective Load (0.1ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 7ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276004298674&node=xnode-9]
+
+
+Processing StrategiesController#create (for 127.0.0.1 at 2010-06-08 09:08:24) [POST]
+  Parameters: {"strategy"=>{"name"=>"new_strat", "description"=>"", "organization_id"=>"1"}}
+  [4;35;1mStrategy Create (0.2ms)[0m   [0mINSERT INTO "strategies" ("name", "created_at", "updated_at", "description", "organization_id") VALUES('new_strat', '2010-06-08 13:38:24', '2010-06-08 13:38:24', '', 1)[0m
+Completed in 83ms (View: 1, DB: 0) | 200 OK [http://localhost/strategies/create]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 09:08:24) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276004304877", "organization_id"=>"undefined"}
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;36;1mOrganization Load (0.1ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;35;1mStrategy Load (0.2ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 13ms (View: 1, DB: 1) | 200 OK [http://localhost/org_and_strat?organization_id=undefined&_dc=1276004304877&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 09:08:27) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276004307103", "strategy_id"=>"1"}
+  [4;36;1mPerspective Load (0.1ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+Completed in 7ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276004307103&node=xnode-9]
+
+
+Processing PerspectivesController#create (for 127.0.0.1 at 2010-06-08 09:08:35) [POST]
+  Parameters: {"perspective"=>{"name"=>"new_persp", "strategy_id"=>"1"}}
+  [4;35;1mPerspective Create (0.2ms)[0m   [0mINSERT INTO "perspectives" ("name", "created_at", "updated_at", "strategy_id") VALUES('new_persp', '2010-06-08 13:38:35', '2010-06-08 13:38:35', 1)[0m
+Completed in 126ms (View: 1, DB: 0) | 200 OK [http://localhost/perspectives/create]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 09:08:35) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276004315608", "strategy_id"=>"1"}
+  [4;36;1mPerspective Load (0.2ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276004315608&node=xnode-9]
+
+
+Processing ObjectivesController#create (for 127.0.0.1 at 2010-06-08 09:08:48) [POST]
+  Parameters: {"objective"=>{"name"=>"new_objs", "objective_id"=>"0", "perspective_id"=>"1"}}
+  [4;36;1mObjective Create (0.2ms)[0m   [0;1mINSERT INTO "objectives" ("name", "created_at", "objective_id", "updated_at", "perspective_id") VALUES('new_objs', '2010-06-08 13:38:48', 0, '2010-06-08 13:38:48', 1)[0m
+Completed in 73ms (View: 1, DB: 0) | 200 OK [http://localhost/objectives/create]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 09:08:48) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276004328686", "strategy_id"=>"1"}
+  [4;35;1mPerspective Load (1.8ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+Completed in 15ms (View: 1, DB: 2) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276004328686&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 09:08:54) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276004334087"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.1ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 12ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276004334087&node=xnode-10]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 09:09:10) [GET]
+  Parameters: {"_dc"=>"1276004350082", "query"=>""}
+  [4;35;1mUnit Load (0.4ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 5ms (View: 0, DB: 0) | 200 OK [http://localhost/units?_dc=1276004350082&query=]
+
+
+Processing MeasuresController#create (for 127.0.0.1 at 2010-06-08 09:09:13) [POST]
+  Parameters: {"measure"=>{"name"=>"new_measure", "unit_id"=>"select an unit", "code"=>"", "satisfactory"=>"", "objective_ids"=>["1"], "period_to"=>"", "period_from"=>"", "alert"=>"", "description"=>""}, "ext-comp-1008"=>"increasing", "ext-comp-1009"=>"monthly"}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Create (0.2ms)[0m   [0mINSERT INTO "measures" ("name", "frecuency", "created_at", "code", "unit_id", "updated_at", "challenge", "satisfactory", "period_to", "description", "alert", "period_from") VALUES('new_measure', NULL, '2010-06-08 13:39:13', '', 0, '2010-06-08 13:39:13', NULL, NULL, NULL, '', NULL, NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO "measures_objectives" ("objective_id", "measure_id") VALUES (1, 1)[0m
+Completed in 77ms (View: 1, DB: 0) | 200 OK [http://localhost/measures/create]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 09:09:13) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276004353929"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 60ms (View: 1, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276004353929&node=xnode-10]
+
+
+Processing UnitsController#create (for 127.0.0.1 at 2010-06-08 09:09:18) [POST]
+  Parameters: {"id"=>"0", "unit"=>{"name"=>"%"}}
+  [4;35;1mUnit Create (0.2ms)[0m   [0mINSERT INTO "units" ("name", "created_at", "updated_at") VALUES('%', '2010-06-08 13:39:18', '2010-06-08 13:39:18')[0m
+Completed in 96ms (View: 1, DB: 0) | 200 OK [http://localhost/units/create]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 09:09:18) [GET]
+  Parameters: {"_dc"=>"1276004358343", "query"=>""}
+  [4;36;1mUnit Load (0.4ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/units?_dc=1276004358343&query=]
+
+
+Processing UnitsController#create (for 127.0.0.1 at 2010-06-08 09:09:22) [POST]
+  Parameters: {"id"=>"0", "unit"=>{"name"=>"$"}}
+  [4;35;1mUnit Create (0.2ms)[0m   [0mINSERT INTO "units" ("name", "created_at", "updated_at") VALUES('$', '2010-06-08 13:39:22', '2010-06-08 13:39:22')[0m
+Completed in 107ms (View: 1, DB: 0) | 200 OK [http://localhost/units/create]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 09:09:22) [GET]
+  Parameters: {"_dc"=>"1276004362252", "query"=>""}
+  [4;36;1mUnit Load (0.6ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 7ms (View: 1, DB: 1) | 200 OK [http://localhost/units?_dc=1276004362252&query=]
+
+
+Processing UnitsController#create (for 127.0.0.1 at 2010-06-08 09:09:25) [POST]
+  Parameters: {"id"=>"0", "unit"=>{"name"=>"Bs"}}
+  [4;35;1mUnit Create (0.2ms)[0m   [0mINSERT INTO "units" ("name", "created_at", "updated_at") VALUES('Bs', '2010-06-08 13:39:25', '2010-06-08 13:39:25')[0m
+Completed in 80ms (View: 1, DB: 0) | 200 OK [http://localhost/units/create]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 09:09:25) [GET]
+  Parameters: {"_dc"=>"1276004365222", "query"=>""}
+  [4;36;1mUnit Load (0.5ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 6ms (View: 1, DB: 1) | 200 OK [http://localhost/units?_dc=1276004365222&query=]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 09:09:31) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276004371508"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 13ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276004371508&node=xnode-10]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 09:09:33) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276004373264"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 13ms (View: 1, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276004373264&node=xnode-10]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 09:12:30) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 09:12:31) [GET]
+  Parameters: {"_dc"=>"1276004551774"}
+  [4;35;1mUnit Load (0.5ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 8ms (View: 1, DB: 1) | 200 OK [http://localhost/units?_dc=1276004551774]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 09:12:31) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276004551907", "organization_id"=>"0"}
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;36;1mOrganization Load (0.1ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;35;1mStrategy Load (0.2ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 24ms (View: 1, DB: 1) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276004551907&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 09:12:32) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276004551996", "strategy_id"=>"0"}
+  [4;36;1mPerspective Load (0.1ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 56ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276004551996&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 09:12:32) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276004552030"}
+  [4;35;1mObjective Load (0.1ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 7ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276004552030&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 09:12:33) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276004553625", "strategy_id"=>"1"}
+  [4;36;1mPerspective Load (0.2ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+Completed in 12ms (View: 1, DB: 1) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276004553625&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 09:12:35) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276004555864"}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Load (0.3ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 13ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276004555864&node=xnode-10]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 09:12:36) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276004556656"}
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 7ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276004556656&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 09:12:38) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276004558034", "strategy_id"=>"0"}
+  [4;35;1mPerspective Load (0.1ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276004558034&node=xnode-9]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 09:12:38) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276004558935", "strategy_id"=>"1"}
+  [4;36;1mPerspective Load (0.2ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+Completed in 12ms (View: 1, DB: 1) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276004558935&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 09:12:42) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276004562007"}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Load (0.3ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 12ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276004562007&node=xnode-10]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 09:12:43) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276004563064"}
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 7ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276004563064&node=xnode-10]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 09:12:43) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276004563624"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 14ms (View: 1, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276004563624&node=xnode-10]
+
+
+Processing ObjectivesController#edit (for 127.0.0.1 at 2010-06-08 09:23:27) [GET]
+  Parameters: {"id"=>"1", "_dc"=>"1276005207462"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+Completed in 7ms (View: 0, DB: 0) | 200 OK [http://localhost/objectives/1/edit?_dc=1276005207462]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 09:23:29) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276005209858", "strategy_id"=>"0"}
+  [4;36;1mPerspective Load (0.1ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276005209858&node=xnode-9]
+
+
+Processing ObjectivesController#edit (for 127.0.0.1 at 2010-06-08 09:23:31) [GET]
+  Parameters: {"id"=>"1", "_dc"=>"1276005211882"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+Completed in 8ms (View: 1, DB: 0) | 200 OK [http://localhost/objectives/1/edit?_dc=1276005211882]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 09:26:49) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 09:26:50) [GET]
+  Parameters: {"_dc"=>"1276005410210"}
+  [4;36;1mUnit Load (0.6ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 6ms (View: 1, DB: 1) | 200 OK [http://localhost/units?_dc=1276005410210]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 09:26:50) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276005410338", "organization_id"=>"0"}
+  [4;35;1mOrganization Load (0.2ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;35;1mOrganization Load (0.4ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;36;1mStrategy Load (0.3ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 28ms (View: 1, DB: 1) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276005410338&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 09:26:50) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276005410438", "strategy_id"=>"0"}
+  [4;35;1mPerspective Load (0.1ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 7ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276005410438&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 09:26:50) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276005410475"}
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 7ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276005410475&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 09:26:52) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276005412225", "strategy_id"=>"1"}
+  [4;35;1mPerspective Load (0.2ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+Completed in 55ms (View: 1, DB: 1) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276005412225&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 09:26:54) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276005414615"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 14ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276005414615&node=xnode-10]
+
+
+Processing ObjectivesController#edit (for 127.0.0.1 at 2010-06-08 09:26:56) [GET]
+  Parameters: {"id"=>"1", "_dc"=>"1276005416495"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+Completed in 8ms (View: 0, DB: 0) | 200 OK [http://localhost/objectives/1/edit?_dc=1276005416495]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 09:26:58) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276005418834", "strategy_id"=>"0"}
+  [4;36;1mPerspective Load (0.2ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 7ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276005418834&node=xnode-9]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 09:41:28) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 32ms (View: 30, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 09:41:29) [GET]
+  Parameters: {"_dc"=>"1276006289509"}
+  [4;36;1mUnit Load (1.1ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 11ms (View: 1, DB: 1) | 200 OK [http://localhost/units?_dc=1276006289509]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 09:41:31) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276006291573", "organization_id"=>"0"}
+  [4;35;1mOrganization Load (0.4ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;35;1mOrganization Load (0.1ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;36;1mStrategy Load (0.2ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 47ms (View: 1, DB: 1) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276006291573&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 09:41:31) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276006291715", "strategy_id"=>"0"}
+  [4;35;1mPerspective Load (0.1ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 24ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276006291715&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 09:41:31) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276006291750"}
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 7ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276006291750&node=xnode-10]
+  [4;36;1mMeasure Load (0.6ms)[0m   [0;1mSELECT * FROM "measures" LIMIT 1[0m
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT "objectives".id FROM "objectives" INNER JOIN "measures_objectives" ON "objectives".id = "measures_objectives".objective_id WHERE ("measures_objectives".measure_id = 1 ) [0m
+  [4;36;1mObjective Load (0.3ms)[0m   [0;1mSELECT * FROM "objectives" INNER JOIN "measures_objectives" ON "objectives".id = "measures_objectives".objective_id WHERE ("measures_objectives".measure_id = 1 ) [0m
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 10:09:53) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:09:54) [GET]
+  Parameters: {"_dc"=>"1276007994965"}
+  [4;35;1mUnit Load (0.5ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 9ms (View: 1, DB: 1) | 200 OK [http://localhost/units?_dc=1276007994965]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 10:09:55) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276007995090", "organization_id"=>"0"}
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;36;1mOrganization Load (0.1ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;35;1mStrategy Load (0.3ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 31ms (View: 1, DB: 1) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276007995090&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:09:55) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276007995179", "strategy_id"=>"0"}
+  [4;36;1mPerspective Load (0.1ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 7ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276007995179&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:09:55) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276007995213"}
+  [4;35;1mObjective Load (0.1ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 7ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276007995213&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:10:01) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276008001701", "strategy_id"=>"1"}
+  [4;36;1mPerspective Load (0.2ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+Completed in 12ms (View: 1, DB: 1) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276008001701&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:10:04) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276008004075"}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Load (0.3ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 12ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276008004075&node=xnode-10]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:10:05) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"undefined", "_dc"=>"1276008005533"}
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 7ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=undefined&_dc=1276008005533&node=xnode-10]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 10:11:06) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:11:08) [GET]
+  Parameters: {"_dc"=>"1276008068009"}
+  [4;35;1mUnit Load (0.5ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 6ms (View: 1, DB: 1) | 200 OK [http://localhost/units?_dc=1276008068009]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 10:11:08) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276008068148", "organization_id"=>"0"}
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;36;1mOrganization Load (0.1ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;35;1mStrategy Load (0.2ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 66ms (View: 1, DB: 1) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276008068148&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:11:08) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276008068248", "strategy_id"=>"0"}
+  [4;36;1mPerspective Load (0.1ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276008068248&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:11:08) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276008068281"}
+  [4;35;1mObjective Load (0.1ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 8ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276008068281&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:11:11) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276008071869", "strategy_id"=>"1"}
+  [4;36;1mPerspective Load (0.2ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+Completed in 12ms (View: 1, DB: 1) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276008071869&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:11:14) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276008074299"}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Load (0.3ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 14ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276008074299&node=xnode-10]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:11:16) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"undefined", "_dc"=>"1276008076301"}
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 7ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=undefined&_dc=1276008076301&node=xnode-10]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 10:13:19) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:13:20) [GET]
+  Parameters: {"_dc"=>"1276008200575"}
+  [4;35;1mUnit Load (0.5ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 55ms (View: 1, DB: 1) | 200 OK [http://localhost/units?_dc=1276008200575]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 10:13:20) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276008200714", "organization_id"=>"0"}
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;36;1mOrganization Load (0.1ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;35;1mStrategy Load (0.2ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 19ms (View: 1, DB: 1) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276008200714&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:13:20) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276008200801", "strategy_id"=>"0"}
+  [4;36;1mPerspective Load (0.1ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276008200801&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:13:20) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276008200833"}
+  [4;35;1mObjective Load (0.1ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 7ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276008200833&node=xnode-10]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 10:16:27) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 47ms (View: 2, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:16:28) [GET]
+  Parameters: {"_dc"=>"1276008388604"}
+  [4;36;1mUnit Load (0.5ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 8ms (View: 1, DB: 1) | 200 OK [http://localhost/units?_dc=1276008388604]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 10:16:28) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276008388733", "organization_id"=>"0"}
+  [4;35;1mOrganization Load (0.2ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;35;1mOrganization Load (0.1ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;36;1mStrategy Load (0.2ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 18ms (View: 1, DB: 1) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276008388733&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:16:28) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276008388822", "strategy_id"=>"0"}
+  [4;35;1mPerspective Load (0.1ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276008388822&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:16:28) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276008388853"}
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 10ms (View: 1, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276008388853&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:16:31) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276008391957", "strategy_id"=>"1"}
+  [4;35;1mPerspective Load (0.2ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+Completed in 12ms (View: 1, DB: 1) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276008391957&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:16:33) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276008393515"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 12ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276008393515&node=xnode-10]
+
+
+Processing MeasuresController#edit (for 127.0.0.1 at 2010-06-08 10:23:05) [GET]
+  Parameters: {"id"=>"1", "_dc"=>"1276008785053"}
+  [4;35;1mMeasure Load (0.3ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+  [4;36;1mObjective Load (0.3ms)[0m   [0;1mSELECT "objectives".id FROM "objectives" INNER JOIN "measures_objectives" ON "objectives".id = "measures_objectives".objective_id WHERE ("measures_objectives".measure_id = 1 ) [0m
+Completed in 16ms (View: 1, DB: 1) | 200 OK [http://localhost/measures/1/edit?_dc=1276008785053]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:23:08) [GET]
+  Parameters: {"_dc"=>"1276008788240", "query"=>""}
+  [4;35;1mUnit Load (0.5ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 6ms (View: 1, DB: 1) | 200 OK [http://localhost/units?_dc=1276008788240&query=]
+
+
+Processing MeasuresController#create (for 127.0.0.1 at 2010-06-08 10:25:27) [POST]
+  Parameters: {"measure"=>{"name"=>"other_new_measure", "unit_id"=>"select an unit", "code"=>"", "satisfactory"=>"", "objective_ids"=>["1"], "period_to"=>"", "period_from"=>"", "alert"=>"", "description"=>""}, "ext-comp-1008"=>"Select a challenge...", "ext-comp-1009"=>"Select a frecuency..."}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Create (0.2ms)[0m   [0mINSERT INTO "measures" ("name", "frecuency", "created_at", "code", "unit_id", "updated_at", "challenge", "satisfactory", "period_to", "description", "alert", "period_from") VALUES('other_new_measure', NULL, '2010-06-08 14:55:27', '', 0, '2010-06-08 14:55:27', NULL, NULL, NULL, '', NULL, NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO "measures_objectives" ("objective_id", "measure_id") VALUES (1, 2)[0m
+Completed in 103ms (View: 1, DB: 0) | 200 OK [http://localhost/measures/create]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:25:27) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276008927781"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.4ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 14ms (View: 1, DB: 1) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276008927781&node=xnode-10]
+
+
+Processing MeasuresController#edit (for 127.0.0.1 at 2010-06-08 10:25:31) [GET]
+  Parameters: {"id"=>"2", "_dc"=>"1276008931110"}
+  [4;35;1mMeasure Load (0.2ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 2) [0m
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT "objectives".id FROM "objectives" INNER JOIN "measures_objectives" ON "objectives".id = "measures_objectives".objective_id WHERE ("measures_objectives".measure_id = 2 ) [0m
+Completed in 13ms (View: 1, DB: 0) | 200 OK [http://localhost/measures/2/edit?_dc=1276008931110]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 10:29:05) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:29:06) [GET]
+  Parameters: {"_dc"=>"1276009146786"}
+  [4;35;1mUnit Load (0.5ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 8ms (View: 1, DB: 1) | 200 OK [http://localhost/units?_dc=1276009146786]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 10:29:06) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276009146927", "organization_id"=>"0"}
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;36;1mOrganization Load (0.1ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;35;1mStrategy Load (0.2ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 19ms (View: 1, DB: 1) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276009146927&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:29:07) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276009147018", "strategy_id"=>"0"}
+  [4;36;1mPerspective Load (0.1ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276009147018&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:29:07) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276009147051"}
+  [4;35;1mObjective Load (0.1ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 13ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276009147051&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:29:11) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276009151229", "strategy_id"=>"1"}
+  [4;36;1mPerspective Load (0.2ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+Completed in 14ms (View: 1, DB: 1) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276009151229&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:29:12) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276009152859"}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Load (0.4ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 14ms (View: 1, DB: 1) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276009152859&node=xnode-10]
+
+
+Processing MeasuresController#create (for 127.0.0.1 at 2010-06-08 10:29:22) [POST]
+  Parameters: {"measure"=>{"name"=>"third_measure", "frecuency"=>"Select a frecuency...", "unit_id"=>"select an unit", "code"=>"", "challenge"=>"Select a challenge...", "satisfactory"=>"", "objective_ids"=>["1"], "period_to"=>"", "period_from"=>"", "alert"=>"", "description"=>""}}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Create (0.2ms)[0m   [0mINSERT INTO "measures" ("name", "frecuency", "created_at", "code", "unit_id", "updated_at", "challenge", "satisfactory", "period_to", "description", "alert", "period_from") VALUES('third_measure', 'Select a frecuency...', '2010-06-08 14:59:22', '', 0, '2010-06-08 14:59:22', 'Select a challenge...', NULL, NULL, '', NULL, NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO "measures_objectives" ("objective_id", "measure_id") VALUES (1, 3)[0m
+Completed in 138ms (View: 43, DB: 0) | 200 OK [http://localhost/measures/create]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:29:22) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276009162702"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.5ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 16ms (View: 1, DB: 1) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276009162702&node=xnode-10]
+
+
+Processing MeasuresController#edit (for 127.0.0.1 at 2010-06-08 10:29:36) [GET]
+  Parameters: {"id"=>"3", "_dc"=>"1276009176766"}
+  [4;35;1mMeasure Load (0.2ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 3) [0m
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT "objectives".id FROM "objectives" INNER JOIN "measures_objectives" ON "objectives".id = "measures_objectives".objective_id WHERE ("measures_objectives".measure_id = 3 ) [0m
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/measures/3/edit?_dc=1276009176766]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 10:36:58) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:36:59) [GET]
+  Parameters: {"_dc"=>"1276009619711"}
+  [4;35;1mUnit Load (0.5ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 8ms (View: 1, DB: 1) | 200 OK [http://localhost/units?_dc=1276009619711]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 10:36:59) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276009619845", "organization_id"=>"0"}
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;35;1mStrategy Load (0.2ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 19ms (View: 1, DB: 1) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276009619845&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:36:59) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276009619931", "strategy_id"=>"0"}
+  [4;36;1mPerspective Load (0.1ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276009619931&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:36:59) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276009619963"}
+  [4;35;1mObjective Load (0.1ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 8ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276009619963&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:37:14) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276009634797", "strategy_id"=>"1"}
+  [4;36;1mPerspective Load (0.2ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+Completed in 14ms (View: 1, DB: 1) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276009634797&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:37:16) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276009636284"}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Load (0.1ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 9ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276009636284&node=xnode-10]
+
+
+Processing MeasuresController#create (for 127.0.0.1 at 2010-06-08 10:37:26) [POST]
+  Parameters: {"measure"=>{"name"=>"new_measure", "frecuency"=>"Select a frecuency...", "unit_id"=>"Select an unit...", "code"=>"", "challenge"=>"Select a challenge...", "satisfactory"=>"", "objective_ids"=>["1"], "period_to"=>"", "period_from"=>"", "alert"=>"", "description"=>""}}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Create (0.2ms)[0m   [0mINSERT INTO "measures" ("name", "frecuency", "created_at", "code", "unit_id", "updated_at", "challenge", "satisfactory", "period_to", "description", "alert", "period_from") VALUES('new_measure', 'Select a frecuency...', '2010-06-08 15:07:27', '', 0, '2010-06-08 15:07:27', 'Select a challenge...', NULL, NULL, '', NULL, NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO "measures_objectives" ("objective_id", "measure_id") VALUES (1, 4)[0m
+Completed in 152ms (View: 1, DB: 0) | 200 OK [http://localhost/measures/create]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:37:27) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276009647155"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 13ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276009647155&node=xnode-10]
+
+
+Processing MeasuresController#edit (for 127.0.0.1 at 2010-06-08 10:37:43) [GET]
+  Parameters: {"id"=>"4", "_dc"=>"1276009663837"}
+  [4;35;1mMeasure Load (0.3ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 4) [0m
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT "objectives".id FROM "objectives" INNER JOIN "measures_objectives" ON "objectives".id = "measures_objectives".objective_id WHERE ("measures_objectives".measure_id = 4 ) [0m
+Completed in 13ms (View: 1, DB: 0) | 200 OK [http://localhost/measures/4/edit?_dc=1276009663837]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:37:51) [GET]
+  Parameters: {"_dc"=>"1276009671377", "query"=>""}
+  [4;35;1mUnit Load (0.5ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 7ms (View: 1, DB: 1) | 200 OK [http://localhost/units?_dc=1276009671377&query=]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 10:38:12) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:38:13) [GET]
+  Parameters: {"_dc"=>"1276009693769"}
+  [4;36;1mUnit Load (0.5ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 8ms (View: 1, DB: 1) | 200 OK [http://localhost/units?_dc=1276009693769]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 10:38:13) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276009693903", "organization_id"=>"0"}
+  [4;35;1mOrganization Load (0.2ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;35;1mOrganization Load (0.1ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;36;1mStrategy Load (0.2ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 19ms (View: 1, DB: 1) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276009693903&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:38:14) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276009693989", "strategy_id"=>"0"}
+  [4;35;1mPerspective Load (0.1ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 9ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276009693989&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:38:14) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276009694022"}
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 8ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276009694022&node=xnode-10]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 10:39:09) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:39:10) [GET]
+  Parameters: {"_dc"=>"1276009750839"}
+  [4;35;1mUnit Load (0.5ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 6ms (View: 1, DB: 1) | 200 OK [http://localhost/units?_dc=1276009750839]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 10:39:11) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276009751023", "organization_id"=>"0"}
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;36;1mOrganization Load (0.1ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;35;1mStrategy Load (0.2ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 20ms (View: 1, DB: 1) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276009751023&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:39:11) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276009751123", "strategy_id"=>"0"}
+  [4;36;1mPerspective Load (0.2ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 9ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276009751123&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:39:11) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276009751156"}
+  [4;35;1mObjective Load (0.1ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 8ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276009751156&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:39:13) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276009753061", "strategy_id"=>"1"}
+  [4;36;1mPerspective Load (0.2ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+Completed in 53ms (View: 1, DB: 1) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276009753061&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:39:15) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276009755684"}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Load (0.1ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 11ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276009755684&node=xnode-10]
+
+
+Processing MeasuresController#create (for 127.0.0.1 at 2010-06-08 10:39:24) [POST]
+  Parameters: {"measure"=>{"name"=>"new_measure", "frecuency"=>"Select a frecuency...", "unit_id"=>"Select an unit...", "code"=>"", "challenge"=>"Select a challenge...", "satisfactory"=>"", "objective_ids"=>["1"], "period_to"=>"", "period_from"=>"", "alert"=>"", "description"=>""}}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Create (0.2ms)[0m   [0mINSERT INTO "measures" ("name", "frecuency", "created_at", "code", "unit_id", "updated_at", "challenge", "satisfactory", "period_to", "description", "alert", "period_from") VALUES('new_measure', 'Select a frecuency...', '2010-06-08 15:09:24', '', 0, '2010-06-08 15:09:24', 'Select a challenge...', NULL, NULL, '', NULL, NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO "measures_objectives" ("objective_id", "measure_id") VALUES (1, 5)[0m
+Completed in 95ms (View: 1, DB: 0) | 200 OK [http://localhost/measures/create]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:39:24) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276009764250"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 58ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276009764250&node=xnode-10]
+
+
+Processing MeasuresController#edit (for 127.0.0.1 at 2010-06-08 10:39:27) [GET]
+  Parameters: {"id"=>"5", "_dc"=>"1276009767302"}
+  [4;35;1mMeasure Load (0.2ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 5) [0m
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT "objectives".id FROM "objectives" INNER JOIN "measures_objectives" ON "objectives".id = "measures_objectives".objective_id WHERE ("measures_objectives".measure_id = 5 ) [0m
+Completed in 13ms (View: 1, DB: 0) | 200 OK [http://localhost/measures/5/edit?_dc=1276009767302]
+
+
+Processing MeasuresController#edit (for 127.0.0.1 at 2010-06-08 10:39:36) [GET]
+  Parameters: {"id"=>"5", "_dc"=>"1276009776070"}
+  [4;35;1mMeasure Load (0.2ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 5) [0m
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT "objectives".id FROM "objectives" INNER JOIN "measures_objectives" ON "objectives".id = "measures_objectives".objective_id WHERE ("measures_objectives".measure_id = 5 ) [0m
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/measures/5/edit?_dc=1276009776070]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 10:40:18) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:40:19) [GET]
+  Parameters: {"_dc"=>"1276009819680"}
+  [4;35;1mUnit Load (0.5ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 8ms (View: 1, DB: 1) | 200 OK [http://localhost/units?_dc=1276009819680]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 10:40:19) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276009819815", "organization_id"=>"0"}
+  [4;36;1mOrganization Load (0.3ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;36;1mOrganization Load (0.1ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;35;1mStrategy Load (0.2ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 18ms (View: 1, DB: 1) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276009819815&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:40:19) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276009819903", "strategy_id"=>"0"}
+  [4;36;1mPerspective Load (0.1ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276009819903&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:40:19) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276009819934"}
+  [4;35;1mObjective Load (0.1ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 9ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276009819934&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:40:21) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276009821973", "strategy_id"=>"1"}
+  [4;36;1mPerspective Load (0.2ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+Completed in 14ms (View: 1, DB: 1) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276009821973&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:40:23) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276009823708"}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Load (0.3ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 12ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276009823708&node=xnode-10]
+
+
+Processing MeasuresController#create (for 127.0.0.1 at 2010-06-08 10:40:30) [POST]
+  Parameters: {"measure"=>{"name"=>"other", "frecuency"=>"Select a frecuency...", "unit_id"=>"Select an unit...", "code"=>"", "challenge"=>"Select a challenge...", "satisfactory"=>"", "objective_ids"=>["1"], "period_to"=>"", "period_from"=>"", "alert"=>"", "description"=>""}}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Create (0.2ms)[0m   [0mINSERT INTO "measures" ("name", "frecuency", "created_at", "code", "unit_id", "updated_at", "challenge", "satisfactory", "period_to", "description", "alert", "period_from") VALUES('other', 'Select a frecuency...', '2010-06-08 15:10:30', '', 0, '2010-06-08 15:10:30', 'Select a challenge...', NULL, NULL, '', NULL, NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO "measures_objectives" ("objective_id", "measure_id") VALUES (1, 6)[0m
+Completed in 102ms (View: 1, DB: 0) | 200 OK [http://localhost/measures/create]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:40:30) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276009830565"}
+  [4;35;1mObjective Load (0.3ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.4ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 14ms (View: 1, DB: 1) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276009830565&node=xnode-10]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 10:42:54) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:42:55) [GET]
+  Parameters: {"_dc"=>"1276009975179"}
+  [4;35;1mUnit Load (0.5ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 7ms (View: 1, DB: 1) | 200 OK [http://localhost/units?_dc=1276009975179]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 10:42:55) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276009975326", "organization_id"=>"0"}
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;36;1mOrganization Load (0.1ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;35;1mStrategy Load (0.2ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 20ms (View: 2, DB: 1) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276009975326&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:42:55) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276009975412", "strategy_id"=>"0"}
+  [4;36;1mPerspective Load (0.1ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276009975412&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:42:55) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276009975444"}
+  [4;35;1mObjective Load (0.1ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 8ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276009975444&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:42:58) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276009978349", "strategy_id"=>"1"}
+  [4;36;1mPerspective Load (0.2ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+Completed in 14ms (View: 1, DB: 1) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276009978349&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:43:00) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276009980300"}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Load (0.1ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 10ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276009980300&node=xnode-10]
+
+
+Processing MeasuresController#create (for 127.0.0.1 at 2010-06-08 10:43:08) [POST]
+  Parameters: {"measure"=>{"name"=>"new_measure", "frecuency"=>"Select a frecuency...", "unit_id"=>"Select an unit...", "code"=>"", "challenge"=>"Select a challenge...", "satisfactory"=>"", "objective_ids"=>["1"], "period_to"=>"", "period_from"=>"", "alert"=>"", "description"=>""}}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Create (0.2ms)[0m   [0mINSERT INTO "measures" ("name", "frecuency", "created_at", "code", "unit_id", "updated_at", "challenge", "satisfactory", "period_to", "description", "alert", "period_from") VALUES('new_measure', 'Select a frecuency...', '2010-06-08 15:13:08', '', 0, '2010-06-08 15:13:08', 'Select a challenge...', NULL, NULL, '', NULL, NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO "measures_objectives" ("objective_id", "measure_id") VALUES (1, 7)[0m
+Completed in 150ms (View: 1, DB: 0) | 200 OK [http://localhost/measures/create]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:43:08) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276009988820"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 13ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276009988820&node=xnode-10]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (118.1ms)[0m   [0;1mCREATE TABLE "measures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar(255), "name" varchar(255), "description" text, "challenge" varchar(255), "satisfactory" float, "alert" float, "frecuency" varchar(255), "period_from" date, "period_to" date, "unit_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (80.6ms)[0m   [0;1mCREATE TABLE "measures_objectives" ("objective_id" integer, "measure_id" integer) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (108.3ms)[0m   [0;1mCREATE TABLE "objectives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "perspective_id" integer, "objective_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (96.0ms)[0m   [0;1mCREATE TABLE "organizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "vision" text, "goal" text, "description" text, "organization_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (94.0ms)[0m   [0;1mCREATE TABLE "perspectives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "strategy_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (75.5ms)[0m   [0;1mCREATE TABLE "strategies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "organization_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (72.2ms)[0m   [0;1mCREATE TABLE "targets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "goal" float(25), "achieved" float(25), "period" varchar(255), "measure_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (104.5ms)[0m   [0;1mCREATE TABLE "units" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (83.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (74.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (81.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100606203601')[0m
+  [4;35;1mSQL (74.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100602193426')[0m
+  [4;36;1mSQL (74.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100522230432')[0m
+  [4;35;1mSQL (82.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100606194642')[0m
+  [4;36;1mSQL (82.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100522230444')[0m
+  [4;35;1mSQL (82.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100604131719')[0m
+  [4;36;1mSQL (82.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100604131440')[0m
+  [4;35;1mSQL (82.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100522230313')[0m
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 10:44:29) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:44:30) [GET]
+  Parameters: {"_dc"=>"1276010070672"}
+  [4;35;1mUnit Load (0.3ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 5ms (View: 0, DB: 0) | 200 OK [http://localhost/units?_dc=1276010070672]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 10:44:30) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276010070810", "organization_id"=>"0"}
+  [4;36;1mOrganization Load (0.1ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+Completed in 10ms (View: 0, DB: 0) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276010070810&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:44:30) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276010070906", "strategy_id"=>"0"}
+  [4;35;1mPerspective Load (0.1ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276010070906&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:44:30) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276010070938"}
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 9ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276010070938&node=xnode-10]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("measures")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("measures_objectives")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("objectives")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("organizations")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("perspectives")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("strategies")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("targets")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("units")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (152.5ms)[0m   [0;1mCREATE TABLE "measures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar(255), "name" varchar(255), "description" text, "challenge" varchar(255), "satisfactory" float, "alert" float, "frecuency" varchar(255), "period_from" date, "period_to" date, "unit_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (109.4ms)[0m   [0;1mCREATE TABLE "measures_objectives" ("objective_id" integer, "measure_id" integer) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (145.9ms)[0m   [0;1mCREATE TABLE "objectives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "perspective_id" integer, "objective_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (91.4ms)[0m   [0;1mCREATE TABLE "organizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "vision" text, "goal" text, "description" text, "organization_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (155.2ms)[0m   [0;1mCREATE TABLE "perspectives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "strategy_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (114.1ms)[0m   [0;1mCREATE TABLE "strategies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "organization_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (113.6ms)[0m   [0;1mCREATE TABLE "targets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "goal" float(25), "achieved" float(25), "period" varchar(255), "measure_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (132.1ms)[0m   [0;1mCREATE TABLE "units" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (105.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (82.7ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (114.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100606203601')[0m
+  [4;35;1mSQL (91.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100602193426')[0m
+  [4;36;1mSQL (82.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100522230432')[0m
+  [4;35;1mSQL (82.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100606194642')[0m
+  [4;36;1mSQL (82.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100522230444')[0m
+  [4;35;1mSQL (82.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100604131719')[0m
+  [4;36;1mSQL (82.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100604131440')[0m
+  [4;35;1mSQL (82.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100522230313')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (121.7ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (70.7ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateOrganizations (20100522230313)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "organizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "vision" text, "goal" text, "description" text, "organization_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100522230313')[0m
+Migrating to CreatePerspectives (20100522230432)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "perspectives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "strategy_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100522230432')[0m
+Migrating to CreateStrategies (20100522230444)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "strategies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "organization_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100522230444')[0m
+Migrating to CreateObjectives (20100602193426)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "objectives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "perspective_id" integer, "objective_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100602193426')[0m
+Migrating to CreateMeasures (20100604131440)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "measures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar(255), "name" varchar(255), "description" text, "challenge" integer, "satisfactory" float, "alert" float, "frecuency" integer, "period_from" date, "period_to" date, "unit_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100604131440')[0m
+Migrating to CreateUnits (20100604131719)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "units" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100604131719')[0m
+Migrating to MeasuresObjectives (20100606194642)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "measures_objectives" ("objective_id" integer, "measure_id" integer) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100606194642')[0m
+Migrating to CreateTargets (20100606203601)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "targets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "goal" float(25), "achieved" float(25), "period" varchar(255), "measure_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100606203601')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("measures")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("measures_objectives")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("objectives")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("organizations")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("perspectives")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("strategies")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("targets")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("units")[0m
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 10:46:36) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:46:37) [GET]
+  Parameters: {"_dc"=>"1276010197635"}
+  [4;35;1mUnit Load (0.4ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 5ms (View: 0, DB: 0) | 200 OK [http://localhost/units?_dc=1276010197635]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 10:46:37) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276010197765", "organization_id"=>"0"}
+  [4;36;1mOrganization Load (0.1ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+Completed in 9ms (View: 0, DB: 0) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276010197765&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:46:37) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276010197851", "strategy_id"=>"0"}
+  [4;35;1mPerspective Load (0.1ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276010197851&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:46:37) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276010197883"}
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 8ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276010197883&node=xnode-10]
+
+
+Processing OrganizationsController#create (for 127.0.0.1 at 2010-06-08 10:46:45) [POST]
+  Parameters: {"organization"=>{"name"=>"new_org", "goal"=>"", "description"=>"", "vision"=>"", "organization_id"=>"0"}}
+  [4;35;1mOrganization Create (0.2ms)[0m   [0mINSERT INTO "organizations" ("name", "goal", "created_at", "updated_at", "vision", "description", "organization_id") VALUES('new_org', '', '2010-06-08 15:16:45', '2010-06-08 15:16:45', '', '', 0)[0m
+Completed in 98ms (View: 1, DB: 0) | 200 OK [http://localhost/organizations/create]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 10:46:45) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276010205403", "organization_id"=>"0"}
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+Completed in 11ms (View: 1, DB: 0) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276010205403&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:46:46) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276010206175", "strategy_id"=>"0"}
+  [4;35;1mPerspective Load (0.1ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276010206175&node=xnode-9]
+
+
+Processing StrategiesController#create (for 127.0.0.1 at 2010-06-08 10:46:52) [POST]
+  Parameters: {"strategy"=>{"name"=>"new_strat", "description"=>"", "organization_id"=>"1"}}
+  [4;36;1mStrategy Create (0.2ms)[0m   [0;1mINSERT INTO "strategies" ("name", "created_at", "updated_at", "description", "organization_id") VALUES('new_strat', '2010-06-08 15:16:52', '2010-06-08 15:16:52', '', 1)[0m
+Completed in 82ms (View: 1, DB: 0) | 200 OK [http://localhost/strategies/create]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 10:46:52) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276010212396", "organization_id"=>"undefined"}
+  [4;35;1mOrganization Load (0.2ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;35;1mOrganization Load (0.1ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;36;1mStrategy Load (0.2ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 13ms (View: 1, DB: 1) | 200 OK [http://localhost/org_and_strat?organization_id=undefined&_dc=1276010212396&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:46:54) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276010214284", "strategy_id"=>"1"}
+  [4;35;1mPerspective Load (0.1ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+Completed in 7ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276010214284&node=xnode-9]
+
+
+Processing PerspectivesController#create (for 127.0.0.1 at 2010-06-08 10:47:00) [POST]
+  Parameters: {"perspective"=>{"name"=>"new_persp", "strategy_id"=>"1"}}
+  [4;36;1mPerspective Create (0.1ms)[0m   [0;1mINSERT INTO "perspectives" ("name", "created_at", "updated_at", "strategy_id") VALUES('new_persp', '2010-06-08 15:17:00', '2010-06-08 15:17:00', 1)[0m
+Completed in 71ms (View: 1, DB: 0) | 200 OK [http://localhost/perspectives/create]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:47:00) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276010220763", "strategy_id"=>"1"}
+  [4;35;1mPerspective Load (0.2ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+Completed in 53ms (View: 1, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276010220763&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:47:01) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276010221940"}
+  [4;35;1mObjective Load (0.1ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 7ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276010221940&node=xnode-10]
+
+
+Processing ObjectivesController#create (for 127.0.0.1 at 2010-06-08 10:47:08) [POST]
+  Parameters: {"objective"=>{"name"=>"new_objs", "objective_id"=>"0", "perspective_id"=>"1"}}
+  [4;36;1mObjective Create (0.2ms)[0m   [0;1mINSERT INTO "objectives" ("name", "created_at", "objective_id", "updated_at", "perspective_id") VALUES('new_objs', '2010-06-08 15:17:08', 0, '2010-06-08 15:17:08', 1)[0m
+Completed in 72ms (View: 1, DB: 0) | 200 OK [http://localhost/objectives/create]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:47:08) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276010228567", "strategy_id"=>"1"}
+  [4;35;1mPerspective Load (0.2ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+Completed in 12ms (View: 1, DB: 1) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276010228567&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:47:10) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276010230892"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.1ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276010230892&node=xnode-10]
+
+
+Processing UnitsController#create (for 127.0.0.1 at 2010-06-08 10:47:15) [POST]
+  Parameters: {"id"=>"0", "unit"=>{"name"=>"%"}}
+  [4;35;1mUnit Create (0.1ms)[0m   [0mINSERT INTO "units" ("name", "created_at", "updated_at") VALUES('%', '2010-06-08 15:17:15', '2010-06-08 15:17:15')[0m
+Completed in 92ms (View: 1, DB: 0) | 200 OK [http://localhost/units/create]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:47:15) [GET]
+  Parameters: {"_dc"=>"1276010235171"}
+  [4;36;1mUnit Load (0.4ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/units?_dc=1276010235171]
+
+
+Processing UnitsController#create (for 127.0.0.1 at 2010-06-08 10:47:17) [POST]
+  Parameters: {"id"=>"0", "unit"=>{"name"=>"Bs"}}
+  [4;35;1mUnit Create (0.2ms)[0m   [0mINSERT INTO "units" ("name", "created_at", "updated_at") VALUES('Bs', '2010-06-08 15:17:17', '2010-06-08 15:17:17')[0m
+Completed in 92ms (View: 1, DB: 0) | 200 OK [http://localhost/units/create]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:47:17) [GET]
+  Parameters: {"_dc"=>"1276010237784"}
+  [4;36;1mUnit Load (0.5ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 47ms (View: 1, DB: 0) | 200 OK [http://localhost/units?_dc=1276010237784]
+
+
+Processing MeasuresController#create (for 127.0.0.1 at 2010-06-08 10:47:27) [POST]
+  Parameters: {"measure"=>{"name"=>"new_measure", "frecuency"=>"Select a frecuency...", "unit_id"=>"Select an unit...", "code"=>"", "challenge"=>"Select a challenge...", "satisfactory"=>"", "objective_ids"=>["1"], "period_to"=>"", "period_from"=>"", "alert"=>"", "description"=>""}}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Create (0.2ms)[0m   [0;1mINSERT INTO "measures" ("name", "frecuency", "created_at", "code", "unit_id", "updated_at", "challenge", "satisfactory", "period_to", "description", "alert", "period_from") VALUES('new_measure', 0, '2010-06-08 15:17:27', '', 0, '2010-06-08 15:17:27', 0, NULL, NULL, '', NULL, NULL)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO "measures_objectives" ("objective_id", "measure_id") VALUES (1, 1)[0m
+Completed in 80ms (View: 1, DB: 0) | 200 OK [http://localhost/measures/create]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:47:27) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276010247940"}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Load (0.3ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 13ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276010247940&node=xnode-10]
+
+
+Processing MeasuresController#edit (for 127.0.0.1 at 2010-06-08 10:47:40) [GET]
+  Parameters: {"id"=>"1", "_dc"=>"1276010260038"}
+  [4;36;1mMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+  [4;35;1mObjective Load (0.1ms)[0m   [0mSELECT "objectives".id FROM "objectives" INNER JOIN "measures_objectives" ON "objectives".id = "measures_objectives".objective_id WHERE ("measures_objectives".measure_id = 1 ) [0m
+Completed in 56ms (View: 43, DB: 0) | 200 OK [http://localhost/measures/1/edit?_dc=1276010260038]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:47:46) [GET]
+  Parameters: {"_dc"=>"1276010266857", "query"=>""}
+  [4;36;1mUnit Load (0.5ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/units?_dc=1276010266857&query=]
+
+
+Processing MeasuresController#update (for 127.0.0.1 at 2010-06-08 10:47:49) [PUT]
+  Parameters: {"measure"=>{"name"=>"new_measure", "frecuency"=>"monthly", "unit_id"=>"%", "code"=>"", "challenge"=>"increasing", "satisfactory"=>"", "objective_ids"=>["1"], "period_to"=>"", "period_from"=>"", "alert"=>"", "description"=>""}, "id"=>"1"}
+  [4;35;1mMeasure Load (0.2ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" INNER JOIN "measures_objectives" ON "objectives".id = "measures_objectives".objective_id WHERE ("measures_objectives".measure_id = 1 ) [0m
+Completed in 17ms (View: 0, DB: 1) | 200 OK [http://localhost/measures/1]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:47:50) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276010269986"}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Load (0.3ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 15ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276010269986&node=xnode-10]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 10:51:24) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:51:25) [GET]
+  Parameters: {"_dc"=>"1276010485892"}
+  [4;36;1mUnit Load (0.5ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 7ms (View: 1, DB: 0) | 200 OK [http://localhost/units?_dc=1276010485892]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 10:51:26) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276010486071", "organization_id"=>"0"}
+  [4;35;1mOrganization Load (0.3ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;35;1mOrganization Load (0.1ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;36;1mStrategy Load (0.2ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 21ms (View: 1, DB: 1) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276010486071&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:51:26) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276010486162", "strategy_id"=>"0"}
+  [4;35;1mPerspective Load (0.1ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276010486162&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:51:26) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276010486195"}
+  [4;36;1mObjective Load (6.5ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 15ms (View: 0, DB: 6) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276010486195&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:51:29) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276010489829", "strategy_id"=>"1"}
+  [4;35;1mPerspective Load (0.2ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+Completed in 13ms (View: 1, DB: 1) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276010489829&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:51:32) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276010492092"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 12ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276010492092&node=xnode-10]
+
+
+Processing MeasuresController#edit (for 127.0.0.1 at 2010-06-08 10:51:34) [GET]
+  Parameters: {"id"=>"1", "_dc"=>"1276010494927"}
+  [4;35;1mMeasure Load (0.3ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT "objectives".id FROM "objectives" INNER JOIN "measures_objectives" ON "objectives".id = "measures_objectives".objective_id WHERE ("measures_objectives".measure_id = 1 ) [0m
+Completed in 15ms (View: 1, DB: 0) | 200 OK [http://localhost/measures/1/edit?_dc=1276010494927]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:51:40) [GET]
+  Parameters: {"_dc"=>"1276010500390", "query"=>""}
+  [4;35;1mUnit Load (0.4ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 6ms (View: 1, DB: 0) | 200 OK [http://localhost/units?_dc=1276010500390&query=]
+
+
+Processing MeasuresController#update (for 127.0.0.1 at 2010-06-08 10:51:42) [PUT]
+  Parameters: {"measure"=>{"name"=>"new_measure", "code"=>"", "satisfactory"=>"", "objective_ids"=>["1"], "period_to"=>"", "period_from"=>"", "alert"=>"", "description"=>""}, "id"=>"1"}
+  [4;36;1mMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" INNER JOIN "measures_objectives" ON "objectives".id = "measures_objectives".objective_id WHERE ("measures_objectives".measure_id = 1 ) [0m
+Completed in 14ms (View: 0, DB: 1) | 200 OK [http://localhost/measures/1]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:51:42) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276010502319"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 14ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276010502319&node=xnode-10]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 10:52:08) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:52:09) [GET]
+  Parameters: {"_dc"=>"1276010529962"}
+  [4;35;1mUnit Load (0.5ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 6ms (View: 1, DB: 0) | 200 OK [http://localhost/units?_dc=1276010529962]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 10:52:10) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276010530101", "organization_id"=>"0"}
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;36;1mOrganization Load (0.1ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;35;1mStrategy Load (0.2ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 67ms (View: 1, DB: 1) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276010530101&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:52:10) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276010530209", "strategy_id"=>"0"}
+  [4;36;1mPerspective Load (0.1ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276010530209&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:52:10) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276010530242"}
+  [4;35;1mObjective Load (0.1ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 7ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276010530242&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:52:11) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276010531477", "strategy_id"=>"1"}
+  [4;36;1mPerspective Load (0.2ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+Completed in 12ms (View: 1, DB: 1) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276010531477&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:52:13) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276010533052"}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Load (0.3ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 15ms (View: 0, DB: 1) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276010533052&node=xnode-10]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 10:52:50) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:52:51) [GET]
+  Parameters: {"_dc"=>"1276010571493"}
+  [4;36;1mUnit Load (0.5ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 6ms (View: 1, DB: 0) | 200 OK [http://localhost/units?_dc=1276010571493]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 10:52:51) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276010571630", "organization_id"=>"0"}
+  [4;35;1mOrganization Load (0.2ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;35;1mOrganization Load (0.1ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;36;1mStrategy Load (0.2ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 70ms (View: 1, DB: 1) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276010571630&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:52:51) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276010571727", "strategy_id"=>"0"}
+  [4;35;1mPerspective Load (0.1ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276010571727&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:52:51) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276010571759"}
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 7ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276010571759&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 10:52:54) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276010574133", "strategy_id"=>"1"}
+  [4;35;1mPerspective Load (0.2ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+Completed in 13ms (View: 2, DB: 1) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276010574133&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:52:55) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276010575788"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 15ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276010575788&node=xnode-10]
+
+
+Processing MeasuresController#edit (for 127.0.0.1 at 2010-06-08 10:52:59) [GET]
+  Parameters: {"id"=>"1", "_dc"=>"1276010579557"}
+  [4;35;1mMeasure Load (0.4ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT "objectives".id FROM "objectives" INNER JOIN "measures_objectives" ON "objectives".id = "measures_objectives".objective_id WHERE ("measures_objectives".measure_id = 1 ) [0m
+Completed in 14ms (View: 1, DB: 1) | 200 OK [http://localhost/measures/1/edit?_dc=1276010579557]
+
+
+Processing MeasuresController#update (for 127.0.0.1 at 2010-06-08 10:53:03) [PUT]
+  Parameters: {"measure"=>{"name"=>"new_measure", "frecuency"=>"0", "unit_id"=>"0", "code"=>"", "challenge"=>"1", "satisfactory"=>"", "objective_ids"=>["1"], "period_to"=>"", "period_from"=>"", "alert"=>"", "description"=>""}, "id"=>"1"}
+  [4;35;1mMeasure Load (0.2ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" INNER JOIN "measures_objectives" ON "objectives".id = "measures_objectives".objective_id WHERE ("measures_objectives".measure_id = 1 ) [0m
+  [4;36;1mMeasure Update (0.2ms)[0m   [0;1mUPDATE "measures" SET "updated_at" = '2010-06-08 15:23:03', "challenge" = 1 WHERE "id" = 1[0m
+Completed in 155ms (View: 1, DB: 1) | 200 OK [http://localhost/measures/1]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:53:03) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276010583455"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 15ms (View: 1, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276010583455&node=xnode-10]
+
+
+Processing MeasuresController#edit (for 127.0.0.1 at 2010-06-08 10:53:16) [GET]
+  Parameters: {"id"=>"1", "_dc"=>"1276010596590"}
+  [4;35;1mMeasure Load (0.2ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT "objectives".id FROM "objectives" INNER JOIN "measures_objectives" ON "objectives".id = "measures_objectives".objective_id WHERE ("measures_objectives".measure_id = 1 ) [0m
+Completed in 13ms (View: 1, DB: 0) | 200 OK [http://localhost/measures/1/edit?_dc=1276010596590]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 10:53:20) [GET]
+  Parameters: {"_dc"=>"1276010600608", "query"=>""}
+  [4;35;1mUnit Load (0.5ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 7ms (View: 1, DB: 1) | 200 OK [http://localhost/units?_dc=1276010600608&query=]
+
+
+Processing MeasuresController#update (for 127.0.0.1 at 2010-06-08 10:53:22) [PUT]
+  Parameters: {"measure"=>{"name"=>"new_measure", "frecuency"=>"2", "unit_id"=>"1", "code"=>"", "challenge"=>"1", "satisfactory"=>"", "objective_ids"=>["1"], "period_to"=>"", "period_from"=>"", "alert"=>"", "description"=>""}, "id"=>"1"}
+  [4;36;1mMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" INNER JOIN "measures_objectives" ON "objectives".id = "measures_objectives".objective_id WHERE ("measures_objectives".measure_id = 1 ) [0m
+  [4;35;1mMeasure Update (0.1ms)[0m   [0mUPDATE "measures" SET "updated_at" = '2010-06-08 15:23:22', "frecuency" = 2, "unit_id" = 1 WHERE "id" = 1[0m
+Completed in 106ms (View: 1, DB: 1) | 200 OK [http://localhost/measures/1]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 10:53:22) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276010602430"}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Load (0.3ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 16ms (View: 1, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276010602430&node=xnode-10]
+
+
+Processing MeasuresController#edit (for 127.0.0.1 at 2010-06-08 10:53:25) [GET]
+  Parameters: {"id"=>"1", "_dc"=>"1276010605397"}
+  [4;36;1mMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+  [4;35;1mObjective Load (0.1ms)[0m   [0mSELECT "objectives".id FROM "objectives" INNER JOIN "measures_objectives" ON "objectives".id = "measures_objectives".objective_id WHERE ("measures_objectives".measure_id = 1 ) [0m
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/measures/1/edit?_dc=1276010605397]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-08 11:07:33) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-08 11:07:34) [GET]
+  Parameters: {"_dc"=>"1276011454380"}
+  [4;36;1mUnit Load (0.5ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 8ms (View: 1, DB: 0) | 200 OK [http://localhost/units?_dc=1276011454380]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-08 11:07:34) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276011454539", "organization_id"=>"0"}
+  [4;35;1mOrganization Load (0.2ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;35;1mOrganization Load (0.1ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;36;1mStrategy Load (0.2ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 23ms (View: 1, DB: 1) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276011454539&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 11:07:34) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276011454629", "strategy_id"=>"0"}
+  [4;35;1mPerspective Load (0.1ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 6ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276011454629&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 11:07:34) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "_dc"=>"1276011454662"}
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1276011454662&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-08 11:07:36) [GET]
+  Parameters: {"node"=>"xnode-9", "_dc"=>"1276011456366", "strategy_id"=>"1"}
+  [4;35;1mPerspective Load (0.2ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+Completed in 14ms (View: 1, DB: 1) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276011456366&node=xnode-9]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 11:07:37) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276011457756"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 12ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276011457756&node=xnode-10]
+
+
+Processing MeasuresController#create (for 127.0.0.1 at 2010-06-08 11:07:46) [POST]
+  Parameters: {"measure"=>{"name"=>"another_measure", "frecuency"=>"", "unit_id"=>"", "code"=>"", "challenge"=>"", "satisfactory"=>"", "objective_ids"=>["1"], "period_to"=>"", "period_from"=>"", "alert"=>"", "description"=>""}}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Create (0.2ms)[0m   [0;1mINSERT INTO "measures" ("name", "frecuency", "created_at", "code", "unit_id", "updated_at", "challenge", "satisfactory", "period_to", "description", "alert", "period_from") VALUES('another_measure', NULL, '2010-06-08 15:37:46', '', NULL, '2010-06-08 15:37:46', NULL, NULL, NULL, '', NULL, NULL)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO "measures_objectives" ("objective_id", "measure_id") VALUES (1, 2)[0m
+Completed in 113ms (View: 1, DB: 0) | 200 OK [http://localhost/measures/create]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 11:07:46) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276011466775"}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Load (0.4ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 13ms (View: 1, DB: 1) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276011466775&node=xnode-10]
+
+
+Processing MeasuresController#create (for 127.0.0.1 at 2010-06-08 11:07:57) [POST]
+  Parameters: {"measure"=>{"name"=>"other_measure", "frecuency"=>"", "unit_id"=>"", "code"=>"", "challenge"=>"", "satisfactory"=>"", "objective_ids"=>["1"], "period_to"=>"", "period_from"=>"", "alert"=>"", "description"=>""}}
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Create (0.1ms)[0m   [0mINSERT INTO "measures" ("name", "frecuency", "created_at", "code", "unit_id", "updated_at", "challenge", "satisfactory", "period_to", "description", "alert", "period_from") VALUES('other_measure', NULL, '2010-06-08 15:37:57', '', NULL, '2010-06-08 15:37:57', NULL, NULL, NULL, '', NULL, NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO "measures_objectives" ("objective_id", "measure_id") VALUES (1, 3)[0m
+Completed in 92ms (View: 1, DB: 0) | 200 OK [http://localhost/measures/create]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 11:07:58) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276011477971"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.7ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 15ms (View: 1, DB: 1) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276011477971&node=xnode-10]
+
+
+Processing MeasuresController#destroy (for 127.0.0.1 at 2010-06-08 11:08:04) [DELETE]
+  Parameters: {"id"=>"2"}
+  [4;35;1mMeasure Load (0.2ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 2) [0m
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" INNER JOIN "measures_objectives" ON "objectives".id = "measures_objectives".objective_id WHERE ("measures_objectives".measure_id = 2 ) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mDELETE FROM "measures_objectives" WHERE measure_id = 2 AND objective_id IN (1)[0m
+  [4;36;1mMeasure Destroy (0.1ms)[0m   [0;1mDELETE FROM "measures" WHERE "id" = 2[0m
+Completed in 78ms (View: 1, DB: 1) | 200 OK [http://localhost/measures/2]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-08 11:08:04) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"1", "_dc"=>"1276011484137"}
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.4ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 14ms (View: 1, DB: 1) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276011484137&node=xnode-10]

@@ -14,6 +14,10 @@ class MeasuresController < ApplicationController
     respond_to do |format|
       format.json { render :json => return_data }
     end
+  rescue
+    respond_to do |format|
+      format.json { render :json => [] }
+    end
   end
   
   def new
@@ -26,13 +30,16 @@ class MeasuresController < ApplicationController
     return_data={}
     return_data[:success]=true
     return_data[:data]={"measure[name]" => @measure.name,
+                        "measure[code]" => @measure.code,
                         "measure[description]" => @measure.description,
-                        "measure[target]" => @measure.target,
+                        "measure[challenge]" => @measure.challenge,
                         "measure[satisfactory]" => @measure.satisfactory,
                         "measure[alert]" => @measure.alert,
                         "measure[frecuency]" => @measure.frecuency,
+                        "measure[period_from]" => @measure.period_from,
+                        "measure[period_to]" => @measure.period_to,
                         "measure[unit_id]" => @measure.unit_id,
-                        "measure[objective_id]" => @measure.objective_id}
+                        "measure[objective_ids][]" => @measure.objective_ids}
 
     respond_to do |format|
       format.json { render :json => return_data }
