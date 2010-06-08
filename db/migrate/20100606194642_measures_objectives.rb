@@ -1,4 +1,4 @@
-class ObjectivesMeasures < ActiveRecord::Migration
+class MeasuresObjectives < ActiveRecord::Migration
   def self.up
     create_table :measures_objectives, :id => false do |t|
       t.integer :objective_id
@@ -7,6 +7,6 @@ class ObjectivesMeasures < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :objectives_measures
+    drop_table :measures_objectives
   end
 end
