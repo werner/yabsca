@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(:version => 20100606203601) do
   end
 
   create_table "targets", :force => true do |t|
-    t.float    "goal",       :limit => 25
-    t.float    "achieved",   :limit => 25
+    t.float    "goal"
+    t.float    "achieved"
     t.string   "period"
     t.integer  "measure_id"
     t.datetime "created_at"

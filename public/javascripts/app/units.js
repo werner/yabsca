@@ -1,7 +1,6 @@
 var unit = new Object();
 
-unit.id=0
-unit.parent_id=0;
+unit.id=0;
 unit.url=""
 unit.method=""
 unit.params=""
@@ -12,7 +11,7 @@ unit.reader=new Ext.data.JsonReader({
     idProperty: "id",
     root: "data",
     totalProperty: "results",
-    fields:[{name: 'id'},{name:"name"}]
+    fields:[{name:"id"},{name:"name"}]
 });
 
 unit.store=new Ext.data.Store({
@@ -79,29 +78,28 @@ unit.win=new Ext.Window({
         text:"Delete Unit",
         iconCls:"del",
         handler: function(){
-    Ext.Msg.show({
-       title:'Delete',
-       msg: 'Are you sure you want to delete it?',
-       buttons: Ext.Msg.YESNO,
-       fn: function(btn){
-           if (btn=='yes'){
-               Ext.Ajax.request({
-                   url:"/units/"+unit.id,
-                   method:"DELETE",
-                   success:function(){
-                        var index = unit.grid.getSelectionModel().getSelectedCell();
-                        if (!index)
-                            return false;
-                        var rec = unit.grid.store.getAt(index[0]);
-                        unit.grid.store.remove(rec);
+            Ext.Msg.show({
+               title:'Delete',
+               msg: 'Are you sure you want to delete it?',
+               buttons: Ext.Msg.YESNO,
+               fn: function(btn){
+                   if (btn=='yes'){
+                       Ext.Ajax.request({
+                           url:"/units/"+unit.id,
+                           method:"DELETE",
+                           success:function(){
+                                var index = unit.grid.getSelectionModel().getSelectedCell();
+                                if (!index)
+                                    return false;
+                                var rec = unit.grid.store.getAt(index[0]);
+                                unit.grid.store.remove(rec);
+                           }
+                       });
                    }
-               });
-           }
-       },
-       animEl: 'elId',
-       icon: Ext.MessageBox.QUESTION
-    });
-
+               },
+               animEl: 'elId',
+               icon: Ext.MessageBox.QUESTION
+            });
         }
     },{
         text:'Close',

@@ -13,22 +13,6 @@ class UnitsController < ApplicationController
     end
   end
 
-  def new
-    @unit=Unit.new
-  end
-
-  def edit
-    @unit=Unit.find(params[:id])
-
-    return_data={}
-    return_data[:success]=true
-    return_data[:data]={"unit[name]" => @unit.name}
-
-    respond_to do |format|
-      format.json { render :json => return_data }
-    end
-  end
-
   def create
     self.default_creation(Unit, params[:unit])
   end

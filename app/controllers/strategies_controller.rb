@@ -1,9 +1,5 @@
 class StrategiesController < ApplicationController
 
-  def new
-    @strategy=Strategy.new
-  end
-
   def edit
     @strategy=Strategy.find(params[:id])
 

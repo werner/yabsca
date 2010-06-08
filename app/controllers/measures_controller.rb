@@ -20,10 +20,6 @@ class MeasuresController < ApplicationController
     end
   end
   
-  def new
-    @measures=Measure.new
-  end
-
   def edit
     @measure=Measure.find(params[:id])
 

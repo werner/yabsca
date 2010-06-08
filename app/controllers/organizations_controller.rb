@@ -1,9 +1,5 @@
 class OrganizationsController < ApplicationController
 
-  def new
-    @organization=Organization.new
-  end
-
   def edit
     @organization=Organization.find(params[:id])
 

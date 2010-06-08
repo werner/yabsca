@@ -1,9 +1,5 @@
 class ObjectivesController < ApplicationController
 
-  def new
-    @objective=Objective.new
-  end
-
   def edit
     @objective=Objective.find(params[:id])
 

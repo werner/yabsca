@@ -1,9 +1,5 @@
 class PerspectivesController < ApplicationController
 
-  def new
-    @perspective=Perspective.new
-  end
-
   def edit
     @perspective=Perspective.find(params[:id])
 

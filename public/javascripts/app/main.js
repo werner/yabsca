@@ -299,14 +299,14 @@ Ext.onReady(function(){
     treePanelM = new Ext.tree.TreePanel({
     	id: 'tree-panel_m',
         title: 'Measures',
+        region: 'west',
         split: true,
         minSize: 150,
-        region: 'center',
         autoScroll: true,
         rootVisible: false,
         lines: false,
         singleExpand: true,
-        width:100,
+        width:800,
         useArrows: true,
         tbar:[measuresToolBar],
         loader: new Ext.tree.TreeLoader({
@@ -322,6 +322,12 @@ Ext.onReady(function(){
             }
         },
         root: new Ext.tree.AsyncTreeNode()
+    });
+
+    var measurePanel= new Ext.Panel({
+        layout:"border",
+        region: 'center',
+        items:[treePanelM,target.grid]
     });
 
     var viewport = new Ext.Viewport({
@@ -342,7 +348,7 @@ Ext.onReady(function(){
             split: true,
             layout: 'border',
             width: 200,
-            items:[treePanelPersp,treePanelM]
+            items:[treePanelPersp,measurePanel]
         }]
     });
 });

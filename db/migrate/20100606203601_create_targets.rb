@@ -1,8 +1,8 @@
 class CreateTargets < ActiveRecord::Migration
   def self.up
     create_table :targets do |t|
-      t.float :goal, :limit => 25
-      t.float :achieved, :limit => 25
+      t.float :goal
+      t.float :achieved
       t.string :period
       
       t.belongs_to :measure
