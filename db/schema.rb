@@ -26,17 +26,17 @@ ActiveRecord::Schema.define(:version => 20100606203601) do
     t.datetime "updated_at"
   end
 
+  create_table "measures_objectives", :id => false, :force => true do |t|
+    t.integer "objective_id"
+    t.integer "measure_id"
+  end
+
   create_table "objectives", :force => true do |t|
     t.string   "name"
     t.integer  "perspective_id"
     t.integer  "objective_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "objectives_measures", :id => false, :force => true do |t|
-    t.integer "objective_id"
-    t.integer "measure_id"
   end
 
   create_table "organizations", :force => true do |t|

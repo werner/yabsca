@@ -1,0 +1,131 @@
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "measures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar(255), "name" varchar(255), "description" text, "challenge" varchar(255), "satisfactory" float, "alert" float, "frecuency" varchar(255), "period_from" date, "period_to" date, "unit_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (15.6ms)[0m   [0;1mCREATE TABLE "objectives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "perspective_id" integer, "objective_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (15.6ms)[0m   [0;1mCREATE TABLE "objectives_measures" ("objective_id" integer, "measure_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "organizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "vision" text, "goal" text, "description" text, "organization_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (15.6ms)[0m   [0;1mCREATE TABLE "perspectives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "strategy_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "strategies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "organization_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "targets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "goal" float(25), "achieved" float(25), "period" varchar(255), "measure_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (15.6ms)[0m   [0;1mCREATE TABLE "units" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (15.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100606203601')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100522230313')[0m
+  [4;36;1mSQL (15.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100522230432')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100522230444')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100602193426')[0m
+  [4;35;1mSQL (15.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100604131440')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100604131719')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100606194642')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("measures")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("objectives")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("objectives_measures")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("organizations")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("perspectives")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("strategies")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("targets")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("units")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (15.6ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateOrganizations (20100522230313)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "organizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "vision" text, "goal" text, "description" text, "organization_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100522230313')[0m
+Migrating to CreatePerspectives (20100522230432)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "perspectives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "strategy_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100522230432')[0m
+Migrating to CreateStrategies (20100522230444)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "strategies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "organization_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100522230444')[0m
+Migrating to CreateObjectives (20100602193426)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "objectives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "perspective_id" integer, "objective_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100602193426')[0m
+Migrating to CreateMeasures (20100604131440)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "measures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar(255), "name" varchar(255), "description" text, "challenge" varchar(255), "satisfactory" float, "alert" float, "frecuency" varchar(255), "period_from" date, "period_to" date, "unit_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100604131440')[0m
+Migrating to CreateUnits (20100604131719)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "units" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100604131719')[0m
+Migrating to MeasuresObjectives (20100606194642)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "measures_objectives" ("objective_id" integer, "measure_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100606194642')[0m
+Migrating to CreateTargets (20100606203601)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "targets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "goal" float(25), "achieved" float(25), "period" varchar(255), "measure_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100606203601')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("measures")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("measures_objectives")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("objectives")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("organizations")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("perspectives")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("strategies")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("targets")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("units")[0m
