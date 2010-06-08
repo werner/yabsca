@@ -9,17 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100604131719) do
+ActiveRecord::Schema.define(:version => 20100606203601) do
 
   create_table "measures", :force => true do |t|
+    t.string   "code"
     t.string   "name"
     t.text     "description"
-    t.float    "target"
+    t.string   "challenge"
     t.float    "satisfactory"
     t.float    "alert"
     t.string   "frecuency"
+    t.date     "period_from"
+    t.date     "period_to"
     t.integer  "unit_id"
-    t.integer  "objective_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,6 +32,11 @@ ActiveRecord::Schema.define(:version => 20100604131719) do
     t.integer  "objective_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "objectives_measures", :id => false, :force => true do |t|
+    t.integer "objective_id"
+    t.integer "measure_id"
   end
 
   create_table "organizations", :force => true do |t|
@@ -53,6 +60,15 @@ ActiveRecord::Schema.define(:version => 20100604131719) do
     t.string   "name"
     t.text     "description"
     t.integer  "organization_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "targets", :force => true do |t|
+    t.float    "goal",       :limit => 25
+    t.float    "achieved",   :limit => 25
+    t.string   "period"
+    t.integer  "measure_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,7 +1,7 @@
 class MeasuresController < ApplicationController
 
   def index
-    @measures=Measure.find_all_by_objective_id(params[:objective_id])
+    @measures=Objective.find(params[:objective_id]).measures
 
     return_data=[]
     return_data=@measures.collect { |u| {

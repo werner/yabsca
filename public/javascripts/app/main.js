@@ -249,7 +249,7 @@ Ext.onReady(function(){
                             measure.method="POST";
                             measure.url="measures/create";
                             measure.form.getForm().reset();
-                            measure.form.items.map.measure_objective_id.
+                            measure.form.items.map.measure_objective_ids.
                                 setValue(objective.id);
                             measure.win.show();
                         }else{

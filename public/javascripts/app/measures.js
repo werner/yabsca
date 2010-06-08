@@ -4,10 +4,15 @@ measure.id=0;
 measure.url="";
 measure.method="";
 
-measure.store=new Ext.data.ArrayStore({
+measure.frecuency_store=new Ext.data.ArrayStore({
    fields: ["id","frecuency"],
    data: [[1,"weekly"],[2,"monthly"],[3,"bimonthly"],
           [4,"three-monthly"],[5,"four-monthly"],[6,"yearly"]]
+});
+
+measure.challenge_store=new Ext.data.ArrayStore({
+   fields: ["id","challenge"],
+   data: [[1,"increasing"],[2,"decreasing"]]
 });
 
 measure.form=new Ext.FormPanel({
@@ -22,14 +27,24 @@ measure.form=new Ext.FormPanel({
         id: "measure_name",
         name:"measure[name]",
         allowBlank: false
+    }),new Ext.form.TextField({
+        fieldLabel: "Code",
+        id: "measure_code",
+        name:"measure[code]"
     }), new Ext.form.TextArea({
         fieldLabel: "Description",
         id: "measure_description",
         name: "measure[description]"
-    }), new Ext.form.NumberField({
-        fieldLabel: "Target",
-        id: "measure_target",
-        name: "measure[target]"
+    }), new Ext.form.ComboBox({
+        fieldLabel: "Challenge",
+        displayField: "challenge",
+        typeAhead: true,
+        store: measure.challenge_store,
+        mode: "local",
+        forceSelection: true,
+        triggerAction: 'all',
+        selectOnFocus:true,
+        emptyText: "Select a challenge..."
     }), new Ext.form.NumberField({
         fieldLabel: "Satisfactory",
         id: "measure_satisfactory",
@@ -42,12 +57,20 @@ measure.form=new Ext.FormPanel({
         fieldLabel: "Frecuency",
         displayField: "frecuency",
         typeAhead: true,
-        store: measure.store,
+        store: measure.frecuency_store,
         mode: "local",
         forceSelection: true,
         triggerAction: 'all',
         selectOnFocus:true,
         emptyText: "Select a frecuency..."
+    }), new Ext.form.DateField({
+        fieldLabel: "From",
+        id: "measure_period_from",
+        name:"measure[period_from]"
+    }), new Ext.form.DateField({
+        fieldLabel: "To",
+        id: "measure_period_to",
+        name:"measure[period_to]"
     }), new Ext.form.ComboBox({
         fieldLabel: "Unit",
         name: "measure[unit_id]",
@@ -60,16 +83,16 @@ measure.form=new Ext.FormPanel({
         selectOnFocus:true,
         mode: "remote",
         emptyText: "select an unit"
-    }), new Ext.form.Hidden({
-        id:"measure_objective_id",
-        name: "measure[objective_id]"
+    }),new Ext.form.Hidden({
+        id:"measure_objective_ids",
+        name:"measure[objective_ids][]"
     })]
 });
 
 measure.win=new Ext.Window({
     layout:'fit',
     width:400,
-    height:400,
+    height:500,
     closeAction:'hide',
     plain: true,
     items:[measure.form],
