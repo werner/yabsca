@@ -21,12 +21,38 @@ target.store=new Ext.data.Store({
 
 target.store.load();
 
+target.toolBar=new Ext.Toolbar({
+    items:[{
+        text:"New",
+        iconCls:"new",
+        handler:function(){
+            var u = new target.grid.store.recordType({period:'',goal:'',achieved:''});
+            target.id=0;
+            target.url="/targets/create";
+            target.method="POST";
+            target.grid.stopEditing();
+            target.grid.store.insert(0,u);
+            target.grid.startEditing(0,1);
+        }
+    },{
+        text:"Edit",
+        iconCls:"edit"
+    },{
+        text:"Delete",
+        iconCls:"del"
+    }]
+});
+
 target.grid=new Ext.grid.EditorGridPanel({
     region: 'center',
     store:target.store,
     clicksToEdit: 2,
+    tbar:[target.toolBar],
     columns:[{header:"id",dataIndex:"id", hidden:true},
-             {header:"Period", dataIndex:"period",width:150},
-             {header:"Goal", dataIndex:"goal"},
-             {header:"Achieved", dataIndex:"achieved"}]
+             {header:"Period", dataIndex:"period",width:150,
+                 editor: new Ext.form.TextField({
+                    allowBlank: false
+                })},
+             {header:"Goal", dataIndex:"goal",editor:new Ext.form.TextField({})},
+             {header:"Achieved", dataIndex:"achieved",editor:new Ext.form.TextField({})}]
 });

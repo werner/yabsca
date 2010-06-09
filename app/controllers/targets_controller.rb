@@ -1,5 +1,5 @@
-class TargetController < ApplicationController
-
+class TargetsController < ApplicationController
+  
   def index
     @targets=Target.find_all_by_measure_id(params[:measure_id])
 
@@ -11,7 +11,7 @@ class TargetController < ApplicationController
         :achieved => u.achieved
       }}
 
-    respond_to do |format| 
+    respond_to do |format|
       format.json { render :json => return_data }
     end
   end

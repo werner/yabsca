@@ -1,7 +1,6 @@
 var actualNode;
 var actualNode2;
 var treePanelPersp;
-var treePanelM;
 Ext.onReady(function(){
 
     var toolBarPers = new Ext.Toolbar({
@@ -230,7 +229,7 @@ Ext.onReady(function(){
                     perspective.id=0;
                     objective.id=n.attributes.iddb;
                 }
-                treePanelM.getRootNode().reload();
+                measure.treePanel.getRootNode().reload();
             },
             load:function(n){
                 perspective.id=0;
@@ -240,94 +239,10 @@ Ext.onReady(function(){
         root: new Ext.tree.AsyncTreeNode()
     });
 
-    var measuresToolBar=new Ext.Toolbar({
-        items:[{
-           text:"Measures",
-           iconCls:"measure",
-           menu:{
-               items:[{
-                   text: "New",
-                   iconCls: "new",
-                   handler:function(){
-                        if (objective.id>0){
-                            measure.method="POST";
-                            measure.url="measures/create";
-                            measure.form.getForm().reset();
-                            measure.form.items.map.measure_objective_ids.
-                                setValue(objective.id);
-                            measure.win.show();
-                        }else{
-                            Ext.Msg.alert("Error","You must select an objective");
-                        }
-                   }
-               },{
-                   text:"Edit",
-                   iconCls: "edit",
-                   handler:function(){
-                       if (measure.id>0){
-                           measure.method="PUT";
-                           measure.url="/measures/"+measure.id;
-                           measure.form.getForm().load(
-                                {method:'GET',
-                                 url:'/measures/'+measure.id+'/edit'});
-                           measure.win.show();
-                        }else{
-                            Ext.Msg.alert("Error","You must select a measure");
-                        }
-                   }
-               },{
-                   text: "Delete",
-                   iconCls: "del",
-                   handler:function(){
-                        if (measure.id>0){
-                            general.deletion("/measures/"+measure.id,treePanelM);
-                        }else{
-                            Ext.Msg.alert("Error","You must select a measure");
-                        }
-                   }
-               }]
-           }
-        },{
-           text:"Units",
-           iconCls:"unit",
-           handler:function(){
-                unit.win.show();
-           }
-        }]
-    });
-
-    treePanelM = new Ext.tree.TreePanel({
-    	id: 'tree-panel_m',
-        title: 'Measures',
-        region: 'west',
-        split: true,
-        minSize: 150,
-        autoScroll: true,
-        rootVisible: false,
-        lines: false,
-        singleExpand: true,
-        width:800,
-        useArrows: true,
-        tbar:[measuresToolBar],
-        loader: new Ext.tree.TreeLoader({
-            requestMethod:"GET",
-            dataUrl:function() {return '/measures?objective_id='+objective.id}
-        }),
-        listeners:{
-            click:function(n){
-                measure.id=n.id;
-            },
-            load:function(n){
-                measure.id=0;
-            }
-        },
-        root: new Ext.tree.AsyncTreeNode()
-    });
-
     var measurePanel= new Ext.Panel({
         layout:"border",
         region: 'center',
-        items:[treePanelM,target.grid]
+        items:[measure.treePanel,target.grid]
     });
 
     var viewport = new Ext.Viewport({
