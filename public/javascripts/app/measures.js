@@ -199,7 +199,7 @@ measure.treePanel = new Ext.tree.TreePanel({
     rootVisible: false,
     lines: false,
     singleExpand: true,
-    width:600,
+    width:500,
     useArrows: true,
     tbar:[measure.toolBar],
     loader: new Ext.tree.TreeLoader({

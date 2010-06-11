@@ -256,7 +256,7 @@ Ext.onReady(function(){
             region: 'west',
             title: 'Organizations and Strategies',
             split: true,
-            width: 400,
+            width: 300,
             items:[toolBarOrgs,treePanelOrgs]
         }, {
             region: 'center',
