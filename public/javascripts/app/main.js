@@ -21,7 +21,7 @@ Ext.onReady(function(){
                                 setValue(strategy.id);
                             perspective.win.show();
                         }else{
-                            Ext.Msg.alert("Error","You must select an strategy")
+                            Ext.Msg.alert("Error","You must select an strategy");
                         }
                     }
                 },{
@@ -207,9 +207,9 @@ Ext.onReady(function(){
     });
     
     treePanelPersp = new Ext.tree.TreePanel({
-    	id: 'tree-panel_persp',
-        title: 'Perspectives and Objectives',
-        region: 'north',
+    	id: "tree-panel_persp",
+        title: "Perspectives and Objectives",
+        region: "north",
         height: 300,
         autoScroll: true,
         rootVisible: false,
@@ -217,7 +217,7 @@ Ext.onReady(function(){
         tbar:[toolBarPers],
         loader: new Ext.tree.TreeLoader({
             requestMethod:"GET",
-            dataUrl:function() {return '/persp_and_objs?strategy_id='+strategy.id;}
+            dataUrl:function() {return "/persp_and_objs?strategy_id="+strategy.id;}
         }),
         listeners:{
             click:function(n){

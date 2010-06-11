@@ -80,6 +80,7 @@ measure.form=new Ext.FormPanel({
         id: "measure_period_to",
         name:"measure[period_to]"
     }), new Ext.form.ComboBox({
+        id:"measure_unit_id",
         fieldLabel: "Unit",
         name: "measure[unit_id]",
         store: unit.store,
@@ -203,14 +204,22 @@ measure.treePanel = new Ext.tree.TreePanel({
     tbar:[measure.toolBar],
     loader: new Ext.tree.TreeLoader({
         requestMethod:"GET",
-        dataUrl:function() {return '/measures?objective_id='+objective.id}
+        dataUrl:function() {return "/measures?objective_id="+objective.id}
     }),
     listeners:{
         click:function(n){
             measure.id=n.id;
+            target.frec_store.setBaseParam("measure_id",measure.id);
+            target.frec_store.load();
+            target.store.setBaseParam("measure_id",measure.id);
+            target.store.load();
+            target.id=0;
         },
         load:function(n){
             measure.id=0;
+            target.id=0;
+            target.store.setBaseParam("measure_id",0);
+            target.store.load();
         }
     },
     root: new Ext.tree.AsyncTreeNode()

@@ -2,34 +2,34 @@ var general =new Object();
 
 general.deletion = function(path,treePanel) {
     Ext.Msg.show({
-       title:'Delete',
-       msg: 'Are you sure you want to delete it?',
+       title:"Delete",
+       msg: "Are you sure you want to delete it?",
        buttons: Ext.Msg.YESNO,
        fn: function(btn){
-           if (btn=='yes'){
+           if (btn=="yes"){
                Ext.Ajax.request({
                    url:path,
                    method:"DELETE",
                    success:function(){
-                       treePanel.getRootNode().reload();
+                        treePanel.getRootNode().reload();
                    }
                });
            }
        },
-       animEl: 'elId',
+       animEl: "elId",
        icon: Ext.MessageBox.QUESTION
     });
 }
 
 var treePanelOrgs= new Ext.tree.TreePanel({
-    id: 'tree-panel_org',
+    id: "tree-panel_org",
     autoScroll: true,
     useArrows: true,
     rootVisible: false,
     loader:new Ext.tree.TreeLoader({
         requestMethod:"GET",
         dataUrl:function(){
-            return '/org_and_strat?organization_id='+organization.parent_id;
+            return "/org_and_strat?organization_id="+organization.parent_id;
         }
     }),
     listeners:{
@@ -45,6 +45,8 @@ var treePanelOrgs= new Ext.tree.TreePanel({
                 strategy.id=n.attributes.iddb;
             }
             treePanelPersp.getRootNode().reload();
+            objective.id=0;
+            measure.treePanel.getRootNode().reload();
         },
         load:function(n){
             organization.id=0;

@@ -1,3 +1,8 @@
+.saving {
+  background-image: url("../images/save.gif") !important;
+  background-repeat: no-repeat;
+}
+
 .measure {
   background-image: url("../images/time_go.png") !important;
   background-repeat: no-repeat;

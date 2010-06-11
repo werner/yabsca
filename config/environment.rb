@@ -40,3 +40,11 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 end
 require "will_paginate"
+module Frecuency
+  Weekly=1
+  Monthly=2
+  Bimonthly=3
+  Three_monthly=4
+  Four_monthly=5
+  Yearly=6
+end
