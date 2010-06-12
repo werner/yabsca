@@ -29,7 +29,7 @@ class MeasuresController < ApplicationController
                         "measure[code]" => @measure.code,
                         "measure[description]" => @measure.description,
                         "measure[challenge]" => @measure.challenge,
-                        "measure[satisfactory]" => @measure.satisfactory,
+                        "measure[excellent]" => @measure.excellent,
                         "measure[alert]" => @measure.alert,
                         "measure[frecuency]" => @measure.frecuency,
                         "measure[period_from]" => @measure.period_from,
