@@ -41,10 +41,11 @@ Rails::Initializer.run do |config|
 end
 require "will_paginate"
 module Frecuency
-  Weekly=1
-  Monthly=2
-  Bimonthly=3
-  Three_monthly=4
-  Four_monthly=5
-  Yearly=6
+  Daily=1
+  Weekly=2
+  Monthly=3
+  Bimonthly=4
+  Three_monthly=5
+  Four_monthly=6
+  Yearly=7
 end

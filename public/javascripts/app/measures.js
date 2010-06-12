@@ -6,8 +6,8 @@ measure.method="";
 
 measure.frecuency_store=new Ext.data.ArrayStore({
    fields: ["id","name"],
-   data: [[1,"weekly"],[2,"monthly"],[3,"bimonthly"],
-          [4,"three-monthly"],[5,"four-monthly"],[6,"yearly"]]
+   data: [[1,"daily"],[2,"weekly"],[3,"monthly"],[4,"bimonthly"],
+          [5,"three-monthly"],[6,"four-monthly"],[7,"yearly"]]
 });
 
 measure.challenge_store=new Ext.data.ArrayStore({

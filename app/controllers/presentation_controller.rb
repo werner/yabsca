@@ -40,6 +40,8 @@ class PresentationController < ApplicationController
     
     frecuency=[]
     case measure.frecuency
+      when Frecuency::Daily
+        period.each { |u| frecuency.push(u) }
       when Frecuency::Weekly
         period.each { |u| frecuency.push(u.strftime("%W")+"-"+u.year.to_s) }
       when Frecuency::Monthly
