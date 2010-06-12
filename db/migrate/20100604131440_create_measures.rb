@@ -5,7 +5,7 @@ class CreateMeasures < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.integer :challenge
-      t.float :satisfactory
+      t.float :excellent
       t.float :alert
       t.integer :frecuency
       t.date :period_from

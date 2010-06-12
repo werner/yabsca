@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 20100606203601) do
     t.string   "name"
     t.text     "description"
     t.integer  "challenge"
-    t.float    "satisfactory"
+    t.float    "excellent"
     t.float    "alert"
     t.integer  "frecuency"
     t.date     "period_from"

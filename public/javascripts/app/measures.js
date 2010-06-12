@@ -50,9 +50,9 @@ measure.form=new Ext.FormPanel({
         valueNotFoundText:"Select a challenge...",
         emptyText: "Select a challenge..."
     }), new Ext.form.NumberField({
-        fieldLabel: "Satisfactory",
-        id: "measure_satisfactory",
-        name: "measure[satisfactory]"
+        fieldLabel: "Excellent",
+        id: "measure_excellent",
+        name: "measure[excellent]"
     }), new Ext.form.NumberField({
         fieldLabel: "Alert",
         id: "measure_alert",
