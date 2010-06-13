@@ -209,8 +209,9 @@ Ext.onReady(function(){
     treePanelPersp = new Ext.tree.TreePanel({
     	id: "tree-panel_persp",
         title: "Perspectives and Objectives",
-        region: "north",
-        height: 300,
+        region: "west",
+        split: true,
+        width: 500,
         autoScroll: true,
         rootVisible: false,
         useArrows: true,
@@ -230,10 +231,12 @@ Ext.onReady(function(){
                     objective.id=n.attributes.iddb;
                 }
                 measure.treePanel.getRootNode().reload();
+                initiative.treePanel.getRootNode().reload();
             },
             load:function(n){
                 perspective.id=0;
                 objective.id=0;
+                initiative.id=0;
             }
         },
         root: new Ext.tree.AsyncTreeNode()
@@ -241,8 +244,15 @@ Ext.onReady(function(){
 
     var measurePanel= new Ext.Panel({
         layout:"border",
-        region: 'center',
+        region: "center",
         items:[measure.treePanel,target.grid]
+    });
+
+    var perspPanel = new Ext.Panel({
+        layout:"border",
+        region: "north",
+        height:300,
+        items:[treePanelPersp,initiative.treePanel]
     });
 
     var viewport = new Ext.Viewport({
@@ -263,8 +273,7 @@ Ext.onReady(function(){
             split: true,
             layout: 'border',
             width: 200,
-            items:[treePanelPersp,measurePanel]
+            items:[perspPanel,measurePanel]
         }]
     });
 });
-

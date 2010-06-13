@@ -80,7 +80,17 @@ class ApplicationController < ActionController::Base
       :children=> join_nodes_objs(u.objectives)}
     end
   end
-  
+
+  def join_nodes_initiatives(tree)
+    tree.map do |u|
+      {:id => u.id,
+       :text => u.name,
+       :iconCls => "initiative",
+       :leaf => u.initiatives.empty?,
+       :children=>join_nodes_initiatives(u.initiatives)}
+    end
+  end
+
   def nodes_expanded(data)
     unless data.nil?
       @nodes.push(data.id)

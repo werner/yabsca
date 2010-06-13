@@ -190,11 +190,10 @@ measure.toolBar=new Ext.Toolbar({
 });
 
 measure.treePanel = new Ext.tree.TreePanel({
-    id: 'tree-panel_m',
-    title: 'Measures',
-    region: 'west',
+    id: "tree-panel_m",
+    title: "Measures",
+    region: "west",
     split: true,
-    minSize: 150,
     autoScroll: true,
     rootVisible: false,
     lines: false,
