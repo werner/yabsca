@@ -2,7 +2,7 @@ class InitiativesController < ApplicationController
 
   def index
     @initiatives=Objective.find(params[:objective_id]).
-      initiatives.all(:conditions=>"initiative_id is null")
+      initiatives.all(:conditions=>"initiative_id=0")
 
     return_data=[]
     return_data=join_nodes_initiatives(@initiatives)

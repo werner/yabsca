@@ -211,6 +211,7 @@ Ext.onReady(function(){
         title: "Perspectives and Objectives",
         region: "west",
         split: true,
+        collapsible: true,
         width: 500,
         autoScroll: true,
         rootVisible: false,
@@ -265,6 +266,7 @@ Ext.onReady(function(){
         }, {
             region: 'west',
             title: 'Organizations and Strategies',
+            collapsible: true,
             split: true,
             width: 300,
             items:[toolBarOrgs,treePanelOrgs]

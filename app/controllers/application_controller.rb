@@ -4,6 +4,7 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  attr_accessor :color_counter
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
@@ -98,4 +99,20 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def fusionchart_xml(array)
+    xml="<graph>"
+    array.map do |item|
+      xml+="<set name='#{item[:name]}' value='#{item[:value]}' color='#{item[:color]}' />"
+    end
+    xml+="</graph>"
+  end
+
+  def get_fchart_color
+    @color_counter=@color_counter ? @color_counter + 1 : 0
+    color=["1941A5","AFD8F8","F6BD0F","8BBA00","A66EDD","F984A1",
+           "CCCC00","999999","0099CC","FF0000","006F00","0099FF",
+           "FF66CC","669966","7C7CB4","FF9933","9900FF","99FFCC",
+           "CCCCFF","669900"]
+    return color[@color_counter]
+  end
 end

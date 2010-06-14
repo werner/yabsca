@@ -194,6 +194,7 @@ measure.treePanel = new Ext.tree.TreePanel({
     title: "Measures",
     region: "west",
     split: true,
+    collapsible: true,
     autoScroll: true,
     rootVisible: false,
     lines: false,
