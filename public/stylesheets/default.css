@@ -1,3 +1,23 @@
+.red {
+  background-image: url("../images/red.png") !important;
+  background-repeat: no-repeat;
+}
+
+.yellow {
+  background-image: url("../images/yellow.png") !important;
+  background-repeat: no-repeat;
+}
+
+.green {
+  background-image: url("../images/green.png") !important;
+  background-repeat: no-repeat;
+}
+
+.chart {
+  background-image: url("../images/chart_bar.png") !important;
+  background-repeat: no-repeat;
+}
+
 .saving {
   background-image: url("../images/save.gif") !important;
   background-repeat: no-repeat;

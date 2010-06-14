@@ -115,4 +115,18 @@ class ApplicationController < ActionController::Base
            "CCCCFF","669900"]
     return color[@color_counter]
   end
+
+  def get_light(alert,excellent,default,value)
+    if (value>=excellent)
+      "green"
+    elsif (value>alert && value<excellent)
+      "yellow"
+    elsif (value<alert)
+      "red"
+    else
+      default
+    end
+  rescue
+    0
+  end
 end

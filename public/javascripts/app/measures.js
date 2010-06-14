@@ -186,6 +186,12 @@ measure.toolBar=new Ext.Toolbar({
        handler:function(){
             unit.win.show();
        }
+    },{
+       text:"Chart",
+       iconCls:"chart",
+       handler:function(){
+            fchart.win.show();
+       }        
     }]
 });
 

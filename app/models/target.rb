@@ -17,5 +17,16 @@ class Target < ActiveRecord::Base
         Date.strptime("01"+"/"+period.split("-")[0]+"/"+period.split("-")[1], "%m/%d/%Y")
     end
   end
-  
+
+  def self.average(measure_id)
+    targets=find_all_by_measure_id(measure_id)
+
+    achieved=targets.sum(&:achieved)
+    goal=targets.sum(&:goal)
+    size=targets.size
+    ((achieved/size)*100)/(goal/size)
+  rescue
+    0
+  end
+
 end

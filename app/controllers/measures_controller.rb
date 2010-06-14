@@ -7,17 +7,17 @@ class MeasuresController < ApplicationController
     return_data=@measures.collect { |u| {
         :id => u.id,
         :text => u.name,
-        :iconCls => "measure",
+        :iconCls => get_light(u.alert,u.excellent,"measure",Target.average(u.id)),
         :leaf => true
       }}
 
     respond_to do |format|
       format.json { render :json => return_data }
     end
-  rescue
-    respond_to do |format|
-      format.json { render :json => [] }
-    end
+#  rescue
+#    respond_to do |format|
+#      format.json { render :json => [] }
+#    end
   end
   
   def edit

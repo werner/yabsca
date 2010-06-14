@@ -1,0 +1,384 @@
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-14 18:50:23) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 1734ms (View: 1734, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-14 18:50:27) [GET]
+  Parameters: {"_dc"=>"1276557627372"}
+  [4;36;1mUnit Load (62.5ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 94ms (View: 0, DB: 63) | 200 OK [http://localhost/units?_dc=1276557627372]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-14 18:50:28) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276557628247", "organization_id"=>"0"}
+  [4;35;1mOrganization Load (0.0ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;35;1mOrganization Load (0.0ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 203ms (View: 0, DB: 0) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276557628247&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-14 18:50:28) [GET]
+  Parameters: {"node"=>"xnode-12", "_dc"=>"1276557628403", "strategy_id"=>"0"}
+  [4;35;1mPerspective Load (0.0ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276557628403&node=xnode-12]
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-06-14 18:50:28) [GET]
+  Parameters: {"node"=>"xnode-7", "objective_id"=>"0", "_dc"=>"1276557628487"}
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/initiatives?objective_id=0&_dc=1276557628487&node=xnode-7]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-14 18:50:29) [GET]
+  Parameters: {"node"=>"xnode-11", "objective_id"=>"0", "_dc"=>"1276557628633"}
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Objective with ID=0):
+  app/controllers/measures_controller.rb:4:in `index'
+  haml (2.2.21) lib/sass/plugin/rails.rb:20:in `process'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-06-14 18:50:29) [GET]
+  Parameters: {"_dc"=>"1276557629352", "measure_id"=>"0"}
+  [4;36;1mTarget Load (0.0ms)[0m   [0;1mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '0') [0m
+Completed in 109ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1276557629352&measure_id=0]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-14 18:57:34) [GET]
+  Parameters: {"node"=>"xnode-12", "_dc"=>"1276558054451", "strategy_id"=>"1"}
+  [4;35;1mPerspective Load (0.0ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276558054451&node=xnode-12]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-14 18:57:34) [GET]
+  Parameters: {"node"=>"xnode-11", "objective_id"=>"0", "_dc"=>"1276558054456"}
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Objective with ID=0):
+  app/controllers/measures_controller.rb:4:in `index'
+  haml (2.2.21) lib/sass/plugin/rails.rb:20:in `process'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-06-14 18:57:34) [GET]
+  Parameters: {"_dc"=>"1276558054847", "measure_id"=>"0"}
+  [4;36;1mTarget Load (0.0ms)[0m   [0;1mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '0') [0m
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1276558054847&measure_id=0]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-14 18:57:36) [GET]
+  Parameters: {"node"=>"xnode-11", "objective_id"=>"1", "_dc"=>"1276558056418"}
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (15.6ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+  [4;35;1mTarget Load (0.0ms)[0m   [0mSELECT * FROM "targets" WHERE ("targets"."measure_id" = 1) [0m
+  [4;36;1mTarget Load (0.0ms)[0m   [0;1mSELECT * FROM "targets" WHERE ("targets"."measure_id" = 2) [0m
+  [4;35;1mTarget Load (0.0ms)[0m   [0mSELECT * FROM "targets" WHERE ("targets"."measure_id" = 3) [0m
+
+ZeroDivisionError (divided by 0):
+  app/models/target.rb:27:in `/'
+  app/models/target.rb:27:in `average'
+  app/controllers/measures_controller.rb:10:in `index'
+  H:/Ruby/lib/ruby/gems/1.8/gems/will_paginate-2.3.12/lib/will_paginate/finder.rb:168:in `method_missing'
+  H:/Ruby/lib/ruby/gems/1.8/gems/will_paginate-2.3.12/lib/will_paginate/finder.rb:168:in `method_missing'
+  app/controllers/measures_controller.rb:7:in `index'
+  haml (2.2.21) lib/sass/plugin/rails.rb:20:in `process'
+
+Rendered rescues/_trace (171.9ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-06-14 18:57:37) [GET]
+  Parameters: {"node"=>"xnode-7", "objective_id"=>"1", "_dc"=>"1276558056421"}
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mInitiative Load (0.0ms)[0m   [0mSELECT * FROM "initiatives" WHERE (initiative_id=0) AND ("initiatives".objective_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+  [4;35;1mInitiative Load (0.0ms)[0m   [0mSELECT * FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 3) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 4) [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/initiatives?objective_id=1&_dc=1276558056421&node=xnode-7]
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-06-14 18:57:37) [GET]
+  Parameters: {"_dc"=>"1276558057118", "measure_id"=>"0"}
+  [4;36;1mTarget Load (0.0ms)[0m   [0;1mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '0') [0m
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1276558057118&measure_id=0]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-14 18:58:58) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-14 18:59:01) [GET]
+  Parameters: {"_dc"=>"1276558140999"}
+  [4;35;1mUnit Load (0.0ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 109ms (View: 0, DB: 0) | 200 OK [http://localhost/units?_dc=1276558140999]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-14 18:59:01) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276558141250", "organization_id"=>"0"}
+  [4;36;1mOrganization Load (0.0ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;36;1mOrganization Load (0.0ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276558141250&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-14 18:59:01) [GET]
+  Parameters: {"node"=>"xnode-12", "_dc"=>"1276558141392", "strategy_id"=>"0"}
+  [4;36;1mPerspective Load (0.0ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276558141392&node=xnode-12]
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-06-14 18:59:01) [GET]
+  Parameters: {"node"=>"xnode-7", "objective_id"=>"0", "_dc"=>"1276558141471"}
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/initiatives?objective_id=0&_dc=1276558141471&node=xnode-7]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-14 18:59:01) [GET]
+  Parameters: {"node"=>"xnode-11", "objective_id"=>"0", "_dc"=>"1276558141606"}
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Objective with ID=0):
+  app/controllers/measures_controller.rb:4:in `index'
+  haml (2.2.21) lib/sass/plugin/rails.rb:20:in `process'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-06-14 18:59:02) [GET]
+  Parameters: {"_dc"=>"1276558142122", "measure_id"=>"0"}
+  [4;35;1mTarget Load (0.0ms)[0m   [0mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '0') [0m
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1276558142122&measure_id=0]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-14 18:59:04) [GET]
+  Parameters: {"node"=>"xnode-12", "_dc"=>"1276558144507", "strategy_id"=>"1"}
+  [4;36;1mPerspective Load (0.0ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276558144507&node=xnode-12]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-14 18:59:04) [GET]
+  Parameters: {"node"=>"xnode-11", "objective_id"=>"0", "_dc"=>"1276558144520"}
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Objective with ID=0):
+  app/controllers/measures_controller.rb:4:in `index'
+  haml (2.2.21) lib/sass/plugin/rails.rb:20:in `process'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-06-14 18:59:04) [GET]
+  Parameters: {"_dc"=>"1276558144866", "measure_id"=>"0"}
+  [4;35;1mTarget Load (0.0ms)[0m   [0mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '0') [0m
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1276558144866&measure_id=0]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-14 18:59:06) [GET]
+  Parameters: {"node"=>"xnode-11", "objective_id"=>"1", "_dc"=>"1276558146721"}
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Load (15.6ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+  [4;36;1mTarget Load (15.6ms)[0m   [0;1mSELECT * FROM "targets" WHERE ("targets"."measure_id" = 1) [0m
+  [4;35;1mTarget Load (0.0ms)[0m   [0mSELECT * FROM "targets" WHERE ("targets"."measure_id" = 2) [0m
+  [4;36;1mTarget Load (0.0ms)[0m   [0;1mSELECT * FROM "targets" WHERE ("targets"."measure_id" = 3) [0m
+
+ArgumentError (comparison of Fixnum with nil failed):
+  app/controllers/application_controller.rb:120:in `get_light'
+  app/controllers/measures_controller.rb:10:in `index'
+  H:/Ruby/lib/ruby/gems/1.8/gems/will_paginate-2.3.12/lib/will_paginate/finder.rb:168:in `method_missing'
+  H:/Ruby/lib/ruby/gems/1.8/gems/will_paginate-2.3.12/lib/will_paginate/finder.rb:168:in `method_missing'
+  app/controllers/measures_controller.rb:7:in `index'
+  haml (2.2.21) lib/sass/plugin/rails.rb:20:in `process'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-06-14 18:59:07) [GET]
+  Parameters: {"node"=>"xnode-7", "objective_id"=>"1", "_dc"=>"1276558146730"}
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mInitiative Load (0.0ms)[0m   [0;1mSELECT * FROM "initiatives" WHERE (initiative_id=0) AND ("initiatives".objective_id = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+  [4;36;1mInitiative Load (0.0ms)[0m   [0;1mSELECT * FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 3) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 4) [0m
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhost/initiatives?objective_id=1&_dc=1276558146730&node=xnode-7]
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-06-14 18:59:07) [GET]
+  Parameters: {"_dc"=>"1276558147279", "measure_id"=>"0"}
+  [4;35;1mTarget Load (0.0ms)[0m   [0mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '0') [0m
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1276558147279&measure_id=0]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-06-14 19:01:26) [GET]
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-06-14 19:01:28) [GET]
+  Parameters: {"_dc"=>"1276558288362"}
+  [4;36;1mUnit Load (15.6ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 63ms (View: 0, DB: 16) | 200 OK [http://localhost/units?_dc=1276558288362]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-06-14 19:01:28) [GET]
+  Parameters: {"node"=>"xnode-3", "_dc"=>"1276558288554", "organization_id"=>"0"}
+  [4;35;1mOrganization Load (0.0ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;35;1mOrganization Load (0.0ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/org_and_strat?organization_id=0&_dc=1276558288554&node=xnode-3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-14 19:01:28) [GET]
+  Parameters: {"node"=>"xnode-12", "_dc"=>"1276558288698", "strategy_id"=>"0"}
+  [4;35;1mPerspective Load (0.0ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1276558288698&node=xnode-12]
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-06-14 19:01:28) [GET]
+  Parameters: {"node"=>"xnode-7", "objective_id"=>"0", "_dc"=>"1276558288775"}
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/initiatives?objective_id=0&_dc=1276558288775&node=xnode-7]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-14 19:01:29) [GET]
+  Parameters: {"node"=>"xnode-11", "objective_id"=>"0", "_dc"=>"1276558288908"}
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Objective with ID=0):
+  app/controllers/measures_controller.rb:4:in `index'
+  haml (2.2.21) lib/sass/plugin/rails.rb:20:in `process'
+
+Rendered rescues/_trace (187.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-06-14 19:01:29) [GET]
+  Parameters: {"_dc"=>"1276558289479", "measure_id"=>"0"}
+  [4;36;1mTarget Load (0.0ms)[0m   [0;1mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '0') [0m
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1276558289479&measure_id=0]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-06-14 19:01:37) [GET]
+  Parameters: {"node"=>"xnode-12", "_dc"=>"1276558297827", "strategy_id"=>"1"}
+  [4;35;1mPerspective Load (0.0ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1276558297827&node=xnode-12]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-14 19:01:38) [GET]
+  Parameters: {"node"=>"xnode-11", "objective_id"=>"0", "_dc"=>"1276558297832"}
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Objective with ID=0):
+  app/controllers/measures_controller.rb:4:in `index'
+  haml (2.2.21) lib/sass/plugin/rails.rb:20:in `process'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-06-14 19:01:38) [GET]
+  Parameters: {"_dc"=>"1276558298181", "measure_id"=>"0"}
+  [4;36;1mTarget Load (0.0ms)[0m   [0;1mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '0') [0m
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1276558298181&measure_id=0]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-06-14 19:01:39) [GET]
+  Parameters: {"node"=>"xnode-11", "objective_id"=>"1", "_dc"=>"1276558299705"}
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.0ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+  [4;35;1mTarget Load (0.0ms)[0m   [0mSELECT * FROM "targets" WHERE ("targets"."measure_id" = 1) [0m
+  [4;36;1mTarget Load (0.0ms)[0m   [0;1mSELECT * FROM "targets" WHERE ("targets"."measure_id" = 2) [0m
+  [4;35;1mTarget Load (0.0ms)[0m   [0mSELECT * FROM "targets" WHERE ("targets"."measure_id" = 3) [0m
+Completed in 266ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1276558299705&node=xnode-11]
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-06-14 19:01:40) [GET]
+  Parameters: {"node"=>"xnode-7", "objective_id"=>"1", "_dc"=>"1276558299710"}
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mInitiative Load (0.0ms)[0m   [0mSELECT * FROM "initiatives" WHERE (initiative_id=0) AND ("initiatives".objective_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+  [4;35;1mInitiative Load (0.0ms)[0m   [0mSELECT * FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 3) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 4) [0m
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/initiatives?objective_id=1&_dc=1276558299710&node=xnode-7]
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-06-14 19:01:40) [GET]
+  Parameters: {"_dc"=>"1276558300117", "measure_id"=>"0"}
+  [4;36;1mTarget Load (0.0ms)[0m   [0;1mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '0') [0m
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1276558300117&measure_id=0]
+
+
+Processing PresentationController#get_targets (for 127.0.0.1 at 2010-06-14 19:01:55) [GET]
+  Parameters: {"_dc"=>"1276558315553", "measure_id"=>"2"}
+  [4;35;1mMeasure Load (0.0ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 2) [0m
+Completed in 78ms (View: 0, DB: 0) | 200 OK [http://localhost/get_targets?_dc=1276558315553&measure_id=2]
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-06-14 19:01:55) [GET]
+  Parameters: {"_dc"=>"1276558315557", "measure_id"=>"2"}
+  [4;36;1mTarget Load (0.0ms)[0m   [0;1mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '2') [0m
+  [4;35;1mMeasure Load (0.0ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "measures" WHERE ("measures"."id" = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 2) [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1276558315557&measure_id=2]
+
+
+Processing PresentationController#get_targets (for 127.0.0.1 at 2010-06-14 19:01:57) [GET]
+  Parameters: {"_dc"=>"1276558316985", "measure_id"=>"1"}
+  [4;36;1mMeasure Load (0.0ms)[0m   [0;1mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhost/get_targets?_dc=1276558316985&measure_id=1]
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-06-14 19:01:57) [GET]
+  Parameters: {"_dc"=>"1276558316989", "measure_id"=>"1"}
+  [4;35;1mTarget Load (0.0ms)[0m   [0mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '1') [0m
+  [4;36;1mMeasure Load (0.0ms)[0m   [0;1mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1276558316989&measure_id=1]
+
+
+Processing PresentationController#get_targets (for 127.0.0.1 at 2010-06-14 19:01:58) [GET]
+  Parameters: {"_dc"=>"1276558318474", "measure_id"=>"3"}
+  [4;35;1mMeasure Load (0.0ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 3) [0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/get_targets?_dc=1276558318474&measure_id=3]
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-06-14 19:01:58) [GET]
+  Parameters: {"_dc"=>"1276558318478", "measure_id"=>"3"}
+  [4;36;1mTarget Load (0.0ms)[0m   [0;1mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '3') [0m
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1276558318478&measure_id=3]
