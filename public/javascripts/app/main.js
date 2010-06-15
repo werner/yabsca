@@ -106,6 +106,13 @@ Ext.onReady(function(){
                     }
                 }]
             }
+        },{
+           text:"Gantt",
+           iconCls:"gantt",
+           handler:function(){
+                fchart.type="FCF_Gantt.swf";
+                fchart.win.show();
+           }
         }]
     });
 

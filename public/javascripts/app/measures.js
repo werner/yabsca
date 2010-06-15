@@ -94,6 +94,21 @@ measure.form=new Ext.FormPanel({
         mode: "remote",
         valueNotFoundText:"Select an unit...",
         emptyText: "Select an unit..."
+    }),new Ext.form.ComboBox({
+        id:"measure_responsible_id",
+        fieldLabel: "Responsible",
+        name: "measure[responsible_id]",
+        store: responsible.store,
+        displayField: "name",
+        valueField: "id",
+        hiddenName:"measure[responsible_id]",
+        typeAhead: true,
+        triggerAction: 'all',
+        forceSelection: true,
+        selectOnFocus:true,
+        mode: "remote",
+        valueNotFoundText:"Select an responsible...",
+        emptyText: "Select an responsible..."
     }),new Ext.form.Hidden({
         id:"measure_objective_ids",
         name:"measure[objective_ids][]"
@@ -187,9 +202,16 @@ measure.toolBar=new Ext.Toolbar({
             unit.win.show();
        }
     },{
+       text:"Responsibles",
+       iconCls:"responsible",
+       handler:function(){
+            responsible.win.show();
+       }
+    },{
        text:"Chart",
        iconCls:"chart",
        handler:function(){
+            fchart.type="FCF_Column3D.swf";
             fchart.win.show();
        }        
     }]

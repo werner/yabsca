@@ -32,6 +32,21 @@ initiative.form=new Ext.FormPanel({
         fieldLabel: "End",
         id: "initiative_end",
         name:"initiative[end]"
+    }),new Ext.form.ComboBox({
+        id:"initiative_responsible_id",
+        fieldLabel: "Responsible",
+        name: "initiative[responsible_id]",
+        store: responsible.store,
+        displayField: "name",
+        valueField: "id",
+        hiddenName:"initiative[responsible_id]",
+        typeAhead: true,
+        triggerAction: 'all',
+        forceSelection: true,
+        selectOnFocus:true,
+        mode: "remote",
+        valueNotFoundText:"Select an responsible...",
+        emptyText: "Select an responsible..."
     }),new Ext.form.Hidden({
         id:"initiative_objective_id",
         name:"initiative[objective_id]"
@@ -122,6 +137,12 @@ initiative.toolBar=new Ext.Toolbar({
                     }
                }
            }]
+       }
+    },{
+       text:"Responsibles",
+       iconCls:"responsible",
+       handler:function(){
+            responsible.win.show();
        }
     }]
 });

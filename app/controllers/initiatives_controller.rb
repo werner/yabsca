@@ -27,6 +27,7 @@ class InitiativesController < ApplicationController
                         "initiative[beginning]" => @initiative.beginning,
                         "initiative[end]" => @initiative.end,
                         "initiative[objective_id]" => @initiative.objective_id,
+                        "initiative[responsible_id]" => @initiative.responsible_id,
                         "initiative[initiative_id]" => @initiative.initiative_id}
 
     respond_to do |format|

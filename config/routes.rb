@@ -1,8 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.resources :organizations, :strategies, :perspectives,
+  map.resources :organizations, :strategies, :perspectives, :responsibles,
                   :objectives, :units, :measures, :targets, :initiatives
 
+  map.generate_gantt '/generate_gantt', :controller => 'presentation', :action => 'generate_gantt'
   map.generate_chart '/generate_chart', :controller => 'presentation', :action => 'generate_chart'
   map.chart '/chart', :controller => 'presentation', :action => 'chart'
   map.get_targets '/get_targets', :controller => 'presentation', :action => 'get_targets'

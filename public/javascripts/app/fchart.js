@@ -1,17 +1,33 @@
 var fchart = new Object();
 
+fchart.type="";
+
 function generate_chart(){
-    Ext.Ajax.request({
-        url:"/generate_chart",
-        method:"GET",
-        params:{measure_id: measure.id},
-        success:function(data){
-            fchart.column = new FusionCharts("../../FusionCharts/FCF_Column3D.swf",
-                            "chart1Id", "400", "300", "0", "1");
-            fchart.column.setDataXML(data.responseText);
-            fchart.column.render("fchart");
-        }
-    });
+    if (fchart.type=="FCF_Gantt.swf"){
+        Ext.Ajax.request({
+            url:"/generate_gantt",
+            method:"GET",
+            params:{objective_id: objective.id},
+            success:function(data){
+                fchart.column = new FusionCharts("../../FusionCharts/"+fchart.type,
+                                "chart1Id", "400", "300", "0", "1");
+                fchart.column.setDataXML(data.responseText);
+                fchart.column.render("fchart");
+            }
+        });
+    }else{
+        Ext.Ajax.request({
+            url:"/generate_chart",
+            method:"GET",
+            params:{measure_id: measure.id},
+            success:function(data){
+                fchart.column = new FusionCharts("../../FusionCharts/"+fchart.type,
+                                "chart1Id", "400", "300", "0", "1");
+                fchart.column.setDataXML(data.responseText);
+                fchart.column.render("fchart");
+            }
+        });
+    }
 }
 
 fchart.win=new Ext.Window({

@@ -119,7 +119,7 @@ class ApplicationController < ActionController::Base
   def get_light(alert,excellent,default,value)
     if (value>=excellent)
       "green"
-    elsif (value>alert && value<excellent)
+    elsif (value>=alert && value<excellent)
       "yellow"
     elsif (value<alert)
       "red"
@@ -127,6 +127,6 @@ class ApplicationController < ActionController::Base
       default
     end
   rescue
-    0
+    default
   end
 end

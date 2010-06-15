@@ -1,7 +1,7 @@
 class MeasuresController < ApplicationController
 
   def index
-    @measures=Objective.find(params[:objective_id]).measures
+    @measures=Objective.find(params[:objective_id]).measures rescue []
 
     return_data=[]
     return_data=@measures.collect { |u| {
@@ -14,10 +14,6 @@ class MeasuresController < ApplicationController
     respond_to do |format|
       format.json { render :json => return_data }
     end
-#  rescue
-#    respond_to do |format|
-#      format.json { render :json => [] }
-#    end
   end
   
   def edit
@@ -35,6 +31,7 @@ class MeasuresController < ApplicationController
                         "measure[period_from]" => @measure.period_from,
                         "measure[period_to]" => @measure.period_to,
                         "measure[unit_id]" => @measure.unit_id,
+                        "measure[responsible_id]" => @measure.responsible_id,
                         "measure[objective_ids][]" => @measure.objective_ids}
 
     respond_to do |format|

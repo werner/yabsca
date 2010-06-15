@@ -1,3 +1,13 @@
+.gantt {
+  background-image: url("../images/shape_align_right.png") !important;
+  background-repeat: no-repeat;
+}
+
+.responsible {
+  background-image: url("../images/user_suit.png") !important;
+  background-repeat: no-repeat;
+}
+
 .red {
   background-image: url("../images/red.png") !important;
   background-repeat: no-repeat;
