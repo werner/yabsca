@@ -23,14 +23,15 @@ measure.form=new Ext.FormPanel({
     width: 350,
     defaults: {width: 230},
     items:[new Ext.form.TextField({
+        fieldLabel: "Code",
+        id: "measure_code",
+        name:"measure[code]",
+        allowBlank: false
+    }),new Ext.form.TextField({
         fieldLabel: "Name",
         id: "measure_name",
         name:"measure[name]",
         allowBlank: false
-    }),new Ext.form.TextField({
-        fieldLabel: "Code",
-        id: "measure_code",
-        name:"measure[code]"
     }), new Ext.form.TextArea({
         fieldLabel: "Description",
         id: "measure_description",
@@ -214,6 +215,12 @@ measure.toolBar=new Ext.Toolbar({
             fchart.type="FCF_Column3D.swf";
             fchart.win.show();
        }        
+    },{
+       text:"Formula",
+       iconCls:"formula_icon",
+       handler:function(){
+           measure.win_formula.show();
+       }
     }]
 });
 
@@ -251,4 +258,93 @@ measure.treePanel = new Ext.tree.TreePanel({
         }
     },
     root: new Ext.tree.AsyncTreeNode()
+});
+
+measure.allTreePanel = new Ext.tree.TreePanel({
+    id: "tree-panel_m",
+    title: "Measures",
+    ddGroup: 'dataDDGroup',
+    region: "center",
+    split: true,
+    enableDrag:true,
+    autoScroll: true,
+    rootVisible: false,
+    lines: false,
+    singleExpand: true,
+    width:100,
+    useArrows: true,
+    loader: new Ext.tree.TreeLoader({
+        requestMethod:"GET",
+        dataUrl:function() {return "/all_measures?strategy_id="+strategy.id}
+    }),
+    root: new Ext.tree.AsyncTreeNode()
+});
+
+measure.proxy=new Ext.data.HttpProxy({url: "/get_formula?measure_id="+measure.id, method:"GET"});
+
+measure.store = new Ext.data.ArrayStore({
+    proxy:measure.proxy,
+    autoDestroy: true,
+    fields: ['formula']
+});
+
+measure.store.load();
+
+var tpl = new Ext.XTemplate(
+    '<tpl for=".">',
+        '<div class="formula">{formula}</div>',
+    '</tpl>');
+
+measure.dataView=new Ext.DataView({
+    store: measure.store,
+    id:'data-view',
+    tpl: tpl,
+    split: true,
+    autoHeight:true,
+    selectedClass: 'formula-selected',
+    singleSelect: true,
+    overClass:'formula-over',
+    itemSelector:'div.thumb-wrap',
+    emptyText: 'Nothing to display',
+    listeners: {
+        render: function(g){
+            var dropTarget = new Ext.dd.DropTarget(g.container.dom,{
+              ddGroup: 'dataDDGroup',
+              copy: false,
+              overClass: 'over',
+              notifyDrop: function(dragSource, event, data){
+                console.info(g);
+              }
+            });
+        }
+    }
+
+
+});
+
+measure.win_formula=new Ext.Window({
+    layout:"border",
+    width:500,
+    height:400,
+    split: true,
+    closeAction:"hide",
+    plain: true,
+    items:[{
+        title: 'Formula',
+        region: 'west',
+        width:200,
+        items: measure.dataView
+    },measure.allTreePanel],
+    buttons: [{
+        text:'Close',
+        iconCls:'close',
+        handler:function(){
+            measure.win_formula.hide();
+        }
+    }],
+    listeners:{
+        show:function(){
+            measure.allTreePanel.getRootNode().reload();
+        }
+    }
 });

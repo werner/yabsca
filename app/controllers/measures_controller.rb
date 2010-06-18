@@ -7,12 +7,31 @@ class MeasuresController < ApplicationController
     return_data=@measures.collect { |u| {
         :id => u.id,
         :text => u.name,
-        :iconCls => get_light(u.alert,u.excellent,"measure",Target.average(u.id)),
+        :iconCls => get_light(u,"measure",Target.average(u.id)),
         :leaf => true
       }}
 
     respond_to do |format|
       format.json { render :json => return_data }
+    end
+  end
+
+  def all_measures
+    perspectives=Perspective.find_all_by_strategy_id(params[:strategy_id])
+
+    return_data=[]
+    return_data=join_nodes_all_measures(perspectives)
+
+    respond_to do |format|
+      format.json { render :json => return_data }
+    end    
+  end
+
+  def get_formula
+    formula=Measure.find(params[:measure_id]).formula rescue [['test1'],['test2']]
+
+    respond_to do |format|
+      format.json { render :json => formula }
     end
   end
   

@@ -65,8 +65,7 @@ class ApplicationController < ActionController::Base
        :iconCls => "persp",
        :type => "perspective",
        :leaf => u.objectives.empty?,
-       :children=>join_nodes_objs(u.objectives)
-       }
+       :children=>join_nodes_objs(u.objectives)}
     end
   end
 
@@ -92,6 +91,39 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def join_nodes_all_measures(tree)
+    tree.map do |u|
+      {:id => 'p'+u.id.to_s,
+       :iddb => u.id,
+       :text => u.name,
+       :iconCls => "persp",
+       :type => "perspective",
+       :leaf => u.objectives.empty?,
+       :children=>join_nodes_all_objectives(u.objectives)}
+    end    
+  end
+
+  def join_nodes_all_objectives(tree)
+    tree.map do |u|
+      {:id => 'o'+u.id.to_s,
+      :iddb => u.id,
+      :text => u.name,
+      :iconCls => "objs",
+      :leaf => (u.objectives.empty? && u.measures.empty?),
+      :type => "objective",
+      :children=> u.objectives.empty? ? join_measures(u.measures) : join_nodes_objs(u.objectives)}
+    end    
+  end
+
+  def join_measures(tree)
+    tree.map do |u|
+     {:id => u.id,
+      :text => u.name,
+      :iconCls => "measure",
+      :leaf => true}
+    end
+  end
+  
   def nodes_expanded(data)
     unless data.nil?
       @nodes.push(data.id)
@@ -106,6 +138,26 @@ class ApplicationController < ActionController::Base
     end
     xml+="</graph>"
   end
+  
+  def fusionchart_xml_gantt(hash)
+    xml="<graph dateFormat='mm/dd/yyyy'>"
+    xml+="<categories>"
+    hash[:categories].map do |item|
+      xml+="<category start='#{item[:start]}' end='#{item[:end]}' name='#{item[:name]}' />"
+    end
+    xml+="</categories>"
+    xml+="<processes isBold='1' headerText='Tasks'>"
+    hash[:processes].map do |item|
+      xml+="<process name='#{item[:name]}' id='#{item[:id]}' />"
+    end
+    xml+="</processes>"
+    xml+="<tasks>"
+    hash[:tasks].map do |item|
+      xml+="<task name='#{item[:name]}' start='#{item[:start]}' end='#{item[:end]}' processId='#{item[:processId]}' />"
+    end
+    xml+="</tasks>"
+    xml+="</graph>"
+  end
 
   def get_fchart_color
     @color_counter=@color_counter ? @color_counter + 1 : 0
@@ -116,15 +168,21 @@ class ApplicationController < ActionController::Base
     return color[@color_counter]
   end
 
-  def get_light(alert,excellent,default,value)
-    if (value>=excellent)
-      "green"
-    elsif (value>=alert && value<excellent)
-      "yellow"
-    elsif (value<alert)
-      "red"
+  def get_light(measure,default,pvalue)
+    value_max={
+      "green"=>(pvalue>=measure.excellent),
+      "yellow"=>(pvalue>=measure.alert && pvalue<measure.excellent),
+      "red"=>(pvalue<measure.alert)
+    }
+    value_min={
+      "green"=>(pvalue<=measure.excellent),
+      "yellow"=>(pvalue<=measure.alert && pvalue>measure.excellent),
+      "red"=>(pvalue>measure.alert)
+    }
+    if (measure.challenge==Challenge::Increasing)
+      value_max.each_pair { |key,value| return key if value==true  }
     else
-      default
+      value_min.each_pair { |key,value| return key if value==true  }
     end
   rescue
     default

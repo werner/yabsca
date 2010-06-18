@@ -39,6 +39,10 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
+
+ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!(:default => '%m/%d/%Y')
+ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!(:default => '%m/%d/%Y %H:%M')
+
 require "will_paginate"
 module Frecuency
   Daily=1
@@ -48,4 +52,8 @@ module Frecuency
   Three_monthly=5
   Four_monthly=6
   Yearly=7
+end
+module Challenge
+  Increasing=1
+  Decreasing=2
 end

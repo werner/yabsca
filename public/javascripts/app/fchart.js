@@ -51,7 +51,7 @@ fchart.win=new Ext.Window({
         }
     }],
     listeners:{
-        show:function(n){
+        show:function(){
             generate_chart();
         }
     }

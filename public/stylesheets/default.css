@@ -1,3 +1,32 @@
+.thumb-wrap {
+    cursor: pointer;
+}
+
+.formula-over {
+    background-color:#EFEFEF;
+    cursor: pointer;
+}
+.formula-selected {
+    background-color: #DFE8F6;
+    cursor: pointer;
+}
+
+.formula{
+    background-color: #fff;
+    border: 1px solid #bbb;
+    font-weight: bold;
+    float:left;
+    height: 50px;
+    text-align: left;
+    width: 50px;
+    padding: 0px 3px 0px 0px;    
+}
+
+.formula_icon{
+  background-image: url("../images/calculator.png") !important;
+  background-repeat: no-repeat;
+}
+
 .gantt {
   background-image: url("../images/shape_align_right.png") !important;
   background-repeat: no-repeat;
