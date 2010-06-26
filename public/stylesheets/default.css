@@ -1,6 +1,58 @@
-.thumb-wrap {
+/******************************************************/
+.top-wrap {
+    cursor: pointer;
+    width: 60px;
+}
+
+.formula-selected {
+    background-color: #DFE8F6;
     cursor: pointer;
 }
+
+.top-over {
+    background-color:#EFEFEF;
+    cursor: pointer;
+}
+
+#squares{
+    border: 1px solid #bbb;
+    height: 50px;
+    text-align: center;
+    width: 50px;
+    padding: 0px 3px 0px 0px;
+}
+/*
+.open_bracket{
+  background-image: url("../images/opened_bracket.png") !important;
+  background-repeat: no-repeat;
+}
+
+.close_bracket{
+  background-image: url("../images/closed_bracket.png") !important;
+  background-repeat: no-repeat;
+}
+
+.divide{
+  background-image: url("../images/divide.png") !important;
+  background-repeat: no-repeat;
+}
+
+.multiply{
+  background-image: url("../images/multiply.png") !important;
+  background-repeat: no-repeat;
+}
+
+.subtract{
+  background-image: url("../images/minus.png") !important;
+  background-repeat: no-repeat;
+}
+
+.sum{
+  background-image: url("../images/sum1.png") !important;
+  background-repeat: no-repeat;
+}
+*/
+/******************************************************/
 
 .formula-over {
     background-color:#EFEFEF;
@@ -11,19 +63,8 @@
     cursor: pointer;
 }
 
-.formula{
-    background-color: #fff;
-    border: 1px solid #bbb;
-    font-weight: bold;
-    float:left;
-    height: 50px;
-    text-align: left;
-    width: 50px;
-    padding: 0px 3px 0px 0px;    
-}
-
 .formula_icon{
-  background-image: url("../images/calculator.png") !important;
+  background-image: url("../images/sum.png") !important;
   background-repeat: no-repeat;
 }
 

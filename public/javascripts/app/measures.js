@@ -292,7 +292,7 @@ measure.store.load();
 
 var tpl = new Ext.XTemplate(
     '<tpl for=".">',
-        '<div class="formula">{formula}</div>',
+        '<div id="squares" class="formula">{formula}</div>',
     '</tpl>');
 
 measure.dataView=new Ext.DataView({
@@ -313,13 +313,40 @@ measure.dataView=new Ext.DataView({
               copy: false,
               overClass: 'over',
               notifyDrop: function(dragSource, event, data){
-                console.info(g);
+                var d = new measure.dataView.store.recordType({formula: data.node.attributes.code});
+                measure.dataView.store.insert(measure.dataView.store.data.length,d);
               }
             });
         }
     }
+});
 
+measure.topData=[{id:1, name:"sum"},{id:2, name:"subtract"},{id:3, name:"multiply"},
+ {id:4, name:"divide"},{id:5, name:"open_bracket"},{id:6,name:"close_bracket"}]
 
+measure.record = Ext.data.Record.create([{name: 'id'}, {name: 'name'}]);
+
+measure.topStore = new Ext.data.Store({
+    data: measure.topData,
+    reader: new Ext.data.JsonReader({
+        id: 'id'
+    }, measure.record)
+});
+
+measure.topView=new Ext.DataView({
+    store: measure.topStore,
+    cls: 'top-view',
+    tpl: new Ext.XTemplate(
+    '<tpl for=".">',
+        '<div class="top-wrap"><div id="squares" class="{name}">{name}</div></div>',
+    '</tpl>'),
+    selectedClass: 'formula-selected',
+    singleSelect: true,
+    overClass:'top-over',
+    itemSelector:'div.top-wrap',
+    listeners: {
+        render: initializeDragZone
+    }
 });
 
 measure.win_formula=new Ext.Window({
@@ -330,6 +357,10 @@ measure.win_formula=new Ext.Window({
     closeAction:"hide",
     plain: true,
     items:[{
+        region:'north',
+        height:50,
+        items:measure.topView
+    },{
         title: 'Formula',
         region: 'west',
         width:200,
@@ -348,3 +379,24 @@ measure.win_formula=new Ext.Window({
         }
     }
 });
+
+function initializeDragZone(v) {
+    v.dragZone = new Ext.dd.DragZone(v.getEl(), {
+        getDragData: function(e) {
+            var sourceEl = e.getTarget(v.itemSelector, 10);
+            if (sourceEl) {
+                d = sourceEl.cloneNode(true);
+                d.id = Ext.id();
+                return v.dragData = {
+                    sourceEl: sourceEl,
+                    repairXY: Ext.fly(sourceEl).getXY(),
+                    ddel: d,
+                    patientData: v.getRecord(sourceEl).data
+                }
+            }
+        },
+        getRepairXY: function() {
+            return this.dragData.repairXY;
+        }
+    });
+}

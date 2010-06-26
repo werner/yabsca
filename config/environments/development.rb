@@ -15,3 +15,10 @@ config.action_controller.perform_caching             = false
 
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
+
+require 'treetop'
+require 'formula_node'
+require 'formula'
+
+ActionController::Base.send(:include, Formula)
+ActionController::Base.send(:include, FormulaNode)

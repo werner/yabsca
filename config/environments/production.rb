@@ -26,3 +26,9 @@ config.action_view.cache_template_loading            = true
 
 # Enable threaded mode
 # config.threadsafe!
+require 'treetop'
+require 'formula_node'
+require 'formula'
+
+ActionController::Base.send(:include, Formula)
+ActionController::Base.send(:include, FormulaNode)

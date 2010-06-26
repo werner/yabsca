@@ -119,6 +119,7 @@ class ApplicationController < ActionController::Base
     tree.map do |u|
      {:id => u.id,
       :text => u.name,
+      :code => u.code,
       :iconCls => "measure",
       :leaf => true}
     end
