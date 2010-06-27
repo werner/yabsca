@@ -15,13 +15,14 @@
 }
 
 #squares{
+    font-family: monospace;
+    font-size: 12px;
     border: 1px solid #bbb;
     height: 50px;
     text-align: center;
     width: 50px;
     padding: 0px 3px 0px 0px;
 }
-/*
 .open_bracket{
   background-image: url("../images/opened_bracket.png") !important;
   background-repeat: no-repeat;
@@ -51,7 +52,6 @@
   background-image: url("../images/sum1.png") !important;
   background-repeat: no-repeat;
 }
-*/
 /******************************************************/
 
 .formula-over {

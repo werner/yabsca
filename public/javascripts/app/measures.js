@@ -280,32 +280,11 @@ measure.allTreePanel = new Ext.tree.TreePanel({
     root: new Ext.tree.AsyncTreeNode()
 });
 
-measure.proxy=new Ext.data.HttpProxy({url: "/get_formula?measure_id="+measure.id, method:"GET"});
-
-measure.store = new Ext.data.ArrayStore({
-    proxy:measure.proxy,
-    autoDestroy: true,
-    fields: ['formula']
-});
-
-measure.store.load();
-
-var tpl = new Ext.XTemplate(
-    '<tpl for=".">',
-        '<div id="squares" class="formula">{formula}</div>',
-    '</tpl>');
-
-measure.dataView=new Ext.DataView({
-    store: measure.store,
-    id:'data-view',
-    tpl: tpl,
-    split: true,
-    autoHeight:true,
-    selectedClass: 'formula-selected',
-    singleSelect: true,
-    overClass:'formula-over',
-    itemSelector:'div.thumb-wrap',
-    emptyText: 'Nothing to display',
+measure.formulaText=new Ext.form.TextArea({
+    id:'formula_text',
+    name:'formulaText',
+    width:200,
+    height: 300,
     listeners: {
         render: function(g){
             var dropTarget = new Ext.dd.DropTarget(g.container.dom,{
@@ -313,18 +292,25 @@ measure.dataView=new Ext.DataView({
               copy: false,
               overClass: 'over',
               notifyDrop: function(dragSource, event, data){
-                var d = new measure.dataView.store.recordType({formula: data.node.attributes.code});
-                measure.dataView.store.insert(measure.dataView.store.data.length,d);
+                console.log(data.patientData);
+                if (dragSource.id=="ext-comp-1070")
+                    measure.formulaText.setValue(measure.formulaText.getValue()+
+                        data.patientData.value);
+                else
+                    measure.formulaText.setValue(measure.formulaText.getValue()+
+                        '<code>'+data.node.attributes.code+'</code>');
               }
             });
         }
     }
 });
 
-measure.topData=[{id:1, name:"sum"},{id:2, name:"subtract"},{id:3, name:"multiply"},
- {id:4, name:"divide"},{id:5, name:"open_bracket"},{id:6,name:"close_bracket"}]
+measure.topData=[{id:1, name:"sum",value:"+"},{id:2, name:"subtract",value:"-"},
+    {id:3, name:"multiply",value:"*"},
+    {id:4, name:"divide",value:"/"},{id:5, name:"open_bracket",value:"("},
+    {id:6,name:"close_bracket",value:")"}]
 
-measure.record = Ext.data.Record.create([{name: 'id'}, {name: 'name'}]);
+measure.record = Ext.data.Record.create([{name: 'id'}, {name: 'name'}, {name: 'value'}]);
 
 measure.topStore = new Ext.data.Store({
     data: measure.topData,
@@ -337,9 +323,9 @@ measure.topView=new Ext.DataView({
     store: measure.topStore,
     cls: 'top-view',
     tpl: new Ext.XTemplate(
-    '<tpl for=".">',
-        '<div class="top-wrap"><div id="squares" class="{name}">{name}</div></div>',
-    '</tpl>'),
+    '<table><tr><tpl for=".">',
+        '<td><div class="top-wrap"><div id="squares" class="{name}"></div></div></td>',
+    '</tpl></tr></table>'),
     selectedClass: 'formula-selected',
     singleSelect: true,
     overClass:'top-over',
@@ -364,7 +350,7 @@ measure.win_formula=new Ext.Window({
         title: 'Formula',
         region: 'west',
         width:200,
-        items: measure.dataView
+        items: measure.formulaText
     },measure.allTreePanel],
     buttons: [{
         text:'Close',
@@ -382,6 +368,7 @@ measure.win_formula=new Ext.Window({
 
 function initializeDragZone(v) {
     v.dragZone = new Ext.dd.DragZone(v.getEl(), {
+        ddGroup: 'dataDDGroup',
         getDragData: function(e) {
             var sourceEl = e.getTarget(v.itemSelector, 10);
             if (sourceEl) {
