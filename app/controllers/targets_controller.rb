@@ -17,6 +17,19 @@ class TargetsController < ApplicationController
     end
   end
 
+  def save_target
+    target=Target.find(:first,:conditions => ["measure_id=? and period=?",
+                                              params[:measure_id],params[:period]])
+    parser=FormulaParser.new
+    p=parser.parse(params[:formula])
+    p.period=params[:period]
+    if target.update_attributes({:achieved=>eval(p.code_value)})
+      render :json => {:success => true}
+    else
+      render :json => {:success => false}
+    end
+  end
+  
   def create
     self.default_creation(Target, params[:target])
   end

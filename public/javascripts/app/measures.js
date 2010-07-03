@@ -194,6 +194,24 @@ measure.toolBar=new Ext.Toolbar({
                         Ext.Msg.alert("Error","You must select a measure");
                     }
                }
+           },"-",{
+               text:"Formula",
+               iconCls:"formula_icon",
+               handler:function(){
+                   if (measure.id>0){
+                        Ext.Ajax.request({
+                            url:"/get_formula",
+                            method:"GET",
+                            params:{id:measure.id},
+                            success:function(response){
+                                measure.formulaText.setValue(response.responseText);
+                            }
+                        });
+                        measure.win_formula.show();
+                   }else
+                        Ext.Msg.alert("Error","You must select a measure");
+                    
+               }
            }]
        }
     },{
@@ -208,19 +226,14 @@ measure.toolBar=new Ext.Toolbar({
        handler:function(){
             responsible.win.show();
        }
-    },{
+    },"-",
+    {
        text:"Chart",
        iconCls:"chart",
        handler:function(){
             fchart.type="FCF_Column3D.swf";
             fchart.win.show();
        }        
-    },{
-       text:"Formula",
-       iconCls:"formula_icon",
-       handler:function(){
-           measure.win_formula.show();
-       }
     }]
 });
 
@@ -244,10 +257,10 @@ measure.treePanel = new Ext.tree.TreePanel({
     listeners:{
         click:function(n){
             measure.id=n.id;
-            target.frec_store.setBaseParam("measure_id",measure.id);
-            target.frec_store.load();
             target.store.setBaseParam("measure_id",measure.id);
             target.store.load();
+            target.frec_store.setBaseParam("measure_id",measure.id);
+            target.frec_store.load();
             target.id=0;
         },
         load:function(n){
@@ -283,7 +296,7 @@ measure.allTreePanel = new Ext.tree.TreePanel({
 measure.formulaText=new Ext.form.TextArea({
     id:'formula_text',
     name:'formulaText',
-    width:200,
+    width:400,
     height: 300,
     listeners: {
         render: function(g){
@@ -292,13 +305,12 @@ measure.formulaText=new Ext.form.TextArea({
               copy: false,
               overClass: 'over',
               notifyDrop: function(dragSource, event, data){
-                console.log(data.patientData);
-                if (dragSource.id=="ext-comp-1070")
+                if (dragSource.id=="ext-comp-1072")
                     measure.formulaText.setValue(measure.formulaText.getValue()+
                         data.patientData.value);
                 else
                     measure.formulaText.setValue(measure.formulaText.getValue()+
-                        '<code>'+data.node.attributes.code+'</code>');
+                        '<c>'+data.node.attributes.code+'</c>');
               }
             });
         }
@@ -337,7 +349,7 @@ measure.topView=new Ext.DataView({
 
 measure.win_formula=new Ext.Window({
     layout:"border",
-    width:500,
+    width:700,
     height:400,
     split: true,
     closeAction:"hide",
@@ -349,10 +361,70 @@ measure.win_formula=new Ext.Window({
     },{
         title: 'Formula',
         region: 'west',
-        width:200,
+        width:400,
         items: measure.formulaText
     },measure.allTreePanel],
     buttons: [{
+        text:'Check Formula',
+        iconCls:'check',
+        handler:function(){
+            Ext.Ajax.request({
+                url:"/check_formula",
+                method:"GET",
+                params:{formula:measure.formulaText.getValue()},
+                success:function(response){
+                    if (response.responseText=="true")
+                        Ext.Msg.show({title:"formula checker",
+                                       msg: "syntax error",buttons: Ext.Msg.OK});
+                    else
+                        Ext.Msg.show({title:"formula checker",
+                                       msg: "syntax correct",buttons: Ext.Msg.OK});
+                }
+            });
+        }
+    },{
+        text:'Save Formula',
+        iconCls:'save',
+        handler:function(){
+            Ext.Ajax.request({
+                url:"/check_formula",
+                method:"GET",
+                params:{formula:measure.formulaText.getValue()},
+                success:function(response){
+                    if (response.responseText=="true")
+                        Ext.Msg.show({title:"formula checker",
+                                       msg: "syntax error",buttons: Ext.Msg.OK});
+                    else
+                        Ext.Ajax.request({
+                            url:"/measures/"+measure.id,
+                            method:"PUT",
+                            params:{id:measure.id,
+                                    "measure[formula]":measure.formulaText.getValue()},
+                            success:function(){
+                                measure.win_formula.hide();
+                                Ext.Ajax.request({
+                                    url:"/get_all_targets",
+                                    method:"GET",
+                                    params:{id:measure.id},
+                                    success:function(response){
+                                        var result=JSON.parse(response.responseText);
+                                        for (var i=0;i<result.length;i++){
+                                            Ext.Ajax.request({
+                                                url:"/save_target",
+                                                method:"POST",
+                                                params:{measure_id:measure.id,
+                                                        period:result[i].target.period,
+                                                        formula:measure.formulaText.getValue()}
+                                            });
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                }
+            });
+        }
+    },{
         text:'Close',
         iconCls:'close',
         handler:function(){

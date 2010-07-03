@@ -98,14 +98,15 @@ target.toolBar=new Ext.Toolbar({
 target.frec_proxy=new Ext.data.HttpProxy({url:"/get_targets",method:"GET"});
 
 target.frec_reader=new Ext.data.JsonReader({
-    idProperty: "name",
+    idProperty: "id",
     root: "data",
-    fields:[{name:"name"}]
+    fields:[{name:"id"},{name:"name"}]
 });
 
 target.frec_store=new Ext.data.Store({
     proxy:target.frec_proxy,
-    reader:target.frec_reader
+    reader:target.frec_reader,
+    autoSave: true
 });
 
 target.grid=new Ext.grid.EditorGridPanel({
@@ -117,19 +118,19 @@ target.grid=new Ext.grid.EditorGridPanel({
     columns:[{header:"id",dataIndex:"id", hidden:true},
              {header:"Period", dataIndex:"period",width:150,
                  editor: new Ext.form.ComboBox({
-                    id: "target_period",
+                    id: "target_period_id",
                     name: "target[period]",
                     store:  target.frec_store,
                     displayField: "name",
-                    valueField: "name",
+                    valueField: "id",
                     hiddenName:"target[period]",
                     typeAhead: true,
                     triggerAction: 'all',
                     forceSelection: true,
                     selectOnFocus:true,
                     mode: "remote",
-                    valueNotFoundText:"Select an period...",
-                    emptyText: "Select an period..."
+                    valueNotFoundText:"Select a period...",
+                    emptyText: "Select a period..."
               })},
              {header:"Goal", dataIndex:"goal",editor:new Ext.form.TextField({})},
              {header:"Achieved", dataIndex:"achieved",editor:new Ext.form.TextField({})}],

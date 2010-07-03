@@ -1,11 +1,11 @@
 grammar Formula
 
-  rule parens
-    (op? '(' operation ')' parens / operation) <FormulaNode>
+  rule operation
+    (parens op operation / parens) <FormulaNode>
   end
 
-  rule operation
-    (value op operation / value)
+  rule parens
+    (op? '(' operation ')' / value)
   end
 
   rule value
@@ -17,7 +17,7 @@ grammar Formula
   end
 
   rule code
-    '<code>' get_code '</code>'
+    '<c>' get_code '</c>'
   end
 
   rule get_code

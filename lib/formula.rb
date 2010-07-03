@@ -5,7 +5,70 @@ module Formula
   include Treetop::Runtime
 
   def root
-    @root || :parens
+    @root ||= :operation
+  end
+
+  module Operation0
+    def parens
+      elements[0]
+    end
+
+    def op
+      elements[1]
+    end
+
+    def operation
+      elements[2]
+    end
+  end
+
+  def _nt_operation
+    start_index = index
+    if node_cache[:operation].has_key?(index)
+      cached = node_cache[:operation][index]
+      if cached
+        cached = SyntaxNode.new(input, index...(index + 1)) if cached == true
+        @index = cached.interval.end
+      end
+      return cached
+    end
+
+    i0 = index
+    i1, s1 = index, []
+    r2 = _nt_parens
+    s1 << r2
+    if r2
+      r3 = _nt_op
+      s1 << r3
+      if r3
+        r4 = _nt_operation
+        s1 << r4
+      end
+    end
+    if s1.last
+      r1 = instantiate_node(SyntaxNode,input, i1...index, s1)
+      r1.extend(Operation0)
+    else
+      @index = i1
+      r1 = nil
+    end
+    if r1
+      r0 = r1
+      r0.extend(FormulaNode)
+    else
+      r5 = _nt_parens
+      if r5
+        r0 = r5
+        r0.extend(FormulaNode)
+      else
+        @index = i0
+        r0 = nil
+      end
+    end
+
+    node_cache[:operation][start_index] = r0
+
+    r0
   end
 
   module Parens0
@@ -13,9 +76,6 @@ module Formula
       elements[2]
     end
 
-    def parens
-      elements[4]
-    end
   end
 
   def _nt_parens
@@ -59,10 +119,6 @@ module Formula
             r6 = nil
           end
           s1 << r6
-          if r6
-            r7 = _nt_parens
-            s1 << r7
-          end
         end
       end
     end
@@ -75,12 +131,10 @@ module Formula
     end
     if r1
       r0 = r1
-      r0.extend(FormulaNode)
     else
-      r8 = _nt_operation
-      if r8
-        r0 = r8
-        r0.extend(FormulaNode)
+      r7 = _nt_value
+      if r7
+        r0 = r7
       else
         @index = i0
         r0 = nil
@@ -88,67 +142,6 @@ module Formula
     end
 
     node_cache[:parens][start_index] = r0
-
-    r0
-  end
-
-  module Operation0
-    def value
-      elements[0]
-    end
-
-    def op
-      elements[1]
-    end
-
-    def operation
-      elements[2]
-    end
-  end
-
-  def _nt_operation
-    start_index = index
-    if node_cache[:operation].has_key?(index)
-      cached = node_cache[:operation][index]
-      if cached
-        cached = SyntaxNode.new(input, index...(index + 1)) if cached == true
-        @index = cached.interval.end
-      end
-      return cached
-    end
-
-    i0 = index
-    i1, s1 = index, []
-    r2 = _nt_value
-    s1 << r2
-    if r2
-      r3 = _nt_op
-      s1 << r3
-      if r3
-        r4 = _nt_operation
-        s1 << r4
-      end
-    end
-    if s1.last
-      r1 = instantiate_node(SyntaxNode,input, i1...index, s1)
-      r1.extend(Operation0)
-    else
-      @index = i1
-      r1 = nil
-    end
-    if r1
-      r0 = r1
-    else
-      r5 = _nt_value
-      if r5
-        r0 = r5
-      else
-        @index = i0
-        r0 = nil
-      end
-    end
-
-    node_cache[:operation][start_index] = r0
 
     r0
   end
@@ -271,11 +264,11 @@ module Formula
     end
 
     i0, s0 = index, []
-    if has_terminal?('<code>', false, index)
-      r1 = instantiate_node(SyntaxNode,input, index...(index + 6))
-      @index += 6
+    if has_terminal?('<c>', false, index)
+      r1 = instantiate_node(SyntaxNode,input, index...(index + 3))
+      @index += 3
     else
-      terminal_parse_failure('<code>')
+      terminal_parse_failure('<c>')
       r1 = nil
     end
     s0 << r1
@@ -283,11 +276,11 @@ module Formula
       r2 = _nt_get_code
       s0 << r2
       if r2
-        if has_terminal?('</code>', false, index)
-          r3 = instantiate_node(SyntaxNode,input, index...(index + 7))
-          @index += 7
+        if has_terminal?('</c>', false, index)
+          r3 = instantiate_node(SyntaxNode,input, index...(index + 4))
+          @index += 4
         else
-          terminal_parse_failure('</code>')
+          terminal_parse_failure('</c>')
           r3 = nil
         end
         s0 << r3
@@ -508,4 +501,3 @@ end
 class FormulaParser < Treetop::Runtime::CompiledParser
   include Formula
 end
-

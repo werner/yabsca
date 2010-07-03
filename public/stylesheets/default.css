@@ -68,6 +68,11 @@
   background-repeat: no-repeat;
 }
 
+.check {
+  background-image: url("../images/tick.png") !important;
+  background-repeat: no-repeat;
+}
+
 .gantt {
   background-image: url("../images/shape_align_right.png") !important;
   background-repeat: no-repeat;

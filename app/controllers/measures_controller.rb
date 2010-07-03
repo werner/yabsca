@@ -16,6 +16,7 @@ class MeasuresController < ApplicationController
     end
   end
 
+  #method to get all data used in the formula field, filtering by the strategy
   def all_measures
     perspectives=Perspective.find_all_by_strategy_id(params[:strategy_id])
 
@@ -27,11 +28,31 @@ class MeasuresController < ApplicationController
     end    
   end
 
+  #get the formula
   def get_formula
-    formula=Measure.find(params[:measure_id]).formula rescue [['test1'],['test2']]
+    formula=Measure.find(params[:id]).formula || ""
 
     respond_to do |format|
       format.json { render :json => formula }
+    end
+  end
+
+  #check the syntax of formula is ok
+  def check_formula
+    parser=FormulaParser.new
+    result=(parser.parse(params[:formula]).nil? ? true : false)
+
+    respond_to do |format|
+      format.json { render :json => result }
+    end
+  end
+
+  #get all the measure targets
+  def get_all_targets
+    result=Measure.find(params[:id]).targets
+
+    respond_to do |format|
+      format.json { render :json => result }
     end
   end
   

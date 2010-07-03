@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 
+  #defaults methods to CRUD
   def default_creation(model,parameters)
     @object=model.new(parameters)
     
@@ -35,6 +36,7 @@ class ApplicationController < ActionController::Base
     render :json => {:success => true}
   end
 
+  #methods to build the trees used in the application
   def join_nodes_orgs(tree)
     tree.map do |u|
         {:id => 'o'+u.id.to_s,
@@ -132,6 +134,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  #methods to create the fusion charts xml data
   def fusionchart_xml(array)
     xml="<graph>"
     array.map do |item|
@@ -169,6 +172,8 @@ class ApplicationController < ActionController::Base
     return color[@color_counter]
   end
 
+  #method to light the measures
+  #green: good, yellow: alert, red: bad
   def get_light(measure,default,pvalue)
     value_max={
       "green"=>(pvalue>=measure.excellent),
