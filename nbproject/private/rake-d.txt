@@ -56,6 +56,7 @@ gems\:unpack=Unpacks all required gems into vendor/gems.
 gems\:unpack\:dependencies=Unpacks all required gems and their dependencies into vendor/gems.
 log\:clear=Truncates all *.log files in log/ to zero bytes
 middleware=Prints out your Rack middleware stack
+noop=
 notes=Enumerate all annotations
 notes\:custom=Enumerate a custom annotation, specify with ANNOTATION=WTFHAX
 notes\:fixme=Enumerate all FIXME annotations
@@ -74,6 +75,22 @@ rails\:update\:scripts=Add new scripts to the application script/ directory
 rails_env=
 routes=Print out all defined routes in match order, with names. Target specific controller with CONTROLLER=x.
 secret=Generate a crytographically secure secret key. This is typically used to generate a secret for cookie sessions.
+spec=Run all specs in spec directory (excluding plugin specs)
+spec\:clobber=
+spec\:clobber_rcov=Remove rcov products for rcov
+spec\:controllers=Run the code examples in spec/controllers
+spec\:db\:fixtures\:load=Load fixtures (from spec/fixtures) into the current environment's database.  Load specific fixtures using FIXTURES=x,y. Load from subdirectory in test/fixtures using FIXTURES_DIR=z.
+spec\:doc=Print Specdoc for all specs (excluding plugin specs)
+spec\:helpers=Run the code examples in spec/helpers
+spec\:integration=Run the code examples in spec/integration
+spec\:lib=Run the code examples in spec/lib
+spec\:models=Run the code examples in spec/models
+spec\:plugin_doc=Print Specdoc for all plugin examples
+spec\:plugins=Run the code examples in vendor/plugins (except RSpec's own)
+spec\:plugins\:rspec_on_rails=Runs the examples for rspec_on_rails
+spec\:rcov=Run all specs in spec directory with RCov (excluding plugin specs)
+spec\:statsetup=
+spec\:views=Run the code examples in spec/views
 stats=Report code statistics (KLOCs, etc) from the application
 test=Run all unit, functional and integration tests
 test\:benchmark=Run tests for benchmarkdb:test:prepare / Benchmark the performance tests

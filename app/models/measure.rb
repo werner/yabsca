@@ -5,6 +5,7 @@ class Measure < ActiveRecord::Base
   has_and_belongs_to_many :objectives
 
   validates_presence_of :name
+  validates_uniqueness_of :code
 
   #get all periods based on frecuency
   #if Daily get the number of day

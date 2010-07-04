@@ -1,0 +1,10 @@
+one:
+  goal: 100
+  achieved: 50
+  period: 01-2010
+  measure_id: 1
+two:
+  goal: 200
+  achieved: 190
+  period: 02-2010
+  measure_id: 1
