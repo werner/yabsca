@@ -180,7 +180,6 @@ class ApplicationController < ActionController::Base
       "red"=>(pvalue>measure.alert),
       default=>(pvalue==0)
     }
-
     if (measure.challenge==Challenge::Increasing)
       value_max.each_pair { |key,value| return key if value==true  }
     elsif (measure.challenge==Challenge::Decreasing)

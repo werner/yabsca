@@ -122,7 +122,7 @@ target.grid=new Ext.grid.EditorGridPanel({
                     name: "target[period]",
                     store:  target.frec_store,
                     displayField: "name",
-                    valueField: "id",
+                    valueField: "name",
                     hiddenName:"target[period]",
                     typeAhead: true,
                     triggerAction: 'all',

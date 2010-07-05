@@ -269,7 +269,7 @@ Ext.onReady(function(){
             xtype: 'box',
             region: 'north',
             applyTo: 'header',
-            height: 30
+            height: 27
         }, {
             region: 'west',
             title: 'Organizations and Strategies',

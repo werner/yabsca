@@ -36,7 +36,8 @@ class PresentationController < ApplicationController
 
   def generate_chart
 
-    targets=Target.find_all_by_measure_id(params[:measure_id])
+    targets=Target.find(:all,:conditions =>
+        ["measure_id=? and achieved is not null",params[:measure_id]])
 
     sort_targets=targets.sort_by { |t| t.to_order }
 
