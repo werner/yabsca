@@ -4,14 +4,8 @@ class PresentationController < ApplicationController
 
     @organizations=Organization.find_all_by_organization_id(0)
 
-    @nodes=[]
-    unless params[:organization_id].to_i==0
-      @organization=Organization.find(params[:organization_id])
-      nodes_expanded(@organization)
-    end
-
     return_data=[]
-    return_data=join_nodes_orgs(@organizations)
+    return_data=join_nodes_orgs(params[:organization_id].to_i,@organizations)
 
     respond_to do |format|
       format.json { render :json => return_data }

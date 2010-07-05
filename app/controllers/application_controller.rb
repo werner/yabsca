@@ -37,16 +37,16 @@ class ApplicationController < ActionController::Base
   end
 
   #methods to build the trees used in the application
-  def join_nodes_orgs(tree)
+  def join_nodes_orgs(expanded_id,tree)
     tree.map do |u|
         {:id => 'o'+u.id.to_s,
         :iddb => u.id,
         :text => u.name,
         :iconCls => "orgs",
-        :expanded => @nodes.include?(u.id),
+        :expanded => u.id > expanded_id,
         :leaf => (u.strategies.empty? and u.organizations.empty?),
         :type => "organization",
-        :children => join_nodes_orgs(u.organizations).concat(
+        :children => join_nodes_orgs(expanded_id,u.organizations).concat(
           u.strategies.map { |i| {
             :id => 's'+i.id.to_s,
             :iddb => i.id,
@@ -126,13 +126,6 @@ class ApplicationController < ActionController::Base
       :leaf => true}
     end
   end
-  
-  def nodes_expanded(data)
-    unless data.nil?
-      @nodes.push(data.id)
-      nodes_expanded data.organization
-    end
-  end
 
   #methods to create the fusion charts xml data
   def fusionchart_xml(array)
@@ -178,19 +171,20 @@ class ApplicationController < ActionController::Base
     value_max={
       "green"=>(pvalue>=measure.excellent),
       "yellow"=>(pvalue>=measure.alert && pvalue<measure.excellent),
-      "red"=>(pvalue<measure.alert)
+      "red"=>(pvalue<measure.alert),
+      default=>(pvalue==0)
     }
     value_min={
       "green"=>(pvalue<=measure.excellent),
       "yellow"=>(pvalue<=measure.alert && pvalue>measure.excellent),
-      "red"=>(pvalue>measure.alert)
+      "red"=>(pvalue>measure.alert),
+      default=>(pvalue==0)
     }
+
     if (measure.challenge==Challenge::Increasing)
       value_max.each_pair { |key,value| return key if value==true  }
-    else
+    elsif (measure.challenge==Challenge::Decreasing)
       value_min.each_pair { |key,value| return key if value==true  }
     end
-  rescue
-    default
   end
 end
