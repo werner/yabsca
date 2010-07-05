@@ -25,7 +25,10 @@ class Target < ActiveRecord::Base
       @achieved+=(i.achieved.nil? ? 0 : i.achieved)
       @goal+=(i.achieved.nil? ? 0 : i.goal)
     end
-    (@achieved*100)/@goal
+    result=(@achieved*100)/@goal
+    result.round(2)
+  rescue
+    0
   end
 
 end

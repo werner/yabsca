@@ -4,12 +4,13 @@ class MeasuresController < ApplicationController
     @measures=Objective.find(params[:objective_id]).measures rescue []
 
     return_data=[]
-    return_data=@measures.collect { |u| {
-        :id => u.id,
-        :text => u.name,
+    return_data=@measures.collect do |u|
+      avg=Target.average(u.id)
+      {:id => u.id,
+        :text => u.name+(avg==0 ? "" : " ("+avg.to_s+"%) "),
         :iconCls => get_light(u,"measure",Target.average(u.id)),
-        :leaf => true
-      }}
+        :leaf => true}
+    end
 
     respond_to do |format|
       format.json { render :json => return_data }
