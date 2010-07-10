@@ -5,9 +5,8 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   attr_accessor :color_counter
-
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
+  filter_parameter_logging :password, :password_confirmation
+  helper_method :current_user_session, :current_user
 
   #defaults methods to CRUD
   def default_creation(model,parameters)
@@ -16,7 +15,7 @@ class ApplicationController < ActionController::Base
     if @object.save
       render :json => {:success => true}
     else
-      render :json => {:errors=>{:reason=>"Error"}}
+      render :json => {:errors=>{:reason=>"Error", :msg=>@object.errors}}
     end
 
   end
@@ -186,4 +185,29 @@ class ApplicationController < ActionController::Base
       value_min.each_pair { |key,value| return key if value==true  }
     end
   end
+
+  private
+  
+     def require_user
+      unless current_user
+        store_location
+        redirect_to new_user_session_url
+        return false
+      end
+    end
+
+    def store_location
+      session[:return_to] = request.request_uri
+    end
+
+    def current_user_session
+      return @current_user_session if defined?(@current_user_session)
+      @current_user_session = UserSession.find
+    end
+
+    def current_user
+      return @current_user if defined?(@current_user)
+      @current_user = current_user_session && current_user_session.user
+    end
+  
 end

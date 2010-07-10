@@ -21,7 +21,7 @@ Ext.onReady(function(){
                                 setValue(strategy.id);
                             perspective.win.show();
                         }else{
-                            Ext.Msg.alert("Error","You must select an strategy");
+                            Ext.Msg.alert("Error","You must select a strategy");
                         }
                     }
                 },{

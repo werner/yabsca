@@ -1,4 +1,5 @@
 class PresentationController < ApplicationController
+  before_filter :require_user
 
   def org_and_strat
 

@@ -1,0 +1,17 @@
+%html
+  %head
+    = stylesheet_link_tag "../javascripts/ext/resources/css/ext-all"
+    = javascript_include_tag "json2"
+    = javascript_include_tag "ext/adapter/ext/ext-base"
+    = javascript_include_tag "ext/ext-all"
+    = stylesheet_link_tag "default","scaffold"
+    = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
+    %title
+      A Balanced ScoreCard Application
+  %body
+    %div#header
+      #maintitle
+        A Balanced ScoreCard Application -- Admin Module
+    = javascript_include_tag "admin/users"
+    = javascript_include_tag "admin/roles"
+    = javascript_include_tag "admin/main"

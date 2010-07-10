@@ -1,0 +1,13 @@
+.login {
+  background-image: url("../images/house.png") !important;
+  background-repeat: no-repeat;
+}
+
+.admin {
+  background-image: url("../images/lock_open.png") !important;
+  background-repeat: no-repeat;
+}
+
+body{
+  background-color: #8cc5c5;
+}
