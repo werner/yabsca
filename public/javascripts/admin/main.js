@@ -97,6 +97,18 @@ var usersPanel = new Ext.tree.TreePanel({
     root: new Ext.tree.AsyncTreeNode()
 });
 
+
+var toolBarRules=new Ext.Toolbar({
+    items:[new Ext.form.Checkbox({id:"checkbox-create",
+                                  name:"checkbox-create",boxLabel:"Create"}),"-",
+           new Ext.form.Checkbox({id:"checkbox-read",
+                                  name:"checkbox-read",boxLabel:"Read"}),"-",
+           new Ext.form.Checkbox({id:"checkbox-update",
+                                  name:"checkbox-update",boxLabel:"Update"}),"-",
+           new Ext.form.Checkbox({id:"checkbox-delete",
+                                  name:"checkbox-delete",boxLabel:"Delete"})]
+});
+
 var rolesPanel = new Ext.tree.TreePanel({
     id: "tree-panel-roles",
     region: 'center',
@@ -106,6 +118,7 @@ var rolesPanel = new Ext.tree.TreePanel({
     autoScroll: true,
     rootVisible: false,
     useArrows: true,
+    tbar:[toolBarRules],
     loader: new Ext.tree.TreeLoader({
         requestMethod:"GET",
         dataUrl: "/roles_privileges"
@@ -119,13 +132,19 @@ var rolesPanel = new Ext.tree.TreePanel({
     listeners:{
         nodedrop:function(o){
             Ext.Ajax.request({
-                url:"/create_priv",
-                method:"PUT",
+                url:"privileges/create",
+                method:"POST",
                 params:{node:o.data.node.id,
                         role_id:o.target.attributes.iddb}
             });
+        },click:function(o){
+            Ext.Ajax.request({
+                url:"privileges/show",
+                method:"GET",
+                params:{id:o.attributes.iddb}
+            });
+            console.log(o);
         }
-
     }
 });
 

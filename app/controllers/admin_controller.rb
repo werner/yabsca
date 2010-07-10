@@ -4,8 +4,21 @@ class AdminController < ApplicationController
   def roles_privileges
     return_data=[]
     if params[:node].match(/src:root/)
-      data=Role.all
-      return_data=roles(data)
+      data=Role.all(:conditions=>"id <> 0")
+      return_data=data.collect do |u|
+        {:id => "src:roles"+u.id.to_s,
+        :iddb => u.id,
+        :text => u.name,
+        :iconCls => "role"}
+      end
+    end
+
+    if params[:node].match(/src:roles/)
+      id=params[:node].sub(/src:roles/,"").to_i
+      data=Privilege.find_all_by_role_id(id)
+      return_data=data.collect do |u|
+        node_type(u)
+      end
     end
 
     respond_to do |format|
@@ -59,16 +72,21 @@ class AdminController < ApplicationController
 
 private
 
-  def roles(tree)
-    tree.map do |u|
-        {:id => "src:roles"+u.id.to_s,
-        :iddb => u.id,
-        :text => u.name,
-        :iconCls => "role"
-        }
-    end
+  def node_type(object)
+    ss={SubSystem::Measure=>["measure",lambda { Measure.find(object.module_id).name }],
+      SubSystem::Organization => ["orgs",lambda { Organization.find(object.module_id).name }],
+      SubSystem::Strategy => ["strats",lambda { Strategy.find(object.module_id).name }],
+      SubSystem::Perspective => ["persp",lambda { Perspective.find(object.module_id).name }],
+      SubSystem::Objective => ["objs",lambda { Objective.find(object.module_id).name }]}
+
+    result=ss.find { |key,value| key==object.module }
+    {:id => "src:privileges"+object.id.to_s,
+     :iddb => object.id,
+     :text => result[1][1].call,
+     :iconCls => result[1][0]}
+
   end
-  
+
   def everything_join_nodes_orgs(tree)
     tree.map do |u|
         {:id => "src:orgs"+u.id.to_s,

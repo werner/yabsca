@@ -16,7 +16,6 @@ ActionController::Routing::Routes.draw do |map|
   map.persp_and_objs '/persp_and_objs', :controller => 'presentation', :action => 'persp_and_objs'
   map.everything '/everything', :controller => 'admin', :action => 'everything'
   map.roles_privileges '/roles_privileges', :controller => 'admin', :action => 'roles_privileges'
-  map.create_priv '/create_priv', :controller => 'roles', :action => 'create_priv'
 
   map.destroy '/destroy', :controller => 'user_sessions', :action => 'destroy'
   

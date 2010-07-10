@@ -1,2 +1,3 @@
 will_paginate -v 2.3.12 -s gems.github.com
 authlogic -v 2.1.5
+treetop

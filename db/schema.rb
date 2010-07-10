@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100709154218) do
+ActiveRecord::Schema.define(:version => 20100708182116) do
 
   create_table "initiatives", :force => true do |t|
     t.string   "name"
@@ -46,11 +46,6 @@ ActiveRecord::Schema.define(:version => 20100709154218) do
     t.integer "measure_id"
   end
 
-  create_table "measures_roles", :id => false, :force => true do |t|
-    t.integer "role_id"
-    t.integer "measure_id"
-  end
-
   create_table "objectives", :force => true do |t|
     t.string   "name"
     t.integer  "perspective_id"
@@ -77,7 +72,9 @@ ActiveRecord::Schema.define(:version => 20100709154218) do
   end
 
   create_table "privileges", :force => true do |t|
+    t.integer  "module"
     t.integer  "privilege"
+    t.integer  "module_id"
     t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
