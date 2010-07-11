@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
 
+  Jammit::Routes.draw(map)
+  
   map.resources :organizations, :strategies, :perspectives, :responsibles, :roles,
                   :objectives, :units, :measures, :targets, :initiatives, :user_sessions, :users
 

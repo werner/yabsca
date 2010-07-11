@@ -28,16 +28,21 @@ class PrivilegesController < ApplicationController
     end
 
     self.default_creation(Privilege, {:module => subsystem,
-                             :privilege => Rule::Read, :module_id => id,
+                             :reading => true, :module_id => id,
                              :role_id=>params[:role_id]})
   end
 
+  def update
+    self.default_updating(Privilege, params[:id], params[:privilege])
+  end
+  
   def show
     privilege=Privilege.find(params[:id])
-    return_data=[]
+    return_data={}
     return_data[:data]=privilege
     respond_to do |format|
       format.json { render :json => return_data }
     end
   end
+
 end

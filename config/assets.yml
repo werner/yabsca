@@ -1,0 +1,17 @@
+embed_assets: on
+
+javascripts:
+  workspace:
+    - public/javascripts/ext/adapter/ext/ext-base.js
+    - public/javascripts/ext/ext-all.js
+    - public/javascripts/admin/*.js
+    - public/javascripts/app/*.js
+    - public/javascripts/FusionCharts.js
+    - public/javascripts/application.js
+    - public/javascripts/json2.js
+
+stylesheets:
+  workspace:
+    - public/stylesheets/default.css
+    - public/stylesheets/pages/scaffold.css
+    - public/stylesheets/pages/login.css

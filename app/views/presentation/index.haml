@@ -3,16 +3,5 @@
     A Balanced ScoreCard Application
   #exit
     = link_to "Log Out", "/destroy"
-= javascript_include_tag "FusionCharts"
-= javascript_include_tag "app/fchart"
-= javascript_include_tag "app/general"
-= javascript_include_tag "app/units"
-= javascript_include_tag "app/responsibles"
-= javascript_include_tag "app/organizations"
-= javascript_include_tag "app/strategies"
-= javascript_include_tag "app/initiatives"
-= javascript_include_tag "app/perspectives"
-= javascript_include_tag "app/objectives"
-= javascript_include_tag "app/measures"
-= javascript_include_tag "app/targets"
-= javascript_include_tag "app/main"
+= javascript_include_tag "FusionCharts","app/fchart",:cache =>"fusionchart_all"
+= javascript_include_tag "app/general","app/units","app/responsibles","app/organizations","app/strategies","app/initiatives","app/perspectives","app/objectives","app/measures","app/targets","app/main", :cache=>"main_modules"

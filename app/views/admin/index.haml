@@ -12,6 +12,4 @@
     %div#header
       #maintitle
         A Balanced ScoreCard Application -- Admin Module
-    = javascript_include_tag "admin/users"
-    = javascript_include_tag "admin/roles"
-    = javascript_include_tag "admin/main"
+    = javascript_include_tag "admin/users","admin/roles","admin/main", :cache => "admin_modules"

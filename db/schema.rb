@@ -73,7 +73,10 @@ ActiveRecord::Schema.define(:version => 20100708182116) do
 
   create_table "privileges", :force => true do |t|
     t.integer  "module"
-    t.integer  "privilege"
+    t.boolean  "creating"
+    t.boolean  "reading"
+    t.boolean  "updating"
+    t.boolean  "deleting"
     t.integer  "module_id"
     t.integer  "role_id"
     t.datetime "created_at"

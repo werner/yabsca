@@ -1,3 +1,16 @@
+var privilege = new Object();
+
+privilege.id=0;
+privilege.module=0;
+privilege.role_id=0;
+privilege.module_id=0;
+privilege.privilege=0;
+
+const Create=1;
+const Read=2;
+const Update=3;
+const Delete=4;
+
 var toolBarUsers = new Ext.Toolbar({
     items:[{
         iconCls:"role",
@@ -99,14 +112,32 @@ var usersPanel = new Ext.tree.TreePanel({
 
 
 var toolBarRules=new Ext.Toolbar({
-    items:[new Ext.form.Checkbox({id:"checkbox-create",
-                                  name:"checkbox-create",boxLabel:"Create"}),"-",
-           new Ext.form.Checkbox({id:"checkbox-read",
-                                  name:"checkbox-read",boxLabel:"Read"}),"-",
-           new Ext.form.Checkbox({id:"checkbox-update",
-                                  name:"checkbox-update",boxLabel:"Update"}),"-",
-           new Ext.form.Checkbox({id:"checkbox-delete",
-                                  name:"checkbox-delete",boxLabel:"Delete"})]
+    items:[new Ext.form.Checkbox({id:"checkbox_create",
+                                  name:"checkbox_create",
+                                  boxLabel:"Create",
+                                  listeners:{
+                                    check:function(n){
+                                        if (n.getValue()==true && privilege.id>0){
+                                            Ext.Ajax.request({
+                                                url:"privileges/update",
+                                                method:"PUT",
+                                                params:{id:privilege.id,
+                                                        "privilege[role_id]":privilege.role_id,
+                                                        "privilege[module_id]":privilege.module_id,
+                                                        "privilege[creating]":true,
+                                                        "privilege[module]":privilege.module}
+                                            });
+                                        }else if(n.getValue()==false){
+                                            
+                                        }
+                                    }
+                                  }}),"-",
+           new Ext.form.Checkbox({id:"checkbox_read",
+                                  name:"checkbox_read",boxLabel:"Read"}),"-",
+           new Ext.form.Checkbox({id:"checkbox_update",
+                                  name:"checkbox_update",boxLabel:"Update"}),"-",
+           new Ext.form.Checkbox({id:"checkbox_delete",
+                                  name:"checkbox_delete",boxLabel:"Delete"})]
 });
 
 var rolesPanel = new Ext.tree.TreePanel({
@@ -138,12 +169,30 @@ var rolesPanel = new Ext.tree.TreePanel({
                         role_id:o.target.attributes.iddb}
             });
         },click:function(o){
-            Ext.Ajax.request({
-                url:"privileges/show",
-                method:"GET",
-                params:{id:o.attributes.iddb}
-            });
-            console.log(o);
+            if (o.id.match(/src:privilege/)!=null){
+                Ext.Ajax.request({
+                    url:"privileges/show",
+                    method:"GET",
+                    params:{id:o.attributes.iddb},
+                    success:function(response){
+                        var data=JSON.parse(response.responseText);
+                        privilege.id=data.data.privilege.id;
+                        privilege.module=data.data.privilege.module;
+                        privilege.role_id=data.data.privilege.role_id;
+                        privilege.module_id=data.data.privilege.module_id;
+
+                        if (data.data.privilege.creating==true)
+                            toolBarRules.items.map.checkbox_create.setValue(1);                        
+                        if(data.data.privilege.reading==true)
+                            toolBarRules.items.map.checkbox_read.setValue(1);
+                        if(data.data.privilege.updating==true)
+                            toolBarRules.items.map.checkbox_update.setValue(1);
+                        if(data.data.privilege.deleting==true)
+                            toolBarRules.items.map.checkbox_delete.setValue(1);
+                        
+                    }
+                });
+            }
         }
     }
 });
