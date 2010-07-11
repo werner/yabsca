@@ -4,7 +4,7 @@
     = javascript_include_tag "json2"
     = javascript_include_tag "ext/adapter/ext/ext-base"
     = javascript_include_tag "ext/ext-all"
-    = stylesheet_link_tag "default","scaffold", :cache => "main"
+    = stylesheet_link_tag "default","scaffold"
     = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
     %title
       A Balanced ScoreCard Application
