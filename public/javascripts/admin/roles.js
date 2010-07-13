@@ -7,7 +7,7 @@ role.method="";
 role.form=new Ext.FormPanel({
     labelWidth:75,
     frame:true,
-    title:"User",
+    title:"Role",
     bodyStyle:'padding:10px 10px 0',
     width: 400,
     defaults: {width: 230},
