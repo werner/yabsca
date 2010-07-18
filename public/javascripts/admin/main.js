@@ -136,14 +136,15 @@ var usersPanel = new Ext.tree.TreePanel({
     listeners:{
         click:function(n){
             actualNodeU=n;
-            if (n.attributes.type=="role")
+            if (n.attributes.type=="role"){
+                user.id=0;
                 role.id=n.attributes.iddb;
-            else if (n.attributes.type=="user")
+            }else if (n.attributes.type=="user"){
+                role.id=0;
                 user.id=n.attributes.iddb;
+            }
         },
         contextmenu: function(node, e) {
-//          Register the context node with the menu so that a Menu Item's handler function can access
-//          it via its parentMenu property.
             node.select();
             var c = node.getOwnerTree().contextMenu;
             c.contextNode = node;

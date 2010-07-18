@@ -149,71 +149,73 @@ measure.win=new Ext.Window({
     }]
 });
 
+measure.menuMeasures=new Ext.menu.Menu({
+       items:[{
+           text: "New",
+           iconCls: "new",
+           handler:function(){
+                if (objective.id>0){
+                    measure.method="POST";
+                    measure.url="measures/create";
+                    measure.form.getForm().reset();
+                    measure.form.items.map.measure_objective_ids.
+                        setValue(objective.id);
+                    measure.win.show();
+                }else{
+                    Ext.Msg.alert("Error","You must select an objective");
+                }
+           }
+       },{
+           text:"Edit",
+           iconCls: "edit",
+           handler:function(){
+               if (measure.id>0){
+                   measure.method="PUT";
+                   measure.url="/measures/"+measure.id;
+                   measure.form.getForm().load(
+                        {method:'GET',
+                         url:'/measures/'+measure.id+'/edit'});
+                   measure.win.show();
+                }else{
+                    Ext.Msg.alert("Error","You must select a measure");
+                }
+           }
+       },{
+           text: "Delete",
+           iconCls: "del",
+           handler:function(){
+                if (measure.id>0){
+                    general.deletion("/measures/"+measure.id,measure.treePanel);
+                }else{
+                    Ext.Msg.alert("Error","You must select a measure");
+                }
+           }
+       },"-",{
+           text:"Formula",
+           iconCls:"formula_icon",
+           handler:function(){
+               if (measure.id>0){
+                    Ext.Ajax.request({
+                        url:"/get_formula",
+                        method:"GET",
+                        params:{id:measure.id},
+                        success:function(response){
+                            measure.formulaText.setValue(response.responseText);
+                        }
+                    });
+                    measure.win_formula.show();
+               }else
+                    Ext.Msg.alert("Error","You must select a measure");
+
+           }
+       }]
+});
+
 measure.toolBar=new Ext.Toolbar({
     items:[{
        text:"Measures",
        iconCls:"measure",
-       menu:{
-           items:[{
-               text: "New",
-               iconCls: "new",
-               handler:function(){
-                    if (objective.id>0){
-                        measure.method="POST";
-                        measure.url="measures/create";
-                        measure.form.getForm().reset();
-                        measure.form.items.map.measure_objective_ids.
-                            setValue(objective.id);
-                        measure.win.show();
-                    }else{
-                        Ext.Msg.alert("Error","You must select an objective");
-                    }
-               }
-           },{
-               text:"Edit",
-               iconCls: "edit",
-               handler:function(){
-                   if (measure.id>0){
-                       measure.method="PUT";
-                       measure.url="/measures/"+measure.id;
-                       measure.form.getForm().load(
-                            {method:'GET',
-                             url:'/measures/'+measure.id+'/edit'});
-                       measure.win.show();
-                    }else{
-                        Ext.Msg.alert("Error","You must select a measure");
-                    }
-               }
-           },{
-               text: "Delete",
-               iconCls: "del",
-               handler:function(){
-                    if (measure.id>0){
-                        general.deletion("/measures/"+measure.id,measure.treePanel);
-                    }else{
-                        Ext.Msg.alert("Error","You must select a measure");
-                    }
-               }
-           },"-",{
-               text:"Formula",
-               iconCls:"formula_icon",
-               handler:function(){
-                   if (measure.id>0){
-                        Ext.Ajax.request({
-                            url:"/get_formula",
-                            method:"GET",
-                            params:{id:measure.id},
-                            success:function(response){
-                                measure.formulaText.setValue(response.responseText);
-                            }
-                        });
-                        measure.win_formula.show();
-                   }else
-                        Ext.Msg.alert("Error","You must select a measure");
-                    
-               }
-           }]
-       }
+       menu:measure.menuMeasures
     },{
        text:"Units",
        iconCls:"unit",
@@ -249,6 +251,7 @@ measure.treePanel = new Ext.tree.TreePanel({
     singleExpand: true,
     width:500,
     useArrows: true,
+    contextMenu:measure.menuMeasures,
     tbar:[measure.toolBar],
     loader: new Ext.tree.TreeLoader({
         requestMethod:"GET",
@@ -268,6 +271,12 @@ measure.treePanel = new Ext.tree.TreePanel({
             target.id=0;
             target.store.setBaseParam("measure_id",0);
             target.store.load();
+        },
+        contextmenu: function(node, e) {
+            node.select();
+            var c = node.getOwnerTree().contextMenu;
+            c.contextNode = node;
+            c.showAt(e.getXY());
         }
     },
     root: new Ext.tree.AsyncTreeNode()

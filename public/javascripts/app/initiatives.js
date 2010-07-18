@@ -89,55 +89,57 @@ initiative.win=new Ext.Window({
     }]
 });
 
+initiative.menuInitiative=new Ext.menu.Menu({
+       items:[{
+           text: "New",
+           iconCls: "new",
+           handler:function(){
+                if (objective.id>0){
+                    initiative.method="POST";
+                    initiative.url="initiatives/create";
+                    initiative.form.getForm().reset();
+                    initiative.form.items.map.initiative_objective_id.
+                        setValue(objective.id);
+                    initiative.form.items.map.initiative_initiative_id.
+                        setValue(initiative.id);
+                    initiative.win.show();
+                }else{
+                    Ext.Msg.alert("Error","You must select an objective");
+                }
+           }
+       },{
+           text:"Edit",
+           iconCls: "edit",
+           handler:function(){
+               if (initiative.id>0){
+                   initiative.method="PUT";
+                   initiative.url="/initiatives/"+initiative.id;
+                   initiative.form.getForm().load(
+                        {method:'GET',
+                         url:'/initiatives/'+initiative.id+'/edit'});
+                   initiative.win.show();
+                }else{
+                    Ext.Msg.alert("Error","You must select an initiative");
+                }
+           }
+       },{
+           text: "Delete",
+           iconCls: "del",
+           handler:function(){
+                if (initiative.id>0){
+                    general.deletion("/initiatives/"+initiative.id,initiative.treePanel);
+                }else{
+                    Ext.Msg.alert("Error","You must select an initiative");
+                }
+           }
+       }]
+});
+
 initiative.toolBar=new Ext.Toolbar({
     items:[{
        text:"Initiatives",
        iconCls:"initiative",
-       menu:{
-           items:[{
-               text: "New",
-               iconCls: "new",
-               handler:function(){
-                    if (objective.id>0){
-                        initiative.method="POST";
-                        initiative.url="initiatives/create";
-                        initiative.form.getForm().reset();
-                        initiative.form.items.map.initiative_objective_id.
-                            setValue(objective.id);
-                        initiative.form.items.map.initiative_initiative_id.
-                            setValue(initiative.id);
-                        initiative.win.show();
-                    }else{
-                        Ext.Msg.alert("Error","You must select an objective");
-                    }
-               }
-           },{
-               text:"Edit",
-               iconCls: "edit",
-               handler:function(){
-                   if (initiative.id>0){
-                       initiative.method="PUT";
-                       initiative.url="/initiatives/"+initiative.id;
-                       initiative.form.getForm().load(
-                            {method:'GET',
-                             url:'/initiatives/'+initiative.id+'/edit'});
-                       initiative.win.show();
-                    }else{
-                        Ext.Msg.alert("Error","You must select an initiative");
-                    }
-               }
-           },{
-               text: "Delete",
-               iconCls: "del",
-               handler:function(){
-                    if (initiative.id>0){
-                        general.deletion("/initiatives/"+initiative.id,initiative.treePanel);
-                    }else{
-                        Ext.Msg.alert("Error","You must select an initiative");
-                    }
-               }
-           }]
-       }
+       menu:initiative.menuInitiative
     },{
        text:"Responsibles",
        iconCls:"responsible",
@@ -155,6 +157,7 @@ initiative.treePanel = new Ext.tree.TreePanel({
     rootVisible: false,
     singleExpand: true,
     useArrows: true,
+    contextMenu:initiative.menuInitiative,
     tbar:[initiative.toolBar],
     loader: new Ext.tree.TreeLoader({
         requestMethod:"GET",
@@ -166,6 +169,12 @@ initiative.treePanel = new Ext.tree.TreePanel({
         },
         load:function(n){
             initiative.id=0;
+        },
+        contextmenu: function(node, e) {
+            node.select();
+            var c = node.getOwnerTree().contextMenu;
+            c.contextNode = node;
+            c.showAt(e.getXY());
         }
     },
     root: new Ext.tree.AsyncTreeNode()

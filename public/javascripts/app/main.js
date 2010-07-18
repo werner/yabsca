@@ -1,111 +1,116 @@
 var actualNode;
 var actualNode2;
 var treePanelPersp;
+
 Ext.onReady(function(){
+
+    var menuPersp= new Ext.menu.Menu({
+            items:[{
+                iconCls:"new",
+                text:"New",
+                handler:function(){
+                    if (actualNode!=undefined &&
+                            actualNode.attributes.type=="strategy"){
+                        perspective.method="POST";
+                        perspective.url="perspectives/create";
+                        perspective.form.getForm().reset();
+                        perspective.form.items.map.perspective_strategy_id.
+                            setValue(strategy.id);
+                        perspective.win.show();
+                    }else{
+                        Ext.Msg.alert("Error","You must select a strategy");
+                    }
+                }
+            },{
+                iconCls:"edit",
+                text:"Edit",
+                handler:function(){
+                    if (perspective.id>0 &&
+                            actualNode2.attributes.type=="perspective"){
+                        perspective.method="PUT";
+                        perspective.url="/perspectives/"+perspective.id;
+                        perspective.form.getForm().load({
+                           method:"GET",
+                           url:"/perspectives/"+perspective.id+"/edit"
+                        });
+                        perspective.win.show();
+                    }else{
+                        Ext.Msg.alert("Error","You must select a perspective");
+                    }
+                }
+            },{
+                iconCls:"del",
+                text:"Delete",
+                handler:function(){
+                    if (perspective.id>0 &&
+                            actualNode2.attributes.type=="perspective"){
+                          general.deletion("/perspectives/"+perspective.id,treePanelPersp);
+                    }else{
+                        Ext.Msg.alert("Error","You must select a perspective");
+                    }
+                }
+            }]
+    });
+
+    var menuObjs= new Ext.menu.Menu({
+            items:[{
+                iconCls:"new",
+                text:"New",
+                handler:function(){
+                    if (actualNode2.attributes.type=="perspective" ||
+                            actualNode2.attributes.type=="objective"){
+                        objective.method="POST";
+                        objective.url="objectives/create";
+                        objective.form.getForm().reset();
+                        objective.form.items.map.objective_perspective_id.
+                            setValue(perspective.id);
+                        objective.form.items.map.objective_objective_id.
+                            setValue(objective.id);
+                        objective.win.show();
+                    }else{
+                        Ext.Msg.alert("Error","You must select a perspective or objective");
+                    }
+                }
+            },{
+                iconCls:"edit",
+                text:"Edit",
+                handler:function(){
+                    if (objective.id>0 &&
+                            actualNode2.attributes.type=="objective"){
+                        objective.method="PUT";
+                        objective.url="/objectives/"+objective.id;
+                        objective.form.getForm().load({
+                           method:"GET",
+                           url:"/objectives/"+objective.id+"/edit"
+                        });
+                        objective.win.show();
+                    }else{
+                        Ext.Msg.alert("Error","You must select an objective");
+                    }
+                }
+            },{
+                iconCls:"del",
+                text:"Delete",
+                handler:function(){
+                    if (objective.id>0 &&
+                            actualNode2.attributes.type=="objective"){
+                          general.deletion("/objectives/"+objective.id,treePanelPersp);
+                    }else{
+                        Ext.Msg.alert("Error","You must select an objective");
+                    }
+                }
+            }]
+    });
 
     var toolBarPers = new Ext.Toolbar({
         items:[{
             iconCls:"persp",
             text:"Perspectives",
-            menu:{
-                items:[{
-                    iconCls:"new",
-                    text:"New",
-                    handler:function(){
-                        if (actualNode!=undefined &&
-                                actualNode.attributes.type=="strategy"){
-                            perspective.method="POST";
-                            perspective.url="perspectives/create";
-                            perspective.form.getForm().reset();
-                            perspective.form.items.map.perspective_strategy_id.
-                                setValue(strategy.id);
-                            perspective.win.show();
-                        }else{
-                            Ext.Msg.alert("Error","You must select a strategy");
-                        }
-                    }
-                },{
-                    iconCls:"edit",
-                    text:"Edit",
-                    handler:function(){
-                        if (perspective.id>0 &&
-                                actualNode2.attributes.type=="perspective"){
-                            perspective.method="PUT";
-                            perspective.url="/perspectives/"+perspective.id;
-                            perspective.form.getForm().load({
-                               method:"GET",
-                               url:"/perspectives/"+perspective.id+"/edit"
-                            });
-                            perspective.win.show();
-                        }else{
-                            Ext.Msg.alert("Error","You must select a perspective");
-                        }
-                    }
-                },{
-                    iconCls:"del",
-                    text:"Delete",
-                    handler:function(){
-                        if (perspective.id>0 &&
-                                actualNode2.attributes.type=="perspective"){
-                              general.deletion("/perspectives/"+perspective.id,treePanelPersp);
-                        }else{
-                            Ext.Msg.alert("Error","You must select a perspective");
-                        }
-                    }
-                }]
-            }
+            menu:menuPersp
         },{
             iconCls:"objs",
             text:"Objectives",
-            menu:{
-                items:[{
-                    iconCls:"new",
-                    text:"New",
-                    handler:function(){
-                        if (actualNode2.attributes.type=="perspective" ||
-                                actualNode2.attributes.type=="objective"){
-                            objective.method="POST";
-                            objective.url="objectives/create";
-                            objective.form.getForm().reset();
-                            objective.form.items.map.objective_perspective_id.
-                                setValue(perspective.id);
-                            objective.form.items.map.objective_objective_id.
-                                setValue(objective.id);
-                            objective.win.show();
-                        }else{
-                            Ext.Msg.alert("Error","You must select a perspective or objective");
-                        }
-                    }
-                },{
-                    iconCls:"edit",
-                    text:"Edit",
-                    handler:function(){
-                        if (objective.id>0 &&
-                                actualNode2.attributes.type=="objective"){
-                            objective.method="PUT";
-                            objective.url="/objectives/"+objective.id;
-                            objective.form.getForm().load({
-                               method:"GET",
-                               url:"/objectives/"+objective.id+"/edit"
-                            });
-                            objective.win.show();
-                        }else{
-                            Ext.Msg.alert("Error","You must select an objective");
-                        }
-                    }
-                },{
-                    iconCls:"del",
-                    text:"Delete",
-                    handler:function(){
-                        if (objective.id>0 &&
-                                actualNode2.attributes.type=="objective"){
-                              general.deletion("/objectives/"+objective.id,treePanelPersp);
-                        }else{
-                            Ext.Msg.alert("Error","You must select an objective");
-                        }
-                    }
-                }]
-            }
+            menu:menuObjs
         },{
            text:"Gantt",
            iconCls:"gantt",
@@ -115,101 +120,16 @@ Ext.onReady(function(){
            }
         }]
     });
-
+      
     var toolBarOrgs = new Ext.Toolbar({
         items:[{
             iconCls:"orgs",
             text:"Organizations",
-            menu:{
-              items:[{
-                iconCls:"new",
-                text:"New",
-                handler:function(){
-                    organization.method="POST";
-                    organization.url="organizations/create";
-                    organization.form.getForm().reset();
-                    organization.form.items.map.organization_organization_id.
-                        setValue(organization.id);
-                    organization.win.show();
-                }
-              },{
-                iconCls:"edit",
-                text:"Edit",
-                handler:function(){
-                    if (organization.id>0 &&
-                            actualNode.attributes.type=="organization"){
-                        organization.method="PUT";
-                        organization.url="/organizations/"+organization.id;
-                        organization.form.getForm().load(
-                            {method:'GET',
-                             url:'/organizations/'+organization.id+'/edit'});
-                        organization.win.show();
-                    }else{
-                        Ext.Msg.alert("Error","You must select an organization");
-                    }
-                }
-              },{
-                iconCls:"del",
-                text:"Delete",
-                handler:function(){
-                    if (organization.id>0 &&
-                            actualNode.attributes.type=="organization"){
-                          general.deletion("/organizations/"+organization.id,treePanelOrgs);
-                    }else{
-                        Ext.Msg.alert("Error","You must select an organization");
-                    }
-                }
-              }]
-            }
+            menu:menuOrgs
         },{
             iconCls:"strats",
             text:"Strategies",
-            menu:{
-              items:[{
-                iconCls:"new",
-                text:"New",
-                handler:function(){
-                    if (organization.id>0 &&
-                            actualNode.attributes.type=="organization"){
-                        strategy.method="POST";
-                        strategy.url="strategies/create";
-                        strategy.form.getForm().reset();
-                        strategy.form.items.map.strategy_organization_id.
-                            setValue(organization.id);
-                        strategy.win.show();
-                    }else{
-                        Ext.Msg.alert("Error","You must select an organization");
-                    }
-                }
-              },{
-                iconCls:"edit",
-                text:"Edit",
-                handler:function(){
-                    if (strategy.id>0 &&
-                            actualNode.attributes.type=="strategy"){
-                        strategy.method="PUT";
-                        strategy.url="/strategies/"+strategy.id;
-                        strategy.form.getForm().load(
-                            {method:'GET',
-                             url:'/strategies/'+strategy.id+'/edit'});
-                        strategy.win.show();
-                    }else{
-                        Ext.Msg.alert("Error","You must select a strategy");
-                    }                    
-                }
-              },{
-                iconCls:"del",
-                text:"Delete",
-                handler:function(){
-                    if (strategy.id>0 &&
-                            actualNode.attributes.type=="strategy"){
-                          general.deletion("/strategies/"+strategy.id,treePanelOrgs);
-                    }else{
-                        Ext.Msg.alert("Error","You must select a strategy");
-                    }
-                }
-              }]
-            }            
+            menu:menuStrats
         }]
     });
     
@@ -221,8 +141,25 @@ Ext.onReady(function(){
         collapsible: true,
         width: 500,
         autoScroll: true,
-        rootVisible: false,
         useArrows: true,
+        contextMenu: new Ext.menu.Menu({
+            items:[{
+                iconCls:"persp",
+                text:"Perspectives",
+                menu:menuPersp
+            },{
+                iconCls:"objs",
+                text:"Objectives",
+                menu:menuObjs
+            }]
+        }),
+        root: {
+            nodeType: 'async',
+            text: 'Perspectives',
+            draggable: false,
+            iconCls:"persp",
+            id: 'src:root'
+        },
         tbar:[toolBarPers],
         loader: new Ext.tree.TreeLoader({
             requestMethod:"GET",
@@ -245,9 +182,14 @@ Ext.onReady(function(){
                 perspective.id=0;
                 objective.id=0;
                 initiative.id=0;
+            },
+            contextmenu: function(node, e) {
+                node.select();
+                var c = node.getOwnerTree().contextMenu;
+                c.contextNode = node;
+                c.showAt(e.getXY());
             }
-        },
-        root: new Ext.tree.AsyncTreeNode()
+        }
     });
 
     var measurePanel= new Ext.Panel({

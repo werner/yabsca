@@ -36,49 +36,48 @@ class ApplicationController < ActionController::Base
   end
 
   #methods to build the trees used in the application
-  def join_nodes_orgs(expanded_id,tree)
+
+  def join_nodes_orgs(tree)
     tree.map do |u|
-        {:id => 'o'+u.id.to_s,
+        {:id => "src:orgs"+u.id.to_s,
         :iddb => u.id,
         :text => u.name,
         :iconCls => "orgs",
-        :expanded => u.id > expanded_id,
-        :leaf => (u.strategies.empty? and u.organizations.empty?),
         :type => "organization",
-        :children => join_nodes_orgs(expanded_id,u.organizations).concat(
-          u.strategies.map { |i| {
-            :id => 's'+i.id.to_s,
-            :iddb => i.id,
-            :text => i.name,
-            :leaf => true,
-            :iconCls => "strats",
-            :type => "strategy",
-            :children => []}}
-        )}
+        :leaf => (u.strategies.empty? and u.organizations.empty?)}
+    end
+  end
+
+  def join_nodes_strat(tree)
+    tree.map do |u|
+        {:id => "src:strats"+u.id.to_s,
+        :iddb => u.id,
+        :text => u.name,
+        :iconCls => "strats",
+        :type => "strategy",
+        :leaf => u.perspectives.empty?}
     end
   end
 
   def join_nodes_perspectives(tree)
     tree.map do |u|
-      {:id => 'p'+u.id.to_s,
+      {:id => "src:persp"+u.id.to_s,
        :iddb => u.id,
        :text => u.name,
-       :iconCls => "persp",
        :type => "perspective",
-       :leaf => u.objectives.empty?,
-       :children=>join_nodes_objs(u.objectives)}
+       :iconCls => "persp",
+       :leaf => u.objectives.empty?}
     end
   end
 
   def join_nodes_objs(tree)
     tree.map do |u|
-      {:id => 'o'+u.id.to_s,
+      {:id => "src:objs"+u.id.to_s,
       :iddb => u.id,
       :text => u.name,
       :iconCls => "objs",
-      :leaf => u.objectives.empty?,
       :type => "objective",
-      :children=> join_nodes_objs(u.objectives)}
+      :leaf =>(u.objectives.empty? and u.measures.empty?)}
     end
   end
 
@@ -101,7 +100,7 @@ class ApplicationController < ActionController::Base
        :type => "perspective",
        :leaf => u.objectives.empty?,
        :children=>join_nodes_all_objectives(u.objectives)}
-    end    
+    end
   end
 
   def join_nodes_all_objectives(tree)
@@ -118,14 +117,15 @@ class ApplicationController < ActionController::Base
 
   def join_measures(tree)
     tree.map do |u|
-     {:id => u.id,
-      :text => u.name,
-      :code => u.code,
-      :iconCls => "measure",
-      :leaf => true}
+      {:id => "src:measure"+u.id.to_s,
+        :iddb => u.id,
+        :text => u.name,
+        :code => u.code,
+        :iconCls => "measure",
+        :leaf => true}
     end
   end
-
+  
   #methods to create the fusion charts xml data
   def fusionchart_xml(array)
     xml="<graph>"

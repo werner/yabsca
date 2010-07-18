@@ -67,28 +67,28 @@ private
     return_data=[]
     if node.match(/src:root/)
       data=Organization.find_all_by_organization_id(0)
-      return_data=everything_join_nodes_orgs(data)
+      return_data=join_nodes_orgs(data)
     elsif node.match(/src:orgs/)
       id=node.sub(/src:orgs/,"").to_i
       data=Organization.find_all_by_organization_id(id)
       if data.empty?
         data=Strategy.find_all_by_organization_id(id)
-        return_data=everything_join_nodes_strat(data)
+        return_data=join_nodes_strat(data)
       else
-        return_data=everything_join_nodes_orgs(data)
+        return_data=join_nodes_orgs(data)
       end
     elsif node.match(/src:strats/)
       id=node.sub(/src:strats/,"").to_i
       data=Perspective.find_all_by_strategy_id(id)
-      return_data=everything_join_nodes_perspectives(data)
+      return_data=join_nodes_perspectives(data)
     elsif node.match(/src:persp/)
       id=node.sub(/src:persp/,"").to_i
       data=Objective.find_all_by_perspective_id(id)
-      return_data=everything_join_nodes_objs(data)
+      return_data=join_nodes_objs(data)
     elsif node.match(/src:objs/)
       id=node.sub(/src:objs/,"").to_i
       data=Objective.find(id).measures
-      return_data=everything_join_nodes_measures(data)
+      return_data=join_measures(data)
     end
 
     return_data
@@ -108,57 +108,6 @@ private
      :iconCls => result[1][0],
      :leaf => true}
 
-  end
-
-  def everything_join_nodes_orgs(tree)
-    tree.map do |u|
-        {:id => "src:orgs"+u.id.to_s,
-        :iddb => u.id,
-        :text => u.name,
-        :iconCls => "orgs",
-        :leaf => (u.strategies.empty? and u.organizations.empty?)}
-    end
-  end
-
-  def everything_join_nodes_strat(tree)
-    tree.map do |u|
-        {:id => "src:strats"+u.id.to_s,
-        :iddb => u.id,
-        :text => u.name,
-        :iconCls => "strats",
-        :leaf => u.perspectives.empty?}
-    end
-  end
-
-  def everything_join_nodes_perspectives(tree)
-    tree.map do |u|
-      {:id => "src:persp"+u.id.to_s,
-       :iddb => u.id,
-       :text => u.name,
-       :iconCls => "persp",
-       :leaf => u.objectives.empty?}
-    end
-  end
-
-  def everything_join_nodes_objs(tree)
-    tree.map do |u|
-      {:id => "src:objs"+u.id.to_s,
-      :iddb => u.id,
-      :text => u.name,
-      :iconCls => "objs",
-      :leaf => u.measures.empty?}
-    end
-  end
-
-  def everything_join_nodes_measures(tree)
-    tree.map do |u|
-      {:id => "src:measure"+u.id.to_s,
-        :iddb => u.id,
-        :text => u.name,
-        :code => u.code,
-        :iconCls => "measure",
-        :leaf => true}
-    end
   end
   
 end

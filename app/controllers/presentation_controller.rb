@@ -3,11 +3,21 @@ class PresentationController < ApplicationController
 
   def org_and_strat
 
-    @organizations=Organization.find_all_by_organization_id(0)
-
     return_data=[]
-    return_data=join_nodes_orgs(params[:organization_id].to_i,@organizations)
-
+    if params[:node].match(/src:root/)
+      data=Organization.find_all_by_organization_id(0)
+      return_data=join_nodes_orgs(data)
+    elsif params[:node].match(/src:orgs/)
+      id=params[:node].sub(/src:orgs/,"").to_i
+      data=Organization.find_all_by_organization_id(id)
+      if data.empty?
+        data=Strategy.find_all_by_organization_id(id)
+        return_data=join_nodes_strat(data)
+      else
+        return_data=join_nodes_orgs(data)
+      end
+    end
+    
     respond_to do |format|
       format.json { render :json => return_data }
     end    
@@ -15,10 +25,15 @@ class PresentationController < ApplicationController
 
   def persp_and_objs
 
-    @perspectives=Perspective.find_all_by_strategy_id(params[:strategy_id])
-
     return_data=[]
-    return_data=join_nodes_perspectives(@perspectives)
+    if params[:node].match(/src:root/)
+      data=Perspective.find_all_by_strategy_id(params[:strategy_id])
+      return_data=join_nodes_perspectives(data)
+    elsif params[:node].match(/src:persp/)
+      id=params[:node].sub(/src:persp/,"").to_i
+      data=Objective.find_all_by_perspective_id(id)
+      return_data=join_nodes_objs(data)
+    end
 
     respond_to do |format|
       format.json { render :json => return_data }

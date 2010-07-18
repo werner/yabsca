@@ -1,3 +1,13 @@
+#everybody{
+    float:left;
+}
+
+#drawingmap{
+    margin-left: 400px;
+    width: 800px;
+    height: 500px;
+}
+
 /******************************************************/
 .top-wrap {
     cursor: pointer;
@@ -73,6 +83,11 @@
     float: right;
     background-image: url("../images/exit.png") !important;
     background-repeat: no-repeat;
+}
+
+.map {
+  background-image: url("../images/map.png") !important;
+  background-repeat: no-repeat;
 }
 
 .role {

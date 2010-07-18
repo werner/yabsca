@@ -1,0 +1,13 @@
+%html
+  %head
+    %title
+      A Balanced ScoreCard Application
+  %body
+    #header
+      #maintitle
+        A Balanced ScoreCard Application -- Strategy Map
+      #exit
+        = link_to "Log Out", "/destroy"
+    #drawingmap
+      %canvas#drawcanvas
+    = javascript_include_tag "app/strategymap"
