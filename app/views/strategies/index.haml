@@ -1,13 +1,15 @@
-%html
-  %head
-    %title
-      A Balanced ScoreCard Application
-  %body
-    #header
-      #maintitle
-        A Balanced ScoreCard Application -- Strategy Map
-      #exit
-        = link_to "Log Out", "/destroy"
-    #drawingmap
-      %canvas#drawcanvas
-    = javascript_include_tag "app/strategymap"
+#header
+  #maintitle
+    A Balanced ScoreCard Application -- Strategy Map
+  #exit
+    = link_to "Log Out", "/destroy"
+
+= javascript_tag "var strategy_id=#{session[:strategy_id]}"
+= javascript_include_tag "jquery-1.4.2.min"
+/= javascript_include_tag "jquery-ui-1.8.2.custom.min"
+= javascript_include_tag "raphael-min"
+= javascript_include_tag "raphaelle"
+= javascript_include_tag "raphael.properties"
+= javascript_include_tag "raphael.serialize"
+= javascript_include_tag "app/strategymap"
+#drawcanvas

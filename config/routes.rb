@@ -19,6 +19,8 @@ ActionController::Routing::Routes.draw do |map|
   map.everything '/everything', :controller => 'admin', :action => 'everything'
   map.roles_privileges '/roles_privileges', :controller => 'admin', :action => 'roles_privileges'
 
+  map.export '/export', :controller => 'strategies', :action=>'export'
+
   map.destroy '/destroy', :controller => 'user_sessions', :action => 'destroy'
   
   map.root :controller => "user_sessions", :action  => "new"

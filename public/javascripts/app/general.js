@@ -110,7 +110,14 @@ var menuStrats=new Ext.menu.Menu({
           },{
             iconCls:"map",
             text:"Strategy Map",
-            handler:function(){ window.location = '/strategies'; }
+            handler:function(){
+                if (strategy.id>0 &&
+                        actualNode.attributes.type=="strategy"){
+                    window.location = "/strategies?id="+strategy.id;
+                }else{
+                    Ext.Msg.alert("Error","You must select a strategy");
+                }
+            }
           }]
 });
       

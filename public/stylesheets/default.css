@@ -2,10 +2,11 @@
     float:left;
 }
 
-#drawingmap{
+#drawcanvas{
     margin-left: 400px;
-    width: 800px;
+    width:800px;
     height: 500px;
+    border-style: groove;
 }
 
 /******************************************************/
@@ -60,6 +61,31 @@
 
 .sum{
   background-image: url("../images/sum1.png") !important;
+  background-repeat: no-repeat;
+}
+
+.line{
+  background-image: url("../images/line.png") !important;
+  background-repeat: no-repeat;
+}
+
+.curve{
+  background-image: url("../images/curve.png") !important;
+  background-repeat: no-repeat;
+}
+
+.ellipse{
+  background-image: url("../images/ellipse.png") !important;
+  background-repeat: no-repeat;
+}
+
+.text{
+  background-image: url("../images/textfield.png") !important;
+  background-repeat: no-repeat;
+}
+
+.erase{
+  background-image: url("../images/erase.png") !important;
   background-repeat: no-repeat;
 }
 /******************************************************/
@@ -151,6 +177,11 @@
 }
 .unit {
   background-image: url("../images/wrench.png") !important;
+  background-repeat: no-repeat;
+}
+
+.export{
+  background-image: url("../images/book_go.png") !important;
   background-repeat: no-repeat;
 }
 

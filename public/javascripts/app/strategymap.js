@@ -1,8 +1,208 @@
-
 Ext.onReady(function() {
 
-    var posX=0;
-    var posY=0;
+    var node;
+    var paper = Raphael('drawcanvas',800,500);
+    Property.paper=paper;
+    Ext.Ajax.request({
+        url:"/strategies/"+strategy_id+"/edit",
+        method:"GET",
+        success:function(data){
+            var map=JSON.parse(data.responseText);
+            var strategyMap=JSON.parse(map.data["strategy[strategy_map]"]);
+            paper.serialize.load_json(strategyMap);
+        }
+    });
+    Property.setSelected=paper.set();
+    var actualText;
+
+    paper.raphael.click(function(event){
+        if (event.target.localName=="svg"){
+            if (actualText!=undefined) actualText.attr({stroke:""});
+            Property.setSelected.remove();
+            if (Property.lrb!=""){
+                Property.lrb.remove();
+            }
+        }
+    });
+
+    var dataMenu= new Ext.menu.Menu({
+        items:[{
+                text:"New",
+                iconCls:"new",
+                handler:function(){
+                    if (node!=undefined){
+                        if (node.attributes.type=="objective"){
+                            var ellipse = paper.ellipse(110, 80, 100, 40);
+                            ellipse.attr("fill", "#6cb6f4");
+                            var t = paper.text(110, 70, node.text);
+                            t.click(function(event){
+                               var ob=event.target.parentNode.raphael;
+                               actualText=ob;
+                               ob.attr({stroke:"black"})
+                            });
+                            var st=paper.set();
+                            st.push(ellipse,t);
+                            var start = function () {
+                                this.ox = this.attr("cx");
+                                this.oy = this.attr("cy");
+                                this.lx = t.attr("x");
+                                this.ly = t.attr("y");
+                            },
+                            move = function (dx, dy) {
+                                this.attr({cx: this.ox + dx, cy: this.oy + dy,
+                                            x:this.lx + dx, y: this.ly + dy});
+                                t.attr({x:this.lx + dx, y: this.ly + dy});
+                            };
+                            st.drag(move, start);
+                            st.click(function(event){
+                               if (event.target.localName=="ellipse"){
+                                   Property.transformObject=event.target.raphael;
+                                   Property.selectedEllipse(event);
+                               }
+                            });
+                            st.mouseover(function(event){
+                               document.body.style.cursor='move';
+                            });
+                            st.mouseout(function(event){
+                               document.body.style.cursor='auto';
+                            });
+                        }else if (node.attributes.type=="perspective"){
+                            var persp=paper.rect(10,10,750,110);
+                            var rectl=paper.rect(10,10,750,20);
+                            var perspt = paper.text(350, 20, node.text);
+                            perspt.attr("font-size","12");
+                            rectl.attr("fill", "#18c7c9");
+                            var selectedPersp=paper.set();
+                            selectedPersp.push(persp,rectl);
+                            var pstart = function () {
+                                persp.ox = persp.attr("x");
+                                persp.oy = persp.attr("y");
+                                rectl.ox = rectl.attr("x");
+                                rectl.oy = rectl.attr("y");
+                                perspt.ox=perspt.attr("x");
+                                perspt.oy=perspt.attr("y");
+                            },
+                            pmove = function (dx, dy) {
+                                persp.attr({x: persp.ox + dx, y: persp.oy + dy});
+                                rectl.attr({x: rectl.ox + dx, y: rectl.oy + dy});
+                                perspt.attr({x:perspt.ox + dx, y: perspt.oy + dy});
+                            };
+                            selectedPersp.drag(pmove, pstart);
+                            selectedPersp.mouseover(function(event){
+                               document.body.style.cursor='move';
+                            });
+                            selectedPersp.mouseout(function(event){
+                               document.body.style.cursor='auto';
+                            });
+                        }
+                    }
+                }
+        },{
+            text:"Delete",
+            iconCls:"del",
+            handler:function(){
+                if (Property.actualObject!=undefined)
+                    Property.actualObject.remove();
+                if (Property.actualSet!=undefined)
+                    Property.actualSet.remove();
+            }
+        }]
+
+    });
+
+    var drawingObjects=new Ext.menu.Menu({
+       items:[{
+            text:"Line",
+            iconCls:"line",
+            handler:function(){
+                var l = paper.path("M10 10L90 90");
+                Property.line(l);
+            }
+        },{
+            text:"Curve",
+            iconCls:"curve",
+            handler:function(){
+                var c = paper.path("M10,55 C10,5 100,5 100,55");
+                Property.curve(c);
+            }
+        },{
+            text:"Ellipse",
+            iconCls:"ellipse",
+            handler:function(){
+                var ellipse = paper.ellipse(110, 80, 100, 40);
+                Property.ellipse(ellipse);
+            }
+        },{
+            text:"Text",
+            iconCls:"text",
+            handler:function(){
+                Ext.Msg.prompt('Text', 'Enter text:', function(btn, text){
+                    if (btn == 'ok'){
+                        var t = paper.text(110, 70, text);
+                        Property.text(t);
+                    }
+                });
+            }
+        }]
+    });
+
+    var editMenu=new Ext.menu.Menu({
+        items:[{
+            text:"Clear Canvas",
+            iconCls:"erase",
+            handler:function(){
+                paper.clear();
+            }
+        },{
+            text:"Save Canvas",
+            iconCls:"saving",
+            handler:function(){
+                var raphaelData = paper.serialize.json();
+                Ext.Ajax.request({
+                    url:"/strategies/"+strategy_id,
+                    method:"PUT",
+                    params:{"strategy[strategy_map]":raphaelData}
+                });
+            }
+        },{
+            text:"Export Canvas",
+            iconCls:"export",
+            handler:function(){
+                var canvas=Ext.get("drawcanvas");
+                var data=canvas.dom.innerHTML;
+
+                var form= new Ext.FormPanel({
+                    id:'form',
+                    cls:'x-hidden',
+                    items:[new Ext.form.Hidden({id:"data",name:"data",value:data})],
+                    listeners : {
+                        render : function(form){
+                            form.getForm().submit({
+                                url:"/export",
+                                method:"POST"
+                            });
+                        }
+                    }
+                });
+                form.render(document.body);
+            }
+        }]
+    });
+
+    var toolBar=new Ext.Toolbar({
+        region: 'north',
+        items:[{
+           text:"Data Objects",
+           menu:dataMenu
+        },{
+            text:"Drawing Objects",
+            menu:drawingObjects
+        },{
+            text:"Edition",
+            menu:editMenu
+        }]
+    });
+
     var everybody = new Ext.tree.TreePanel({
         useArrows: true,
         region: 'west',
@@ -15,16 +215,17 @@ Ext.onReady(function() {
         width:400,
         loader: new Ext.tree.TreeLoader({
             requestMethod:"GET",
-            dataUrl: "/everything"
+            dataUrl: "/strategies.json"
         }),
         root: {
             nodeType: 'async',
-            text: 'Privileges',
+            text: 'Perspectives',
             draggable: false,
             id: 'src:root'
         },
         listeners:{
-            contextmenu: function(node, e) {}
+            contextmenu: function(node, e) {},
+            click:function(o){node=o;}
         }
     });
 
@@ -36,35 +237,10 @@ Ext.onReady(function() {
         x:1,y:30,
         closeAction:"hide",
         plain: true,
+        tbar:toolBar,
         items:[everybody]
     });
-    
+
     everyWindows.show();
 
-    var divCanvas=Ext.get('drawingmap');
-    var canvas=Ext.get('drawcanvas');
-    canvas.dd=new Ext.dd.DDProxy('drawcanvas', 'ddGroup');
- 
-    divCanvas.on('click',function(){
-        draw(canvas.dom);
-        canvas.setX(posX);
-        canvas.setY(posY);
-    });
-
-    divCanvas.on('mousemove',function(e){
-        posX=e.browserEvent.clientX;
-        posY=e.browserEvent.clientY;
-    });
-
-    function draw(el) {
-        var ctx = el.getContext("2d");
-
-        //draw a circle
-        ctx.beginPath();
-        ctx.fillStyle = "rgb(50,129,169)";
-        ctx.arc(70, 70, 70, 0, Math.PI*2, true);
-        ctx.closePath();
-        ctx.fill();
-
-    }
 });

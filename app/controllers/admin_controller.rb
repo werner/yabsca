@@ -61,39 +61,6 @@ private
     return_data
   end
 
-  def nodes_selection(node)
-    #it receives a node argument to make a regexp and then a select to a table
-    #This is for reload the treeview everytime an user clicks on a node
-    return_data=[]
-    if node.match(/src:root/)
-      data=Organization.find_all_by_organization_id(0)
-      return_data=join_nodes_orgs(data)
-    elsif node.match(/src:orgs/)
-      id=node.sub(/src:orgs/,"").to_i
-      data=Organization.find_all_by_organization_id(id)
-      if data.empty?
-        data=Strategy.find_all_by_organization_id(id)
-        return_data=join_nodes_strat(data)
-      else
-        return_data=join_nodes_orgs(data)
-      end
-    elsif node.match(/src:strats/)
-      id=node.sub(/src:strats/,"").to_i
-      data=Perspective.find_all_by_strategy_id(id)
-      return_data=join_nodes_perspectives(data)
-    elsif node.match(/src:persp/)
-      id=node.sub(/src:persp/,"").to_i
-      data=Objective.find_all_by_perspective_id(id)
-      return_data=join_nodes_objs(data)
-    elsif node.match(/src:objs/)
-      id=node.sub(/src:objs/,"").to_i
-      data=Objective.find(id).measures
-      return_data=join_measures(data)
-    end
-
-    return_data
-  end
-
   def node_type(object)
     ss={SubSystem::Measure=>["measure",lambda { Measure.find(object.module_id).name }],
       SubSystem::Organization => ["orgs",lambda { Organization.find(object.module_id).name }],

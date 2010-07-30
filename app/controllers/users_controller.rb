@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.json { render :json => return_data }
-    end    
+    end
   end
   
   def create

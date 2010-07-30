@@ -16,6 +16,7 @@ ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!(:default =
 ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!(:default => '%m/%d/%Y %H:%M')
 
 require "will_paginate"
+require "tempfile"
 
 module Frecuency
   Daily=1

@@ -1,6 +1,30 @@
 class StrategiesController < ApplicationController
-
+  before_filter :require_user
+  
   def index
+    
+    session[:strategy_id]=params[:id] unless params[:id].nil?
+
+    strategy=Strategy.find(session[:strategy_id])
+
+    return_data=[]
+    if params[:node].match(/src:root/)
+      return_data.push({
+          :id => "src:strats"+strategy.id.to_s,
+          :iddb => strategy.id,
+          :text => strategy.name,
+          :iconCls => "strats",
+          :type => "strategy",
+          :leaf => strategy.perspectives.empty?
+        })
+    else
+      return_data=nodes_selection(params[:node])
+    end unless params[:node].nil?
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => return_data }
+    end
   end
   
   def edit
@@ -10,11 +34,24 @@ class StrategiesController < ApplicationController
     return_data[:success]=true
     return_data[:data]={"strategy[name]"=>@strategy.name,
                         "strategy[description]"=>@strategy.description,
-                        "strategy[organization_id]"=>@strategy.organization_id}
+                        "strategy[organization_id]"=>@strategy.organization_id,
+                        "strategy[strategy_map]"=>@strategy.strategy_map}
 
     respond_to do |format|
       format.json { render :json => return_data }
     end
+  end
+
+  def export
+    temp_file=Tempfile.new("image.svg", "#{Rails.root}/tmp")
+    temp_file.puts params[:data]
+    temp_file.rewind
+
+#header("Content-Type: text/plain");
+#header("Content-Length: " . strlen($buffer));
+#header("Content-Disposition: attachment; filename=\"example.txt\"");
+#
+#    send_file(temp_file.path)
   end
 
   def create
