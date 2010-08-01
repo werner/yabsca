@@ -170,21 +170,14 @@ Ext.onReady(function() {
             handler:function(){
                 var canvas=Ext.get("drawcanvas");
                 var data=canvas.dom.innerHTML;
-
-                var form= new Ext.FormPanel({
-                    id:'form',
-                    cls:'x-hidden',
-                    items:[new Ext.form.Hidden({id:"data",name:"data",value:data})],
-                    listeners : {
-                        render : function(form){
-                            form.getForm().submit({
-                                url:"/export",
-                                method:"POST"
-                            });
-                        }
+                Ext.Ajax.request({
+                    url:"/strategies/"+strategy_id,
+                    method:"PUT",
+                    params:{"strategy[strategy_map_svg]":data},
+                    success:function(response){
+                        window.location="/export?id="+strategy_id;
                     }
                 });
-                form.render(document.body);
             }
         }]
     });

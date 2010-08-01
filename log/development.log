@@ -1,0 +1,655 @@
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-31 13:37:19) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 844ms (View: 313, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-07-31 13:38:07) [POST]
+  Parameters: {"user_session"=>{"password"=>"[FILTERED]", "login"=>"werner"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'werner') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "login_count" = 48, "updated_at" = '2010-07-31 18:08:08', "perishable_token" = 'YylU4OKp_e_LC1ExFslm', "last_request_at" = '2010-07-31 18:08:08', "last_login_at" = '2010-07-30 13:18:52', "current_login_at" = '2010-07-31 18:08:08' WHERE "id" = 1[0m
+Completed in 656ms (View: 0, DB: 0) | 200 OK [http://localhost/user_sessions/create]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-07-31 13:38:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"presentation"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:08:08', "perishable_token" = 'TB6ZLVZCZyENRheimjib', "last_request_at" = '2010-07-31 18:08:08' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/index
+Completed in 188ms (View: 16, DB: 0) | 200 OK [http://localhost/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-07-31 13:38:11) [GET]
+  Parameters: {"action"=>"index", "controller"=>"units", "_dc"=>"1280599691416"}
+  [4;36;1mUnit Load (0.0ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 203ms (View: 0, DB: 0) | 200 OK [http://localhost/units?_dc=1280599691416]
+
+
+Processing ResponsiblesController#index (for 127.0.0.1 at 2010-07-31 13:38:11) [GET]
+  Parameters: {"action"=>"index", "controller"=>"responsibles", "_dc"=>"1280599691491"}
+  [4;35;1mResponsible Load (0.0ms)[0m   [0mSELECT * FROM "responsibles" [0m
+Completed in 203ms (View: 0, DB: 0) | 200 OK [http://localhost/responsibles?_dc=1280599691491]
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-07-31 13:38:13) [GET]
+  Parameters: {"node"=>"xnode-6", "objective_id"=>"0", "action"=>"index", "controller"=>"initiatives", "_dc"=>"1280599692872"}
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 281ms (View: 16, DB: 0) | 200 OK [http://localhost/initiatives?objective_id=0&_dc=1280599692872&node=xnode-6]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-07-31 13:38:13) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "action"=>"index", "controller"=>"measures", "_dc"=>"1280599693111"}
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 203ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1280599693111&node=xnode-10]
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-07-31 13:38:14) [GET]
+  Parameters: {"action"=>"index", "controller"=>"targets", "_dc"=>"1280599694009", "measure_id"=>"0"}
+  [4;36;1mTarget Load (0.0ms)[0m   [0;1mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '0') [0m
+Completed in 203ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1280599694009&measure_id=0]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-07-31 13:38:16) [GET]
+  Parameters: {"node"=>"src:root", "action"=>"org_and_strat", "controller"=>"presentation", "_dc"=>"1280599696158"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:08:16', "perishable_token" = 'Wh8yqEyF3M0CVNGo2kc8', "last_request_at" = '2010-07-31 18:08:16' WHERE "id" = 1[0m
+  [4;35;1mOrganization Load (15.6ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 2) [0m
+Completed in 281ms (View: 0, DB: 16) | 200 OK [http://localhost/org_and_strat?_dc=1280599696158&node=src%3Aroot]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-07-31 13:38:17) [GET]
+  Parameters: {"node"=>"src:orgs2", "action"=>"org_and_strat", "controller"=>"presentation", "_dc"=>"1280599697373"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:08:17', "perishable_token" = 'RnEg8SBa_tCXknGkPhDo', "last_request_at" = '2010-07-31 18:08:17' WHERE "id" = 1[0m
+  [4;36;1mOrganization Load (0.0ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 3) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 4) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 4) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 5) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 5) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 7) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 7) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 8) [0m
+  [4;35;1mSQL (15.6ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 8) [0m
+Completed in 438ms (View: 0, DB: 16) | 200 OK [http://localhost/org_and_strat?_dc=1280599697373&node=src%3Aorgs2]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-07-31 13:38:19) [GET]
+  Parameters: {"node"=>"src:orgs3", "action"=>"org_and_strat", "controller"=>"presentation", "_dc"=>"1280599699509"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:08:20', "perishable_token" = 'xRd7fIeu88CfX06Dkf1w', "last_request_at" = '2010-07-31 18:08:20' WHERE "id" = 1[0m
+  [4;36;1mOrganization Load (0.0ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 3) [0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."organization_id" = 3) [0m
+  [4;36;1mSQL (15.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "perspectives" WHERE ("perspectives".strategy_id = 2) [0m
+Completed in 516ms (View: 0, DB: 16) | 200 OK [http://localhost/org_and_strat?_dc=1280599699509&node=src%3Aorgs3]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-07-31 13:38:21) [GET]
+  Parameters: {"node"=>"src:root", "action"=>"persp_and_objs", "controller"=>"presentation", "_dc"=>"1280599700919", "strategy_id"=>"2"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:08:21', "perishable_token" = 'Ha16xeMot4Q31Ck5soPM', "last_request_at" = '2010-07-31 18:08:21' WHERE "id" = 1[0m
+  [4;35;1mPerspective Load (0.0ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '2') [0m
+  [4;36;1mSQL (15.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 3) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 4) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 5) [0m
+Completed in 250ms (View: 0, DB: 16) | 200 OK [http://localhost/persp_and_objs?strategy_id=2&_dc=1280599700919&node=src%3Aroot]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-07-31 13:38:21) [GET]
+  Parameters: {"node"=>"xnode-10", "objective_id"=>"0", "action"=>"index", "controller"=>"measures", "_dc"=>"1280599700927"}
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 203ms (View: 16, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1280599700927&node=xnode-10]
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-07-31 13:38:21) [GET]
+  Parameters: {"action"=>"index", "controller"=>"targets", "_dc"=>"1280599701657", "measure_id"=>"0"}
+  [4;35;1mTarget Load (0.0ms)[0m   [0mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '0') [0m
+Completed in 250ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1280599701657&measure_id=0]
+
+
+Processing StrategiesController#index (for 127.0.0.1 at 2010-07-31 13:38:23) [GET]
+  Parameters: {"action"=>"index", "id"=>"2", "controller"=>"strategies"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:08:23', "perishable_token" = 'N2PSXcB_JaEV4YcklIcm', "last_request_at" = '2010-07-31 18:08:23' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering strategies/index
+Completed in 234ms (View: 16, DB: 0) | 200 OK [http://localhost/strategies?id=2]
+
+
+Processing StrategiesController#edit (for 127.0.0.1 at 2010-07-31 13:38:26) [GET]
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"strategies", "_dc"=>"1280599706799"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:08:27', "perishable_token" = 'LSpgqD3QmTOwnyTo0hVB', "last_request_at" = '2010-07-31 18:08:27' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 375ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies/2/edit?_dc=1280599706799]
+
+
+Processing StrategiesController#update (for 127.0.0.1 at 2010-07-31 13:38:52) [PUT]
+  Parameters: {"action"=>"update", "id"=>"2", "controller"=>"strategies", "strategy"=>{"strategy_map"=>"[{\"type\":\"ellipse\",\"rx\":100,\"ry\":40,\"cx\":316,\"cy\":213,\"stroke\":\"#000\",\"fill\":\"#6cb6f4\"},{\"type\":\"path\",\"fill\":\"none\",\"path\":\"M262,178C262,128,352,128,352,178\",\"stroke\":\"#000\",\"stroke-width\":\"2.5\",\"transform\":\"\"}]"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:08:53', "perishable_token" = 'mWt5hVzfbxM4jjGduDrQ', "last_request_at" = '2010-07-31 18:08:53' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+  [4;35;1mStrategy Update (0.0ms)[0m   [0mUPDATE "strategies" SET "updated_at" = '2010-07-31 18:08:53', "strategy_map" = '[{"type":"ellipse","rx":100,"ry":40,"cx":316,"cy":213,"stroke":"#000","fill":"#6cb6f4"},{"type":"path","fill":"none","path":"M262,178C262,128,352,128,352,178","stroke":"#000","stroke-width":"2.5","transform":""}]' WHERE "id" = 2[0m
+Completed in 438ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies/2]
+
+
+Processing StrategiesController#index (for 127.0.0.1 at 2010-07-31 13:39:06) [GET]
+  Parameters: {"action"=>"index", "id"=>"2", "controller"=>"strategies"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:09:06', "perishable_token" = 'Y5KvCXquk9x5VZcUYQAt', "last_request_at" = '2010-07-31 18:09:06' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering strategies/index
+Completed in 313ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies?id=2]
+
+
+Processing StrategiesController#edit (for 127.0.0.1 at 2010-07-31 13:39:09) [GET]
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"strategies", "_dc"=>"1280599749427"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:09:09', "perishable_token" = 'q6MDMbRQZfLg-8AATIdU', "last_request_at" = '2010-07-31 18:09:09' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 281ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies/2/edit?_dc=1280599749427]
+
+
+Processing StrategiesController#update (for 127.0.0.1 at 2010-07-31 13:39:14) [PUT]
+  Parameters: {"action"=>"update", "id"=>"2", "controller"=>"strategies", "strategy"=>{"strategy_map"=>"[{\"type\":\"ellipse\",\"rx\":100,\"ry\":40,\"cx\":316,\"cy\":213,\"stroke\":\"#000\",\"fill\":\"#6cb6f4\"},{\"type\":\"path\",\"fill\":\"none\",\"path\":\"M262,178C262,128,352,128,352,178\",\"stroke\":\"#000\",\"stroke-width\":\"2.5\",\"transform\":\"\"}]"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (15.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:09:14', "perishable_token" = 'cB8x3RVfZLIbqOI9zmPi', "last_request_at" = '2010-07-31 18:09:14' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 234ms (View: 0, DB: 16) | 200 OK [http://localhost/strategies/2]
+
+
+Processing StrategiesController#export (for 127.0.0.1 at 2010-07-31 13:39:14) [GET]
+  Parameters: {"id2"=>nil, "action"=>"export", "controller"=>"strategies"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:09:14', "perishable_token" = 'TK6XV8lcWlXfx7XG3xAE', "last_request_at" = '2010-07-31 18:09:14' WHERE "id" = 1[0m
+Completed in 219ms (View: 0, DB: 0) | 200 OK [http://localhost/export?id2]
+Streaming file C:/Documents and Settings/Werner Echezuria/Mis documentos/Proyectos/yabsca_extjs/tmp/image.svg20100731-1732-bv4jhj-0
+
+
+Processing StrategiesController#index (for 127.0.0.1 at 2010-07-31 13:40:51) [GET]
+  Parameters: {"action"=>"index", "id"=>"2", "controller"=>"strategies"}
+  [4;35;1mUser Load (15.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:10:51', "perishable_token" = 'mgDfgbdJAZj_MWMFQrzg', "last_request_at" = '2010-07-31 18:10:51' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering strategies/index
+Completed in 516ms (View: 16, DB: 16) | 200 OK [http://localhost/strategies?id=2]
+
+
+Processing StrategiesController#edit (for 127.0.0.1 at 2010-07-31 13:40:55) [GET]
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"strategies", "_dc"=>"1280599854931"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:10:55', "perishable_token" = 'N5S47pxF9Im8L7p7mcxq', "last_request_at" = '2010-07-31 18:10:55' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 281ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies/2/edit?_dc=1280599854931]
+
+
+Processing StrategiesController#update (for 127.0.0.1 at 2010-07-31 13:40:59) [PUT]
+  Parameters: {"action"=>"update", "id"=>"2", "controller"=>"strategies", "strategy"=>{"strategy_map"=>"[{\"type\":\"ellipse\",\"rx\":100,\"ry\":40,\"cx\":316,\"cy\":213,\"stroke\":\"#000\",\"fill\":\"#6cb6f4\"},{\"type\":\"path\",\"fill\":\"none\",\"path\":\"M262,178C262,128,352,128,352,178\",\"stroke\":\"#000\",\"stroke-width\":\"2.5\",\"transform\":\"\"}]"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (15.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:10:59', "perishable_token" = 'mlHDmRCHtKeObWAhLOnW', "last_request_at" = '2010-07-31 18:10:59' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 234ms (View: 0, DB: 16) | 200 OK [http://localhost/strategies/2]
+
+
+Processing StrategiesController#export (for 127.0.0.1 at 2010-07-31 13:40:59) [GET]
+  Parameters: {"id2"=>nil, "action"=>"export", "controller"=>"strategies"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:11:00', "perishable_token" = '2j_NTmBiaC0SJbAQ-2DA', "last_request_at" = '2010-07-31 18:11:00' WHERE "id" = 1[0m
+
+ActiveRecord::RecordNotFound (Couldn't find Strategy without an ID):
+  app/controllers/strategies_controller.rb:46:in `export'
+  haml (2.2.21) lib/sass/plugin/rails.rb:20:in `process'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing StrategiesController#edit (for 127.0.0.1 at 2010-07-31 13:41:30) [GET]
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"strategies", "_dc"=>"1280599890139"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:11:30', "perishable_token" = 'N9BpYMDXhtRSOou1Ifse', "last_request_at" = '2010-07-31 18:11:30' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 281ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies/2/edit?_dc=1280599890139]
+
+
+Processing StrategiesController#index (for 127.0.0.1 at 2010-07-31 13:41:45) [GET]
+  Parameters: {"action"=>"index", "id"=>"2", "controller"=>"strategies"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (15.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:11:46', "perishable_token" = 'H3BqYq7RfMWcY1EaTfo8', "last_request_at" = '2010-07-31 18:11:46' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering strategies/index
+Completed in 578ms (View: 16, DB: 16) | 200 OK [http://localhost/strategies?id=2]
+
+
+Processing StrategiesController#edit (for 127.0.0.1 at 2010-07-31 13:41:49) [GET]
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"strategies", "_dc"=>"1280599908861"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:11:49', "perishable_token" = 'AdFmYbFQyJIFybk0mNQ-', "last_request_at" = '2010-07-31 18:11:49' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 281ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies/2/edit?_dc=1280599908861]
+
+
+Processing StrategiesController#update (for 127.0.0.1 at 2010-07-31 13:41:52) [PUT]
+  Parameters: {"action"=>"update", "id"=>"2", "controller"=>"strategies", "strategy"=>{"strategy_map"=>"[{\"type\":\"ellipse\",\"rx\":100,\"ry\":40,\"cx\":316,\"cy\":213,\"stroke\":\"#000\",\"fill\":\"#6cb6f4\"},{\"type\":\"path\",\"fill\":\"none\",\"path\":\"M262,178C262,128,352,128,352,178\",\"stroke\":\"#000\",\"stroke-width\":\"2.5\",\"transform\":\"\"}]"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:11:52', "perishable_token" = 'UVv21mphId9n8JAAeoZ2', "last_request_at" = '2010-07-31 18:11:52' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 234ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies/2]
+
+
+Processing StrategiesController#export (for 127.0.0.1 at 2010-07-31 13:41:52) [GET]
+  Parameters: {"action"=>"export", "id"=>"2", "controller"=>"strategies"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:11:53', "perishable_token" = 'nOx7MqDn9MR1NH6gXX64', "last_request_at" = '2010-07-31 18:11:53' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 328ms (View: 0, DB: 0) | 200 OK [http://localhost/export?id=2]
+Streaming file C:/Documents and Settings/Werner Echezuria/Mis documentos/Proyectos/yabsca_extjs/tmp/image.svg20100731-1732-1hopm13-0
+
+
+Processing StrategiesController#index (for 127.0.0.1 at 2010-07-31 14:16:00) [GET]
+  Parameters: {"action"=>"index", "id"=>"2", "controller"=>"strategies"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:46:01', "perishable_token" = 'lhqLuHDdE41b0_TRJIur', "last_request_at" = '2010-07-31 18:46:01' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering strategies/index
+Completed in 266ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies?id=2]
+
+
+Processing StrategiesController#edit (for 127.0.0.1 at 2010-07-31 14:16:04) [GET]
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"strategies", "_dc"=>"1280601963914"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (15.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:46:04', "perishable_token" = 'CggDaQZmZ8ptCkSavOZY', "last_request_at" = '2010-07-31 18:46:04' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 297ms (View: 0, DB: 16) | 200 OK [http://localhost/strategies/2/edit?_dc=1280601963914]
+
+
+Processing StrategiesController#update (for 127.0.0.1 at 2010-07-31 14:16:09) [PUT]
+  Parameters: {"action"=>"update", "id"=>"2", "controller"=>"strategies", "strategy"=>{"strategy_map"=>"[{\"type\":\"ellipse\",\"rx\":100,\"ry\":40,\"cx\":316,\"cy\":213,\"stroke\":\"#000\",\"fill\":\"#6cb6f4\"},{\"type\":\"path\",\"fill\":\"none\",\"path\":\"M262,178C262,128,352,128,352,178\",\"stroke\":\"#000\",\"stroke-width\":\"2.5\",\"transform\":\"\"}]"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:46:09', "perishable_token" = 'JYa7yCe8zTSYDS_YIR5P', "last_request_at" = '2010-07-31 18:46:09' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 250ms (View: 16, DB: 0) | 200 OK [http://localhost/strategies/2]
+
+
+Processing StrategiesController#export (for 127.0.0.1 at 2010-07-31 14:16:09) [GET]
+  Parameters: {"action"=>"export", "id"=>"2", "controller"=>"strategies"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:46:09', "perishable_token" = 'WBQBcUWgxLLYjCo_sBzu', "last_request_at" = '2010-07-31 18:46:09' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 219ms (View: 0, DB: 0) | 200 OK [http://localhost/export?id=2]
+Streaming file C:/Documents and Settings/Werner Echezuria/Mis documentos/Proyectos/yabsca_extjs/tmp/image.svg20100731-1732-q42z5i-0
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-31 14:18:02) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 250ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing StrategiesController#index (for 127.0.0.1 at 2010-07-31 14:18:06) [GET]
+  Parameters: {"action"=>"index", "id"=>"2", "controller"=>"strategies"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (15.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:48:07', "perishable_token" = '_ZXhivP6VxGIfSnfHXTh', "last_request_at" = '2010-07-31 18:48:06' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering strategies/index
+Completed in 375ms (View: 16, DB: 16) | 200 OK [http://localhost/strategies?id=2]
+
+
+Processing StrategiesController#edit (for 127.0.0.1 at 2010-07-31 14:18:10) [GET]
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"strategies", "_dc"=>"1280602089952"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:48:10', "perishable_token" = 's_UagLT-OKCDR_x75SfW', "last_request_at" = '2010-07-31 18:48:10' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 250ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies/2/edit?_dc=1280602089952]
+
+
+Processing StrategiesController#update (for 127.0.0.1 at 2010-07-31 14:18:12) [PUT]
+  Parameters: {"action"=>"update", "id"=>"2", "controller"=>"strategies", "strategy"=>{"strategy_map"=>"[{\"type\":\"ellipse\",\"rx\":100,\"ry\":40,\"cx\":316,\"cy\":213,\"stroke\":\"#000\",\"fill\":\"#6cb6f4\"},{\"type\":\"path\",\"fill\":\"none\",\"path\":\"M262,178C262,128,352,128,352,178\",\"stroke\":\"#000\",\"stroke-width\":\"2.5\",\"transform\":\"\"}]"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:48:12', "perishable_token" = 'dsupBi0VMZIDUHAjf3mG', "last_request_at" = '2010-07-31 18:48:12' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 234ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies/2]
+
+
+Processing StrategiesController#export (for 127.0.0.1 at 2010-07-31 14:18:12) [GET]
+  Parameters: {"action"=>"export", "id"=>"2", "controller"=>"strategies"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:48:13', "perishable_token" = 'jeHfAAPGwU3d2jJe0TyZ', "last_request_at" = '2010-07-31 18:48:13' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 266ms (View: 16, DB: 0) | 200 OK [http://localhost/export?id=2]
+Streaming file C:/Documents and Settings/Werner Echezuria/Mis documentos/Proyectos/yabsca_extjs/tmp/image.svg20100731-2920-msuhmj-0
+
+
+Processing StrategiesController#index (for 127.0.0.1 at 2010-07-31 14:18:58) [GET]
+  Parameters: {"action"=>"index", "id"=>"2", "controller"=>"strategies"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:48:58', "perishable_token" = 'NkXxSPqDRaA4Y5cWAc3A', "last_request_at" = '2010-07-31 18:48:58' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering strategies/index
+Completed in 250ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies?id=2]
+
+
+Processing StrategiesController#edit (for 127.0.0.1 at 2010-07-31 14:19:01) [GET]
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"strategies", "_dc"=>"1280602141412"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:49:01', "perishable_token" = 'KQfQ5rypZYULrKAwcw3s', "last_request_at" = '2010-07-31 18:49:01' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 281ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies/2/edit?_dc=1280602141412]
+
+
+Processing StrategiesController#update (for 127.0.0.1 at 2010-07-31 14:19:04) [PUT]
+  Parameters: {"action"=>"update", "id"=>"2", "controller"=>"strategies", "strategy"=>{"strategy_map"=>"[{\"type\":\"ellipse\",\"rx\":100,\"ry\":40,\"cx\":316,\"cy\":213,\"stroke\":\"#000\",\"fill\":\"#6cb6f4\"},{\"type\":\"path\",\"fill\":\"none\",\"path\":\"M262,178C262,128,352,128,352,178\",\"stroke\":\"#000\",\"stroke-width\":\"2.5\",\"transform\":\"\"}]"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:49:04', "perishable_token" = 'zRAAKLpzGoVfQGXJKCdl', "last_request_at" = '2010-07-31 18:49:04' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 313ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies/2]
+
+
+Processing StrategiesController#export (for 127.0.0.1 at 2010-07-31 14:19:04) [GET]
+  Parameters: {"action"=>"export", "id"=>"2", "controller"=>"strategies"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:49:04', "perishable_token" = 'GVLl_Qg6DPuoqW1a6fxf', "last_request_at" = '2010-07-31 18:49:04' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (15.6ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 266ms (View: 0, DB: 16) | 200 OK [http://localhost/export?id=2]
+Streaming file C:/Documents and Settings/Werner Echezuria/Mis documentos/Proyectos/yabsca_extjs/tmp/image.svg20100731-2920-yfuve0-0
+
+
+Processing StrategiesController#index (for 127.0.0.1 at 2010-07-31 14:19:28) [GET]
+  Parameters: {"action"=>"index", "id"=>"2", "controller"=>"strategies"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:49:28', "perishable_token" = 'OWYx85ROXE57PgoxorMg', "last_request_at" = '2010-07-31 18:49:28' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering strategies/index
+Completed in 234ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies?id=2]
+
+
+Processing StrategiesController#edit (for 127.0.0.1 at 2010-07-31 14:19:32) [GET]
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"strategies", "_dc"=>"1280602171824"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (15.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:49:32', "perishable_token" = 'lD562QL101ayxj5UO5US', "last_request_at" = '2010-07-31 18:49:32' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 266ms (View: 0, DB: 16) | 200 OK [http://localhost/strategies/2/edit?_dc=1280602171824]
+
+
+Processing StrategiesController#update (for 127.0.0.1 at 2010-07-31 14:19:33) [PUT]
+  Parameters: {"action"=>"update", "id"=>"2", "controller"=>"strategies", "strategy"=>{"strategy_map"=>"[{\"type\":\"ellipse\",\"rx\":100,\"ry\":40,\"cx\":316,\"cy\":213,\"stroke\":\"#000\",\"fill\":\"#6cb6f4\"},{\"type\":\"path\",\"fill\":\"none\",\"path\":\"M262,178C262,128,352,128,352,178\",\"stroke\":\"#000\",\"stroke-width\":\"2.5\",\"transform\":\"\"}]"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:49:34', "perishable_token" = 'sDhbPaL3sBcItx18-0OR', "last_request_at" = '2010-07-31 18:49:34' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 234ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies/2]
+
+
+Processing StrategiesController#export (for 127.0.0.1 at 2010-07-31 14:19:34) [GET]
+  Parameters: {"action"=>"export", "id"=>"2", "controller"=>"strategies"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:49:34', "perishable_token" = 'AdIOu0o7GnFt2HMJ87-l', "last_request_at" = '2010-07-31 18:49:34' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 250ms (View: 0, DB: 0) | 200 OK [http://localhost/export?id=2]
+Streaming file C:/Documents and Settings/Werner Echezuria/Mis documentos/Proyectos/yabsca_extjs/tmp/image.svg20100731-2920-qyk9kb-0
+
+
+Processing StrategiesController#index (for 127.0.0.1 at 2010-07-31 14:23:53) [GET]
+  Parameters: {"action"=>"index", "id"=>"2", "controller"=>"strategies"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:53:54', "perishable_token" = '9C2R2yo_3wO6t_NBUNNA', "last_request_at" = '2010-07-31 18:53:54' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering strategies/index
+Completed in 250ms (View: 16, DB: 0) | 200 OK [http://localhost/strategies?id=2]
+
+
+Processing StrategiesController#edit (for 127.0.0.1 at 2010-07-31 14:23:56) [GET]
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"strategies", "_dc"=>"1280602436804"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:53:57', "perishable_token" = 'nBNW8u9ve1mXDHc1OJSP', "last_request_at" = '2010-07-31 18:53:57' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 297ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies/2/edit?_dc=1280602436804]
+
+
+Processing StrategiesController#update (for 127.0.0.1 at 2010-07-31 14:24:01) [PUT]
+  Parameters: {"action"=>"update", "id"=>"2", "controller"=>"strategies", "strategy"=>{"strategy_map"=>"[{\"type\":\"ellipse\",\"rx\":100,\"ry\":40,\"cx\":316,\"cy\":213,\"stroke\":\"#000\",\"fill\":\"#6cb6f4\"},{\"type\":\"path\",\"fill\":\"none\",\"path\":\"M262,178C262,128,352,128,352,178\",\"stroke\":\"#000\",\"stroke-width\":\"2.5\",\"transform\":\"\"}]"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:54:01', "perishable_token" = '5TxovkAyhQtT6hfPs17J', "last_request_at" = '2010-07-31 18:54:01' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 328ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies/2]
+
+
+Processing StrategiesController#export (for 127.0.0.1 at 2010-07-31 14:24:01) [GET]
+  Parameters: {"action"=>"export", "id"=>"2", "controller"=>"strategies"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:54:01', "perishable_token" = '_8na6DfPG_0uLytkogL6', "last_request_at" = '2010-07-31 18:54:01' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 219ms (View: 0, DB: 0) | 200 OK [http://localhost/export?id=2]
+Streaming file C:/Documents and Settings/Werner Echezuria/Mis documentos/Proyectos/yabsca_extjs/tmp/image20100731-2920-8t6e15-0svg
+
+
+Processing StrategiesController#index (for 127.0.0.1 at 2010-07-31 14:24:23) [GET]
+  Parameters: {"action"=>"index", "id"=>"2", "controller"=>"strategies"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:54:24', "perishable_token" = 'qtMaus_x511QVixYfTIi', "last_request_at" = '2010-07-31 18:54:24' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering strategies/index
+Completed in 234ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies?id=2]
+
+
+Processing StrategiesController#edit (for 127.0.0.1 at 2010-07-31 14:24:27) [GET]
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"strategies", "_dc"=>"1280602466776"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:54:27', "perishable_token" = 'qRyvjXdQpaItnfJsCVVd', "last_request_at" = '2010-07-31 18:54:27' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 234ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies/2/edit?_dc=1280602466776]
+
+
+Processing StrategiesController#index (for 127.0.0.1 at 2010-07-31 14:24:53) [GET]
+  Parameters: {"action"=>"index", "id"=>"2", "controller"=>"strategies"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:54:54', "perishable_token" = '2eIUInKdCNtzVCgANxZL', "last_request_at" = '2010-07-31 18:54:54' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering strategies/index
+Completed in 250ms (View: 16, DB: 0) | 200 OK [http://localhost/strategies?id=2]
+
+
+Processing StrategiesController#edit (for 127.0.0.1 at 2010-07-31 14:24:57) [GET]
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"strategies", "_dc"=>"1280602497042"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:54:57', "perishable_token" = 'ovMvvW_Pro9JugCn7Ort', "last_request_at" = '2010-07-31 18:54:57' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 359ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies/2/edit?_dc=1280602497042]
+
+
+Processing StrategiesController#update (for 127.0.0.1 at 2010-07-31 14:24:59) [PUT]
+  Parameters: {"action"=>"update", "id"=>"2", "controller"=>"strategies", "strategy"=>{"strategy_map"=>"[{\"type\":\"ellipse\",\"rx\":100,\"ry\":40,\"cx\":316,\"cy\":213,\"stroke\":\"#000\",\"fill\":\"#6cb6f4\"},{\"type\":\"path\",\"fill\":\"none\",\"path\":\"M262,178C262,128,352,128,352,178\",\"stroke\":\"#000\",\"stroke-width\":\"2.5\",\"transform\":\"\"}]"}}
+  [4;36;1mUser Load (15.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:54:59', "perishable_token" = '2gTF0RRCi4tGJBvMJwhF', "last_request_at" = '2010-07-31 18:54:59' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 234ms (View: 0, DB: 16) | 200 OK [http://localhost/strategies/2]
+
+
+Processing StrategiesController#export (for 127.0.0.1 at 2010-07-31 14:24:59) [GET]
+  Parameters: {"action"=>"export", "id"=>"2", "controller"=>"strategies"}
+  [4;35;1mUser Load (15.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:54:59', "perishable_token" = 'aGzSXj7aLIVLXXW9zDGW', "last_request_at" = '2010-07-31 18:54:59' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 219ms (View: 0, DB: 16) | 200 OK [http://localhost/export?id=2]
+Streaming file C:/Documents and Settings/Werner Echezuria/Mis documentos/Proyectos/yabsca_extjs/tmp/image20100731-2920-1xxguwx-0.svg
+
+
+Processing StrategiesController#index (for 127.0.0.1 at 2010-07-31 14:25:49) [GET]
+  Parameters: {"action"=>"index", "id"=>"2", "controller"=>"strategies"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:55:49', "perishable_token" = '-1wVSBC8WV58DDFjBuyn', "last_request_at" = '2010-07-31 18:55:49' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (15.6ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering strategies/index
+Completed in 391ms (View: 0, DB: 16) | 200 OK [http://localhost/strategies?id=2]
+
+
+Processing StrategiesController#edit (for 127.0.0.1 at 2010-07-31 14:25:52) [GET]
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"strategies", "_dc"=>"1280602552362"}
+  [4;35;1mUser Load (15.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:55:52', "perishable_token" = 'WKL7oyV2RXH_gN9kt9Mo', "last_request_at" = '2010-07-31 18:55:52' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 297ms (View: 0, DB: 16) | 200 OK [http://localhost/strategies/2/edit?_dc=1280602552362]
+
+
+Processing StrategiesController#update (for 127.0.0.1 at 2010-07-31 14:25:54) [PUT]
+  Parameters: {"action"=>"update", "id"=>"2", "controller"=>"strategies", "strategy"=>{"strategy_map"=>"[{\"type\":\"ellipse\",\"rx\":100,\"ry\":40,\"cx\":316,\"cy\":213,\"stroke\":\"#000\",\"fill\":\"#6cb6f4\"},{\"type\":\"path\",\"fill\":\"none\",\"path\":\"M262,178C262,128,352,128,352,178\",\"stroke\":\"#000\",\"stroke-width\":\"2.5\",\"transform\":\"\"}]"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 18:55:54', "perishable_token" = 'XgqWzsoU3IDChTjb1qxk', "last_request_at" = '2010-07-31 18:55:54' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 328ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies/2]
+
+
+Processing StrategiesController#export (for 127.0.0.1 at 2010-07-31 14:25:54) [GET]
+  Parameters: {"action"=>"export", "id"=>"2", "controller"=>"strategies"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 18:55:55', "perishable_token" = 'ZL9Qf0NVaGrB7vJyU0XR', "last_request_at" = '2010-07-31 18:55:55' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 234ms (View: 0, DB: 0) | 200 OK [http://localhost/export?id=2]
+Streaming file C:/Documents and Settings/Werner Echezuria/Mis documentos/Proyectos/yabsca_extjs/tmp/image20100731-2920-1c6gsmx-0.svg
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateOrganizations (20100522230313)
+Migrating to CreatePerspectives (20100522230432)
+Migrating to CreateStrategies (20100522230444)
+Migrating to CreateObjectives (20100602193426)
+Migrating to CreateMeasures (20100604131440)
+Migrating to CreateUnits (20100604131719)
+Migrating to MeasuresObjectives (20100606194642)
+Migrating to CreateTargets (20100606203601)
+Migrating to CreateInitiatives (20100612190457)
+Migrating to CreateResponsibles (20100615131505)
+Migrating to AddResponsibles (20100615133405)
+Migrating to AddFormula (20100617165641)
+Migrating to CreateUsers (20100706143648)
+Migrating to CreateRoles (20100708180420)
+Migrating to RolesUsers (20100708181423)
+Migrating to CreatePrivileges (20100708182116)
+Migrating to AddStrategyMap (20100728124118)
+Migrating to AddSvgData (20100731185746)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mALTER TABLE "strategies" ADD "strategy_map_svg" text[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100731185746')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("initiatives")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("measures")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("measures_objectives")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("objectives")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("organizations")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("perspectives")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("privileges")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("responsibles")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("roles")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("roles_users")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("strategies")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("targets")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("units")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing StrategiesController#index (for 127.0.0.1 at 2010-07-31 14:30:24) [GET]
+  Parameters: {"action"=>"index", "id"=>"2", "controller"=>"strategies"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 19:00:24', "perishable_token" = '6gOGSdNx-8vT3UEP8O5R', "last_request_at" = '2010-07-31 19:00:24' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering strategies/index
+Completed in 234ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies?id=2]
+
+
+Processing StrategiesController#edit (for 127.0.0.1 at 2010-07-31 14:30:28) [GET]
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"strategies", "_dc"=>"1280602828551"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 19:00:29', "perishable_token" = 'EeI4-B7-jbXFy7egdnS2', "last_request_at" = '2010-07-31 19:00:29' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 375ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies/2/edit?_dc=1280602828551]
+
+
+Processing StrategiesController#update (for 127.0.0.1 at 2010-07-31 14:30:30) [PUT]
+  Parameters: {"action"=>"update", "id"=>"2", "controller"=>"strategies", "strategy"=>{":strategy_map_svg"=>"<svg height=\"500\" width=\"800\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\"><desc>Created with Raphaël</desc><defs></defs><ellipse stroke=\"#000000\" fill=\"#6cb6f4\" ry=\"40\" rx=\"100\" cy=\"213\" cx=\"316\"></ellipse><path stroke-width=\"2.5\" d=\"M262,178C262,128,352,128,352,178\" stroke=\"#000000\" fill=\"none\"></path></svg>"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 19:00:31', "perishable_token" = 'zp2xif4y8tianVq6vJ3E', "last_request_at" = '2010-07-31 19:00:31' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+
+ActiveRecord::UnknownAttributeError (unknown attribute: :strategy_map_svg):
+  app/controllers/application_controller.rb:25:in `default_updating'
+  app/controllers/strategies_controller.rb:58:in `update'
+  haml (2.2.21) lib/sass/plugin/rails.rb:20:in `process'
+
+Rendered rescues/_trace (46.9ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-31 14:30:57) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 406ms (View: 31, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing StrategiesController#index (for 127.0.0.1 at 2010-07-31 14:31:04) [GET]
+  Parameters: {"action"=>"index", "id"=>"2", "controller"=>"strategies"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 19:01:05', "perishable_token" = 'swntuzZ1gfXKcptgthiz', "last_request_at" = '2010-07-31 19:01:04' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering strategies/index
+Completed in 438ms (View: 16, DB: 0) | 200 OK [http://localhost/strategies?id=2]
+
+
+Processing StrategiesController#edit (for 127.0.0.1 at 2010-07-31 14:31:08) [GET]
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"strategies", "_dc"=>"1280602867914"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-07-31 19:01:08', "perishable_token" = 'AebsJKvqGB-0bczQopk2', "last_request_at" = '2010-07-31 19:01:08' WHERE "id" = 1[0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 297ms (View: 0, DB: 0) | 200 OK [http://localhost/strategies/2/edit?_dc=1280602867914]
+
+
+Processing StrategiesController#update (for 127.0.0.1 at 2010-07-31 14:31:10) [PUT]
+  Parameters: {"action"=>"update", "id"=>"2", "controller"=>"strategies", "strategy"=>{"strategy_map_svg"=>"<svg height=\"500\" width=\"800\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\"><desc>Created with Raphaël</desc><defs></defs><ellipse stroke=\"#000000\" fill=\"#6cb6f4\" ry=\"40\" rx=\"100\" cy=\"213\" cx=\"316\"></ellipse><path stroke-width=\"2.5\" d=\"M262,178C262,128,352,128,352,178\" stroke=\"#000000\" fill=\"none\"></path></svg>"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 19:01:10', "perishable_token" = 'p4dCVDy-LhUZvQqZO1aB', "last_request_at" = '2010-07-31 19:01:10' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+  [4;35;1mStrategy Update (0.0ms)[0m   [0mUPDATE "strategies" SET "updated_at" = '2010-07-31 19:01:10', "strategy_map_svg" = '<svg height="500" width="800" version="1.1" xmlns="http://www.w3.org/2000/svg"><desc>Created with Raphaël</desc><defs></defs><ellipse stroke="#000000" fill="#6cb6f4" ry="40" rx="100" cy="213" cx="316"></ellipse><path stroke-width="2.5" d="M262,178C262,128,352,128,352,178" stroke="#000000" fill="none"></path></svg>' WHERE "id" = 2[0m
+Completed in 250ms (View: 16, DB: 0) | 200 OK [http://localhost/strategies/2]
+
+
+Processing StrategiesController#export (for 127.0.0.1 at 2010-07-31 14:31:10) [GET]
+  Parameters: {"action"=>"export", "id"=>"2", "controller"=>"strategies"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (15.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-31 19:01:11', "perishable_token" = 'D0ZiZBBtVMwO2I4ZtLwV', "last_request_at" = '2010-07-31 19:01:10' WHERE "id" = 1[0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."id" = 2) [0m
+Completed in 328ms (View: 0, DB: 16) | 200 OK [http://localhost/export?id=2]
+Streaming file C:/Documents and Settings/Werner Echezuria/Mis documentos/Proyectos/yabsca_extjs/tmp/image20100731-3172-mfaaci-0.svg

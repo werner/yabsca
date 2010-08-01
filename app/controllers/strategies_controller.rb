@@ -43,15 +43,11 @@ class StrategiesController < ApplicationController
   end
 
   def export
-    temp_file=Tempfile.new("image.svg", "#{Rails.root}/tmp")
-    temp_file.puts params[:data]
-    temp_file.rewind
-
-#header("Content-Type: text/plain");
-#header("Content-Length: " . strlen($buffer));
-#header("Content-Disposition: attachment; filename=\"example.txt\"");
-#
-#    send_file(temp_file.path)
+    strategy=Strategy.find(params[:id])
+    temp_file=Tempfile.new(["image",".svg"], "#{Rails.root}/tmp")
+    temp_file.puts strategy.strategy_map_svg
+    temp_file.close
+    send_file temp_file.path, :stream => true
   end
 
   def create
