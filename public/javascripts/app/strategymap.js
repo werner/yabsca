@@ -8,8 +8,10 @@ Ext.onReady(function() {
         method:"GET",
         success:function(data){
             var map=JSON.parse(data.responseText);
-            var strategyMap=JSON.parse(map.data["strategy[strategy_map]"]);
-            paper.serialize.load_json(strategyMap);
+            if (map.data["strategy[strategy_map]"]!=null){
+                var strategyMap=JSON.parse(map.data["strategy[strategy_map]"]);
+                paper.serialize.load_json(strategyMap);
+            }
         }
     });
     Property.setSelected=paper.set();
