@@ -35,6 +35,8 @@ perspective.win=new Ext.Window({
             perspective.form.getForm().submit({
                url:perspective.url,
                method:perspective.method,
+               params:{strategy_id:strategy.id,
+                       perspective_id:perspective.id},
                success:function(){
                    treePanelPersp.getRootNode().reload();
                    perspective.win.hide();

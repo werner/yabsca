@@ -15,15 +15,18 @@ class ObjectivesController < ApplicationController
   end
 
   def create
-    self.default_creation(Objective, params[:objective])
+    self.default_creation(Objective, params[:objective],
+      PerspectiveRule,"perspective_id="+params[:perspective_id])
   end
 
   def update
-    self.default_updating(Objective, params[:id], params[:objective])
+    self.default_updating(Objective, params[:id], params[:objective],
+      ObjectiveRule,"objective_id="+params[:objective_id])
   end
 
   def destroy
-    self.default_destroy(Objective, params[:id])
+    self.default_destroy(Objective, params[:id],
+      ObjectiveRule,"objective_id="+params[:objective_id])
   end
   
 end

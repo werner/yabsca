@@ -14,14 +14,17 @@ class PerspectivesController < ApplicationController
 end
 
   def create
-    self.default_creation(Perspective, params[:perspective])
+    self.default_creation(Perspective, params[:perspective],
+      StrategyRule,"strategy_id="+params[:strategy_id])
   end
 
   def update
-    self.default_updating(Perspective, params[:id], params[:perspective])
+    self.default_updating(Perspective, params[:id], params[:perspective],
+      PerspectiveRule,"perspective_id="+params[:perspective_id])
   end
 
   def destroy
-    self.default_destroy(Perspective, params[:id])
+    self.default_destroy(Perspective, params[:id],
+      PerspectiveRule,"perspective_id="+params[:perspective_id])
   end
 end

@@ -1,3 +1,4 @@
+
 Ext.onReady(function() {
 
     var node;
@@ -15,6 +16,9 @@ Ext.onReady(function() {
         }
     });
     Property.setSelected=paper.set();
+    Property.dataSet=paper.set();
+    Property.selectedPersp=paper.set();
+
     var actualText;
 
     paper.raphael.click(function(event){
@@ -34,38 +38,41 @@ Ext.onReady(function() {
                 handler:function(){
                     if (node!=undefined){
                         if (node.attributes.type=="objective"){
-                            var ellipse = paper.ellipse(110, 80, 100, 40);
-                            ellipse.attr("fill", "#6cb6f4");
-                            var t = paper.text(110, 70, node.text);
-                            t.click(function(event){
+                            var dataEllipse = paper.ellipse(110, 80, 100, 40);
+                            dataEllipse.attr("fill", "#6cb6f4");
+                            var dataText = paper.text(110, 70, node.text);
+                            dataText.click(function(event){
                                var ob=event.target.parentNode.raphael;
                                actualText=ob;
                                ob.attr({stroke:"black"})
                             });
                             var st=paper.set();
-                            st.push(ellipse,t);
+                            st.push(dataEllipse,dataText);
                             var start = function () {
                                 this.ox = this.attr("cx");
                                 this.oy = this.attr("cy");
-                                this.lx = t.attr("x");
-                                this.ly = t.attr("y");
+                                this.lx = dataText.attr("x");
+                                this.ly = dataText.attr("y");
                             },
                             move = function (dx, dy) {
                                 this.attr({cx: this.ox + dx, cy: this.oy + dy,
                                             x:this.lx + dx, y: this.ly + dy});
-                                t.attr({x:this.lx + dx, y: this.ly + dy});
+                                dataText.attr({x:this.lx + dx, y: this.ly + dy});
                             };
                             st.drag(move, start);
                             st.click(function(event){
+                                Property.actualObject=new Object();
+                                Property.dataSet=st;
+                                
                                if (event.target.localName=="ellipse"){
                                    Property.transformObject=event.target.raphael;
                                    Property.selectedEllipse(event);
                                }
                             });
-                            st.mouseover(function(event){
+                            Property.dataSet.mouseover(function(event){
                                document.body.style.cursor='move';
                             });
-                            st.mouseout(function(event){
+                            Property.dataSet.mouseout(function(event){
                                document.body.style.cursor='auto';
                             });
                         }else if (node.attributes.type=="perspective"){
@@ -74,8 +81,8 @@ Ext.onReady(function() {
                             var perspt = paper.text(350, 20, node.text);
                             perspt.attr("font-size","12");
                             rectl.attr("fill", "#18c7c9");
-                            var selectedPersp=paper.set();
-                            selectedPersp.push(persp,rectl);
+                            var stpersp=paper.set();
+                            stpersp.push(persp,rectl,perspt);
                             var pstart = function () {
                                 persp.ox = persp.attr("x");
                                 persp.oy = persp.attr("y");
@@ -89,11 +96,15 @@ Ext.onReady(function() {
                                 rectl.attr({x: rectl.ox + dx, y: rectl.oy + dy});
                                 perspt.attr({x:perspt.ox + dx, y: perspt.oy + dy});
                             };
-                            selectedPersp.drag(pmove, pstart);
-                            selectedPersp.mouseover(function(event){
+                            stpersp.drag(pmove, pstart);
+                            stpersp.click(function(event){
+                                Property.actualObject=new Object();
+                                Property.selectedPersp=stpersp;
+                            });
+                            Property.selectedPersp.mouseover(function(event){
                                document.body.style.cursor='move';
                             });
-                            selectedPersp.mouseout(function(event){
+                            Property.selectedPersp.mouseout(function(event){
                                document.body.style.cursor='auto';
                             });
                         }
@@ -103,10 +114,11 @@ Ext.onReady(function() {
             text:"Delete",
             iconCls:"del",
             handler:function(){
-                if (Property.actualObject!=undefined)
+                Property.setSelected.remove();
+                Property.dataSet.remove();
+                Property.selectedPersp.remove();
+                if (!Property.isEmpty(Property.actualObject))
                     Property.actualObject.remove();
-                if (Property.actualSet!=undefined)
-                    Property.actualSet.remove();
             }
         }]
 
@@ -163,7 +175,7 @@ Ext.onReady(function() {
                 Ext.Ajax.request({
                     url:"/strategies/"+strategy_id,
                     method:"PUT",
-                    params:{"strategy[strategy_map]":raphaelData}
+                    params:{"strategy[strategy_map]":raphaelData,strategy_id:strategy_id}
                 });
             }
         },{

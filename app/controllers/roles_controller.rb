@@ -27,14 +27,14 @@ class RolesController < ApplicationController
   end
 
   def create
-    self.default_creation(Role, params[:role])
+    self.default_creation(Role, params[:role],nil,nil)
   end
 
   def update
-    self.default_updating(Role, params[:id], params[:role])
+    self.default_updating(Role, params[:id], params[:role],nil,nil)
   end
 
   def destroy
-    self.default_destroy(Role, params[:id])
+    self.default_destroy(Role, params[:id],nil,nil)
   end
 end

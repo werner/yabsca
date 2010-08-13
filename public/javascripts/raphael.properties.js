@@ -5,9 +5,13 @@ Property={
     setSelected:new Object(),
     lt:new Object(),lb:new Object(),rt:new Object(),rb: new Object(),lrb: "",
     paper:new Object(),
-    actualSet:new Object(),
+    dataSet:new Object(),
+    selectedPersp:new Object(),
     text:function(t){
         t.draggable();
+        t.click(function(event){
+           Property.actualObject=event.target.parentNode.raphael;
+        });
         t.mouseover(function(event){
            document.body.style.cursor='move';
         });
@@ -18,6 +22,7 @@ Property={
     line:function(l){
         l.attr("stroke-width","2.5");
         l.click(function(event){
+            
             var object=event.target.raphael;
             Property.actualObject=object;
             if (Property.lrb!="") Property.lrb.remove();
@@ -48,6 +53,7 @@ Property={
     curve:function(c){
         c.attr("stroke-width","2.5");
         c.click(function(event){
+
             var object=event.target.raphael;
             Property.actualObject=object;
             Property.setSelected.remove();
@@ -63,7 +69,6 @@ Property={
             this.rb.name="rightBottom";
 
             Property.setSelected.push(this.lt,this.lb,this.rt,this.rb);
-            Property.actualSet=Property.setSelected;
             Property.setSelected.attr("fill", "#34ae48");
             //dragging of the points
             var rbStart = function () {
@@ -104,7 +109,7 @@ Property={
     },
     selectedEllipse: function(event){
         var attribs=event.target.raphael.attrs;
-        this.setSelected.remove();
+        Property.setSelected.remove();
 
         this.lt=this.paper.circle(attribs.cx-attribs.rx,attribs.cy-attribs.ry,4);
         this.lb=this.paper.circle(attribs.cx-attribs.rx,attribs.cy+attribs.ry,4);
@@ -121,14 +126,14 @@ Property={
                                   rx:Property.transformObject.attrs.rx+(dx*0.1)});
         };
         this.rb.drag(rbMove, rbStart);
-        this.setSelected.push(this.lt,this.lb,this.rt,this.rb);
-        this.actualSet=this.setSelected;
-        this.setSelected.attr("fill", "#34ae48");
+        Property.setSelected.push(this.lt,this.lb,this.rt,this.rb);
+        
+        Property.setSelected.attr("fill", "#34ae48");
     },
     ellipse: function(ellipse){
-        this.actualObject=ellipse;
         ellipse.attr("fill", "#6cb6f4");
         ellipse.click(function(event){
+           Property.actualObject=event.target.raphael;
            if (event.target.localName=="ellipse"){
                Property.transformObject=event.target.raphael;
                Property.selectedEllipse(event);
@@ -149,5 +154,30 @@ Property={
         ellipse.mouseout(function(event){
            document.body.style.cursor='auto';
         });
+    },
+    rect: function(rect){
+        var pstart = function () {
+            rect.ox = rect.attr("x");
+            rect.oy = rect.attr("y");
+        },
+        pmove = function (dx, dy) {
+            rect.attr({x: rect.ox + dx, y: rect.oy + dy});
+        };
+        rect.click(function(event){
+           Property.actualObject=event.target.raphael;
+        });
+        rect.drag(pmove, pstart);
+        rect.mouseover(function(event){
+           document.body.style.cursor='move';
+        });
+        rect.mouseout(function(event){
+           document.body.style.cursor='auto';
+        });
+    },
+    isEmpty:function(object){
+        for (var prop in object)
+            if (object.hasOwnProperty(prop)) return false;
+        
+        return true;
     }
 }

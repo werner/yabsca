@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100731185746) do
+ActiveRecord::Schema.define(:version => 20100805153548) do
 
   create_table "initiatives", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(:version => 20100731185746) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "responsible_id"
+  end
+
+  create_table "measure_rules", :force => true do |t|
+    t.integer  "measure_id"
+    t.integer  "role_id"
+    t.integer  "rule"
+    t.boolean  "creating"
+    t.boolean  "reading"
+    t.boolean  "updating"
+    t.boolean  "deleting"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "measures", :force => true do |t|
@@ -46,10 +58,33 @@ ActiveRecord::Schema.define(:version => 20100731185746) do
     t.integer "measure_id"
   end
 
+  create_table "objective_rules", :force => true do |t|
+    t.integer  "objective_id"
+    t.integer  "role_id"
+    t.integer  "rule"
+    t.boolean  "creating"
+    t.boolean  "reading"
+    t.boolean  "updating"
+    t.boolean  "deleting"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "objectives", :force => true do |t|
     t.string   "name"
     t.integer  "perspective_id"
     t.integer  "objective_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "organization_rules", :force => true do |t|
+    t.integer  "organization_id"
+    t.integer  "role_id"
+    t.boolean  "creating"
+    t.boolean  "reading"
+    t.boolean  "updating"
+    t.boolean  "deleting"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -64,6 +99,18 @@ ActiveRecord::Schema.define(:version => 20100731185746) do
     t.datetime "updated_at"
   end
 
+  create_table "perspective_rules", :force => true do |t|
+    t.integer  "perspective_id"
+    t.integer  "role_id"
+    t.integer  "rule"
+    t.boolean  "creating"
+    t.boolean  "reading"
+    t.boolean  "updating"
+    t.boolean  "deleting"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "perspectives", :force => true do |t|
     t.string   "name"
     t.integer  "strategy_id"
@@ -72,13 +119,7 @@ ActiveRecord::Schema.define(:version => 20100731185746) do
   end
 
   create_table "privileges", :force => true do |t|
-    t.integer  "module"
-    t.boolean  "creating"
-    t.boolean  "reading"
-    t.boolean  "updating"
-    t.boolean  "deleting"
-    t.integer  "module_id"
-    t.integer  "role_id"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -108,6 +149,18 @@ ActiveRecord::Schema.define(:version => 20100731185746) do
     t.datetime "updated_at"
     t.text     "strategy_map"
     t.text     "strategy_map_svg"
+  end
+
+  create_table "strategy_rules", :force => true do |t|
+    t.integer  "strategy_id"
+    t.integer  "role_id"
+    t.integer  "rule"
+    t.boolean  "creating"
+    t.boolean  "reading"
+    t.boolean  "updating"
+    t.boolean  "deleting"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "targets", :force => true do |t|

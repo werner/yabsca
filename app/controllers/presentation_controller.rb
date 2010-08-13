@@ -11,7 +11,17 @@ class PresentationController < ApplicationController
       id=params[:node].sub(/src:orgs/,"").to_i
       data=Organization.find_all_by_organization_id(id)
       if data.empty?
-        data=Strategy.find_all_by_organization_id(id)
+        roles=current_user.roles
+
+        unless roles.find_all_by_id(0).empty? # Admin Role
+          data=Strategy.find_all_by_organization_id(id)
+        else # Other Roles
+          strats=StrategyRule.find_all_by_role_id(roles)
+          data=strats.collect do |i|
+            Strategy.find_all_by_id(i.strategy_id,
+              :conditions=>["organization_id=?",id])
+          end.flatten
+        end
         return_data=join_nodes_strat(data)
       else
         return_data=join_nodes_orgs(data)
@@ -27,11 +37,29 @@ class PresentationController < ApplicationController
 
     return_data=[]
     if params[:node].match(/src:root/)
-      data=Perspective.find_all_by_strategy_id(params[:strategy_id])
+      roles=current_user.roles
+      unless roles.find_all_by_id(0).empty? # Admin Role
+        data=Perspective.find_all_by_strategy_id(params[:strategy_id])
+      else # Other Roles
+        persps=PerspectiveRule.find_all_by_role_id(roles)
+        data=persps.collect do |i|
+          Perspective.find_all_by_id(i.perspective_id,
+            :conditions=>["strategy_id=?",params[:strategy_id]])
+        end.flatten
+      end
       return_data=join_nodes_perspectives(data)
     elsif params[:node].match(/src:persp/)
       id=params[:node].sub(/src:persp/,"").to_i
-      data=Objective.find_all_by_perspective_id(id)
+      roles=current_user.roles
+      unless roles.find_all_by_id(0).empty? # Admin Role
+        data=Objective.find_all_by_perspective_id(id)
+      else # Other Roles
+        objs=ObjectiveRule.find_all_by_role_id(roles)
+        data=objs.collect do |i|
+          Objective.find_all_by_id(i.objective_id,
+            :conditions=>["perspective_id=?",id])
+        end.flatten
+      end
       return_data=join_nodes_objs(data)
     end
 

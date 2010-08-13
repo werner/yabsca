@@ -51,14 +51,17 @@ class StrategiesController < ApplicationController
   end
 
   def create
-    self.default_creation(Strategy, params[:strategy])
+    self.default_creation(Strategy, params[:strategy],
+      OrganizationRule,"organization_id="+params[:organization_id])
   end
 
   def update
-    self.default_updating(Strategy, params[:id], params[:strategy])
+    self.default_updating(Strategy, params[:id], params[:strategy],
+      StrategyRule,"strategy_id="+params[:strategy_id])
   end
 
   def destroy
-    self.default_destroy(Strategy, params[:id])
+    self.default_destroy(Strategy, params[:id],
+      StrategyRule,"strategy_id="+params[:strategy_id])
   end
 end

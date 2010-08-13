@@ -13,14 +13,14 @@ class ResponsiblesController < ApplicationController
   end
 
   def create
-    self.default_creation(Responsible, params[:responsible])
+    self.default_creation(Responsible, params[:responsible],nil,nil)
   end
 
   def update
-    self.default_updating(Responsible, params[:id], params[:responsible])
+    self.default_updating(Responsible, params[:id], params[:responsible],nil,nil)
   end
 
   def destroy
-    self.default_destroy(Responsible, params[:id])
+    self.default_destroy(Responsible, params[:id],nil,nil)
   end
 end

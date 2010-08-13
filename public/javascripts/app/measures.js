@@ -1,5 +1,11 @@
 var measure = new Object();
 
+var cut=false;
+var copy=false;
+var link=false;
+
+actualMeasure=0;
+
 measure.id=0;
 measure.url="";
 measure.method="";
@@ -130,6 +136,7 @@ measure.win=new Ext.Window({
             measure.form.getForm().submit({
                 url:measure.url,
                 method:measure.method,
+                params:{objective_id:objective.id,measure_id:measure.id},
                 success: function(){
                     measure.treePanel.getRootNode().reload();
                     measure.win.hide();
@@ -185,7 +192,8 @@ measure.menuMeasures=new Ext.menu.Menu({
            iconCls: "del",
            handler:function(){
                 if (measure.id>0){
-                    general.deletion("/measures/"+measure.id,measure.treePanel);
+                    general.deletion("/measures/"+measure.id,
+                        measure.treePanel,{measure_id:measure.id});
                 }else{
                     Ext.Msg.alert("Error","You must select a measure");
                 }
@@ -211,11 +219,54 @@ measure.menuMeasures=new Ext.menu.Menu({
        }]
 });
 
+measure.menuMovings=new Ext.menu.Menu({
+       items:[{
+           text: "Cut",
+           iconCls: "cut",
+           handler:function(){
+               cut=true;
+           }
+       },{
+           text:"Copy",
+           iconCls: "copy",
+           handler:function(){
+               copy=true;
+           }
+       },{
+           text:"Link",
+           iconCls: "link",
+           handler:function(){
+               link=true;
+           }
+       },{
+           text: "Paste",
+           iconCls: "paste",
+           handler:function(){
+               Ext.Ajax.request({
+                    url:"/pasting",
+                    method:"POST",
+                    params:{objective_id:objective.id,measure_id:actualMeasure,
+                            cut:cut,copy:copy,link:link},
+                    success:function(response){
+                        measure.treePanel.getRootNode().reload();
+                    }
+               });
+               cut=false;
+               copy=false;
+               link=false;
+           }
+       }]
+});
+
 measure.toolBar=new Ext.Toolbar({
     items:[{
        text:"Measures",
        iconCls:"measure",
        menu:measure.menuMeasures
+    },{
+        text:"Movings",
+        iconCls:"go",
+        menu:measure.menuMovings
     },{
        text:"Units",
        iconCls:"unit",
@@ -259,6 +310,7 @@ measure.treePanel = new Ext.tree.TreePanel({
     }),
     listeners:{
         click:function(n){
+            actualMeasure=n.id;
             measure.id=n.id;
             target.store.setBaseParam("measure_id",measure.id);
             target.store.load();

@@ -5,7 +5,7 @@ class UserSessionsController < ApplicationController
   end
   
   def create
-    self.default_creation(UserSession, params[:user_session])
+    self.default_creation(UserSession, params[:user_session],nil,nil)
   end
 
   def destroy

@@ -1,7 +1,17 @@
 class MeasuresController < ApplicationController
 
   def index
-    @measures=Objective.find(params[:objective_id]).measures rescue []
+    roles=current_user.roles
+    unless roles.find_all_by_id(0).empty? # Admin Role
+      @measures=Objective.find(params[:objective_id]).measures rescue []
+    else # Other Roles
+      measures_roles=MeasureRule.find_all_by_role_id(roles)
+      @measures=measures_roles.collect do |i|
+        Measure.find_all_by_id(i.measure_id,
+          :joins=>"inner join measures_objectives on measures_objectives.measure_id=measures.id",
+          :conditions=>["objective_id=?",params[:objective_id]])
+      end.flatten
+    end
 
     return_data=[]
     return_data=@measures.collect do |u|
@@ -81,15 +91,46 @@ class MeasuresController < ApplicationController
   end
 
   def create
-    self.default_creation(Measure, params[:measure])
+    self.default_creation(Measure, params[:measure],
+        ObjectiveRule,"objective_id="+params[:objective_id])
   end
 
   def update
-    self.default_updating(Measure, params[:id], params[:measure])
+    self.default_updating(Measure, params[:id], params[:measure],
+      MeasureRule,"measure_id="+params[:measure_id])
   end
 
   def destroy
-    self.default_destroy(Measure, params[:id])
+    self.default_destroy(Measure, params[:id],
+      MeasureRule,"measure_id="+params[:measure_id])
+  end
+
+  def pasting
+    cut=params[:cut]
+    copy=params[:copy]
+    link=params[:link]
+    measure_id=params[:measure_id]
+    objective_id=params[:objective_id]
+
+    measure=Measure.find(measure_id)
+    if cut=="true"
+      measure.update_attributes({:objective_ids=>[objective_id]})
+    elsif copy=="true"
+      measure_copy=Measure.new({:code=>measure.code+"_copy",:name=>measure.name,
+          :description=>measure.description, :challenge=>measure.challenge,
+          :excellent=>measure.excellent,:alert=>measure.alert,:frecuency=>measure.frecuency,
+          :period_from=>measure.period_from,:period_to=>measure.period_to,:unit_id=>measure.unit_id,
+          :responsible_id=>measure.responsible_id,:formula=>measure.formula,
+          :objective_ids=>[objective_id]})
+      measure_copy.save!
+    elsif link=="true"
+      ActiveRecord::Base.connection.execute(
+        "insert into measures_objectives(objective_id,measure_id) values (#{objective_id},#{measure_id})")
+    end
+
+    respond_to do |format|
+      format.json { render :json => {:success => true}}
+    end
   end
   
 end

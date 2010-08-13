@@ -1,3 +1,29 @@
+.go{
+  background-image: url("../images/bullet_go.png") !important;
+  background-repeat: no-repeat;
+}
+
+.paste{
+  background-image: url("../images/paste.png") !important;
+  background-repeat: no-repeat;
+}
+
+.link{
+  background-image: url("../images/link.png") !important;
+  background-repeat: no-repeat;
+}
+
+.cut{
+  background-image: url("../images/cut.png") !important;
+  background-repeat: no-repeat;
+}
+
+.copy{
+  background-image: url("../images/copy.png") !important;
+  background-repeat: no-repeat;
+}
+
+/*****************************************************/
 #everybody{
     float:left;
 }
@@ -220,6 +246,20 @@
   background-repeat: no-repeat;
 }
 
+#home {
+  background-image: url("../images/home.png") !important;
+  background-repeat: no-repeat;
+  width: 70px;
+  float: left;
+}
+
+#admin {
+  background-image: url("../images/lock_open.png") !important;
+  background-repeat: no-repeat;
+  width: 70px;
+  float: left;
+}
+
 .home {
   background-image: url("../images/home.png") !important;
   background-repeat: no-repeat;
@@ -248,6 +288,7 @@
     font-family: Verdana,Arial,Helvetica,sans-serif;
     font-weight: bold;
     font-size:16px;
+    width: 400px;
 }
 
 #header a{

@@ -39,6 +39,7 @@ objective.win=new Ext.Window({
             objective.form.getForm().submit({
                 url:objective.url,
                 method:objective.method,
+                params:{perspective_id:perspective.id,objective_id:objective.id},
                 success: function(){
                     treePanelPersp.getRootNode().reload();
                     objective.win.hide();

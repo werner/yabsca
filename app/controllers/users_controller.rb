@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    self.default_creation(User, params[:user])
+    self.default_creation(User, params[:user],nil,nil)
   end
   
   def edit
@@ -35,10 +35,10 @@ class UsersController < ApplicationController
   end
   
   def update
-    self.default_updating(User, params[:id], params[:user])
+    self.default_updating(User, params[:id], params[:user],nil,nil)
   end
 
   def destroy
-    self.default_destroy(User, params[:id])
+    self.default_destroy(User, params[:id],nil,nil)
   end
 end

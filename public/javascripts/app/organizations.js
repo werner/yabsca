@@ -50,6 +50,7 @@ organization.win= new Ext.Window({
             organization.form.getForm().submit({
                 url:organization.url,
                 method:organization.method,
+                params:{organization_id:organization.id},
                 success: function(){
                     treePanelOrgs.getRootNode().reload();
                     organization.win.hide();

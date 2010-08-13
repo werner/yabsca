@@ -36,14 +36,17 @@ class InitiativesController < ApplicationController
   end
   
   def create
-    self.default_creation(Initiative, params[:initiative])
+    self.default_creation(Initiative, params[:initiative],
+      ObjectiveRule,"objective_id="+params[:objective_id])
   end
 
   def update
-    self.default_updating(Initiative, params[:id], params[:initiative])
+    self.default_updating(Initiative, params[:id], params[:initiative],
+      ObjectiveRule,"objective_id="+params[:objective_id])
   end
 
   def destroy
-    self.default_destroy(Initiative, params[:id])
+    self.default_destroy(Initiative, params[:id],
+      ObjectiveRule,"objective_id="+params[:objective_id])
   end
 end

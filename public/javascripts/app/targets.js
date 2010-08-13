@@ -50,7 +50,8 @@ target.toolBar=new Ext.Toolbar({
                         params:{"target[measure_id]":measure.id,
                                 "target[period]":records[i].data.period,
                                 "target[goal]":records[i].data.goal,
-                                "target[achieved]":records[i].data.achieved}
+                                "target[achieved]":records[i].data.achieved,
+                                measure_id:measure.id}
                     });
                 }else{
                     Ext.Ajax.request({
@@ -58,7 +59,8 @@ target.toolBar=new Ext.Toolbar({
                         method:"PUT",
                         params:{"target[period]":records[i].data.period,
                                 "target[goal]":records[i].data.goal,
-                                "target[achieved]":records[i].data.achieved}
+                                "target[achieved]":records[i].data.achieved,
+                                measure_id:measure.id}
                     });
                 }
             }
@@ -78,6 +80,7 @@ target.toolBar=new Ext.Toolbar({
                            Ext.Ajax.request({
                                url:"/targets/"+target.id,
                                method:"DELETE",
+                               params:{measure_id:measure.id},
                                success:function(){
                                    var u=target.grid.store.getAt(target.record_index);
                                    target.grid.store.remove(u);

@@ -39,6 +39,7 @@ strategy.win= new Ext.Window({
             strategy.form.getForm().submit({
                 url:strategy.url,
                 method:strategy.method,
+                params:{organization_id:organization.id,strategy_id:strategy.id},
                 success: function(){
                     treePanelOrgs.getRootNode().reload();
                     strategy.win.hide();

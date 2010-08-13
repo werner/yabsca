@@ -70,6 +70,7 @@ initiative.win=new Ext.Window({
             initiative.form.getForm().submit({
                 url:initiative.url,
                 method:initiative.method,
+                params:{objective_id:objective.id},
                 success: function(){
                     initiative.treePanel.getRootNode().reload();
                     initiative.win.hide();
@@ -127,7 +128,8 @@ initiative.menuInitiative=new Ext.menu.Menu({
            iconCls: "del",
            handler:function(){
                 if (initiative.id>0){
-                    general.deletion("/initiatives/"+initiative.id,initiative.treePanel);
+                    general.deletion("/initiatives/"+initiative.id,
+                        initiative.treePanel,{objective_id:objective.id});
                 }else{
                     Ext.Msg.alert("Error","You must select an initiative");
                 }

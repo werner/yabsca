@@ -14,14 +14,14 @@ class UnitsController < ApplicationController
   end
 
   def create
-    self.default_creation(Unit, params[:unit])
+    self.default_creation(Unit, params[:unit],nil,nil)
   end
 
   def update
-    self.default_updating(Unit, params[:id], params[:unit])
+    self.default_updating(Unit, params[:id], params[:unit],nil,nil)
   end
 
   def destroy
-    self.default_destroy(Unit, params[:id])
+    self.default_destroy(Unit, params[:id],nil,nil)
   end
 end

@@ -1,6 +1,6 @@
 var general =new Object();
 
-general.deletion = function(path,treePanel) {
+general.deletion = function(path,treePanel,parameters) {
     Ext.Msg.show({
        title:"Delete",
        msg: "Are you sure you want to delete it?",
@@ -10,6 +10,7 @@ general.deletion = function(path,treePanel) {
                Ext.Ajax.request({
                    url:path,
                    method:"DELETE",
+                   params:parameters,
                    success:function(){
                         treePanel.getRootNode().reload();
                    }
@@ -55,7 +56,8 @@ var menuOrgs=new Ext.menu.Menu({
             handler:function(){
                 if (organization.id>0 &&
                         actualNode.attributes.type=="organization"){
-                      general.deletion("/organizations/"+organization.id,treePanelOrgs);
+                      general.deletion("/organizations/"+organization.id,
+                            treePanelOrgs,{organization_id:organization.id});
                 }else{
                     Ext.Msg.alert("Error","You must select an organization");
                 }
@@ -102,7 +104,8 @@ var menuStrats=new Ext.menu.Menu({
             handler:function(){
                 if (strategy.id>0 &&
                         actualNode.attributes.type=="strategy"){
-                      general.deletion("/strategies/"+strategy.id,treePanelOrgs);
+                      general.deletion("/strategies/"+strategy.id,
+                        treePanelOrgs,{strategy_id:strategy.id});
                 }else{
                     Ext.Msg.alert("Error","You must select a strategy");
                 }
@@ -141,7 +144,8 @@ var treePanelOrgs= new Ext.tree.TreePanel({
         text: 'Organizations',
         draggable: false,
         iconCls:"orgs",
-        id: 'src:root'
+        id: 'src:root',
+        iddb:0
     },
     loader:new Ext.tree.TreeLoader({
         requestMethod:"GET",
@@ -154,7 +158,7 @@ var treePanelOrgs= new Ext.tree.TreePanel({
                 organization.parent_id=n.parentNode.attributes.iddb;
                 organization.id=n.attributes.iddb;
                 strategy.id=0;
-            }else{
+            }else if (n.attributes.type=="strategy"){
                 organization.parent_id=n.parentNode.attributes.iddb;
                 organization.id=n.attributes.iddb;
                 strategy.id=n.attributes.iddb;

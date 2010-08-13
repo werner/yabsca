@@ -121,14 +121,17 @@ Raphael.fn.serialize = {
         if (el.type=="ellipse")
             Property.ellipse(el);
         else if(el.type=="path"){
-            if (el.attrs.path[1][0]!=undefined)
+            if (el.attrs.path[1][0]=="C")
                 Property.curve(el);
-            else
+            else if(el.attrs.path[1][0]=="L"){
                 Property.line(el);
+            }
         }else if(el.type=="text")
             Property.text(el);
+        else if(el.type=="rect")
+            Property.rect(el);
         set.push(el);
-      } catch(e) {console.log(e);}
+      } catch(e) {}
     });
     return set;
   }

@@ -31,15 +31,18 @@ class TargetsController < ApplicationController
   end
   
   def create
-    self.default_creation(Target, params[:target])
+    self.default_creation(Target, params[:target],
+      MeasureRule,"measure_id="+params[:measure_id])
   end
 
   def update
-    self.default_updating(Target, params[:id], params[:target])
+    self.default_updating(Target, params[:id], params[:target],
+      MeasureRule,"measure_id="+params[:measure_id])
   end
 
   def destroy
-    self.default_destroy(Target, params[:id])
+    self.default_destroy(Target, params[:id],
+      MeasureRule,"measure_id="+params[:measure_id])
   end
 
 end

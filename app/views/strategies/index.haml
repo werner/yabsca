@@ -1,12 +1,14 @@
 #header
   #maintitle
     A Balanced ScoreCard Application -- Strategy Map
+  #home
+    = link_to "Home", "/presentation"
+
   #exit
     = link_to "Log Out", "/destroy"
 
 = javascript_tag "var strategy_id=#{session[:strategy_id]}"
 = javascript_include_tag "jquery-1.4.2.min"
-/= javascript_include_tag "jquery-ui-1.8.2.custom.min"
 = javascript_include_tag "raphael-min"
 = javascript_include_tag "raphaelle"
 = javascript_include_tag "raphael.properties"

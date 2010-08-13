@@ -2,19 +2,16 @@ Ext.onReady(function() {
     Ext.QuickTips.init();
 });
 
-var privilege = new Object();
 var actualNodeU;
-
-privilege.id=0;
-privilege.module=0;
-privilege.role_id=0;
-privilege.module_id=0;
-privilege.privilege=0;
+var check_set=false;
 
 const Create=1;
 const Read=2;
 const Update=3;
 const Delete=4;
+
+var type="";
+var id=0;
 
 var role_menu=new Ext.menu.Menu({
     items:[{
@@ -160,133 +157,168 @@ var toolBarRules=new Ext.Toolbar({
             name:"checkbox_create",
             boxLabel:"Create",
             listeners:{
-            change:function(n){
-                update_priv(n,"privilege[creating]");
+            check:function(){
+                update_priv();
            }}}),"-",
            new Ext.form.Checkbox({
                id:"checkbox_read",
                name:"checkbox_read",
                boxLabel:"Read",
                listeners:{
-               change:function(n){
-                   update_priv(n,"privilege[reading]");
+               check:function(){
+                   update_priv();
                }}}),"-",
            new Ext.form.Checkbox({
                id:"checkbox_update",
                name:"checkbox_update",
                boxLabel:"Update",
                listeners:{
-               change:function(n){
-                   update_priv(n,"privilege[updating]");
+               check:function(){
+                   update_priv();
                }}}),"-",
            new Ext.form.Checkbox({
                id:"checkbox_delete",
                name:"checkbox_delete",
                boxLabel:"Delete",
                listeners:{
-               change:function(n){
-                   update_priv(n,"privilege[deleting]");
-               }}})]
+               check:function(){
+                   update_priv();
+               }}}),"-",
+           new Ext.Button({
+               id:"button_eliminate",
+               name:"button_eliminate",
+               iconCls:"del",
+               handler:function(){
+                    Ext.Ajax.request({
+                        url:"/privileges/destroy",
+                        method:"DELETE",
+                        params:{id:object_role_id,type:type},
+                        success:function(){
+                            store.load();
+                        }
+                    });
+               }
+           })]
 });
 
-update_priv=function(n,field){
-    var value=false;
-    if (n.getValue()==true && privilege.id>0)
-        value=true;
-    else if(n.getValue()==false && privilege.id>0)
-        value=false;
+update_priv=function(){
 
-    var param_text='{"id":'+privilege.id+
-                   ',"privilege[role_id]":'+privilege.role_id+
-                   ',"privilege[module_id]":'+privilege.module_id+
-                   ',"'+field+'":'+value+
-                   ',"privilege[module]":'+privilege.module+' }';
+    if (object_role_id>0){
+        var param_text='{"type":"'+type+'","id":'+object_role_id+
+                       ',"creating":'+toolBarRules.items.map.checkbox_create.getValue()+
+                       ',"reading":'+toolBarRules.items.map.checkbox_read.getValue()+
+                       ',"updating":'+toolBarRules.items.map.checkbox_update.getValue()+
+                       ',"deleting":'+toolBarRules.items.map.checkbox_delete.getValue()+' }';
 
-    var param_json=JSON.parse(param_text);
-    Ext.Ajax.request({
-        url:"privileges/update",
-        method:"PUT",
-        params:param_json
-    });
+        var param_json=JSON.parse(param_text);
+        if (check_set==false){
+            Ext.Ajax.request({
+                url:"privileges/update",
+                method:"PUT",
+                params:param_json
+            });
+        }
+    }
 }
 
-var rolesPanel = new Ext.tree.TreePanel({
-    id: "tree-panel-roles",
-    region: 'center',
-    width: 500,
-    ddGroup: 'dataDDGroup',
-    enableDrop:true,
-    autoScroll: true,
-    rootVisible: false,
-    useArrows: true,
+var proxy=new Ext.data.HttpProxy({url:"/roles_privileges",method:"GET"});
+
+var reader=new Ext.data.JsonReader({
+    idProperty: "id",
+    root: "data",
+    totalProperty: "results",
+    fields:[{name:"id"},{name:"name"}]
+});
+
+function renderIcon(val) {
+    return String.format('<img src="../images/role.png"/>',Ext.BLANK_IMAGE_URL);
+}
+
+var store=new Ext.data.Store({
+    proxy:proxy,
+    reader:reader,
+    autoSave: true
+});
+
+
+function clean_options(){
+    check_set=true;
+    for (var i=0;i<7;i++){
+        if (toolBarRules.items.items[i].name!=undefined)
+            toolBarRules.items.items[i].setValue(0);
+        
+    }
+    check_set=false;
+}
+
+var object_role_id=0;
+
+var rolesGrid=new Ext.grid.EditorGridPanel({
+    region: 'south',
+    store:store,
+    height:250,
+    ddGroup: 'dataDDSelf',
+    split: true,
     tbar:[toolBarRules],
-    loader: new Ext.tree.TreeLoader({
-        requestMethod:"GET",
-        dataUrl: "/roles_privileges"
-    }),
-    root: {
-        nodeType: 'async',
-        text: 'Privileges',
-        draggable: false,
-        id: 'src:root'
-    },
+    clicksToEdit: 2,
+    columns:[{header:"id",dataIndex:"id", hidden:true},
+             {header:"",dataIndex:"",renderer:renderIcon,width:30},
+             {header:"name", dataIndex:"name",width:150}],
+    sm: new Ext.grid.RowSelectionModel({singleSelect:true}),
     listeners:{
-        nodedrop:function(o){
+        rowclick:function(grid,rowIndex,e){
+            object_role_id=grid.store.data.items[rowIndex].data.id;
+            clean_options();
             Ext.Ajax.request({
-                url:"privileges/create",
+                url:"privileges/show",
                 method:"POST",
-                params:{node:o.data.node.id,
-                        role_id:o.target.attributes.iddb}
-            });
-        },contextmenu: function(node, e) {}
-        ,click:function(o){
-            for (var i=0;i<7;i++){
-                if (toolBarRules.items.items[i].name!=undefined)
-                    toolBarRules.items.items[i].setValue(0);
-            }
-            if (o.id.match(/src:roles/)==null){
-                find_role(o);
-                Ext.Ajax.request({
-                    url:"privileges/show",
-                    method:"POST",
-                    params:{id:o.attributes.iddb,node:o.id,role_id:role.id},
-                    success:function(response){
-                        var data=JSON.parse(response.responseText);
-                        if (data.errors==undefined){
-                            privilege.id=data.data.privilege.id;
-                            privilege.module=data.data.privilege.module;
-                            privilege.role_id=data.data.privilege.role_id;
-                            privilege.module_id=data.data.privilege.module_id;
-
-                            if (data.data.privilege.creating==true)
-                                toolBarRules.items.map.checkbox_create.setValue(1);
-                            if(data.data.privilege.reading==true)
-                                toolBarRules.items.map.checkbox_read.setValue(1);
-                            if(data.data.privilege.updating==true)
-                                toolBarRules.items.map.checkbox_update.setValue(1);
-                            if(data.data.privilege.deleting==true)
-                                toolBarRules.items.map.checkbox_delete.setValue(1);
-                        }
-
+                params:{id:object_role_id,type:type},
+                success:function(response){
+                    var data=JSON.parse(response.responseText);
+                    if (data.errors==undefined){
+                        check_set=true;
+                        if (data["data"][type+"_rule"]["creating"]==true)
+                            toolBarRules.items.map.checkbox_create.setValue(1);
+                        if(data["data"][type+"_rule"]["reading"]==true)
+                            toolBarRules.items.map.checkbox_read.setValue(1);
+                        if(data["data"][type+"_rule"]["updating"]==true)
+                            toolBarRules.items.map.checkbox_update.setValue(1);
+                        if(data["data"][type+"_rule"]["deleting"]==true)
+                            toolBarRules.items.map.checkbox_delete.setValue(1);
+                        check_set=false;
                     }
-                });
-            }
+
+                }
+            });
+        },
+        render:function() {
+            var dd = new Ext.dd.DropTarget(this.getView().el.dom.childNodes[0].childNodes[1], {
+                ddGroup:'dataDDSelf'
+                ,notifyDrop:function(dd, e, node) {
+                    Ext.Ajax.request({
+                        url:"/privileges/create",
+                        method:"POST",
+                        params:{type:type,
+                                id:id,
+                                role_id:node.node.attributes.iddb},
+                        success:function(){
+                           store.setBaseParam("type",type);
+                           store.setBaseParam("id",id);
+                           store.load();
+                        }
+                    });
+
+                }
+            });
         }
     }
 });
 
-function find_role(o){
-    if (o.id.match(/src:roles/)==null)
-        find_role(o.parentNode);
-    else
-        role.id=o.attributes.iddb;
-}
+store.load();
 
 var privPanel = new Ext.tree.TreePanel({
     useArrows: true,
     region: 'center',
-    ddGroup: 'dataDDGroup',
-    enableDrag:true,
     autoScroll: true,
     animate: true,
     containerScroll: true,
@@ -301,7 +333,16 @@ var privPanel = new Ext.tree.TreePanel({
         draggable: false,
         id: 'src:root'
     },
-    listeners:{contextmenu: function(node, e) {}}
+    listeners:{contextmenu: function(node, e) {},
+               click:function(o){
+                   object_role_id=0;
+                   clean_options();
+                   id=o.attributes.iddb;
+                   type=o.attributes.type;
+                   store.setBaseParam("type",type);
+                   store.setBaseParam("id",id);
+                   store.load();
+               }}
 });
 
 var viewport = new Ext.Viewport({
@@ -319,17 +360,10 @@ var viewport = new Ext.Viewport({
         width: 300,
         items:[toolBarUsers,usersPanel]
     },{
-        title:'Roles and Privileges',
-        region:'center',
-        layout: 'border',
-        items:[rolesPanel]
-    },{
         title: 'Privileges',
-        region: 'south',
+        region: 'center',
         split: true,
         layout: 'border',
-        height: 300,
-        width: 200,
-        items:[privPanel]
+        items:[privPanel,rolesGrid]
     }]
 });

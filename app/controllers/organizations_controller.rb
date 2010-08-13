@@ -16,14 +16,17 @@ class OrganizationsController < ApplicationController
   end
 
   def create
-    self.default_creation(Organization, params[:organization])
+    self.default_creation(Organization, params[:organization],
+      OrganizationRule,"organization_id="+params[:organization_id])
   end
 
   def update
-    self.default_updating(Organization, params[:id], params[:organization])
+    self.default_updating(Organization, params[:id], params[:organization],
+      OrganizationRule,"organization_id="+params[:organization_id])
   end
 
   def destroy
-    self.default_destroy(Organization, params[:id])
+    self.default_destroy(Organization, params[:id],
+      OrganizationRule,"organization_id="+params[:organization_id])
   end
 end

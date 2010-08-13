@@ -1,15 +1,7 @@
 class CreatePrivileges < ActiveRecord::Migration
   def self.up
     create_table :privileges do |t|
-      t.integer :module
-      t.boolean :creating
-      t.boolean :reading
-      t.boolean :updating
-      t.boolean :deleting
-
-      t.integer :module_id
-      
-      t.belongs_to :role
+      t.string :name
       t.timestamps
     end
   end

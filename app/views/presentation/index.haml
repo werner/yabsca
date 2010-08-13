@@ -1,6 +1,10 @@
 %div#header
   #maintitle
     A Balanced ScoreCard Application
+  - if current_user.roles.find(0)
+    #admin
+      = link_to "Admin", "/admin"
+  - end rescue ""
   #exit
     = link_to "Log Out", "/destroy"
 = javascript_include_tag "FusionCharts","app/fchart"

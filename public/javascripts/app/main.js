@@ -44,7 +44,8 @@ Ext.onReady(function(){
                 handler:function(){
                     if (perspective.id>0 &&
                             actualNode2.attributes.type=="perspective"){
-                          general.deletion("/perspectives/"+perspective.id,treePanelPersp);
+                          general.deletion("/perspectives/"+perspective.id,
+                            treePanelPersp,{perspective_id:perspective.id});
                     }else{
                         Ext.Msg.alert("Error","You must select a perspective");
                     }
@@ -94,7 +95,8 @@ Ext.onReady(function(){
                 handler:function(){
                     if (objective.id>0 &&
                             actualNode2.attributes.type=="objective"){
-                          general.deletion("/objectives/"+objective.id,treePanelPersp);
+                          general.deletion("/objectives/"+objective.id,
+                            treePanelPersp,{objective_id:objective.id});
                     }else{
                         Ext.Msg.alert("Error","You must select an objective");
                     }

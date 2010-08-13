@@ -9,30 +9,44 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_session, :current_user
 
   #defaults methods to CRUD
-  def default_creation(model,parameters)
-    @object=model.new(parameters)
+  def default_creation(model,parameters,rule_model,conditions)
+
+    if search_permissions(rule_model, conditions, "creating")
+      @object=model.new(parameters)
     
-    if @object.save
-      render :json => {:success => true}
+      if @object.save
+        render :json => {:success => true}
+      else
+        render :json => {:errors=>{:reason=>"Error", :msg=>@object.errors}}
+      end
     else
-      render :json => {:errors=>{:reason=>"Error", :msg=>@object.errors}}
+        render :json => {:errors=>{:reason=>"Permissions", :msg=>"You don't have permissions"}}
     end
 
   end
 
-  def default_updating(model,id,parameters)
-    @object=model.find(id)
-    if @object.update_attributes(parameters)
-      render :json => {:success => true}
+  def default_updating(model,id,parameters,rule_model,conditions)
+
+    if search_permissions(rule_model, conditions, "updating")
+      @object=model.find(id)
+      if @object.update_attributes(parameters)
+        render :json => {:success => true}
+      else
+        render :json => {:errors=>{:reason=>"Error"}}
+      end
     else
-      render :json => {:errors=>{:reason=>"Error"}}
+        render :json => {:errors=>{:reason=>"Permissions", :msg=>"You don't have permissions"}}
     end
   end
 
-  def default_destroy(model,id)
-    @object=model.find(id)
-    @object.destroy
-    render :json => {:success => true}
+  def default_destroy(model,id,rule_model,conditions)
+    if search_permissions(rule_model, conditions, "deleting")
+      @object=model.find(id)
+      @object.destroy
+      render :json => {:success => true}
+    else
+      render :json => {:errors=>{:reason=>"Permissions", :msg=>"You don't have permissions"}}
+    end
   end
 
   #methods to build the trees used in the application
@@ -76,7 +90,7 @@ class ApplicationController < ActionController::Base
         :text => u.name,
         :iconCls => "orgs",
         :type => "organization",
-        :leaf => (u.strategies.empty? and u.organizations.empty?)}
+        :leaf => (u.strategies.empty? && u.organizations.empty?)}
     end
   end
 
@@ -109,7 +123,7 @@ class ApplicationController < ActionController::Base
       :text => u.name,
       :iconCls => "objs",
       :type => "objective",
-      :leaf =>(u.objectives.empty? and u.measures.empty?)}
+      :leaf =>(u.objectives.empty? && u.measures.empty?)}
     end
   end
 
@@ -153,6 +167,7 @@ class ApplicationController < ActionController::Base
         :iddb => u.id,
         :text => u.name,
         :code => u.code,
+        :type => "measure",
         :iconCls => "measure",
         :leaf => true}
     end
@@ -219,27 +234,62 @@ class ApplicationController < ActionController::Base
   end
 
   private
-  
-     def require_user
-      unless current_user
-        store_location
-        redirect_to new_user_session_url
-        return false
+
+  def only_admin
+    current_user.roles.find(0)
+  rescue
+    redirect_to "/presentation"
+    return false
+  end
+
+  def require_user
+    unless current_user
+      store_location
+      redirect_to new_user_session_url
+      return false
+    end
+  end
+
+  def store_location
+    session[:return_to] = request.request_uri
+  end
+
+  def current_user_session
+    return @current_user_session if defined?(@current_user_session)
+    @current_user_session = UserSession.find
+  end
+
+  def current_user
+    return @current_user if defined?(@current_user)
+    @current_user = current_user_session && current_user_session.user
+  end
+
+  def search_permissions(rule_model,conditions,rule)
+    @result=false
+
+    return true if current_user.nil?
+
+    #Search to find out if current_user is an admin user
+    roles=current_user.roles
+
+    roles_id=roles.collect do |i|
+      return true if i.id==0
+      i.id
+    end
+
+    #Search to find out if current_user has permissions
+    if rule_model.nil? && conditions.nil?
+      @result=true
+    else
+      object=rule_model.find_by_role_id(roles_id,
+              :conditions=>conditions+" and #{rule}='t' ") unless conditions.nil?
+      if object.nil?
+        @result=false
+      else
+        @result=true
       end
     end
-
-    def store_location
-      session[:return_to] = request.request_uri
-    end
-
-    def current_user_session
-      return @current_user_session if defined?(@current_user_session)
-      @current_user_session = UserSession.find
-    end
-
-    def current_user
-      return @current_user if defined?(@current_user)
-      @current_user = current_user_session && current_user_session.user
-    end
-  
+    
+    @result
+  end
 end
