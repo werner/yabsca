@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100805153548) do
+ActiveRecord::Schema.define(:version => 20100805153540) do
 
   create_table "initiatives", :force => true do |t|
     t.string   "name"
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(:version => 20100805153548) do
   create_table "measure_rules", :force => true do |t|
     t.integer  "measure_id"
     t.integer  "role_id"
-    t.integer  "rule"
     t.boolean  "creating"
     t.boolean  "reading"
     t.boolean  "updating"
@@ -61,7 +60,6 @@ ActiveRecord::Schema.define(:version => 20100805153548) do
   create_table "objective_rules", :force => true do |t|
     t.integer  "objective_id"
     t.integer  "role_id"
-    t.integer  "rule"
     t.boolean  "creating"
     t.boolean  "reading"
     t.boolean  "updating"
@@ -102,7 +100,6 @@ ActiveRecord::Schema.define(:version => 20100805153548) do
   create_table "perspective_rules", :force => true do |t|
     t.integer  "perspective_id"
     t.integer  "role_id"
-    t.integer  "rule"
     t.boolean  "creating"
     t.boolean  "reading"
     t.boolean  "updating"
@@ -154,7 +151,6 @@ ActiveRecord::Schema.define(:version => 20100805153548) do
   create_table "strategy_rules", :force => true do |t|
     t.integer  "strategy_id"
     t.integer  "role_id"
-    t.integer  "rule"
     t.boolean  "creating"
     t.boolean  "reading"
     t.boolean  "updating"

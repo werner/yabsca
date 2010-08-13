@@ -1,0 +1,111 @@
+  [4;36;1mSQL (109.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (15.6ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (15.6ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateOrganizations (20100522230313)
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE TABLE "organizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "vision" text, "goal" text, "description" text, "organization_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100522230313')[0m
+Migrating to CreatePerspectives (20100522230432)
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE TABLE "perspectives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "strategy_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100522230432')[0m
+Migrating to CreateStrategies (20100522230444)
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE TABLE "strategies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "organization_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100522230444')[0m
+Migrating to CreateObjectives (20100602193426)
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE TABLE "objectives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "perspective_id" integer, "objective_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100602193426')[0m
+Migrating to CreateMeasures (20100604131440)
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE TABLE "measures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar(255), "name" varchar(255), "description" text, "challenge" integer, "excellent" float, "alert" float, "frecuency" integer, "period_from" date, "period_to" date, "unit_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100604131440')[0m
+Migrating to CreateUnits (20100604131719)
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE TABLE "units" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100604131719')[0m
+Migrating to MeasuresObjectives (20100606194642)
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE TABLE "measures_objectives" ("objective_id" integer, "measure_id" integer) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100606194642')[0m
+Migrating to CreateTargets (20100606203601)
+  [4;35;1mSQL (15.6ms)[0m   [0mCREATE TABLE "targets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "goal" float, "achieved" float, "period" varchar(255), "measure_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100606203601')[0m
+Migrating to CreateInitiatives (20100612190457)
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE TABLE "initiatives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "code" varchar(255), "completed" float, "beginning" date, "end" date, "objective_id" integer, "initiative_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100612190457')[0m
+Migrating to CreateResponsibles (20100615131505)
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE TABLE "responsibles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100615131505')[0m
+Migrating to AddResponsibles (20100615133405)
+  [4;35;1mSQL (0.0ms)[0m   [0mALTER TABLE "initiatives" ADD "responsible_id" varchar(255)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mALTER TABLE "measures" ADD "responsible_id" varchar(255)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100615133405')[0m
+Migrating to AddFormula (20100617165641)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mALTER TABLE "measures" ADD "formula" varchar(255)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100617165641')[0m
+Migrating to CreateUsers (20100706143648)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255) NOT NULL, "email" varchar(255) NOT NULL, "crypted_password" varchar(255) NOT NULL, "password_salt" varchar(255) NOT NULL, "persistence_token" varchar(255) NOT NULL, "single_access_token" varchar(255) NOT NULL, "perishable_token" varchar(255) NOT NULL, "login_count" integer DEFAULT 0 NOT NULL, "failed_login_count" integer DEFAULT 0 NOT NULL, "last_request_at" datetime, "current_login_at" datetime, "last_login_at" datetime, "current_login_ip" varchar(255), "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100706143648')[0m
+Migrating to CreateRoles (20100708180420)
+  [4;36;1mSQL (15.6ms)[0m   [0;1mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (15.6ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100708180420')[0m
+Migrating to RolesUsers (20100708181423)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "roles_users" ("role_id" integer, "user_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100708181423')[0m
+Migrating to CreatePrivileges (20100708182116)
+  [4;36;1mSQL (125.0ms)[0m   [0;1mCREATE TABLE "privileges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100708182116')[0m
+Migrating to AddStrategyMap (20100728124118)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mALTER TABLE "strategies" ADD "strategy_map" text[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100728124118')[0m
+Migrating to AddSvgData (20100731185746)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mALTER TABLE "strategies" ADD "strategy_map_svg" text[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100731185746')[0m
+Migrating to CreateOrganizationRules (20100805151557)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "organization_rules" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "organization_id" integer, "role_id" integer, "creating" boolean, "reading" boolean, "updating" boolean, "deleting" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100805151557')[0m
+Migrating to CreateStrategyRules (20100805151642)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "strategy_rules" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "strategy_id" integer, "role_id" integer, "creating" boolean, "reading" boolean, "updating" boolean, "deleting" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100805151642')[0m
+Migrating to CreatePerspectiveRules (20100805153515)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "perspective_rules" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "perspective_id" integer, "role_id" integer, "creating" boolean, "reading" boolean, "updating" boolean, "deleting" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100805153515')[0m
+Migrating to CreateObjectiveRules (20100805153524)
+  [4;36;1mSQL (15.6ms)[0m   [0;1mCREATE TABLE "objective_rules" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "objective_id" integer, "role_id" integer, "creating" boolean, "reading" boolean, "updating" boolean, "deleting" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100805153524')[0m
+Migrating to CreateMeasureRules (20100805153540)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "measure_rules" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "measure_id" integer, "role_id" integer, "creating" boolean, "reading" boolean, "updating" boolean, "deleting" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100805153540')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("initiatives")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("measure_rules")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("measures")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("measures_objectives")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("objective_rules")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("objectives")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("organization_rules")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("organizations")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("perspective_rules")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("perspectives")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("privileges")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("responsibles")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("roles")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("roles_users")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("strategies")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("strategy_rules")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("targets")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("units")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m

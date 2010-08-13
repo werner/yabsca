@@ -273,7 +273,7 @@ class ApplicationController < ActionController::Base
     roles=current_user.roles
 
     roles_id=roles.collect do |i|
-      return true if i.id==0
+      return true if i.id==1
       i.id
     end
 
