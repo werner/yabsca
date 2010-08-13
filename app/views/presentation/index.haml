@@ -1,7 +1,7 @@
 %div#header
   #maintitle
     A Balanced ScoreCard Application
-  - if current_user.roles.find(0)
+  - if current_user.roles.find(1)
     #admin
       = link_to "Admin", "/admin"
   - end rescue ""
