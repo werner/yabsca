@@ -236,7 +236,7 @@ class ApplicationController < ActionController::Base
   private
 
   def only_admin
-    current_user.roles.find(0)
+    current_user.roles.find(1)
   rescue
     redirect_to "/presentation"
     return false
