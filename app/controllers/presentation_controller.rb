@@ -13,7 +13,7 @@ class PresentationController < ApplicationController
       if data.empty?
         roles=current_user.roles
 
-        unless roles.find_all_by_id(0).empty? # Admin Role
+        unless roles.find_all_by_id(1).empty? # Admin Role
           data=Strategy.find_all_by_organization_id(id)
         else # Other Roles
           strats=StrategyRule.find_all_by_role_id(roles)
@@ -38,7 +38,7 @@ class PresentationController < ApplicationController
     return_data=[]
     if params[:node].match(/src:root/)
       roles=current_user.roles
-      unless roles.find_all_by_id(0).empty? # Admin Role
+      unless roles.find_all_by_id(1).empty? # Admin Role
         data=Perspective.find_all_by_strategy_id(params[:strategy_id])
       else # Other Roles
         persps=PerspectiveRule.find_all_by_role_id(roles)
@@ -51,7 +51,7 @@ class PresentationController < ApplicationController
     elsif params[:node].match(/src:persp/)
       id=params[:node].sub(/src:persp/,"").to_i
       roles=current_user.roles
-      unless roles.find_all_by_id(0).empty? # Admin Role
+      unless roles.find_all_by_id(1).empty? # Admin Role
         data=Objective.find_all_by_perspective_id(id)
       else # Other Roles
         objs=ObjectiveRule.find_all_by_role_id(roles)

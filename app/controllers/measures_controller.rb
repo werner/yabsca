@@ -2,7 +2,7 @@ class MeasuresController < ApplicationController
 
   def index
     roles=current_user.roles
-    unless roles.find_all_by_id(0).empty? # Admin Role
+    unless roles.find_all_by_id(1).empty? # Admin Role
       @measures=Objective.find(params[:objective_id]).measures rescue []
     else # Other Roles
       measures_roles=MeasureRule.find_all_by_role_id(roles)
