@@ -28,10 +28,10 @@ class Target < ActiveRecord::Base
       @count+=1 unless i.achieved.nil?
       @goal+=(i.achieved.nil? ? 0 : i.goal)
     end
-    result=@achieved/
+    result=@achieved/@count
     result.round(2)
-  rescue
-    0
+#  rescue
+#    0
   end
 
 end

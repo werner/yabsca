@@ -17,8 +17,8 @@ class MeasuresController < ApplicationController
     return_data=@measures.collect do |u|
       avg=Target.average(u.id)
       {:id => u.id,
-        :text => u.name+(avg==0 ? "" : " ("+avg.to_s+"%) "),
-        :iconCls => get_light(u,"measure",Target.average(u.id)),
+        :text => u.name+(avg==0 ? "" : " ("+avg.to_s+") "),
+        :iconCls => get_light(u,"measure",avg),
         :leaf => true}
     end
 
