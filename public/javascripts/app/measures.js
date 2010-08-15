@@ -460,7 +460,8 @@ measure.win_formula=new Ext.Window({
                             url:"/measures/"+measure.id,
                             method:"PUT",
                             params:{id:measure.id,
-                                    "measure[formula]":measure.formulaText.getValue()},
+                                    "measure[formula]":measure.formulaText.getValue(),
+                                    measure_id:measure.id},
                             success:function(){
                                 measure.win_formula.hide();
                                 Ext.Ajax.request({
