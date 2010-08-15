@@ -30,8 +30,8 @@ class Target < ActiveRecord::Base
     end
     result=@achieved/@count
     result.round(2)
-#  rescue
-#    0
+  rescue
+    0
   end
 
 end

@@ -1253,3 +1253,51 @@ Processing PresentationController#get_targets (for 127.0.0.1 at 2010-08-14 19:28
   [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-08-14 23:58:04', "perishable_token" = 'clEx-eoXEJ-J2vaoLfXc', "last_request_at" = '2010-08-14 23:58:04' WHERE "id" = 1[0m
   [4;35;1mMeasure Load (0.0ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
 Completed in 297ms (View: 0, DB: 0) | 200 OK [http://localhost/get_targets?_dc=1281830284099&measure_id=1]
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-08-14 19:31:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"targets", "_dc"=>"1281830480442", "measure_id"=>"1"}
+  [4;36;1mTarget Load (0.0ms)[0m   [0;1mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '1') [0m
+  [4;35;1mMeasure Load (0.0ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+Completed in 391ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1281830480442&measure_id=1]
+
+
+Processing PresentationController#get_targets (for 127.0.0.1 at 2010-08-14 19:31:21) [GET]
+  Parameters: {"action"=>"get_targets", "controller"=>"presentation", "_dc"=>"1281830480458", "measure_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-08-15 00:01:21', "perishable_token" = 'NZAG22WgIihPVwM8O6cg', "last_request_at" = '2010-08-15 00:01:21' WHERE "id" = 1[0m
+  [4;36;1mMeasure Load (0.0ms)[0m   [0;1mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+Completed in 344ms (View: 0, DB: 0) | 200 OK [http://localhost/get_targets?_dc=1281830480458&measure_id=1]
+
+
+Processing PresentationController#generate_chart (for 127.0.0.1 at 2010-08-14 19:31:22) [GET]
+  Parameters: {"action"=>"generate_chart", "controller"=>"presentation", "_dc"=>"1281830481923", "measure_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-08-15 00:01:22', "perishable_token" = 'ZWtERorLo2o4SIhclksD', "last_request_at" = '2010-08-15 00:01:22' WHERE "id" = 1[0m
+  [4;35;1mTarget Load (0.0ms)[0m   [0mSELECT * FROM "targets" WHERE (measure_id='1' and achieved is not null) [0m
+  [4;36;1mMeasure Load (15.6ms)[0m   [0;1mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+Completed in 250ms (View: 0, DB: 16) | 200 OK [http://localhost/generate_chart?_dc=1281830481923&measure_id=1]
+
+
+Processing PresentationController#chart (for 127.0.0.1 at 2010-08-14 19:31:22) [GET]
+  Parameters: {"action"=>"chart", "controller"=>"presentation"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-08-15 00:01:22', "perishable_token" = 'pDmFqwH1kQyrWvdmqps0', "last_request_at" = '2010-08-15 00:01:22' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/chart
+Completed in 344ms (View: 16, DB: 0) | 200 OK [http://localhost/chart]
+
+
+Processing PresentationController#generate_chart (for 127.0.0.1 at 2010-08-14 19:31:24) [GET]
+  Parameters: {"action"=>"generate_chart", "controller"=>"presentation", "_dc"=>"1281830484850", "measure_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-08-15 00:01:25', "perishable_token" = 'Yfkfn4EOOqtWtWpIVjf5', "last_request_at" = '2010-08-15 00:01:25' WHERE "id" = 1[0m
+  [4;35;1mTarget Load (0.0ms)[0m   [0mSELECT * FROM "targets" WHERE (measure_id='1' and achieved is not null) [0m
+  [4;36;1mMeasure Load (0.0ms)[0m   [0;1mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "measures" WHERE ("measures"."id" = 1) [0m
+Completed in 250ms (View: 0, DB: 0) | 200 OK [http://localhost/generate_chart?_dc=1281830484850&measure_id=1]
