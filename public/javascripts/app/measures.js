@@ -366,7 +366,7 @@ measure.formulaText=new Ext.form.TextArea({
               copy: false,
               overClass: 'over',
               notifyDrop: function(dragSource, event, data){
-                if (dragSource.id=="ext-comp-1072")
+                if (dragSource.dragData.node==undefined)
                     measure.formulaText.setValue(measure.formulaText.getValue()+
                         data.patientData.value);
                 else
