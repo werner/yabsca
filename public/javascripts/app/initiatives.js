@@ -7,34 +7,34 @@ initiative.method="";
 initiative.form=new Ext.FormPanel({
     labelWidth:75,
     frame:true,
-    title:"Initiative",
+    title:lang.initiativeLabel,
     bodyStyle:'padding:5px 5px 0',
     width: 350,
     defaults: {width: 230},
     items:[new Ext.form.TextField({
-        fieldLabel: "Name",
+        fieldLabel: lang.nameLabel,
         id: "initiative_name",
         name:"initiative[name]",
         allowBlank: false
     }),new Ext.form.TextField({
-        fieldLabel: "Code",
+        fieldLabel: lang.codeLabel,
         id: "initiative_code",
         name:"initiative[code]"
     }),new Ext.form.NumberField({
-        fieldLabel: "Completed",
+        fieldLabel: lang.completedLabel,
         id: "initiative_completed",
         name:"initiative[completed]"
     }),new Ext.form.DateField({
-        fieldLabel: "Beginning",
+        fieldLabel: lang.begLabel,
         id: "initiative_beginning",
         name:"initiative[beginning]"
     }),new Ext.form.DateField({
-        fieldLabel: "End",
+        fieldLabel: lang.endLabel,
         id: "initiative_end",
         name:"initiative[end]"
     }),new Ext.form.ComboBox({
         id:"initiative_responsible_id",
-        fieldLabel: "Responsible",
+        fieldLabel: lang.respLabel,
         name: "initiative[responsible_id]",
         store: responsible.store,
         displayField: "name",
@@ -45,8 +45,8 @@ initiative.form=new Ext.FormPanel({
         forceSelection: true,
         selectOnFocus:true,
         mode: "remote",
-        valueNotFoundText:"Select an responsible...",
-        emptyText: "Select an responsible..."
+        valueNotFoundText:lang.emptyResp,
+        emptyText: lang.emptyResp
     }),new Ext.form.Hidden({
         id:"initiative_objective_id",
         name:"initiative[objective_id]"
@@ -64,7 +64,7 @@ initiative.win=new Ext.Window({
     plain: true,
     items:[initiative.form],
     buttons:[{
-        text:'Save',
+        text:lang.saveLabel,
         iconCls:'save',
         handler: function(){
             initiative.form.getForm().submit({
@@ -76,13 +76,12 @@ initiative.win=new Ext.Window({
                     initiative.win.hide();
                 },
                 failure: function() {
-                    Ext.Msg.alert("Error",
-                    "Make sure about all data is correct.");
+                    Ext.Msg.alert("Error",lang.dataCorrect);
                 }
             });
         }
     },{
-        text:'Close',
+        text:lang.closeLabel,
         iconCls:'close',
         handler:function(){
             initiative.win.hide();
@@ -92,7 +91,7 @@ initiative.win=new Ext.Window({
 
 initiative.menuInitiative=new Ext.menu.Menu({
        items:[{
-           text: "New",
+           text: lang.newLabel,
            iconCls: "new",
            handler:function(){
                 if (objective.id>0){
@@ -105,11 +104,11 @@ initiative.menuInitiative=new Ext.menu.Menu({
                         setValue(initiative.id);
                     initiative.win.show();
                 }else{
-                    Ext.Msg.alert("Error","You must select an objective");
+                    Ext.Msg.alert("Error",lang.objSelection);
                 }
            }
        },{
-           text:"Edit",
+           text:lang.editLabel,
            iconCls: "edit",
            handler:function(){
                if (initiative.id>0){
@@ -120,18 +119,18 @@ initiative.menuInitiative=new Ext.menu.Menu({
                          url:'/initiatives/'+initiative.id+'/edit'});
                    initiative.win.show();
                 }else{
-                    Ext.Msg.alert("Error","You must select an initiative");
+                    Ext.Msg.alert("Error",lang.initiativeSelection);
                 }
            }
        },{
-           text: "Delete",
+           text: lang.delLabel,
            iconCls: "del",
            handler:function(){
                 if (initiative.id>0){
                     general.deletion("/initiatives/"+initiative.id,
                         initiative.treePanel,{objective_id:objective.id});
                 }else{
-                    Ext.Msg.alert("Error","You must select an initiative");
+                    Ext.Msg.alert("Error",lang.initiativeSelection);
                 }
            }
        }]
@@ -139,11 +138,11 @@ initiative.menuInitiative=new Ext.menu.Menu({
 
 initiative.toolBar=new Ext.Toolbar({
     items:[{
-       text:"Initiatives",
+       text:lang.initiativeLabel,
        iconCls:"initiative",
        menu:initiative.menuInitiative
     },{
-       text:"Responsibles",
+       text:lang.respsLabel,
        iconCls:"responsible",
        handler:function(){
             responsible.win.show();
@@ -153,7 +152,7 @@ initiative.toolBar=new Ext.Toolbar({
 
 initiative.treePanel = new Ext.tree.TreePanel({
     id: "tree-panel_i",
-    title: "Initiatives",
+    title: lang.initiativeLabel,
     region: "center",
     autoScroll: true,
     rootVisible: false,

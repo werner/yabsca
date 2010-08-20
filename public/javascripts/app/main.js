@@ -7,7 +7,7 @@ Ext.onReady(function(){
     var menuPersp= new Ext.menu.Menu({
             items:[{
                 iconCls:"new",
-                text:"New",
+                text:lang.newLabel,
                 handler:function(){
                     if (actualNode!=undefined &&
                             actualNode.attributes.type=="strategy"){
@@ -18,12 +18,12 @@ Ext.onReady(function(){
                             setValue(strategy.id);
                         perspective.win.show();
                     }else{
-                        Ext.Msg.alert("Error","You must select a strategy");
+                        Ext.Msg.alert("Error",lang.stratSelection);
                     }
                 }
             },{
                 iconCls:"edit",
-                text:"Edit",
+                text:lang.editLabel,
                 handler:function(){
                     if (perspective.id>0 &&
                             actualNode2.attributes.type=="perspective"){
@@ -35,19 +35,19 @@ Ext.onReady(function(){
                         });
                         perspective.win.show();
                     }else{
-                        Ext.Msg.alert("Error","You must select a perspective");
+                        Ext.Msg.alert("Error",lang.perspSelection);
                     }
                 }
             },{
                 iconCls:"del",
-                text:"Delete",
+                text:lang.deleteLabel,
                 handler:function(){
                     if (perspective.id>0 &&
                             actualNode2.attributes.type=="perspective"){
                           general.deletion("/perspectives/"+perspective.id,
                             treePanelPersp,{perspective_id:perspective.id});
                     }else{
-                        Ext.Msg.alert("Error","You must select a perspective");
+                        Ext.Msg.alert("Error",lang.perspSelection);
                     }
                 }
             }]
@@ -56,7 +56,7 @@ Ext.onReady(function(){
     var menuObjs= new Ext.menu.Menu({
             items:[{
                 iconCls:"new",
-                text:"New",
+                text:lang.newLabel,
                 handler:function(){
                     if (actualNode2.attributes.type=="perspective" ||
                             actualNode2.attributes.type=="objective"){
@@ -69,12 +69,12 @@ Ext.onReady(function(){
                             setValue(objective.id);
                         objective.win.show();
                     }else{
-                        Ext.Msg.alert("Error","You must select a perspective or objective");
+                        Ext.Msg.alert("Error",lang.perspobjSelection);
                     }
                 }
             },{
                 iconCls:"edit",
-                text:"Edit",
+                text:lang.editLabel,
                 handler:function(){
                     if (objective.id>0 &&
                             actualNode2.attributes.type=="objective"){
@@ -86,19 +86,19 @@ Ext.onReady(function(){
                         });
                         objective.win.show();
                     }else{
-                        Ext.Msg.alert("Error","You must select an objective");
+                        Ext.Msg.alert("Error",lang.objSelection);
                     }
                 }
             },{
                 iconCls:"del",
-                text:"Delete",
+                text:lang.delLabel,
                 handler:function(){
                     if (objective.id>0 &&
                             actualNode2.attributes.type=="objective"){
                           general.deletion("/objectives/"+objective.id,
                             treePanelPersp,{objective_id:objective.id});
                     }else{
-                        Ext.Msg.alert("Error","You must select an objective");
+                        Ext.Msg.alert("Error",lang.objSelection);
                     }
                 }
             }]
@@ -107,14 +107,14 @@ Ext.onReady(function(){
     var toolBarPers = new Ext.Toolbar({
         items:[{
             iconCls:"persp",
-            text:"Perspectives",
+            text:lang.perspLabel,
             menu:menuPersp
         },{
             iconCls:"objs",
-            text:"Objectives",
+            text:lang.objLabel,
             menu:menuObjs
         },{
-           text:"Gantt",
+           text:lang.ganttLabel,
            iconCls:"gantt",
            handler:function(){
                 fchart.type="FCF_Gantt.swf";
@@ -126,18 +126,18 @@ Ext.onReady(function(){
     var toolBarOrgs = new Ext.Toolbar({
         items:[{
             iconCls:"orgs",
-            text:"Organizations",
+            text:lang.orgsLabel,
             menu:menuOrgs
         },{
             iconCls:"strats",
-            text:"Strategies",
+            text:lang.stratsLabel,
             menu:menuStrats
         }]
     });
     
     treePanelPersp = new Ext.tree.TreePanel({
     	id: "tree-panel_persp",
-        title: "Perspectives and Objectives",
+        title: lang.perspobjLabel,
         region: "west",
         split: true,
         collapsible: true,
@@ -147,17 +147,17 @@ Ext.onReady(function(){
         contextMenu: new Ext.menu.Menu({
             items:[{
                 iconCls:"persp",
-                text:"Perspectives",
+                text:lang.perspLabel,
                 menu:menuPersp
             },{
                 iconCls:"objs",
-                text:"Objectives",
+                text:lang.objLabel,
                 menu:menuObjs
             }]
         }),
         root: {
             nodeType: 'async',
-            text: 'Perspectives',
+            text: lang.perspLabel,
             draggable: false,
             iconCls:"persp",
             id: 'src:root'
@@ -216,7 +216,7 @@ Ext.onReady(function(){
             height: 27
         }, {
             region: 'west',
-            title: 'Organizations and Strategies',
+            title: lang.orgsstratsLabel,
             collapsible: true,
             split: true,
             width: 300,
@@ -229,4 +229,5 @@ Ext.onReady(function(){
             items:[perspPanel,measurePanel]
         }]
     });
+
 });

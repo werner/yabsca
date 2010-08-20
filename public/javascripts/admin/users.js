@@ -7,26 +7,26 @@ user.method="";
 user.form=new Ext.FormPanel({
     labelWidth:75,
     frame:true,
-    title:"User",
+    title:lang.usersLabel,
     bodyStyle:'padding:10px 10px 0',
     width: 400,
     defaults: {width: 230},
     items:[new Ext.form.TextField({
-        fieldLabel:"Login",
+        fieldLabel:lang.loginLabel,
         id:"user_login",
         name:"user[login]",
         allowBlank: false
     }), new Ext.form.TextField({
-        fieldLabel:"Email",
+        fieldLabel:lang.emailLabel,
         id:'user_email',
         name:'user[email]'
     }),new Ext.form.TextField({
-        fieldLabel:"Password",
+        fieldLabel:lang.fieldPassword,
         id:'user_password',
         inputType:'password',
         name:'user[password]'
     }),new Ext.form.TextField({
-        fieldLabel:"Password Confirmation",
+        fieldLabel:lang.passwordConfimationLabel,
         id:'user_password_confirmation',
         inputType:'password',
         name:'user[password_confirmation]'
@@ -44,7 +44,7 @@ user.win=new Ext.Window({
     plain: true,
     items:[user.form],
     buttons: [{
-        text:'Save',
+        text:lang.saveLabel,
         iconCls:'save',
         handler: function(){
             user.form.getForm().submit({
@@ -55,13 +55,12 @@ user.win=new Ext.Window({
                     user.win.hide();
                 },
                 failure: function(response) {
-                    Ext.Msg.alert("Error",
-                    "Make sure about all data is correct.");
+                    Ext.Msg.alert("Error",lang.dataCorrect);
                 }
             });
         }
     },{
-        text:'Close',
+        text:lang.closeLabel,
         iconCls:'close',
         handler:function(){
             user.win.hide();

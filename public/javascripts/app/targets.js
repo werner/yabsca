@@ -22,7 +22,7 @@ target.store=new Ext.data.Store({
 
 target.toolBar=new Ext.Toolbar({
     items:[{
-        text:"New",
+        text:lang.newLabel,
         iconCls:"new",
         handler:function(){
             if (measure.id>0){
@@ -34,11 +34,11 @@ target.toolBar=new Ext.Toolbar({
                 target.grid.store.insert(0,u);
                 target.grid.startEditing(0,1);
             }else{
-                Ext.Msg.alert("Error","You must select a measure");
+                Ext.Msg.alert("Error",lang.measureSelection);
             }
         }
     },{
-        text:"Save",
+        text:lang.saveLabel,
         iconCls:"saving",
         handler:function(){
             var records=target.grid.store.getModifiedRecords();
@@ -67,13 +67,13 @@ target.toolBar=new Ext.Toolbar({
             target.grid.store.commitChanges();
         }
     },{
-        text:"Delete",
+        text:lang.delLabel,
         iconCls:"del",
         handler:function(){
             if (target.id>0){
                 Ext.Msg.show({
-                   title:"Delete",
-                   msg: "Are you sure you want to delete it?",
+                   title:lang.delLabel,
+                   msg: lang.questionDelete,
                    buttons: Ext.Msg.YESNO,
                    fn: function(btn){
                        if (btn=="yes"){
@@ -92,7 +92,7 @@ target.toolBar=new Ext.Toolbar({
                    icon: Ext.MessageBox.QUESTION
                 });
             }else{
-                Ext.Msg.alert("Error","You must select a target");
+                Ext.Msg.alert("Error",lang.targetSelection);
             }
         }
     }]
@@ -114,12 +114,12 @@ target.frec_store=new Ext.data.Store({
 
 target.grid=new Ext.grid.EditorGridPanel({
     region: "center",
-    title:"Targets",
+    title:lang.targetsLabel,
     store:target.store,
     clicksToEdit: 2,
     tbar:[target.toolBar],
     columns:[{header:"id",dataIndex:"id", hidden:true},
-             {header:"Period", dataIndex:"period",width:150,
+             {header:lang.periodLabel, dataIndex:"period",width:150,
                  editor: new Ext.form.ComboBox({
                     id: "target_period_id",
                     name: "target[period]",
@@ -132,11 +132,11 @@ target.grid=new Ext.grid.EditorGridPanel({
                     forceSelection: true,
                     selectOnFocus:true,
                     mode: "remote",
-                    valueNotFoundText:"Select a period...",
-                    emptyText: "Select a period..."
+                    valueNotFoundText:lang.emptyPeriod,
+                    emptyText: lang.emptyPeriod
               })},
-             {header:"Goal", dataIndex:"goal",editor:new Ext.form.TextField({})},
-             {header:"Achieved", dataIndex:"achieved",editor:new Ext.form.TextField({})}],
+             {header:lang.targetGoal, dataIndex:"goal",editor:new Ext.form.TextField({})},
+             {header:lang.achievedLabel, dataIndex:"achieved",editor:new Ext.form.TextField({})}],
     listeners:{
         rowclick:function(grid,number,e){
             target.record_index=number;

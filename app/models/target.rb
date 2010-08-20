@@ -16,22 +16,4 @@ class Target < ActiveRecord::Base
     end
   end
 
-  def self.average(measure_id)
-    targets=find_all_by_measure_id(measure_id)
-
-    @achieved=0
-    @goal=0
-    @count=0
-    #if it is nil it sums zero
-    targets.each do |i|
-      @achieved+=(i.achieved.nil? ? 0 : i.achieved)
-      @count+=1 unless i.achieved.nil?
-      @goal+=(i.achieved.nil? ? 0 : i.goal)
-    end
-    result=@achieved/@count
-    result.round(2)
-  rescue
-    0
-  end
-
 end

@@ -6,17 +6,17 @@ strategy.method="";
 strategy.form=new Ext.FormPanel({
     labelWidth:75,
     frame:true,
-    title:"Strategy",
+    title:lang.stratsLabel,
     bodyStyle:'padding:5px 5px 0',
     width: 350,
     defaults: {width: 230},
     items:[new Ext.form.TextField({
-        fieldLabel:"Name",
+        fieldLabel:lang.nameLabel,
         id:"strategy_name",
         name:"strategy[name]",
         allowBlank: false
     }),new Ext.form.TextArea({
-        fieldLabel:"Description",
+        fieldLabel:lang.descriptionLabel,
         id:"strategy_description",
         name:"strategy[description]"
     }), new Ext.form.Hidden({
@@ -33,7 +33,7 @@ strategy.win= new Ext.Window({
     plain: true,
     items:[strategy.form],
     buttons:[{
-        text:'Save',
+        text:lang.saveLabel,
         iconCls:'save',
         handler: function(){
             strategy.form.getForm().submit({
@@ -45,13 +45,12 @@ strategy.win= new Ext.Window({
                     strategy.win.hide();
                 },
                 failure: function() {
-                    Ext.Msg.alert("Error",
-                    "Make sure about all data is correct.");
+                    Ext.Msg.alert("Error",lang.dataCorrect);
                 }
             });
         }
     },{
-        text:'Close',
+        text:lang.closeLabel,
         iconCls:'close',
         handler:function(){
             strategy.win.hide();

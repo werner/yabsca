@@ -2,15 +2,15 @@ var login = new Ext.FormPanel({
     labelWidth:80,
     url:'/user_sessions/create',
     frame:true,
-    title:'Please Login',
+    title:lang.loginTitle,
     defaultType:'textfield',
     monitorValid:true,
     items:[{
-            fieldLabel:'Username',
+            fieldLabel:lang.fieldUserName,
             name:'user_session[login]',
             allowBlank:false
         },{
-            fieldLabel:'Password',
+            fieldLabel:lang.fieldPassword,
             name:'user_session[password]',
             inputType:'password',
             allowBlank:false,
@@ -23,14 +23,14 @@ var login = new Ext.FormPanel({
             }
         }],
     buttons:[{
-            text:'Login',
+            text:lang.loginButton,
             iconCls:'login',
             formBind: true,
             handler:function(){
                 send_login('/presentation');
             }
         },{
-            text:'Admin',
+            text:lang.adminLabel,
             iconCls:'admin',
             formBind: true,
             handler: function(){
@@ -42,8 +42,8 @@ var login = new Ext.FormPanel({
 var send_login=function(path){
     login.getForm().submit({
         method:'POST',
-        waitTitle:'Connecting',
-        waitMsg:'Sending data...',
+        waitTitle:lang.waitTitle,
+        waitMsg:lang.waitMsg,
         success:function(){
             var redirect = path;
             window.location = redirect;
@@ -51,9 +51,9 @@ var send_login=function(path){
         failure:function(form, action){
             if(action.failureType == 'server'){
                 obj = Ext.util.JSON.decode(action.response.responseText);
-                Ext.Msg.alert('Login Failed!', obj.errors.msg);
+                Ext.Msg.alert(lang.loginFailed, obj.errors.msg);
             }else{
-                Ext.Msg.alert('Warning!', 'Authentication server is unreachable : ' +
+                Ext.Msg.alert(lang.loginWarning, lang.loginMsg +
                     action.response.responseText);
             }
             login.getForm().reset();

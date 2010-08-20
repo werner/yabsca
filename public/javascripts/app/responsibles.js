@@ -28,7 +28,7 @@ responsible.grid=new Ext.grid.EditorGridPanel({
     width:400,
     height:200,
     columns:[{header: "ID", width: 40, sortable: true, dataIndex: 'id', hidden:true},
-             {header: "Name",
+             {header: lang.nameLabel,
               width: 300,
               dataIndex: 'name',
               sortable: true,
@@ -63,7 +63,7 @@ responsible.win=new Ext.Window({
     plain: true,
     items:[responsible.grid],
     buttons: [{
-        text:'New Responsible',
+        text:lang.newRespLabel,
         iconCls:'new',
         handler: function(){
             var u = new responsible.grid.store.recordType({name:''});
@@ -75,12 +75,12 @@ responsible.win=new Ext.Window({
             responsible.grid.startEditing(0,1);
         }
     },{
-        text:"Delete Responsible",
+        text:lang.delRespLabel,
         iconCls:"del",
         handler: function(){
             Ext.Msg.show({
-               title:'Delete',
-               msg: 'Are you sure you want to delete it?',
+               title:lang.deleteLabel,
+               msg: lang.questionDelete,
                buttons: Ext.Msg.YESNO,
                fn: function(btn){
                    if (btn=='yes'){
@@ -102,7 +102,7 @@ responsible.win=new Ext.Window({
             });
         }
     },{
-        text:'Close',
+        text:lang.closeLabel,
         iconCls:'close',
         handler:function(){
             responsible.win.hide();

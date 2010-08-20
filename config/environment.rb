@@ -10,6 +10,11 @@ Rails::Initializer.run do |config|
   config.gem "authlogic", :version => '2.1.5'
   config.gem "jammit"
   config.time_zone = 'UTC'
+
+  # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+  config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
+  #config.i18n.default_locale = :es
+
 end
 
 ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!(:default => '%m/%d/%Y')

@@ -7,12 +7,12 @@ role.method="";
 role.form=new Ext.FormPanel({
     labelWidth:75,
     frame:true,
-    title:"Role",
+    title:lang.rolesLabel,
     bodyStyle:'padding:10px 10px 0',
     width: 400,
     defaults: {width: 230},
     items:[new Ext.form.TextField({
-        fieldLabel:"Name",
+        fieldLabel:lang.nameLabel,
         id:"role_name",
         name:"role[name]",
         allowBlank: false            
@@ -27,7 +27,7 @@ role.win=new Ext.Window({
     plain: true,
     items:[role.form],
     buttons: [{
-        text:'Save',
+        text:lang.saveLabel,
         iconCls:'save',
         handler: function(){
             role.form.getForm().submit({
@@ -38,13 +38,12 @@ role.win=new Ext.Window({
                     role.win.hide();
                 },
                 failure: function(response) {
-                    Ext.Msg.alert("Error",
-                    "Make sure about all data is correct.");
+                    Ext.Msg.alert("Error",lang.dataCorrect);
                 }
             });
         }
     },{
-        text:'Close',
+        text:lang.closeLabel,
         iconCls:'close',
         handler:function(){
             role.win.hide();

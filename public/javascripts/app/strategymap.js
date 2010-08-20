@@ -1,4 +1,3 @@
-
 Ext.onReady(function() {
 
     var node;
@@ -33,7 +32,7 @@ Ext.onReady(function() {
 
     var dataMenu= new Ext.menu.Menu({
         items:[{
-                text:"New",
+                text:lang.newLabel,
                 iconCls:"new",
                 handler:function(){
                     if (node!=undefined){
@@ -111,7 +110,7 @@ Ext.onReady(function() {
                     }
                 }
         },{
-            text:"Delete",
+            text:lang.delLabel,
             iconCls:"del",
             handler:function(){
                 Property.setSelected.remove();
@@ -126,31 +125,31 @@ Ext.onReady(function() {
 
     var drawingObjects=new Ext.menu.Menu({
        items:[{
-            text:"Line",
+            text:lang.lineLabel,
             iconCls:"line",
             handler:function(){
                 var l = paper.path("M10 10L90 90");
                 Property.line(l);
             }
         },{
-            text:"Curve",
+            text:lang.curveLabel,
             iconCls:"curve",
             handler:function(){
                 var c = paper.path("M10,55 C10,5 100,5 100,55");
                 Property.curve(c);
             }
         },{
-            text:"Ellipse",
+            text:lang.ellipseLabel,
             iconCls:"ellipse",
             handler:function(){
                 var ellipse = paper.ellipse(110, 80, 100, 40);
                 Property.ellipse(ellipse);
             }
         },{
-            text:"Text",
+            text:lang.textLabel,
             iconCls:"text",
             handler:function(){
-                Ext.Msg.prompt('Text', 'Enter text:', function(btn, text){
+                Ext.Msg.prompt(lang.textLabel, lang.enterText, function(btn, text){
                     if (btn == 'ok'){
                         var t = paper.text(110, 70, text);
                         Property.text(t);
@@ -162,13 +161,13 @@ Ext.onReady(function() {
 
     var editMenu=new Ext.menu.Menu({
         items:[{
-            text:"Clear Canvas",
+            text:lang.cleanCanvas,
             iconCls:"erase",
             handler:function(){
                 paper.clear();
             }
         },{
-            text:"Save Canvas",
+            text:lang.saveCanvas,
             iconCls:"saving",
             handler:function(){
                 var raphaelData = paper.serialize.json();
@@ -179,7 +178,7 @@ Ext.onReady(function() {
                 });
             }
         },{
-            text:"Export Canvas",
+            text:lang.exportCanvas,
             iconCls:"export",
             handler:function(){
                 var canvas=Ext.get("drawcanvas");
@@ -199,13 +198,13 @@ Ext.onReady(function() {
     var toolBar=new Ext.Toolbar({
         region: 'north',
         items:[{
-           text:"Data Objects",
+           text:lang.dataObjects,
            menu:dataMenu
         },{
-            text:"Drawing Objects",
+            text:lang.drawingObjects,
             menu:drawingObjects
         },{
-            text:"Edition",
+            text:lang.editionLabel,
             menu:editMenu
         }]
     });
@@ -226,7 +225,7 @@ Ext.onReady(function() {
         }),
         root: {
             nodeType: 'async',
-            text: 'Perspectives',
+            text: lang.perspLabel,
             draggable: false,
             id: 'src:root'
         },

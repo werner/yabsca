@@ -2,8 +2,8 @@ var general =new Object();
 
 general.deletion = function(path,treePanel,parameters) {
     Ext.Msg.show({
-       title:"Delete",
-       msg: "Are you sure you want to delete it?",
+       title:lang.deleteLabel,
+       msg: lang.questionDelete,
        buttons: Ext.Msg.YESNO,
        fn: function(btn){
            if (btn=="yes"){
@@ -25,7 +25,7 @@ general.deletion = function(path,treePanel,parameters) {
 var menuOrgs=new Ext.menu.Menu({
           items:[{
             iconCls:"new",
-            text:"New",
+            text:lang.newLabel,
             handler:function(){
                 organization.method="POST";
                 organization.url="organizations/create";
@@ -36,7 +36,7 @@ var menuOrgs=new Ext.menu.Menu({
             }
           },{
             iconCls:"edit",
-            text:"Edit",
+            text:lang.editLabel,
             handler:function(){
                 if (organization.id>0 &&
                         actualNode.attributes.type=="organization"){
@@ -47,19 +47,19 @@ var menuOrgs=new Ext.menu.Menu({
                          url:'/organizations/'+organization.id+'/edit'});
                     organization.win.show();
                 }else{
-                    Ext.Msg.alert("Error","You must select an organization");
+                    Ext.Msg.alert("Error",lang.orgSelection);
                 }
             }
           },{
             iconCls:"del",
-            text:"Delete",
+            text:lang.delLabel,
             handler:function(){
                 if (organization.id>0 &&
                         actualNode.attributes.type=="organization"){
                       general.deletion("/organizations/"+organization.id,
                             treePanelOrgs,{organization_id:organization.id});
                 }else{
-                    Ext.Msg.alert("Error","You must select an organization");
+                    Ext.Msg.alert("Error",lang.orgSelection);
                 }
             }
           }]
@@ -68,7 +68,7 @@ var menuOrgs=new Ext.menu.Menu({
 var menuStrats=new Ext.menu.Menu({
           items:[{
             iconCls:"new",
-            text:"New",
+            text:lang.newLabel,
             handler:function(){
                 if (organization.id>0 &&
                         actualNode.attributes.type=="organization"){
@@ -79,12 +79,12 @@ var menuStrats=new Ext.menu.Menu({
                         setValue(organization.id);
                     strategy.win.show();
                 }else{
-                    Ext.Msg.alert("Error","You must select an organization");
+                    Ext.Msg.alert("Error",lang.orgSelection);
                 }
             }
           },{
             iconCls:"edit",
-            text:"Edit",
+            text:lang.editLabel,
             handler:function(){
                 if (strategy.id>0 &&
                         actualNode.attributes.type=="strategy"){
@@ -95,30 +95,30 @@ var menuStrats=new Ext.menu.Menu({
                          url:'/strategies/'+strategy.id+'/edit'});
                     strategy.win.show();
                 }else{
-                    Ext.Msg.alert("Error","You must select a strategy");
+                    Ext.Msg.alert("Error",lang.stratSelection);
                 }
             }
           },{
             iconCls:"del",
-            text:"Delete",
+            text:lang.delLabel,
             handler:function(){
                 if (strategy.id>0 &&
                         actualNode.attributes.type=="strategy"){
                       general.deletion("/strategies/"+strategy.id,
                         treePanelOrgs,{strategy_id:strategy.id});
                 }else{
-                    Ext.Msg.alert("Error","You must select a strategy");
+                    Ext.Msg.alert("Error",lang.stratSelection);
                 }
             }
           },{
             iconCls:"map",
-            text:"Strategy Map",
+            text:lang.strategyMap,
             handler:function(){
                 if (strategy.id>0 &&
                         actualNode.attributes.type=="strategy"){
                     window.location = "/strategies?id="+strategy.id;
                 }else{
-                    Ext.Msg.alert("Error","You must select a strategy");
+                    Ext.Msg.alert("Error",lang.stratSelection);
                 }
             }
           }]
@@ -131,17 +131,17 @@ var treePanelOrgs= new Ext.tree.TreePanel({
     contextMenu: new Ext.menu.Menu({
         items:[{
             iconCls:"orgs",
-            text:"Organizations",
+            text:lang.orgsLabel,
             menu:menuOrgs
         },{
             iconCls:"strats",
-            text:"Strategies",
+            text:lang.stratsLabel,
             menu:menuStrats
         }]
     }),
     root: {
         nodeType: 'async',
-        text: 'Organizations',
+        text: lang.orgsLabel,
         draggable: false,
         iconCls:"orgs",
         id: 'src:root',

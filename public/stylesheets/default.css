@@ -130,11 +130,20 @@
   background-repeat: no-repeat;
 }
 
-#exit{
-    width: 80px;
+.exit{
+  background-image: url("../images/exit.png") !important;
+  background-repeat: no-repeat;
+  width: 16px;
+}
+
+.admin {
+  background-image: url("../images/lock_open.png") !important;
+  background-repeat: no-repeat;
+  width: 16px;
+}
+
+.tablebutton{
     float: right;
-    background-image: url("../images/exit.png") !important;
-    background-repeat: no-repeat;
 }
 
 .map {
@@ -246,23 +255,10 @@
   background-repeat: no-repeat;
 }
 
-#home {
-  background-image: url("../images/home.png") !important;
-  background-repeat: no-repeat;
-  width: 70px;
-  float: left;
-}
-
-#admin {
-  background-image: url("../images/lock_open.png") !important;
-  background-repeat: no-repeat;
-  width: 70px;
-  float: left;
-}
-
 .home {
   background-image: url("../images/home.png") !important;
   background-repeat: no-repeat;
+  width:16px;
 }
 
 .orgs {
@@ -288,7 +284,7 @@
     font-family: Verdana,Arial,Helvetica,sans-serif;
     font-weight: bold;
     font-size:16px;
-    width: 400px;
+    width: 600px;
 }
 
 #header a{

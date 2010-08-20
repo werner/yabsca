@@ -1,11 +1,17 @@
 %div#header
   #maintitle
-    A Balanced ScoreCard Application
+    = t(:title)
   - if current_user.roles.find(1)
-    #admin
-      = link_to "Admin", "/admin"
+    %table.tablebutton
+      %tr
+        %td.admin
+        %td
+          = link_to t(:admin), "/admin"
   - end rescue ""
-  #exit
-    = link_to "Log Out", "/destroy"
+  %table.tablebutton
+    %tr
+      %td.exit
+      %td
+        = link_to t(:log_out), "/destroy"
 = javascript_include_tag "FusionCharts","app/fchart"
 = javascript_include_tag "app/general","app/units","app/responsibles","app/organizations","app/strategies","app/initiatives","app/perspectives","app/objectives","app/measures","app/targets","app/main"

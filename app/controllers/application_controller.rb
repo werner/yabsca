@@ -8,6 +8,18 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
   helper_method :current_user_session, :current_user
 
+  before_filter :set_locale
+
+  def set_locale 
+    ## if params[:locale] is nil then I18n.default_locale will be used
+    I18n.locale = params[:locale] 
+  end
+  
+  def default_url_options(options={})
+    logger.debug "default_url_options is passed options: #{options.inspect}\n"
+    { :locale => I18n.locale }
+  end
+  
   #defaults methods to CRUD
   def default_creation(model,parameters,rule_model,conditions)
 

@@ -24,26 +24,26 @@ measure.challenge_store=new Ext.data.ArrayStore({
 measure.form=new Ext.FormPanel({
     labelWidth:75,
     frame:true,
-    title:"Measure",
+    title:lang.measuresLabel,
     bodyStyle:'padding:5px 5px 0',
     width: 350,
     defaults: {width: 230},
     items:[new Ext.form.TextField({
-        fieldLabel: "Code",
+        fieldLabel: lang.codeLabel,
         id: "measure_code",
         name:"measure[code]",
         allowBlank: false
     }),new Ext.form.TextField({
-        fieldLabel: "Name",
+        fieldLabel: lang.nameLabel,
         id: "measure_name",
         name:"measure[name]",
         allowBlank: false
     }), new Ext.form.TextArea({
-        fieldLabel: "Description",
+        fieldLabel: lang.descriptionLabel,
         id: "measure_description",
         name: "measure[description]"
     }), new Ext.form.ComboBox({
-        fieldLabel: "Challenge",
+        fieldLabel: lang.challengeLabel,
         displayField: "name",
         valueField: "id",
         hiddenName:"measure[challenge]",
@@ -54,18 +54,18 @@ measure.form=new Ext.FormPanel({
         forceSelection: true,
         triggerAction: 'all',
         selectOnFocus:true,
-        valueNotFoundText:"Select a challenge...",
-        emptyText: "Select a challenge..."
+        valueNotFoundText:lang.emptyChallenge,
+        emptyText: lang.emptyChallenge
     }), new Ext.form.NumberField({
-        fieldLabel: "Excellent",
+        fieldLabel: lang.excellentLabel,
         id: "measure_excellent",
         name: "measure[excellent]"
     }), new Ext.form.NumberField({
-        fieldLabel: "Alert",
+        fieldLabel: lang.alertLabel,
         id: "measure_alert",
         name: "measure[alert]"
     }), new Ext.form.ComboBox({
-        fieldLabel: "Frecuency",
+        fieldLabel: lang.frecLabel,
         displayField: "name",
         valueField: "id",
         hiddenName:"measure[frecuency]",
@@ -76,19 +76,19 @@ measure.form=new Ext.FormPanel({
         forceSelection: true,
         triggerAction: 'all',
         selectOnFocus:true,
-        valueNotFoundText:"Select a frecuency...",
-        emptyText: "Select a frecuency..."
+        valueNotFoundText:lang.emptyFrecuency,
+        emptyText: lang.emptyFrecuency
     }), new Ext.form.DateField({
-        fieldLabel: "From",
+        fieldLabel: lang.fromLabel,
         id: "measure_period_from",
         name:"measure[period_from]"
     }), new Ext.form.DateField({
-        fieldLabel: "To",
+        fieldLabel: lang.toLabel,
         id: "measure_period_to",
         name:"measure[period_to]"
     }), new Ext.form.ComboBox({
         id:"measure_unit_id",
-        fieldLabel: "Unit",
+        fieldLabel: lang.unitLabel,
         name: "measure[unit_id]",
         store: unit.store,
         displayField: "name",
@@ -99,11 +99,11 @@ measure.form=new Ext.FormPanel({
         forceSelection: true,
         selectOnFocus:true,
         mode: "remote",
-        valueNotFoundText:"Select an unit...",
+        valueNotFoundText:lang.emptyUnit,
         emptyText: "Select an unit..."
     }),new Ext.form.ComboBox({
         id:"measure_responsible_id",
-        fieldLabel: "Responsible",
+        fieldLabel: lang.respsLabel,
         name: "measure[responsible_id]",
         store: responsible.store,
         displayField: "name",
@@ -114,8 +114,8 @@ measure.form=new Ext.FormPanel({
         forceSelection: true,
         selectOnFocus:true,
         mode: "remote",
-        valueNotFoundText:"Select an responsible...",
-        emptyText: "Select an responsible..."
+        valueNotFoundText:lang.emptyResp,
+        emptyText: lang.emptyResp
     }),new Ext.form.Hidden({
         id:"measure_objective_ids",
         name:"measure[objective_ids][]"
@@ -130,7 +130,7 @@ measure.win=new Ext.Window({
     plain: true,
     items:[measure.form],
     buttons:[{
-        text:'Save',
+        text:lang.saveLabel,
         iconCls:'save',
         handler: function(){
             measure.form.getForm().submit({
@@ -142,13 +142,12 @@ measure.win=new Ext.Window({
                     measure.win.hide();
                 },
                 failure: function() {
-                    Ext.Msg.alert("Error",
-                    "Make sure about all data is correct.");
+                    Ext.Msg.alert("Error",lang.dataCorrect);
                 }
             });
         }
     },{
-        text:'Close',
+        text:lang.closeLabel,
         iconCls:'close',
         handler:function(){
             measure.win.hide();
@@ -158,7 +157,7 @@ measure.win=new Ext.Window({
 
 measure.menuMeasures=new Ext.menu.Menu({
        items:[{
-           text: "New",
+           text: lang.newLabel,
            iconCls: "new",
            handler:function(){
                 if (objective.id>0){
@@ -169,11 +168,11 @@ measure.menuMeasures=new Ext.menu.Menu({
                         setValue(objective.id);
                     measure.win.show();
                 }else{
-                    Ext.Msg.alert("Error","You must select an objective");
+                    Ext.Msg.alert("Error",lang.objSelection);
                 }
            }
        },{
-           text:"Edit",
+           text:lang.editLabel,
            iconCls: "edit",
            handler:function(){
                if (measure.id>0){
@@ -184,22 +183,22 @@ measure.menuMeasures=new Ext.menu.Menu({
                          url:'/measures/'+measure.id+'/edit'});
                    measure.win.show();
                 }else{
-                    Ext.Msg.alert("Error","You must select a measure");
+                    Ext.Msg.alert("Error",lang.measureSelection);
                 }
            }
        },{
-           text: "Delete",
+           text: lang.deleteLabel,
            iconCls: "del",
            handler:function(){
                 if (measure.id>0){
                     general.deletion("/measures/"+measure.id,
                         measure.treePanel,{measure_id:measure.id});
                 }else{
-                    Ext.Msg.alert("Error","You must select a measure");
+                    Ext.Msg.alert("Error",lang.measureSelection);
                 }
            }
        },"-",{
-           text:"Formula",
+           text:lang.formulaLabel,
            iconCls:"formula_icon",
            handler:function(){
                if (measure.id>0){
@@ -213,7 +212,7 @@ measure.menuMeasures=new Ext.menu.Menu({
                     });
                     measure.win_formula.show();
                }else
-                    Ext.Msg.alert("Error","You must select a measure");
+                    Ext.Msg.alert("Error",lang.measureSelection);
 
            }
        }]
@@ -221,25 +220,25 @@ measure.menuMeasures=new Ext.menu.Menu({
 
 measure.menuMovings=new Ext.menu.Menu({
        items:[{
-           text: "Cut",
+           text: lang.cutLabel,
            iconCls: "cut",
            handler:function(){
                cut=true;
            }
        },{
-           text:"Copy",
+           text:lang.copyLabel,
            iconCls: "copy",
            handler:function(){
                copy=true;
            }
        },{
-           text:"Link",
+           text:lang.linkLabel,
            iconCls: "link",
            handler:function(){
                link=true;
            }
        },{
-           text: "Paste",
+           text: lang.pasteLabel,
            iconCls: "paste",
            handler:function(){
                Ext.Ajax.request({
@@ -260,28 +259,28 @@ measure.menuMovings=new Ext.menu.Menu({
 
 measure.toolBar=new Ext.Toolbar({
     items:[{
-       text:"Measures",
+       text:lang.measuresLabel,
        iconCls:"measure",
        menu:measure.menuMeasures
     },{
-        text:"Movings",
+        text:lang.movingLabel,
         iconCls:"go",
         menu:measure.menuMovings
     },{
-       text:"Units",
+       text:lang.unitLabel,
        iconCls:"unit",
        handler:function(){
             unit.win.show();
        }
     },{
-       text:"Responsibles",
+       text:lang.respsLabel,
        iconCls:"responsible",
        handler:function(){
             responsible.win.show();
        }
     },"-",
     {
-       text:"Chart",
+       text:lang.chartLabel,
        iconCls:"chart",
        handler:function(){
             fchart.type="FCF_Column3D.swf";
@@ -292,7 +291,7 @@ measure.toolBar=new Ext.Toolbar({
 
 measure.treePanel = new Ext.tree.TreePanel({
     id: "tree-panel_m",
-    title: "Measures",
+    title: lang.measuresLabel,
     region: "west",
     split: true,
     collapsible: true,
@@ -336,7 +335,7 @@ measure.treePanel = new Ext.tree.TreePanel({
 
 measure.allTreePanel = new Ext.tree.TreePanel({
     id: "tree-panel_m",
-    title: "Measures",
+    title: lang.measuresLabel,
     ddGroup: 'dataDDGroup',
     region: "center",
     split: true,
@@ -420,13 +419,13 @@ measure.win_formula=new Ext.Window({
         height:50,
         items:measure.topView
     },{
-        title: 'Formula',
+        title: lang.formulaLabel,
         region: 'west',
         width:400,
         items: measure.formulaText
     },measure.allTreePanel],
     buttons: [{
-        text:'Check Formula',
+        text:lang.changeFormula,
         iconCls:'check',
         handler:function(){
             Ext.Ajax.request({
@@ -435,16 +434,16 @@ measure.win_formula=new Ext.Window({
                 params:{formula:measure.formulaText.getValue()},
                 success:function(response){
                     if (response.responseText=="true")
-                        Ext.Msg.show({title:"formula checker",
-                                       msg: "syntax error",buttons: Ext.Msg.OK});
+                        Ext.Msg.show({title:lang.formulaChecker,
+                                       msg: lang.syntaxError ,buttons: Ext.Msg.OK});
                     else
-                        Ext.Msg.show({title:"formula checker",
-                                       msg: "syntax correct",buttons: Ext.Msg.OK});
+                        Ext.Msg.show({title:lang.formulaChecker,
+                                       msg: lang.syntaxCorrect,buttons: Ext.Msg.OK});
                 }
             });
         }
     },{
-        text:'Save Formula',
+        text:lang.saveFormula,
         iconCls:'save',
         handler:function(){
             Ext.Ajax.request({
@@ -453,8 +452,8 @@ measure.win_formula=new Ext.Window({
                 params:{formula:measure.formulaText.getValue()},
                 success:function(response){
                     if (response.responseText=="true")
-                        Ext.Msg.show({title:"formula checker",
-                                       msg: "syntax error",buttons: Ext.Msg.OK});
+                        Ext.Msg.show({title:lang.formulaChecker,
+                                       msg: lang.syntaxError,buttons: Ext.Msg.OK});
                     else
                         Ext.Ajax.request({
                             url:"/measures/"+measure.id,
@@ -487,7 +486,7 @@ measure.win_formula=new Ext.Window({
             });
         }
     },{
-        text:'Close',
+        text:lang.closeLabel,
         iconCls:'close',
         handler:function(){
             measure.win_formula.hide();

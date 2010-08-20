@@ -6,12 +6,12 @@ perspective.method="";
 perspective.form= new Ext.FormPanel({
     labelWidth:75,
     frame:true,
-    title:"Perspective",
+    title:lang.perspLabel,
     bodyStyle:'padding:5px 5px 0',
     width: 350,
     defaults: {width: 230},
     items:[new Ext.form.TextField({
-        fieldLabel:"Name",
+        fieldLabel:lang.nameLabel,
         id:"perspective_name",
         name:"perspective[name]",
         allowBlank: false
@@ -29,7 +29,7 @@ perspective.win=new Ext.Window({
     plain: true,
     items:[perspective.form],
     buttons:[{
-        text:"Save",
+        text:lang.saveLabel,
         iconCls:'save',
         handler:function(){
             perspective.form.getForm().submit({
@@ -42,13 +42,12 @@ perspective.win=new Ext.Window({
                    perspective.win.hide();
                },
                failure: function() {
-                   Ext.Msg.alert("Error",
-                    "Make sure about all data is correct.");
+                   Ext.Msg.alert("Error",lang.dataCorrect);
                }
             });
         }
     },{
-        text:"Close",
+        text:lang.closeLabel,
         iconCls:'close',
         handler:function(){
             perspective.win.hide();

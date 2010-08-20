@@ -7,12 +7,12 @@ objective.method=""
 objective.form=new Ext.FormPanel({
     labelWidth:75,
     frame:true,
-    title:"Objective",
+    title:lang.objLabel,
     bodyStyle:'padding:5px 5px 0',
     width: 350,
     defaults: {width: 230},
     items:[new Ext.form.TextField({
-        fieldLabel:"Name",
+        fieldLabel:lang.nameLabel,
         id:"objective_name",
         name:"objective[name]",
         allowBlank: false
@@ -33,7 +33,7 @@ objective.win=new Ext.Window({
     plain: true,
     items:[objective.form],
     buttons: [{
-        text:'Save',
+        text:lang.saveLabel,
         iconCls:'save',
         handler: function(){
             objective.form.getForm().submit({
@@ -45,13 +45,12 @@ objective.win=new Ext.Window({
                     objective.win.hide();
                 },
                 failure: function() {
-                    Ext.Msg.alert("Error",
-                    "Make sure about all data is correct.");
+                    Ext.Msg.alert("Error",lang.dataCorrect);
                 }
             });
         }
     },{
-        text:'Close',
+        text:lang.closeLabel,
         iconCls:'close',
         handler:function(){
             objective.win.hide();

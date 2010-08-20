@@ -28,7 +28,7 @@ unit.grid=new Ext.grid.EditorGridPanel({
     width:400,
     height:200,
     columns:[{header: "ID", width: 40, sortable: true, dataIndex: 'id', hidden:true},
-             {header: "Name",
+             {header: lang.nameLabel,
               width: 300,
               dataIndex: 'name',
               sortable: true,
@@ -63,7 +63,7 @@ unit.win=new Ext.Window({
     plain: true,
     items:[unit.grid],
     buttons: [{
-        text:'New Unit',
+        text:lang.newLabel,
         iconCls:'new',
         handler: function(){
             var u = new unit.grid.store.recordType({name:''});
@@ -75,12 +75,12 @@ unit.win=new Ext.Window({
             unit.grid.startEditing(0,1);
         }
     },{
-        text:"Delete Unit",
+        text:lang.delLabel,
         iconCls:"del",
         handler: function(){
             Ext.Msg.show({
-               title:'Delete',
-               msg: 'Are you sure you want to delete it?',
+               title:lang.deleteLabel,
+               msg: lang.questionDelete,
                buttons: Ext.Msg.YESNO,
                fn: function(btn){
                    if (btn=='yes'){
@@ -102,7 +102,7 @@ unit.win=new Ext.Window({
             });
         }
     },{
-        text:'Close',
+        text:lang.closeLabel,
         iconCls:'close',
         handler:function(){
             unit.win.hide();

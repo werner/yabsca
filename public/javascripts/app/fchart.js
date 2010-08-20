@@ -38,13 +38,13 @@ fchart.win=new Ext.Window({
     plain: true,
     autoLoad:"/chart",
     buttons:[{
-        text:"Generate Chart",
+        text:lang.generateChart,
         iconCls:"save",
         handler: function(){
             generate_chart();
         }
     },{
-        text:'Close',
+        text:lang.closeLabel,
         iconCls:'close',
         handler:function(){
             fchart.win.hide();

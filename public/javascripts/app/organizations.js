@@ -7,26 +7,26 @@ organization.method="";
 organization.form= new Ext.FormPanel({
     labelWidth: 75,
     frame:true,
-    title: 'Organization',
+    title: lang.orgsLabel,
     bodyStyle:'padding:5px 5px 0',
     width: 350,
     defaults: {width: 230},
     defaultType: 'textarea',
     items: [new Ext.form.TextField({
-            fieldLabel: 'Name',
+            fieldLabel: lang.nameLabel,
             id:'organization_name',
             name: 'organization[name]',
             allowBlank:false
         }),{
-            fieldLabel: 'Vision',
+            fieldLabel: lang.visionLabel,
             id:'organization_vision',
             name: 'organization[vision]'
         },{
-            fieldLabel: 'Goal',
+            fieldLabel: lang.goalLabel,
             id:'organization_goal',
             name: 'organization[goal]'
         }, {
-            fieldLabel: 'Description',
+            fieldLabel: lang.descriptionLabel,
             id:'organization_description',
             name: 'organization[description]'
         }, new Ext.form.Hidden({
@@ -44,7 +44,7 @@ organization.win= new Ext.Window({
     plain: true,
     items:[organization.form],
     buttons:[{
-        text:'Save',
+        text:lang.saveLabel,
         iconCls:'save',
         handler: function(){
             organization.form.getForm().submit({
@@ -56,13 +56,12 @@ organization.win= new Ext.Window({
                     organization.win.hide();
                 },
                 failure: function() {
-                    Ext.Msg.alert("Error",
-                    "Make sure about all data is correct.");
+                    Ext.Msg.alert("Error",lang.dataCorrect);
                 }
             });
         }
     },{
-        text:'Close',
+        text:lang.closeLabel,
         iconCls:'close',
         handler:function(){
             organization.win.hide();
