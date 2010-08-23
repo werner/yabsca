@@ -116,7 +116,7 @@ var menuStrats=new Ext.menu.Menu({
             handler:function(){
                 if (strategy.id>0 &&
                         actualNode.attributes.type=="strategy"){
-                    window.location = "/strategies?id="+strategy.id;
+                    window.location = "/"+locale+"/strategies?id="+strategy.id;
                 }else{
                     Ext.Msg.alert("Error",lang.stratSelection);
                 }

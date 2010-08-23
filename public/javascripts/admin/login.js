@@ -17,7 +17,7 @@ var login = new Ext.FormPanel({
             listeners: {
                 specialkey: function(field, e){
                     if (e.getKey() == e.ENTER) {
-                        send_login('/presentation');
+                        send_login('/'+locale+'/presentation');
                     }
                 }
             }
@@ -27,14 +27,14 @@ var login = new Ext.FormPanel({
             iconCls:'login',
             formBind: true,
             handler:function(){
-                send_login('/presentation');
+                send_login('/'+locale+'/presentation');
             }
         },{
             text:lang.adminLabel,
             iconCls:'admin',
             formBind: true,
             handler: function(){
-                send_login('/admin');
+                send_login('/'+locale+'/admin');
             }
         }]
 });

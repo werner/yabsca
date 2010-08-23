@@ -24,7 +24,13 @@ ActionController::Routing::Routes.draw do |map|
   map.export '/export', :controller => 'strategies', :action=>'export'
 
   map.destroy '/destroy', :controller => 'user_sessions', :action => 'destroy'
+
+  map.presentation "/presentation", :controller => "presentation", :action => "index"
+
+  map.admin "/admin", :controller => "admin", :action => "index"
   
+  map.login "/login", :controller => "user_sessions", :action  => "new", :path_prefix => '/:locale'
+
   map.root :controller => "user_sessions", :action  => "new"
 
   map.connect ':controller/:action/:id', :path_prefix => '/:locale' 

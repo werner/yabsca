@@ -1,3 +1,8 @@
+cucumber=Alias for cucumber:ok
+cucumber\:all=Run all features
+cucumber\:ok=Run features that should pass
+cucumber\:rerun=Record failing features and run only them if any exist
+cucumber\:wip=Run features that are being worked on
 db\:abort_if_pending_migrations=Raises an error if there are pending migrations
 db\:charset=Retrieves the charset for the current environment's database
 db\:collation=Retrieves the collation for the current environment's database
@@ -46,6 +51,7 @@ doc\:rails=Build the RDOC HTML Files
 doc\:reapp=Force a rebuild of the RDOC files
 doc\:rerails=Force a rebuild of the RDOC files
 environment=
+features=
 gems=List the gems that this rails application depends on
 gems\:base=
 gems\:build=Build any native extensions for unpacked gems

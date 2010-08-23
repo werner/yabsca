@@ -4,7 +4,14 @@
     = javascript_include_tag "json2"
     = javascript_include_tag "ext/adapter/ext/ext-base"
     = javascript_include_tag "ext/ext-all"
-    = javascript_include_tag "lang/english"
+    - if params[:locale].nil? then
+      = javascript_tag "var locale = 'en';"
+    - else
+      = javascript_tag "var locale='#{params[:locale]}';"
+    - if params[:locale]=="es" then
+      = javascript_include_tag "lang/spanish"
+    - else
+      = javascript_include_tag "lang/english"
     = stylesheet_link_tag "default","scaffold"
     = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
     %title

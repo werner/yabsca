@@ -10,10 +10,10 @@
         %tr
           %td.home
           %td
-            = link_to t(:home), "/presentation"
+            = link_to t(:home), presentation_path
       %table.tablebutton
         %tr
           %td.exit
           %td
-            = link_to t(:log_out), "/destroy"
+            = link_to t(:log_out), destroy_path
     = javascript_include_tag "admin/users","admin/roles","admin/main"
