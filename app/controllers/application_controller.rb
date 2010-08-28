@@ -225,17 +225,17 @@ class ApplicationController < ActionController::Base
 
   #method to light the measures
   #green: good, yellow: alert, red: bad
-  def get_light(measure,default,pvalue)
+  def get_light(goal,measure,default,pvalue)
     value_max={
-      "green"=>(pvalue>=measure.excellent),
-      "yellow"=>(pvalue>=measure.alert && pvalue<measure.excellent),
-      "red"=>(pvalue<measure.alert),
+      "green"=>(pvalue>=get_perc_value(goal,measure.excellent)),
+      "yellow"=>(pvalue>=get_perc_value(goal,measure.alert) && pvalue<get_perc_value(goal,measure.excellent)),
+      "red"=>(pvalue<get_perc_value(goal,measure.alert)),
       default=>(pvalue==0)
     }
     value_min={
-      "green"=>(pvalue<=measure.excellent),
-      "yellow"=>(pvalue<=measure.alert && pvalue>measure.excellent),
-      "red"=>(pvalue>measure.alert),
+      "green"=>(pvalue<=get_perc_value(goal, measure.excellent)),
+      "yellow"=>(pvalue<=get_perc_value(goal,measure.alert) && pvalue>get_perc_value(goal,measure.excellent)),
+      "red"=>(pvalue>get_perc_value(goal,measure.alert)),
       default=>(pvalue==0)
     }
     if (measure.challenge==Challenge::Increasing)
@@ -246,6 +246,11 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def get_perc_value(goal,comp)
+    perc=((comp*goal)/100 rescue 0)
+    perc+goal
+  end
 
   def only_admin
     current_user.roles.find(1)

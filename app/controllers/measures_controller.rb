@@ -16,10 +16,11 @@ class MeasuresController < ApplicationController
     return_data=[]
     return_data=@measures.collect do |u|
       avg=Target.average(:achieved,:conditions=>['measure_id=?',u.id])
+      goal=Target.average(:goal,:conditions=>['measure_id=?',u.id])
       {:id => u.id,
-        :text => u.name+(avg.nil? ? "" : " ("+avg.to_s+") "),
-        :iconCls => (avg.nil? ? "measure" : get_light(u,"measure",avg)),
-        :leaf => true}
+       :text => u.name+(avg.nil? ? "" : " ("+sprintf("%.2f", goal)+"|"+sprintf("%.2f", avg)+") "),
+       :iconCls => (avg.nil? ? "measure" : get_light(goal,u,"measure",avg)),
+       :leaf => true}
     end
 
     respond_to do |format|

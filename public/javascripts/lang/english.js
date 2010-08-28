@@ -26,7 +26,7 @@ lang={
     deleteLabel:'Delete',
     readLabel:'Read',
     privilegesLabel:'Privileges',
-    nameLabel:'name',
+    nameLabel:'Name',
     saveLabel:'save',
     dataCorrect:'Make sure about all data is correct.',
     emailLabel:'Email',
@@ -97,5 +97,14 @@ lang={
     achievedLabel:'Achieved',
     targetGoal:'Goal',
     perspobjLabel:'Perspectives and Objectives',
-    targetsLabel:'Targets'
+    targetsLabel:'Targets',
+    daily:'daily',
+    weekly:'weekly',
+    monthly:'monthly',
+    bimonthly:'bimonthly',
+    three_monthly:'three-monthly',
+    four_monthly:'four-monthly',
+    yearly:'yearly',
+    increasing:'increasing',
+    decreasing:'decreasing'
 }

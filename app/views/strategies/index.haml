@@ -1,11 +1,16 @@
-#header
+%div#header
   #maintitle
-    A Balanced ScoreCard Application -- Strategy Map
-  #home
-    = link_to "Home", presentation_path
-
-  #exit
-    = link_to "Log Out", destroy_path
+    = t(:title)+"--"+t(:strategy_map)
+  %table.tablebutton
+    %tr
+      %td.home
+      %td
+        = link_to t(:home), presentation_path
+  %table.tablebutton
+    %tr
+      %td.exit
+      %td
+        = link_to t(:log_out), destroy_path
 
 = javascript_tag "var strategy_id=#{session[:strategy_id]}"
 = javascript_include_tag "jquery-1.4.2.min"

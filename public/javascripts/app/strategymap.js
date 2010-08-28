@@ -186,7 +186,7 @@ Ext.onReady(function() {
                 Ext.Ajax.request({
                     url:"/strategies/"+strategy_id,
                     method:"PUT",
-                    params:{"strategy[strategy_map_svg]":data},
+                    params:{"strategy[strategy_map_svg]":data,strategy_id:strategy_id},
                     success:function(response){
                         window.location="/export?id="+strategy_id;
                     }

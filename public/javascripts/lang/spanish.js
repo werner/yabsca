@@ -22,7 +22,7 @@ lang={
     deleteLabel:'Eliminar',
     readLabel:'Leer',
     privilegesLabel:'Privilegios',
-    nameLabel:'nombre',
+    nameLabel:'Nombre',
     saveLabel:'guardar',
     closeLabel:'cerrar',
     dataCorrect:'Asegurese de ingresar todos los datos correctamente',
@@ -97,5 +97,14 @@ lang={
     achievedLabel:'Ejecutado',
     targetGoal:'Planteado',
     perspobjLabel:'Perspectivas y Objetivos',
-    targetsLabel:'Metas'
+    targetsLabel:'Metas',
+    daily:'diario',
+    weekly:'semanal',
+    monthly:'mensual',
+    bimonthly:'bimestral',
+    three_monthly:'trimestral',
+    four_monthly:'cuatrimestral',
+    yearly:'anual',
+    increasing:'aumento',
+    decreasing:'disminución'
 }

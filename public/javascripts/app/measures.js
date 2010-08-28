@@ -12,13 +12,13 @@ measure.method="";
 
 measure.frecuency_store=new Ext.data.ArrayStore({
    fields: ["id","name"],
-   data: [[1,"daily"],[2,"weekly"],[3,"monthly"],[4,"bimonthly"],
-          [5,"three-monthly"],[6,"four-monthly"],[7,"yearly"]]
+   data: [[1,lang.daily],[2,lang.weekly],[3,lang.monthly],[4,lang.bimonthly],
+          [5,lang.three_monthly],[6,lang.four_monthly],[7,lang.yearly]]
 });
 
 measure.challenge_store=new Ext.data.ArrayStore({
    fields: ["id","name"],
-   data: [[1,"increasing"],[2,"decreasing"]]
+   data: [[1,lang.increasing],[2,lang.decreasing]]
 });
 
 measure.form=new Ext.FormPanel({
