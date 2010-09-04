@@ -193,26 +193,6 @@ class ApplicationController < ActionController::Base
     end
     xml+="</graph>"
   end
-  
-  def fusionchart_xml_gantt(hash)
-    xml="<graph dateFormat='mm/dd/yyyy'>"
-    xml+="<categories>"
-    hash[:categories].map do |item|
-      xml+="<category start='#{item[:start]}' end='#{item[:end]}' name='#{item[:name]}' />"
-    end
-    xml+="</categories>"
-    xml+="<processes isBold='1' headerText='Tasks'>"
-    hash[:processes].map do |item|
-      xml+="<process name='#{item[:name]}' id='#{item[:id]}' />"
-    end
-    xml+="</processes>"
-    xml+="<tasks>"
-    hash[:tasks].map do |item|
-      xml+="<task name='#{item[:name]}' start='#{item[:start]}' end='#{item[:end]}' processId='#{item[:processId]}' />"
-    end
-    xml+="</tasks>"
-    xml+="</graph>"
-  end
 
   def get_fchart_color
     @color_counter=@color_counter ? @color_counter + 1 : 0

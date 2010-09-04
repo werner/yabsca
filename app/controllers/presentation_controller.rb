@@ -100,35 +100,23 @@ class PresentationController < ApplicationController
 
   def generate_gantt
 
-    initiatives=Initiative.find_all_by_objective_id(params[:objective_id])
+    initiatives=Initiative.find_all_by_objective_id(params[:objective_id],
+        :conditions=>["initiative_id=0"])
 
-    period=initiatives.first.beginning..initiatives.last.end
-
-    categories=[]
-    period.each { |i| categories.push(i.beginning_of_month) }
-
-    categories.uniq!
-
-    return_data={}
-    return_data[:categories]=categories.map do |item|
-      {
-        :start=>item.beginning_of_month,
-        :end => item.end_of_month,
-        :name => Date::MONTHNAMES[item.month]
-      }
-    end
-    
-    return_data[:processes]=initiatives.map do |item|
-      {:name => item.name, :id => item.id}
-    end
-
-    return_data[:tasks]=initiatives.map do |item|
-      {:start => item.beginning, :end => item.end,
-       :processId=>item.id, :name => item.name}
+    return_data=[]
+    initiatives.each do |initiative|
+      return_data.push({:id=>initiative.id,
+          :name=>initiative.name,:startdate=>initiative.beginning+1,
+          :tasks=>initiative.initiatives.collect{|init|
+            {:id=>init.id,:name=>init.name,
+             :date=>init.beginning+1,:duration=>(init.end-init.beginning).to_i*8+8,
+             :completed=>init.completed
+             }
+          }})
     end
 
     respond_to do |format|
-      format.xml {render :xml => fusionchart_xml_gantt(return_data)}
+      format.json {render :json => return_data}
     end
   end
   

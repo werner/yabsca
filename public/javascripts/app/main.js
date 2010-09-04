@@ -117,8 +117,8 @@ Ext.onReady(function(){
            text:lang.ganttLabel,
            iconCls:"gantt",
            handler:function(){
-                fchart.type="FCF_Gantt.swf";
-                fchart.win.show();
+                window.open("/gantt?objective_id="+objective.id, "Gantt",
+                            "width=800,height=600,scrollbars=NO");
            }
         }]
     });
@@ -175,10 +175,13 @@ Ext.onReady(function(){
                     objective.id=0;
                 }else{
                     perspective.id=0;
+                    objective_id=objective.id;
                     objective.id=n.attributes.iddb;
                 }
                 measure.treePanel.getRootNode().reload();
                 initiative.treePanel.getRootNode().reload();
+                target.store.setBaseParam("measure_id",0);
+                target.store.load();
             },
             load:function(n){
                 perspective.id=0;
@@ -204,6 +207,7 @@ Ext.onReady(function(){
         layout:"border",
         region: "north",
         height:300,
+        split: true,
         items:[treePanelPersp,initiative.treePanel]
     });
 

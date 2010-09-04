@@ -320,8 +320,6 @@ measure.treePanel = new Ext.tree.TreePanel({
         load:function(n){
             measure.id=0;
             target.id=0;
-            target.store.setBaseParam("measure_id",0);
-            target.store.load();
         },
         contextmenu: function(node, e) {
             node.select();

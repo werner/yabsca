@@ -1,0 +1,5 @@
+= stylesheet_link_tag "../javascripts/dhtmlxGantt/codebase/dhtmlxgantt"
+= javascript_tag "var objective_id = #{params[:objective_id]};"
+= javascript_include_tag "dhtmlxGantt/codebase/dhtmlxcommon","dhtmlxGantt/codebase/dhtmlxgantt"
+%div{:style=>"width:800px;height:600px;position:absolute",:id=>"gantt"}
+= javascript_include_tag "app/gantt"
