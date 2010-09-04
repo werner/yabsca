@@ -117,8 +117,8 @@ Ext.onReady(function(){
            text:lang.ganttLabel,
            iconCls:"gantt",
            handler:function(){
-                window.open("/gantt?objective_id="+objective.id, "Gantt",
-                            "width=800,height=600,scrollbars=NO");
+                window.showModalDialog("/gantt?objective_id="+objective.id, "Gantt",
+                            'dialogWidth:850px;dialogHeight:600px;resizable:no;toolbar:no;menubar:no;scrollbars:no;help: no');
            }
         }]
     });

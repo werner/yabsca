@@ -1,0 +1,1257 @@
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-04 16:15:23) [GET]
+  Parameters: {"controller"=>"user_sessions", "action"=>"new"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 594ms (View: 266, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-09-04 16:15:30) [POST]
+  Parameters: {"user_session"=>{"login"=>"admin", "password"=>"[FILTERED]"}, "controller"=>"user_sessions", "action"=>"create"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'admin') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "login_count" = 36, "last_login_at" = '2010-09-03 19:17:28', "current_login_at" = '2010-09-04 20:45:30', "last_request_at" = '2010-09-04 20:45:30', "perishable_token" = 'Tc_EyhSryzEysYp5nMtN', "updated_at" = '2010-09-04 20:45:30' WHERE "id" = 1[0m
+Completed in 281ms (View: 0, DB: 0) | 200 OK [http://localhost/user_sessions/create]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-09-04 16:15:31) [GET]
+  Parameters: {"locale"=>"en", "controller"=>"presentation", "action"=>"index"}
+  [4;36;1mUser Load (15.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:45:31', "perishable_token" = 'iCOOmYPICYGvZ-hJi7Yn', "updated_at" = '2010-09-04 20:45:31' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/index
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1 AND ("roles_users".user_id = 1 )) [0m
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"admin", :action=>"index", :use_route=>:admin}
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"user_sessions", :action=>"destroy", :use_route=>:destroy}
+Completed in 484ms (View: 94, DB: 16) | 200 OK [http://localhost/en/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-09-04 16:15:32) [GET]
+  Parameters: {"_dc"=>"1283633131909", "controller"=>"units", "action"=>"index"}
+  [4;35;1mUnit Load (0.0ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/units?_dc=1283633131909]
+
+
+Processing ResponsiblesController#index (for 127.0.0.1 at 2010-09-04 16:15:33) [GET]
+  Parameters: {"_dc"=>"1283633131917", "controller"=>"responsibles", "action"=>"index"}
+  [4;36;1mResponsible Load (0.0ms)[0m   [0;1mSELECT * FROM "responsibles" [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/responsibles?_dc=1283633131917]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:15:33) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283633132325", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:45:33', "perishable_token" = 'jL7i6CXxJA8MxkSMzGu7', "updated_at" = '2010-09-04 20:45:33' WHERE "id" = 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 500ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1283633132325&node=xnode-10]
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-09-04 16:15:34) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283633132278", "node"=>"xnode-6", "controller"=>"initiatives", "action"=>"index"}
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/initiatives?objective_id=0&_dc=1283633132278&node=xnode-6]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:15:34) [GET]
+  Parameters: {"_dc"=>"1283633133633", "node"=>"src:root", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:45:34', "perishable_token" = 'XcixNusg8FidsfeoJIO_', "updated_at" = '2010-09-04 20:45:34' WHERE "id" = 1[0m
+  [4;36;1mOrganization Load (0.0ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+Completed in 266ms (View: 0, DB: 0) | 200 OK [http://localhost/org_and_strat?_dc=1283633133633&node=src%3Aroot]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:15:35) [GET]
+  Parameters: {"_dc"=>"1283633135577", "node"=>"src:orgs1", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:45:35', "perishable_token" = 'ImBe0dO1-HDMcgQngeiX', "updated_at" = '2010-09-04 20:45:35' WHERE "id" = 1[0m
+  [4;35;1mOrganization Load (0.0ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 2) [0m
+Completed in 203ms (View: 16, DB: 0) | 200 OK [http://localhost/org_and_strat?_dc=1283633135577&node=src%3Aorgs1]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:15:36) [GET]
+  Parameters: {"_dc"=>"1283633136680", "node"=>"src:orgs2", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:45:37', "perishable_token" = 'Hqw1X4KlCXU7u456dBmx', "updated_at" = '2010-09-04 20:45:37' WHERE "id" = 1[0m
+  [4;35;1mOrganization Load (0.0ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 2) [0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."organization_id" = 2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "perspectives" WHERE ("perspectives".strategy_id = 1) [0m
+Completed in 375ms (View: 16, DB: 0) | 200 OK [http://localhost/org_and_strat?_dc=1283633136680&node=src%3Aorgs2]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:15:38) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283633137987", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (15.6ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:45:38', "perishable_token" = 'cVRJTYYBw0a3bsLz7Rfh', "updated_at" = '2010-09-04 20:45:38' WHERE "id" = 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 188ms (View: 0, DB: 16) | 200 OK [http://localhost/measures?objective_id=0&_dc=1283633137987&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-09-04 16:15:38) [GET]
+  Parameters: {"strategy_id"=>"1", "_dc"=>"1283633137986", "node"=>"src:root", "controller"=>"presentation", "action"=>"persp_and_objs"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:45:38', "perishable_token" = 'u0PqqnMV2kSteqHASPmD', "updated_at" = '2010-09-04 20:45:38' WHERE "id" = 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mPerspective Load (0.0ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 2) [0m
+Completed in 219ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1283633137986&node=src%3Aroot]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-09-04 16:15:40) [GET]
+  Parameters: {"strategy_id"=>"1", "_dc"=>"1283633139936", "node"=>"src:persp1", "controller"=>"presentation", "action"=>"persp_and_objs"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:45:40', "perishable_token" = 'C4a_BXRxrvVvYpEharq8', "updated_at" = '2010-09-04 20:45:40' WHERE "id" = 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."perspective_id" = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+  [4;36;1mMeasure Load (0.0ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 250ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1283633139936&node=src%3Apersp1]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:15:41) [GET]
+  Parameters: {"objective_id"=>"1", "_dc"=>"1283633141041", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:45:41', "perishable_token" = 'jlOQ7g14lOK0KS1AYd0I', "updated_at" = '2010-09-04 20:45:41' WHERE "id" = 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Load (0.0ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=2) [0m
+  [4;35;1mSQL (15.6ms)[0m   [0mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=3) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=3) [0m
+Completed in 281ms (View: 16, DB: 16) | 200 OK [http://localhost/measures?objective_id=1&_dc=1283633141041&node=xnode-10]
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-09-04 16:15:42) [GET]
+  Parameters: {"_dc"=>"1283633141042", "measure_id"=>"0", "controller"=>"targets", "action"=>"index"}
+  [4;36;1mTarget Load (0.0ms)[0m   [0;1mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '0') [0m
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1283633141042&measure_id=0]
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-09-04 16:15:42) [GET]
+  Parameters: {"objective_id"=>"1", "_dc"=>"1283633141041", "node"=>"xnode-6", "controller"=>"initiatives", "action"=>"index"}
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mInitiative Load (15.6ms)[0m   [0;1mSELECT * FROM "initiatives" WHERE (initiative_id=0) AND ("initiatives".objective_id = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+  [4;36;1mInitiative Load (0.0ms)[0m   [0;1mSELECT * FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 3) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 4) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 5) [0m
+Completed in 63ms (View: 0, DB: 16) | 200 OK [http://localhost/initiatives?objective_id=1&_dc=1283633141041&node=xnode-6]
+
+
+Processing PresentationController#gantt (for 127.0.0.1 at 2010-09-04 16:15:43) [GET]
+  Parameters: {"objective_id"=>"1", "controller"=>"presentation", "action"=>"gantt"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:45:43', "perishable_token" = 'Zq7cABCR7rfjMQLh8fwN', "updated_at" = '2010-09-04 20:45:43' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/gantt
+Completed in 266ms (View: 16, DB: 0) | 200 OK [http://localhost/gantt?objective_id=1]
+
+
+Processing PresentationController#generate_gantt (for 127.0.0.1 at 2010-09-04 16:15:44) [GET]
+  Parameters: {"_dc"=>"1283633144629", "objective_id"=>"1", "controller"=>"presentation", "action"=>"generate_gantt"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (15.6ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:45:45', "perishable_token" = 'cnA64jtYBcxEcQLCs3U9', "updated_at" = '2010-09-04 20:45:45' WHERE "id" = 1[0m
+  [4;35;1mInitiative Load (0.0ms)[0m   [0mSELECT * FROM "initiatives" WHERE (initiative_id=0) AND ("initiatives"."objective_id" = '1') [0m
+  [4;36;1mInitiative Load (0.0ms)[0m   [0;1mSELECT * FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+Completed in 359ms (View: 0, DB: 16) | 200 OK [http://localhost/generate_gantt?_dc=1283633144629&objective_id=1]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-09-04 16:16:03) [GET]
+  Parameters: {"locale"=>"en", "controller"=>"presentation", "action"=>"index"}
+default_url_options is passed options: {}
+default_url_options is passed options: {}
+default_url_options is passed options: {}
+default_url_options is passed options: {:controller=>"user_sessions", :action=>"new", :use_route=>:new_user_session, :only_path=>false}
+Redirected to http://localhost:3000/user_sessions/new?locale=en
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 47ms (DB: 0) | 302 Found [http://localhost/en/presentation]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-04 16:16:04) [GET]
+  Parameters: {"locale"=>"en", "controller"=>"user_sessions", "action"=>"new"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 141ms (View: 16, DB: 0) | 200 OK [http://localhost/user_sessions/new?locale=en]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-09-04 16:17:19) [POST]
+  Parameters: {"user_session"=>{"login"=>"admin", "password"=>"[FILTERED]"}, "controller"=>"user_sessions", "action"=>"create"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".login) = 'admin') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "failed_login_count" = 1, "perishable_token" = 'EZ4FuoKxpVYJL0VKF35M', "updated_at" = '2010-09-04 20:47:19' WHERE "id" = 1[0m
+Completed in 94ms (View: 16, DB: 0) | 200 OK [http://localhost/user_sessions/create]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-09-04 16:17:26) [POST]
+  Parameters: {"user_session"=>{"login"=>"admin", "password"=>"[FILTERED]"}, "controller"=>"user_sessions", "action"=>"create"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".login) = 'admin') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "login_count" = 37, "failed_login_count" = 0, "last_login_at" = '2010-09-04 20:45:30', "current_login_at" = '2010-09-04 20:47:26', "last_request_at" = '2010-09-04 20:47:26', "perishable_token" = '90dWZeztubBcjPL39zWh', "updated_at" = '2010-09-04 20:47:26' WHERE "id" = 1[0m
+Completed in 125ms (View: 0, DB: 0) | 200 OK [http://localhost/user_sessions/create]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-09-04 16:17:26) [GET]
+  Parameters: {"locale"=>"en", "controller"=>"presentation", "action"=>"index"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:47:27', "perishable_token" = 'D9hQTCZlDRLmziW2TeGt', "updated_at" = '2010-09-04 20:47:27' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/index
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1 AND ("roles_users".user_id = 1 )) [0m
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"admin", :action=>"index", :use_route=>:admin}
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"user_sessions", :action=>"destroy", :use_route=>:destroy}
+Completed in 234ms (View: 47, DB: 0) | 200 OK [http://localhost/en/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-09-04 16:17:31) [GET]
+  Parameters: {"_dc"=>"1283633250623", "controller"=>"units", "action"=>"index"}
+  [4;36;1mUnit Load (0.0ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/units?_dc=1283633250623]
+
+
+Processing ResponsiblesController#index (for 127.0.0.1 at 2010-09-04 16:17:31) [GET]
+  Parameters: {"_dc"=>"1283633250772", "controller"=>"responsibles", "action"=>"index"}
+  [4;35;1mResponsible Load (15.6ms)[0m   [0mSELECT * FROM "responsibles" [0m
+Completed in 31ms (View: 0, DB: 16) | 200 OK [http://localhost/responsibles?_dc=1283633250772]
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-09-04 16:17:33) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283633252790", "node"=>"xnode-6", "controller"=>"initiatives", "action"=>"index"}
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/initiatives?objective_id=0&_dc=1283633252790&node=xnode-6]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:17:33) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283633253144", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (15.6ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:47:33', "perishable_token" = 'VebCq-Mh30VmgiIhC_9g', "updated_at" = '2010-09-04 20:47:33' WHERE "id" = 1[0m
+  [4;35;1mRole Load (15.6ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 219ms (View: 16, DB: 31) | 200 OK [http://localhost/measures?objective_id=0&_dc=1283633253144&node=xnode-10]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:17:35) [GET]
+  Parameters: {"_dc"=>"1283633255613", "node"=>"src:root", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;35;1mUser Load (15.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (15.6ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:47:35', "perishable_token" = '_aZUUQJN8qaD66YyY9GG', "updated_at" = '2010-09-04 20:47:35' WHERE "id" = 1[0m
+  [4;35;1mOrganization Load (0.0ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+Completed in 203ms (View: 0, DB: 31) | 200 OK [http://localhost/org_and_strat?_dc=1283633255613&node=src%3Aroot]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:17:37) [GET]
+  Parameters: {"_dc"=>"1283633256739", "node"=>"src:orgs1", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:47:37', "perishable_token" = 'hMKNyzIttwiR3CJwvcni', "updated_at" = '2010-09-04 20:47:37' WHERE "id" = 1[0m
+  [4;36;1mOrganization Load (0.0ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 2) [0m
+Completed in 234ms (View: 0, DB: 0) | 200 OK [http://localhost/org_and_strat?_dc=1283633256739&node=src%3Aorgs1]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-09-04 16:17:38) [GET]
+  Parameters: {"strategy_id"=>"0", "_dc"=>"1283633257966", "node"=>"src:root", "controller"=>"presentation", "action"=>"persp_and_objs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:47:38', "perishable_token" = 'XsmcWCopScKfzKRWYxB8', "updated_at" = '2010-09-04 20:47:38' WHERE "id" = 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mPerspective Load (0.0ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 188ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1283633257966&node=src%3Aroot]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:17:38) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283633257976", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (15.6ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:47:38', "perishable_token" = 'nwH9iS_G4uZLCyWOy7Hi', "updated_at" = '2010-09-04 20:47:38' WHERE "id" = 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 172ms (View: 0, DB: 16) | 200 OK [http://localhost/measures?objective_id=0&_dc=1283633257976&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-09-04 16:17:39) [GET]
+  Parameters: {"strategy_id"=>"0", "_dc"=>"1283633258588", "node"=>"src:root", "controller"=>"presentation", "action"=>"persp_and_objs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (15.6ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:47:39', "perishable_token" = 'NtCyA0Py_4wzoJwU3BRW', "updated_at" = '2010-09-04 20:47:39' WHERE "id" = 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mPerspective Load (0.0ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '0') [0m
+Completed in 172ms (View: 0, DB: 16) | 200 OK [http://localhost/persp_and_objs?strategy_id=0&_dc=1283633258588&node=src%3Aroot]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:17:39) [GET]
+  Parameters: {"_dc"=>"1283633259059", "node"=>"src:orgs2", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:47:39', "perishable_token" = '_Nji44Yf1AgGBNAXHy7r', "updated_at" = '2010-09-04 20:47:39' WHERE "id" = 1[0m
+  [4;36;1mOrganization Load (0.0ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 2) [0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."organization_id" = 2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "perspectives" WHERE ("perspectives".strategy_id = 1) [0m
+Completed in 312ms (View: 0, DB: 0) | 200 OK [http://localhost/org_and_strat?_dc=1283633259059&node=src%3Aorgs2]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-09-04 16:17:40) [GET]
+  Parameters: {"strategy_id"=>"1", "_dc"=>"1283633260540", "node"=>"src:root", "controller"=>"presentation", "action"=>"persp_and_objs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (15.6ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:47:40', "perishable_token" = 'yhE-BLatuTsSNF2TRLOq', "updated_at" = '2010-09-04 20:47:40' WHERE "id" = 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mPerspective Load (0.0ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 2) [0m
+Completed in 219ms (View: 16, DB: 16) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1283633260540&node=src%3Aroot]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:17:41) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283633260549", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:47:41', "perishable_token" = 'gXlD0ic-08gvaLlfJxT0', "updated_at" = '2010-09-04 20:47:41' WHERE "id" = 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 328ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1283633260549&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-09-04 16:17:42) [GET]
+  Parameters: {"strategy_id"=>"1", "_dc"=>"1283633261899", "node"=>"src:persp1", "controller"=>"presentation", "action"=>"persp_and_objs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:47:42', "perishable_token" = '-uZ_RdqNXAyhEfACZ6R6', "updated_at" = '2010-09-04 20:47:42' WHERE "id" = 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."perspective_id" = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+  [4;35;1mMeasure Load (0.0ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 391ms (View: 16, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1283633261899&node=src%3Apersp1]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:17:43) [GET]
+  Parameters: {"objective_id"=>"1", "_dc"=>"1283633263230", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:47:43', "perishable_token" = 'BW6hLUVYjzo_YgRFtvZj', "updated_at" = '2010-09-04 20:47:43' WHERE "id" = 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.0ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=2) [0m
+  [4;36;1mSQL (15.6ms)[0m   [0;1mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=3) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=3) [0m
+Completed in 422ms (View: 0, DB: 16) | 200 OK [http://localhost/measures?objective_id=1&_dc=1283633263230&node=xnode-10]
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-09-04 16:17:44) [GET]
+  Parameters: {"objective_id"=>"1", "_dc"=>"1283633263240", "node"=>"xnode-6", "controller"=>"initiatives", "action"=>"index"}
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mInitiative Load (0.0ms)[0m   [0;1mSELECT * FROM "initiatives" WHERE (initiative_id=0) AND ("initiatives".objective_id = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+  [4;36;1mInitiative Load (0.0ms)[0m   [0;1mSELECT * FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 3) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 4) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 5) [0m
+Completed in 78ms (View: 0, DB: 0) | 200 OK [http://localhost/initiatives?objective_id=1&_dc=1283633263240&node=xnode-6]
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-09-04 16:17:44) [GET]
+  Parameters: {"_dc"=>"1283633263266", "measure_id"=>"0", "controller"=>"targets", "action"=>"index"}
+  [4;35;1mTarget Load (0.0ms)[0m   [0mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '0') [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1283633263266&measure_id=0]
+
+
+Processing PresentationController#gantt (for 127.0.0.1 at 2010-09-04 16:17:46) [GET]
+  Parameters: {"objective_id"=>"1", "controller"=>"presentation", "action"=>"gantt"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:47:46', "perishable_token" = 'spGzh5aWvn15TPfNQ2S0', "updated_at" = '2010-09-04 20:47:46' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/gantt
+Completed in 125ms (View: 0, DB: 0) | 200 OK [http://localhost/gantt?objective_id=1]
+
+
+Processing PresentationController#generate_gantt (for 127.0.0.1 at 2010-09-04 16:17:50) [GET]
+  Parameters: {"_dc"=>"1283633269997", "objective_id"=>"1", "controller"=>"presentation", "action"=>"generate_gantt"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:47:50', "perishable_token" = '9IRkA6EFsx30ZcqoDOZJ', "updated_at" = '2010-09-04 20:47:50' WHERE "id" = 1[0m
+  [4;36;1mInitiative Load (0.0ms)[0m   [0;1mSELECT * FROM "initiatives" WHERE (initiative_id=0) AND ("initiatives"."objective_id" = '1') [0m
+  [4;35;1mInitiative Load (0.0ms)[0m   [0mSELECT * FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+Completed in 391ms (View: 0, DB: 0) | 200 OK [http://localhost/generate_gantt?_dc=1283633269997&objective_id=1]
+
+
+Processing PresentationController#gantt (for 127.0.0.1 at 2010-09-04 16:18:03) [GET]
+  Parameters: {"objective_id"=>"1", "controller"=>"presentation", "action"=>"gantt"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (15.6ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:48:03', "perishable_token" = 'qiHbWv4KwBWmtB_VRU4G', "updated_at" = '2010-09-04 20:48:03' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/gantt
+Completed in 109ms (View: 16, DB: 16) | 200 OK [http://localhost/gantt?objective_id=1]
+
+
+Processing PresentationController#generate_gantt (for 127.0.0.1 at 2010-09-04 16:18:04) [GET]
+  Parameters: {"_dc"=>"1283633284161", "objective_id"=>"1", "controller"=>"presentation", "action"=>"generate_gantt"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (15.6ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:48:04', "perishable_token" = 'NY4kYRmvAMZbYOJy35NP', "updated_at" = '2010-09-04 20:48:04' WHERE "id" = 1[0m
+  [4;36;1mInitiative Load (0.0ms)[0m   [0;1mSELECT * FROM "initiatives" WHERE (initiative_id=0) AND ("initiatives"."objective_id" = '1') [0m
+  [4;35;1mInitiative Load (0.0ms)[0m   [0mSELECT * FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+Completed in 156ms (View: 0, DB: 16) | 200 OK [http://localhost/generate_gantt?_dc=1283633284161&objective_id=1]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-09-04 16:22:17) [GET]
+  Parameters: {"locale"=>"en", "controller"=>"presentation", "action"=>"index"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:52:17', "perishable_token" = '55RVmADvhlgd1loNdAA1', "updated_at" = '2010-09-04 20:52:17' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/index
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1 AND ("roles_users".user_id = 1 )) [0m
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"admin", :action=>"index", :use_route=>:admin}
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"user_sessions", :action=>"destroy", :use_route=>:destroy}
+Completed in 234ms (View: 31, DB: 0) | 200 OK [http://localhost/en/presentation]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-09-04 16:23:32) [GET]
+  Parameters: {"locale"=>"en", "controller"=>"presentation", "action"=>"index"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:53:33', "perishable_token" = 'RxyyKhrsM07PusVnEIPF', "updated_at" = '2010-09-04 20:53:33' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/index
+  [4;36;1mRole Load (15.6ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1 AND ("roles_users".user_id = 1 )) [0m
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"admin", :action=>"index", :use_route=>:admin}
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"user_sessions", :action=>"destroy", :use_route=>:destroy}
+Completed in 953ms (View: 156, DB: 16) | 200 OK [http://localhost/en/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-09-04 16:23:37) [GET]
+  Parameters: {"_dc"=>"1283633617245", "controller"=>"units", "action"=>"index"}
+  [4;35;1mUnit Load (15.6ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 31ms (View: 0, DB: 16) | 200 OK [http://localhost/units?_dc=1283633617245]
+
+
+Processing ResponsiblesController#index (for 127.0.0.1 at 2010-09-04 16:23:37) [GET]
+  Parameters: {"_dc"=>"1283633617361", "controller"=>"responsibles", "action"=>"index"}
+  [4;36;1mResponsible Load (0.0ms)[0m   [0;1mSELECT * FROM "responsibles" [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/responsibles?_dc=1283633617361]
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-09-04 16:23:40) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283633619832", "node"=>"xnode-6", "controller"=>"initiatives", "action"=>"index"}
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 94ms (View: 0, DB: 0) | 200 OK [http://localhost/initiatives?objective_id=0&_dc=1283633619832&node=xnode-6]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:23:40) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283633620197", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (15.6ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:53:40', "perishable_token" = 'PGx_0ILsQD_X77cNl43d', "updated_at" = '2010-09-04 20:53:40' WHERE "id" = 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 344ms (View: 0, DB: 16) | 200 OK [http://localhost/measures?objective_id=0&_dc=1283633620197&node=xnode-10]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:23:42) [GET]
+  Parameters: {"_dc"=>"1283633622588", "node"=>"src:root", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:53:42', "perishable_token" = '3zuO108yWJkwtjxFJd24', "updated_at" = '2010-09-04 20:53:42' WHERE "id" = 1[0m
+  [4;36;1mOrganization Load (0.0ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+Completed in 266ms (View: 0, DB: 0) | 200 OK [http://localhost/org_and_strat?_dc=1283633622588&node=src%3Aroot]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:23:44) [GET]
+  Parameters: {"_dc"=>"1283633623754", "node"=>"src:orgs1", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:53:44', "perishable_token" = 'F-XC00YvDOyEkl0w2MZc', "updated_at" = '2010-09-04 20:53:44' WHERE "id" = 1[0m
+  [4;35;1mOrganization Load (0.0ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 2) [0m
+Completed in 266ms (View: 16, DB: 0) | 200 OK [http://localhost/org_and_strat?_dc=1283633623754&node=src%3Aorgs1]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:23:45) [GET]
+  Parameters: {"_dc"=>"1283633624994", "node"=>"src:orgs2", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:53:45', "perishable_token" = 'fn_SbSyR1Thy43xFycYw', "updated_at" = '2010-09-04 20:53:45' WHERE "id" = 1[0m
+  [4;35;1mOrganization Load (0.0ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 2) [0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."organization_id" = 2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "perspectives" WHERE ("perspectives".strategy_id = 1) [0m
+Completed in 266ms (View: 16, DB: 0) | 200 OK [http://localhost/org_and_strat?_dc=1283633624994&node=src%3Aorgs2]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-09-04 16:23:46) [GET]
+  Parameters: {"strategy_id"=>"1", "_dc"=>"1283633626412", "node"=>"src:root", "controller"=>"presentation", "action"=>"persp_and_objs"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:53:46', "perishable_token" = 'mL9rCBr7cCwZr93Bousg', "updated_at" = '2010-09-04 20:53:46' WHERE "id" = 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mPerspective Load (0.0ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 2) [0m
+Completed in 219ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1283633626412&node=src%3Aroot]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:23:47) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283633626424", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (15.6ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:53:47', "perishable_token" = 'pOBQm2Ql8lwWfCSBM6CB', "updated_at" = '2010-09-04 20:53:47' WHERE "id" = 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 391ms (View: 0, DB: 16) | 200 OK [http://localhost/measures?objective_id=0&_dc=1283633626424&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-09-04 16:23:47) [GET]
+  Parameters: {"strategy_id"=>"1", "_dc"=>"1283633627690", "node"=>"src:persp1", "controller"=>"presentation", "action"=>"persp_and_objs"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:53:48', "perishable_token" = 'YRcJz_PiFlppQXffIpha', "updated_at" = '2010-09-04 20:53:48' WHERE "id" = 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."perspective_id" = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+  [4;36;1mMeasure Load (0.0ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 453ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1283633627690&node=src%3Apersp1]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:23:49) [GET]
+  Parameters: {"objective_id"=>"1", "_dc"=>"1283633629013", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:53:49', "perishable_token" = '8HvvpXKLeHDIQPJeVarz', "updated_at" = '2010-09-04 20:53:49' WHERE "id" = 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Load (0.0ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=3) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=3) [0m
+Completed in 344ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1283633629013&node=xnode-10]
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-09-04 16:23:50) [GET]
+  Parameters: {"objective_id"=>"1", "_dc"=>"1283633629022", "node"=>"xnode-6", "controller"=>"initiatives", "action"=>"index"}
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mInitiative Load (15.6ms)[0m   [0mSELECT * FROM "initiatives" WHERE (initiative_id=0) AND ("initiatives".objective_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+  [4;35;1mInitiative Load (0.0ms)[0m   [0mSELECT * FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 3) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 4) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 5) [0m
+Completed in 94ms (View: 0, DB: 16) | 200 OK [http://localhost/initiatives?objective_id=1&_dc=1283633629022&node=xnode-6]
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-09-04 16:23:50) [GET]
+  Parameters: {"_dc"=>"1283633629047", "measure_id"=>"0", "controller"=>"targets", "action"=>"index"}
+  [4;36;1mTarget Load (0.0ms)[0m   [0;1mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '0') [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1283633629047&measure_id=0]
+
+
+Processing PresentationController#gantt (for 127.0.0.1 at 2010-09-04 16:23:51) [GET]
+  Parameters: {"objective_id"=>"1", "controller"=>"presentation", "action"=>"gantt"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:53:51', "perishable_token" = 'aG5ePU6kkMkU0-a2CIRb', "updated_at" = '2010-09-04 20:53:51' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/gantt
+Completed in 422ms (View: 31, DB: 0) | 200 OK [http://localhost/gantt?objective_id=1]
+
+
+Processing PresentationController#generate_gantt (for 127.0.0.1 at 2010-09-04 16:23:55) [GET]
+  Parameters: {"_dc"=>"1283633635414", "objective_id"=>"1", "controller"=>"presentation", "action"=>"generate_gantt"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:53:55', "perishable_token" = 'OGlzedXc6f4zTlxgFTYC', "updated_at" = '2010-09-04 20:53:55' WHERE "id" = 1[0m
+  [4;35;1mInitiative Load (0.0ms)[0m   [0mSELECT * FROM "initiatives" WHERE (initiative_id=0) AND ("initiatives"."objective_id" = '1') [0m
+  [4;36;1mInitiative Load (0.0ms)[0m   [0;1mSELECT * FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+Completed in 188ms (View: 0, DB: 0) | 200 OK [http://localhost/generate_gantt?_dc=1283633635414&objective_id=1]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-09-04 16:27:51) [GET]
+  Parameters: {"locale"=>"en", "controller"=>"presentation", "action"=>"index"}
+  [4;35;1mUser Load (15.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (15.6ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:57:51', "perishable_token" = 'trDVG1J6v5wO3A7ObH9X', "updated_at" = '2010-09-04 20:57:51' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/index
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1 AND ("roles_users".user_id = 1 )) [0m
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"admin", :action=>"index", :use_route=>:admin}
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"user_sessions", :action=>"destroy", :use_route=>:destroy}
+Completed in 422ms (View: 172, DB: 31) | 200 OK [http://localhost/en/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-09-04 16:27:56) [GET]
+  Parameters: {"_dc"=>"1283633875604", "controller"=>"units", "action"=>"index"}
+  [4;36;1mUnit Load (0.0ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 219ms (View: 16, DB: 0) | 200 OK [http://localhost/units?_dc=1283633875604]
+
+
+Processing ResponsiblesController#index (for 127.0.0.1 at 2010-09-04 16:27:59) [GET]
+  Parameters: {"_dc"=>"1283633875762", "controller"=>"responsibles", "action"=>"index"}
+  [4;35;1mResponsible Load (0.0ms)[0m   [0mSELECT * FROM "responsibles" [0m
+Completed in 62ms (View: 16, DB: 0) | 200 OK [http://localhost/responsibles?_dc=1283633875762]
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-09-04 16:27:59) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283633877939", "node"=>"xnode-6", "controller"=>"initiatives", "action"=>"index"}
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/initiatives?objective_id=0&_dc=1283633877939&node=xnode-6]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:28:00) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283633878294", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (15.6ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:58:00', "perishable_token" = 'xdMHn7kAU-O0JIZZmgrw', "updated_at" = '2010-09-04 20:58:00' WHERE "id" = 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 172ms (View: 0, DB: 16) | 200 OK [http://localhost/measures?objective_id=0&_dc=1283633878294&node=xnode-10]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:28:01) [GET]
+  Parameters: {"_dc"=>"1283633880655", "node"=>"src:root", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (15.6ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 20:58:01', "perishable_token" = 'N_G4CU47T3Cnz0nBhJsH', "updated_at" = '2010-09-04 20:58:01' WHERE "id" = 1[0m
+  [4;35;1mOrganization Load (0.0ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+Completed in 281ms (View: 16, DB: 16) | 200 OK [http://localhost/org_and_strat?_dc=1283633880655&node=src%3Aroot]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:28:02) [GET]
+  Parameters: {"_dc"=>"1283633882029", "node"=>"src:orgs1", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:58:02', "perishable_token" = 'gsEJg-Lt7NnSCpCmDWEN', "updated_at" = '2010-09-04 20:58:02' WHERE "id" = 1[0m
+  [4;36;1mOrganization Load (0.0ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 2) [0m
+Completed in 359ms (View: 16, DB: 0) | 200 OK [http://localhost/org_and_strat?_dc=1283633882029&node=src%3Aorgs1]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:28:03) [GET]
+  Parameters: {"_dc"=>"1283633883333", "node"=>"src:orgs2", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:58:03', "perishable_token" = 'aODzhkYOV0d3rpaj2d12', "updated_at" = '2010-09-04 20:58:03' WHERE "id" = 1[0m
+  [4;36;1mOrganization Load (0.0ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 2) [0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."organization_id" = 2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "perspectives" WHERE ("perspectives".strategy_id = 1) [0m
+Completed in 406ms (View: 0, DB: 0) | 200 OK [http://localhost/org_and_strat?_dc=1283633883333&node=src%3Aorgs2]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:28:05) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283633884940", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:58:05', "perishable_token" = 'n2AaxG1WzJXXM08c-5Fn', "updated_at" = '2010-09-04 20:58:05' WHERE "id" = 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 234ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1283633884940&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-09-04 16:28:05) [GET]
+  Parameters: {"strategy_id"=>"1", "_dc"=>"1283633884928", "node"=>"src:root", "controller"=>"presentation", "action"=>"persp_and_objs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:58:05', "perishable_token" = 'OoSmUbZeRtX2neq1_7xs', "updated_at" = '2010-09-04 20:58:05' WHERE "id" = 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mPerspective Load (0.0ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mSQL (15.6ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 2) [0m
+Completed in 328ms (View: 0, DB: 16) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1283633884928&node=src%3Aroot]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-09-04 16:28:07) [GET]
+  Parameters: {"strategy_id"=>"1", "_dc"=>"1283633886749", "node"=>"src:persp1", "controller"=>"presentation", "action"=>"persp_and_objs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (15.6ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:58:07', "perishable_token" = 'OP2ZswGRQF55RewLJNOG', "updated_at" = '2010-09-04 20:58:07' WHERE "id" = 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."perspective_id" = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+  [4;35;1mMeasure Load (0.0ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 453ms (View: 0, DB: 16) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1283633886749&node=src%3Apersp1]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:28:08) [GET]
+  Parameters: {"objective_id"=>"1", "_dc"=>"1283633888264", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (15.6ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:58:08', "perishable_token" = 'DJzHBBtxiHMjpuhl-4Vm', "updated_at" = '2010-09-04 20:58:08' WHERE "id" = 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.0ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=3) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=3) [0m
+Completed in 297ms (View: 16, DB: 16) | 200 OK [http://localhost/measures?objective_id=1&_dc=1283633888264&node=xnode-10]
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-09-04 16:28:09) [GET]
+  Parameters: {"_dc"=>"1283633888301", "measure_id"=>"0", "controller"=>"targets", "action"=>"index"}
+  [4;35;1mTarget Load (0.0ms)[0m   [0mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '0') [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1283633888301&measure_id=0]
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-09-04 16:28:09) [GET]
+  Parameters: {"objective_id"=>"1", "_dc"=>"1283633888276", "node"=>"xnode-6", "controller"=>"initiatives", "action"=>"index"}
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mInitiative Load (0.0ms)[0m   [0mSELECT * FROM "initiatives" WHERE (initiative_id=0) AND ("initiatives".objective_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+  [4;35;1mInitiative Load (0.0ms)[0m   [0mSELECT * FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 3) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 4) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 5) [0m
+Completed in 219ms (View: 0, DB: 0) | 200 OK [http://localhost/initiatives?objective_id=1&_dc=1283633888276&node=xnode-6]
+
+
+Processing PresentationController#gantt (for 127.0.0.1 at 2010-09-04 16:28:11) [GET]
+  Parameters: {"objective_id"=>"1", "controller"=>"presentation", "action"=>"gantt"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (31.2ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:58:11', "perishable_token" = 'kwdAbZcIGZJ_RAMMgDk2', "updated_at" = '2010-09-04 20:58:11' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/gantt
+Completed in 500ms (View: 0, DB: 31) | 200 OK [http://localhost/gantt?objective_id=1]
+
+
+Processing PresentationController#generate_gantt (for 127.0.0.1 at 2010-09-04 16:28:16) [GET]
+  Parameters: {"_dc"=>"1283633896288", "objective_id"=>"1", "controller"=>"presentation", "action"=>"generate_gantt"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (15.6ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:58:16', "perishable_token" = 'XO8GK5eRjPYrxE6SnfBB', "updated_at" = '2010-09-04 20:58:16' WHERE "id" = 1[0m
+  [4;36;1mInitiative Load (0.0ms)[0m   [0;1mSELECT * FROM "initiatives" WHERE (initiative_id=0) AND ("initiatives"."objective_id" = '1') [0m
+  [4;35;1mInitiative Load (0.0ms)[0m   [0mSELECT * FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+Completed in 141ms (View: 0, DB: 16) | 200 OK [http://localhost/generate_gantt?_dc=1283633896288&objective_id=1]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-09-04 16:28:38) [GET]
+  Parameters: {"locale"=>"en", "controller"=>"presentation", "action"=>"index"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (15.6ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:58:38', "perishable_token" = 'd6rnwXmZ2hjx7BmexLbq', "updated_at" = '2010-09-04 20:58:38' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/index
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1 AND ("roles_users".user_id = 1 )) [0m
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"admin", :action=>"index", :use_route=>:admin}
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"user_sessions", :action=>"destroy", :use_route=>:destroy}
+Completed in 250ms (View: 141, DB: 16) | 200 OK [http://localhost/en/presentation]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-09-04 16:29:39) [GET]
+  Parameters: {"locale"=>"en", "controller"=>"presentation", "action"=>"index"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 20:59:40', "perishable_token" = 'F6w1hbolILO_3chGKaKp', "updated_at" = '2010-09-04 20:59:40' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/index
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1 AND ("roles_users".user_id = 1 )) [0m
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"admin", :action=>"index", :use_route=>:admin}
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"user_sessions", :action=>"destroy", :use_route=>:destroy}
+Completed in 984ms (View: 172, DB: 0) | 200 OK [http://localhost/en/presentation]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-09-04 16:31:02) [GET]
+  Parameters: {"locale"=>"en", "controller"=>"presentation", "action"=>"index"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (15.6ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 21:01:02', "perishable_token" = '0-B1V-p19SkneWEUFtHb', "updated_at" = '2010-09-04 21:01:03' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/index
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1 AND ("roles_users".user_id = 1 )) [0m
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"admin", :action=>"index", :use_route=>:admin}
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"user_sessions", :action=>"destroy", :use_route=>:destroy}
+Completed in 922ms (View: 188, DB: 16) | 200 OK [http://localhost/en/presentation]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-09-04 16:35:20) [GET]
+  Parameters: {"locale"=>"en", "controller"=>"presentation", "action"=>"index"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 21:05:20', "perishable_token" = 'S2xQTXA7UUfehTm1nMPF', "updated_at" = '2010-09-04 21:05:20' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/index
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1 AND ("roles_users".user_id = 1 )) [0m
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"admin", :action=>"index", :use_route=>:admin}
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"user_sessions", :action=>"destroy", :use_route=>:destroy}
+Completed in 891ms (View: 219, DB: 0) | 200 OK [http://localhost/en/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-09-04 16:35:24) [GET]
+  Parameters: {"_dc"=>"1283634324462", "controller"=>"units", "action"=>"index"}
+  [4;35;1mUnit Load (0.0ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/units?_dc=1283634324462]
+
+
+Processing ResponsiblesController#index (for 127.0.0.1 at 2010-09-04 16:35:25) [GET]
+  Parameters: {"_dc"=>"1283634324570", "controller"=>"responsibles", "action"=>"index"}
+  [4;36;1mResponsible Load (0.0ms)[0m   [0;1mSELECT * FROM "responsibles" [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/responsibles?_dc=1283634324570]
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-09-04 16:35:27) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283634326577", "node"=>"xnode-6", "controller"=>"initiatives", "action"=>"index"}
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 141ms (View: 0, DB: 0) | 200 OK [http://localhost/initiatives?objective_id=0&_dc=1283634326577&node=xnode-6]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:35:27) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283634326949", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (15.6ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 21:05:27', "perishable_token" = 'ztxmdY13xU_e1UBYJkvH', "updated_at" = '2010-09-04 21:05:27' WHERE "id" = 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 250ms (View: 0, DB: 16) | 200 OK [http://localhost/measures?objective_id=0&_dc=1283634326949&node=xnode-10]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:35:29) [GET]
+  Parameters: {"_dc"=>"1283634329387", "node"=>"src:root", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 21:05:29', "perishable_token" = 'NcI8LwgluAEcrZRYvraJ', "updated_at" = '2010-09-04 21:05:29' WHERE "id" = 1[0m
+  [4;36;1mOrganization Load (0.0ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+Completed in 281ms (View: 0, DB: 0) | 200 OK [http://localhost/org_and_strat?_dc=1283634329387&node=src%3Aroot]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:35:30) [GET]
+  Parameters: {"_dc"=>"1283634330609", "node"=>"src:orgs1", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 21:05:31', "perishable_token" = 'IUEBz-_UL0ZFWRXOMu51', "updated_at" = '2010-09-04 21:05:31' WHERE "id" = 1[0m
+  [4;35;1mOrganization Load (0.0ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 2) [0m
+Completed in 250ms (View: 0, DB: 0) | 200 OK [http://localhost/org_and_strat?_dc=1283634330609&node=src%3Aorgs1]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:35:39) [GET]
+  Parameters: {"_dc"=>"1283634338809", "node"=>"src:orgs2", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 21:05:39', "perishable_token" = '_Q-4D0q6iHYriV_xwI7G', "updated_at" = '2010-09-04 21:05:39' WHERE "id" = 1[0m
+  [4;35;1mOrganization Load (15.6ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 2) [0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."organization_id" = 2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "perspectives" WHERE ("perspectives".strategy_id = 1) [0m
+Completed in 500ms (View: 16, DB: 16) | 200 OK [http://localhost/org_and_strat?_dc=1283634338809&node=src%3Aorgs2]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-09-04 16:35:40) [GET]
+  Parameters: {"strategy_id"=>"1", "_dc"=>"1283634340267", "node"=>"src:root", "controller"=>"presentation", "action"=>"persp_and_objs"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (15.6ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 21:05:40', "perishable_token" = '4zh9jg9HKyNG3dUf7l-a', "updated_at" = '2010-09-04 21:05:40' WHERE "id" = 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mPerspective Load (0.0ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 2) [0m
+Completed in 359ms (View: 0, DB: 16) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1283634340267&node=src%3Aroot]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:35:41) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283634340278", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 21:05:41', "perishable_token" = 'vwOBZVUQv-2KjWIP7baS', "updated_at" = '2010-09-04 21:05:41' WHERE "id" = 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 188ms (View: 16, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1283634340278&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-09-04 16:35:41) [GET]
+  Parameters: {"strategy_id"=>"1", "_dc"=>"1283634341537", "node"=>"src:persp1", "controller"=>"presentation", "action"=>"persp_and_objs"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 21:05:41', "perishable_token" = 'qsRRYRP3oQgNnHdoNEZH', "updated_at" = '2010-09-04 21:05:41' WHERE "id" = 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."perspective_id" = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+  [4;36;1mMeasure Load (0.0ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 281ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1283634341537&node=src%3Apersp1]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:35:43) [GET]
+  Parameters: {"objective_id"=>"1", "_dc"=>"1283634342724", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 21:05:43', "perishable_token" = 'cJEyyop7kgVX1zHacMdh', "updated_at" = '2010-09-04 21:05:43' WHERE "id" = 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Load (0.0ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=3) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=3) [0m
+Completed in 359ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1283634342724&node=xnode-10]
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-09-04 16:35:43) [GET]
+  Parameters: {"objective_id"=>"1", "_dc"=>"1283634342734", "node"=>"xnode-6", "controller"=>"initiatives", "action"=>"index"}
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mInitiative Load (0.0ms)[0m   [0mSELECT * FROM "initiatives" WHERE (initiative_id=0) AND ("initiatives".objective_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+  [4;35;1mInitiative Load (0.0ms)[0m   [0mSELECT * FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 3) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 4) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 5) [0m
+Completed in 78ms (View: 0, DB: 0) | 200 OK [http://localhost/initiatives?objective_id=1&_dc=1283634342734&node=xnode-6]
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-09-04 16:35:44) [GET]
+  Parameters: {"_dc"=>"1283634342760", "measure_id"=>"0", "controller"=>"targets", "action"=>"index"}
+  [4;36;1mTarget Load (0.0ms)[0m   [0;1mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '0') [0m
+Completed in 78ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1283634342760&measure_id=0]
+
+
+Processing PresentationController#gantt (for 127.0.0.1 at 2010-09-04 16:35:45) [GET]
+  Parameters: {"objective_id"=>"1", "controller"=>"presentation", "action"=>"gantt"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 21:05:45', "perishable_token" = 'B9oE397dhqe7gyvnjDpP', "updated_at" = '2010-09-04 21:05:45' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/gantt
+Completed in 297ms (View: 219, DB: 0) | 200 OK [http://localhost/gantt?objective_id=1]
+
+
+Processing PresentationController#generate_gantt (for 127.0.0.1 at 2010-09-04 16:35:49) [GET]
+  Parameters: {"_dc"=>"1283634349620", "objective_id"=>"1", "controller"=>"presentation", "action"=>"generate_gantt"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 21:05:50', "perishable_token" = 'Hj-kyUEpkoMKXuO-ukob', "updated_at" = '2010-09-04 21:05:50' WHERE "id" = 1[0m
+  [4;35;1mInitiative Load (0.0ms)[0m   [0mSELECT * FROM "initiatives" WHERE (initiative_id=0) AND ("initiatives"."objective_id" = '1') [0m
+  [4;36;1mInitiative Load (15.6ms)[0m   [0;1mSELECT * FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+Completed in 172ms (View: 0, DB: 16) | 200 OK [http://localhost/generate_gantt?_dc=1283634349620&objective_id=1]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-09-04 16:36:19) [GET]
+  Parameters: {"locale"=>"en", "controller"=>"presentation", "action"=>"index"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (15.6ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 21:06:19', "perishable_token" = 'UkQa2PpjfRMM0NKA17bm', "updated_at" = '2010-09-04 21:06:19' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/index
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1 AND ("roles_users".user_id = 1 )) [0m
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"admin", :action=>"index", :use_route=>:admin}
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"user_sessions", :action=>"destroy", :use_route=>:destroy}
+Completed in 422ms (View: 156, DB: 16) | 200 OK [http://localhost/en/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-09-04 16:36:24) [GET]
+  Parameters: {"_dc"=>"1283634383951", "controller"=>"units", "action"=>"index"}
+  [4;36;1mUnit Load (0.0ms)[0m   [0;1mSELECT * FROM "units" [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/units?_dc=1283634383951]
+
+
+Processing ResponsiblesController#index (for 127.0.0.1 at 2010-09-04 16:36:24) [GET]
+  Parameters: {"_dc"=>"1283634384068", "controller"=>"responsibles", "action"=>"index"}
+  [4;35;1mResponsible Load (0.0ms)[0m   [0mSELECT * FROM "responsibles" [0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/responsibles?_dc=1283634384068]
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-09-04 16:36:26) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283634386134", "node"=>"xnode-6", "controller"=>"initiatives", "action"=>"index"}
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/initiatives?objective_id=0&_dc=1283634386134&node=xnode-6]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:36:26) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283634386494", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 21:06:26', "perishable_token" = 'R0BJ4yU5TlYeRyk-GiO_', "updated_at" = '2010-09-04 21:06:26' WHERE "id" = 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 281ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1283634386494&node=xnode-10]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:36:29) [GET]
+  Parameters: {"_dc"=>"1283634389099", "node"=>"src:root", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 21:06:29', "perishable_token" = 'dvw4TUrUCMinxPz4FVXR', "updated_at" = '2010-09-04 21:06:29' WHERE "id" = 1[0m
+  [4;35;1mOrganization Load (0.0ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+Completed in 250ms (View: 0, DB: 0) | 200 OK [http://localhost/org_and_strat?_dc=1283634389099&node=src%3Aroot]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:36:31) [GET]
+  Parameters: {"_dc"=>"1283634391025", "node"=>"src:orgs1", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 21:06:31', "perishable_token" = 'mipSdvEEDPqZkd4DS7hH', "updated_at" = '2010-09-04 21:06:31' WHERE "id" = 1[0m
+  [4;36;1mOrganization Load (0.0ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 2) [0m
+Completed in 281ms (View: 0, DB: 0) | 200 OK [http://localhost/org_and_strat?_dc=1283634391025&node=src%3Aorgs1]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:36:32) [GET]
+  Parameters: {"_dc"=>"1283634392233", "node"=>"src:orgs2", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 21:06:32', "perishable_token" = 'Czoe9OE1y1AW2fZT7_H1', "updated_at" = '2010-09-04 21:06:32' WHERE "id" = 1[0m
+  [4;36;1mOrganization Load (0.0ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 2) [0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mStrategy Load (0.0ms)[0m   [0;1mSELECT * FROM "strategies" WHERE ("strategies"."organization_id" = 2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "perspectives" WHERE ("perspectives".strategy_id = 1) [0m
+Completed in 234ms (View: 0, DB: 0) | 200 OK [http://localhost/org_and_strat?_dc=1283634392233&node=src%3Aorgs2]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-09-04 16:36:34) [GET]
+  Parameters: {"strategy_id"=>"1", "_dc"=>"1283634393795", "node"=>"src:root", "controller"=>"presentation", "action"=>"persp_and_objs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 21:06:34', "perishable_token" = 'PDcXD0fOOdniCDmibzUP', "updated_at" = '2010-09-04 21:06:34' WHERE "id" = 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mPerspective Load (0.0ms)[0m   [0mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 2) [0m
+Completed in 328ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1283634393795&node=src%3Aroot]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:36:34) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283634393806", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 21:06:35', "perishable_token" = 'kRXkEa8wEn7cjYcu8hyM', "updated_at" = '2010-09-04 21:06:35' WHERE "id" = 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 281ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1283634393806&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-09-04 16:36:35) [GET]
+  Parameters: {"strategy_id"=>"1", "_dc"=>"1283634395489", "node"=>"src:persp1", "controller"=>"presentation", "action"=>"persp_and_objs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 21:06:35', "perishable_token" = 'owj9jEFp1uKqVeXabPtG', "updated_at" = '2010-09-04 21:06:35' WHERE "id" = 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."perspective_id" = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+  [4;35;1mMeasure Load (0.0ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 312ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1283634395489&node=src%3Apersp1]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:36:36) [GET]
+  Parameters: {"objective_id"=>"1", "_dc"=>"1283634396677", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 21:06:37', "perishable_token" = 'MhngXXpW3gRY9J0sDz3n', "updated_at" = '2010-09-04 21:06:37' WHERE "id" = 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mMeasure Load (0.0ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=3) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=3) [0m
+Completed in 312ms (View: 47, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1283634396677&node=xnode-10]
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-09-04 16:36:37) [GET]
+  Parameters: {"objective_id"=>"1", "_dc"=>"1283634396687", "node"=>"xnode-6", "controller"=>"initiatives", "action"=>"index"}
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;36;1mInitiative Load (0.0ms)[0m   [0;1mSELECT * FROM "initiatives" WHERE (initiative_id=0) AND ("initiatives".objective_id = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+  [4;36;1mInitiative Load (0.0ms)[0m   [0;1mSELECT * FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 3) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 4) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 5) [0m
+Completed in 94ms (View: 0, DB: 0) | 200 OK [http://localhost/initiatives?objective_id=1&_dc=1283634396687&node=xnode-6]
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-09-04 16:36:37) [GET]
+  Parameters: {"_dc"=>"1283634396712", "measure_id"=>"0", "controller"=>"targets", "action"=>"index"}
+  [4;35;1mTarget Load (0.0ms)[0m   [0mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '0') [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1283634396712&measure_id=0]
+
+
+Processing PresentationController#gantt (for 127.0.0.1 at 2010-09-04 16:36:38) [GET]
+  Parameters: {"objective_id"=>"1", "controller"=>"presentation", "action"=>"gantt"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 21:06:39', "perishable_token" = 'nmCMcyJH9qYGM3tpp5i1', "updated_at" = '2010-09-04 21:06:39' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/gantt
+Completed in 234ms (View: 16, DB: 0) | 200 OK [http://localhost/gantt?objective_id=1]
+
+
+Processing PresentationController#generate_gantt (for 127.0.0.1 at 2010-09-04 16:36:43) [GET]
+  Parameters: {"_dc"=>"1283634402898", "objective_id"=>"1", "controller"=>"presentation", "action"=>"generate_gantt"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 21:06:43', "perishable_token" = 'xukEuPHmVyva61IWuDSF', "updated_at" = '2010-09-04 21:06:43' WHERE "id" = 1[0m
+  [4;36;1mInitiative Load (0.0ms)[0m   [0;1mSELECT * FROM "initiatives" WHERE (initiative_id=0) AND ("initiatives"."objective_id" = '1') [0m
+  [4;35;1mInitiative Load (0.0ms)[0m   [0mSELECT * FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+Completed in 266ms (View: 16, DB: 0) | 200 OK [http://localhost/generate_gantt?_dc=1283634402898&objective_id=1]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-09-04 16:36:57) [GET]
+  Parameters: {"locale"=>"en", "controller"=>"presentation", "action"=>"index"}
+default_url_options is passed options: {}
+default_url_options is passed options: {}
+default_url_options is passed options: {}
+default_url_options is passed options: {:controller=>"user_sessions", :action=>"new", :use_route=>:new_user_session, :only_path=>false}
+Redirected to http://localhost:3000/user_sessions/new?locale=en
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 62ms (DB: 0) | 302 Found [http://localhost/en/presentation]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-04 16:36:57) [GET]
+  Parameters: {"locale"=>"en", "controller"=>"user_sessions", "action"=>"new"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 109ms (View: 31, DB: 0) | 200 OK [http://localhost/user_sessions/new?locale=en]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-09-04 16:37:58) [POST]
+  Parameters: {"user_session"=>{"login"=>"admin", "password"=>"[FILTERED]"}, "controller"=>"user_sessions", "action"=>"create"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'admin') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "login_count" = 38, "last_login_at" = '2010-09-04 20:47:26', "current_login_at" = '2010-09-04 21:07:58', "last_request_at" = '2010-09-04 21:07:58', "perishable_token" = 'uFSXKeot4mMUcnWuIYR0', "updated_at" = '2010-09-04 21:07:58' WHERE "id" = 1[0m
+Completed in 125ms (View: 0, DB: 0) | 200 OK [http://localhost/user_sessions/create]
+
+
+Processing PresentationController#index (for 127.0.0.1 at 2010-09-04 16:37:59) [GET]
+  Parameters: {"locale"=>"en", "controller"=>"presentation", "action"=>"index"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 21:07:59', "perishable_token" = 'zlqdoyJ6Hd1Z7IhL9qqB', "updated_at" = '2010-09-04 21:07:59' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/index
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1 AND ("roles_users".user_id = 1 )) [0m
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"admin", :action=>"index", :use_route=>:admin}
+default_url_options is passed options: {}
+default_url_options is passed options: {:only_path=>true, :controller=>"user_sessions", :action=>"destroy", :use_route=>:destroy}
+Completed in 281ms (View: 47, DB: 0) | 200 OK [http://localhost/en/presentation]
+
+
+Processing UnitsController#index (for 127.0.0.1 at 2010-09-04 16:38:00) [GET]
+  Parameters: {"_dc"=>"1283634479809", "controller"=>"units", "action"=>"index"}
+  [4;35;1mUnit Load (0.0ms)[0m   [0mSELECT * FROM "units" [0m
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhost/units?_dc=1283634479809]
+
+
+Processing ResponsiblesController#index (for 127.0.0.1 at 2010-09-04 16:38:00) [GET]
+  Parameters: {"_dc"=>"1283634479817", "controller"=>"responsibles", "action"=>"index"}
+  [4;36;1mResponsible Load (0.0ms)[0m   [0;1mSELECT * FROM "responsibles" [0m
+Completed in 172ms (View: 0, DB: 0) | 200 OK [http://localhost/responsibles?_dc=1283634479817]
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-09-04 16:38:01) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283634480079", "node"=>"xnode-6", "controller"=>"initiatives", "action"=>"index"}
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/initiatives?objective_id=0&_dc=1283634480079&node=xnode-6]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:38:01) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283634480124", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 21:08:01', "perishable_token" = 'VpAh43KF2mexkKn08EYL', "updated_at" = '2010-09-04 21:08:01' WHERE "id" = 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mObjective Load (0.0ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 266ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1283634480124&node=xnode-10]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:38:02) [GET]
+  Parameters: {"_dc"=>"1283634481614", "node"=>"src:root", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2010-09-04 21:08:02', "perishable_token" = '7mvTftz0PWZCezlN_EO7', "updated_at" = '2010-09-04 21:08:02' WHERE "id" = 1[0m
+  [4;36;1mOrganization Load (15.6ms)[0m   [0;1mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 0) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "organizations" WHERE ("organizations".organization_id = 1) [0m
+Completed in 250ms (View: 0, DB: 16) | 200 OK [http://localhost/org_and_strat?_dc=1283634481614&node=src%3Aroot]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:38:03) [GET]
+  Parameters: {"_dc"=>"1283634482829", "node"=>"src:orgs1", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (15.6ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 21:08:03', "perishable_token" = 'xjSZSvWuFKz3hYRO8ZCF', "updated_at" = '2010-09-04 21:08:03' WHERE "id" = 1[0m
+  [4;35;1mOrganization Load (0.0ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "strategies" WHERE ("strategies".organization_id = 2) [0m
+Completed in 234ms (View: 0, DB: 16) | 200 OK [http://localhost/org_and_strat?_dc=1283634482829&node=src%3Aorgs1]
+
+
+Processing PresentationController#org_and_strat (for 127.0.0.1 at 2010-09-04 16:38:05) [GET]
+  Parameters: {"_dc"=>"1283634484733", "node"=>"src:orgs2", "controller"=>"presentation", "action"=>"org_and_strat"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 21:08:05', "perishable_token" = 'T6KWuycnj3GB0pC8ODQp', "updated_at" = '2010-09-04 21:08:05' WHERE "id" = 1[0m
+  [4;35;1mOrganization Load (0.0ms)[0m   [0mSELECT * FROM "organizations" WHERE ("organizations"."organization_id" = 2) [0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;35;1mStrategy Load (0.0ms)[0m   [0mSELECT * FROM "strategies" WHERE ("strategies"."organization_id" = 2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "perspectives" WHERE ("perspectives".strategy_id = 1) [0m
+Completed in 234ms (View: 16, DB: 0) | 200 OK [http://localhost/org_and_strat?_dc=1283634484733&node=src%3Aorgs2]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:38:06) [GET]
+  Parameters: {"objective_id"=>"0", "_dc"=>"1283634485935", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 21:08:06', "perishable_token" = '8Nn-VuOnJVbAVzaYNkaq', "updated_at" = '2010-09-04 21:08:06' WHERE "id" = 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 0) [0m
+Completed in 203ms (View: 16, DB: 0) | 200 OK [http://localhost/measures?objective_id=0&_dc=1283634485935&node=xnode-10]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-09-04 16:38:06) [GET]
+  Parameters: {"strategy_id"=>"1", "_dc"=>"1283634485935", "node"=>"src:root", "controller"=>"presentation", "action"=>"persp_and_objs"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 21:08:06', "perishable_token" = 'MzC00ds11tcb0TqiYLro', "updated_at" = '2010-09-04 21:08:06' WHERE "id" = 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mPerspective Load (0.0ms)[0m   [0;1mSELECT * FROM "perspectives" WHERE ("perspectives"."strategy_id" = '1') [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".perspective_id = 2) [0m
+Completed in 219ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1283634485935&node=src%3Aroot]
+
+
+Processing PresentationController#persp_and_objs (for 127.0.0.1 at 2010-09-04 16:38:07) [GET]
+  Parameters: {"strategy_id"=>"1", "_dc"=>"1283634487501", "node"=>"src:persp1", "controller"=>"presentation", "action"=>"persp_and_objs"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 21:08:08', "perishable_token" = 'SAnaQVZxo26V4ycwR8BQ', "updated_at" = '2010-09-04 21:08:08' WHERE "id" = 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."perspective_id" = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "objectives" WHERE ("objectives".objective_id = 1) [0m
+  [4;36;1mMeasure Load (0.0ms)[0m   [0;1mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+Completed in 203ms (View: 0, DB: 0) | 200 OK [http://localhost/persp_and_objs?strategy_id=1&_dc=1283634487501&node=src%3Apersp1]
+
+
+Processing MeasuresController#index (for 127.0.0.1 at 2010-09-04 16:38:08) [GET]
+  Parameters: {"objective_id"=>"1", "_dc"=>"1283634488645", "node"=>"xnode-10", "controller"=>"measures", "action"=>"index"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 21:08:09', "perishable_token" = 'cXB2ZOhvPQLo7lzBsLQ4', "updated_at" = '2010-09-04 21:08:09' WHERE "id" = 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) [0m
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mMeasure Load (0.0ms)[0m   [0mSELECT * FROM "measures" INNER JOIN "measures_objectives" ON "measures".id = "measures_objectives".measure_id WHERE ("measures_objectives".objective_id = 1 ) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT avg("targets".achieved) AS avg_achieved FROM "targets" WHERE (measure_id=3) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT avg("targets".goal) AS avg_goal FROM "targets" WHERE (measure_id=3) [0m
+Completed in 375ms (View: 0, DB: 0) | 200 OK [http://localhost/measures?objective_id=1&_dc=1283634488645&node=xnode-10]
+
+
+Processing InitiativesController#index (for 127.0.0.1 at 2010-09-04 16:38:09) [GET]
+  Parameters: {"objective_id"=>"1", "_dc"=>"1283634488646", "node"=>"xnode-6", "controller"=>"initiatives", "action"=>"index"}
+  [4;36;1mObjective Load (0.0ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives"."id" = 1) [0m
+  [4;35;1mInitiative Load (0.0ms)[0m   [0mSELECT * FROM "initiatives" WHERE (initiative_id=0) AND ("initiatives".objective_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+  [4;35;1mInitiative Load (15.6ms)[0m   [0mSELECT * FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 3) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 4) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "initiatives" WHERE ("initiatives".initiative_id = 5) [0m
+Completed in 78ms (View: 0, DB: 16) | 200 OK [http://localhost/initiatives?objective_id=1&_dc=1283634488646&node=xnode-6]
+
+
+Processing TargetsController#index (for 127.0.0.1 at 2010-09-04 16:38:09) [GET]
+  Parameters: {"_dc"=>"1283634488646", "measure_id"=>"0", "controller"=>"targets", "action"=>"index"}
+  [4;36;1mTarget Load (0.0ms)[0m   [0;1mSELECT * FROM "targets" WHERE ("targets"."measure_id" = '0') [0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/targets?_dc=1283634488646&measure_id=0]
+
+
+Processing PresentationController#gantt (for 127.0.0.1 at 2010-09-04 16:38:10) [GET]
+  Parameters: {"objective_id"=>"1", "controller"=>"presentation", "action"=>"gantt"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 21:08:10', "perishable_token" = 'fdWuKqTfk4-A_xomICJL', "updated_at" = '2010-09-04 21:08:10' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering presentation/gantt
+Completed in 203ms (View: 0, DB: 0) | 200 OK [http://localhost/gantt?objective_id=1]
+
+
+Processing PresentationController#generate_gantt (for 127.0.0.1 at 2010-09-04 16:38:11) [GET]
+  Parameters: {"_dc"=>"1283634490875", "objective_id"=>"1", "controller"=>"presentation", "action"=>"generate_gantt"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (15.6ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2010-09-04 21:08:11', "perishable_token" = 'yAxE68nGkEaGEQ-tgSFU', "updated_at" = '2010-09-04 21:08:11' WHERE "id" = 1[0m
+  [4;35;1mInitiative Load (0.0ms)[0m   [0mSELECT * FROM "initiatives" WHERE (initiative_id=0) AND ("initiatives"."objective_id" = '1') [0m
+  [4;36;1mInitiative Load (0.0ms)[0m   [0;1mSELECT * FROM "initiatives" WHERE ("initiatives".initiative_id = 1) [0m
+Completed in 313ms (View: 0, DB: 16) | 200 OK [http://localhost/generate_gantt?_dc=1283634490875&objective_id=1]
