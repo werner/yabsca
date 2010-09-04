@@ -8,9 +8,9 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   config.gem "authlogic", :version => "2.1.6"
-  config.gem "haml", :version => "3.0.17"
-  config.gem "sqlite3-ruby", :version => "1.3.1"
-  config.gem "treetop", :version => "1.4.8"
+#  config.gem "haml", :version => "3.0.17"
+#  config.gem "sqlite3-ruby", :version => "1.3.1"
+#  config.gem "treetop", :version => "1.4.8"
   
   config.time_zone = 'UTC'
 
