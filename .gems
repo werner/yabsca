@@ -2,7 +2,7 @@ rails -v 2.3.8
 haml
 pg
 will_paginate -v 2.3.12 -s gems.github.com
-authlogic -v 2.1.5
+authlogic -v 2.1.6
 treetop
 yui-compressor
 jammit
