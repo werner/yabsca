@@ -36,11 +36,14 @@ class InitiativesController < ApplicationController
   end
   
   def create
+    convert_initiative_dates
     self.default_creation(Initiative, params[:initiative],
       ObjectiveRule,"objective_id="+params[:objective_id])
   end
 
   def update
+    convert_initiative_dates
+    debugger
     self.default_updating(Initiative, params[:id], params[:initiative],
       ObjectiveRule,"objective_id="+params[:objective_id])
   end
@@ -48,5 +51,10 @@ class InitiativesController < ApplicationController
   def destroy
     self.default_destroy(Initiative, params[:id],
       ObjectiveRule,"objective_id="+params[:objective_id])
+  end
+
+  def convert_initiative_dates
+    params[:initiative][:beginning]=convert_date(params[:initiative][:beginning])
+    params[:initiative][:end]=convert_date(params[:initiative][:end])    
   end
 end

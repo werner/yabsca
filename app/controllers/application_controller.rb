@@ -12,7 +12,8 @@ class ApplicationController < ActionController::Base
 
   def set_locale 
     ## if params[:locale] is nil then I18n.default_locale will be used
-    I18n.locale = params[:locale] 
+    I18n.locale = params[:locale]
+    session[:locale] = params[:locale] unless params[:locale].nil?
   end
   
   def default_url_options(options={})
@@ -49,6 +50,15 @@ class ApplicationController < ActionController::Base
     else
         render :json => {:errors=>{:reason=>"Permissions", :msg=>"You don't have permissions"}}
     end
+  end
+
+  def convert_date(date)
+    if session[:locale]=='es'
+      f=lambda {|dates| dates[1]+'/'+dates[0]+'/'+dates[2] }
+      f.call(date.split('/'))
+    else
+      date
+    end    
   end
 
   def default_destroy(model,id,rule_model,conditions)

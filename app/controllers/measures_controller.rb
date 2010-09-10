@@ -92,11 +92,13 @@ class MeasuresController < ApplicationController
   end
 
   def create
+    convert_measure_dates
     self.default_creation(Measure, params[:measure],
         ObjectiveRule,"objective_id="+params[:objective_id])
   end
 
   def update
+    convert_measure_dates
     self.default_updating(Measure, params[:id], params[:measure],
       MeasureRule,"measure_id="+params[:measure_id])
   end
@@ -104,6 +106,11 @@ class MeasuresController < ApplicationController
   def destroy
     self.default_destroy(Measure, params[:id],
       MeasureRule,"measure_id="+params[:measure_id])
+  end
+
+  def convert_measure_dates
+    params[:measure][:period_from]=convert_date(params[:measure][:period_from])
+    params[:measure][:period_to]=convert_date(params[:measure][:period_to])    
   end
 
   def pasting
