@@ -92,13 +92,13 @@ class MeasuresController < ApplicationController
   end
 
   def create
-    convert_measure_dates
+    convert_measure_dates unless params[:measure][:period_from].nil?
     self.default_creation(Measure, params[:measure],
         ObjectiveRule,"objective_id="+params[:objective_id])
   end
 
   def update
-    convert_measure_dates
+    convert_measure_dates unless params[:measure][:period_from].nil?
     self.default_updating(Measure, params[:id], params[:measure],
       MeasureRule,"measure_id="+params[:measure_id])
   end

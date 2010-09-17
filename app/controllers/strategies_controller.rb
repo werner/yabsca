@@ -18,7 +18,7 @@ class StrategiesController < ApplicationController
           :leaf => strategy.perspectives.empty?
         })
     else
-      return_data=nodes_selection(params[:node])
+      return_data=nodes_selection(params[:node],:objs)
     end unless params[:node].nil?
 
     respond_to do |format|

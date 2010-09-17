@@ -106,5 +106,11 @@ lang={
     four_monthly:'cuatrimestral',
     yearly:'anual',
     increasing:'aumento',
-    decreasing:'disminución'
+    decreasing:'disminución',
+    calculate:'Calcular',
+    measureNoCalc:'Este indicador no posee fórmula asociada',
+    importLabel:'Importar',
+    tools:'Herramientas',
+    fileUploadForm:'Importar Archivo de Excel',
+    fileName:'Nombre de Archivo'
 }

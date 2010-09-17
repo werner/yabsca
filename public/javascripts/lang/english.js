@@ -106,5 +106,11 @@ lang={
     four_monthly:'four-monthly',
     yearly:'yearly',
     increasing:'increasing',
-    decreasing:'decreasing'
+    decreasing:'decreasing',
+    calculate:'Calculate',
+    measureNoCalc:'This measure has no formula',
+    importLabel:'Import',
+    tools:'Tools',
+    fileUploadForm:'Import Excel File',
+    fileName:'File Name'
 }

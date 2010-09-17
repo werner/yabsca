@@ -19,6 +19,8 @@ config.action_mailer.raise_delivery_errors = false
 require 'treetop'
 require 'formula_node'
 require 'formula'
+require 'import'
 
 ActionController::Base.send(:include, Formula)
 ActionController::Base.send(:include, FormulaNode)
+

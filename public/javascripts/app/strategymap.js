@@ -1,6 +1,10 @@
+var measure=new Object();
+measure.id=0;
 Ext.onReady(function() {
 
-    var node;
+    var node=new Object();
+    node.id=0;
+    var objective_id=0;
     var paper = Raphael('drawcanvas',800,500);
     Property.paper=paper;
     Ext.Ajax.request({
@@ -20,13 +24,16 @@ Ext.onReady(function() {
 
     var actualText;
 
-    paper.raphael.click(function(event){
+    paper.raphael.click(function(event){        
         if (event.target.localName=="svg"){
             if (actualText!=undefined) actualText.attr({stroke:""});
             Property.setSelected.remove();
             if (Property.lrb!=""){
                 Property.lrb.remove();
             }
+        }else if (event.target.localName=="ellipse"){
+            objective_id=event.target.id;
+            measuresTree.getRootNode().reload();
         }
     });
 
@@ -38,7 +45,9 @@ Ext.onReady(function() {
                     if (node!=undefined){
                         if (node.attributes.type=="objective"){
                             var dataEllipse = paper.ellipse(110, 80, 100, 40);
-                            dataEllipse.attr("fill", "#6cb6f4");
+
+                            dataEllipse.attr({"fill": "#6cb6f4"});
+                            dataEllipse.node.id=node.attributes.iddb;
                             var dataText = paper.text(110, 70, node.text);
                             dataText.click(function(event){
                                var ob=event.target.parentNode.raphael;
@@ -211,7 +220,6 @@ Ext.onReady(function() {
 
     var everybody = new Ext.tree.TreePanel({
         useArrows: true,
-        region: 'west',
         ddGroup: 'dataDDGroup',
         enableDrag:true,
         autoScroll: true,
@@ -235,16 +243,64 @@ Ext.onReady(function() {
         }
     });
 
+    measureMenu=new Ext.menu.Menu({
+           items:[{
+               text:lang.chartLabel,
+               iconCls:"chart",
+               handler:function(){
+                    fchart.type="FCF_Column3D.swf";
+                    fchart.win.show();
+               }        
+        }]
+    });
+
+    var measuresTree = new Ext.tree.TreePanel({
+        autoScroll: true,
+        rootVisible: false,
+        lines: false,
+        singleExpand: true,
+        width:500,
+        useArrows: true,
+        contextMenu:measureMenu,
+        loader: new Ext.tree.TreeLoader({
+            requestMethod:"GET",
+            dataUrl:function() {return "/measures?objective_id="+objective_id}
+        }),
+        listeners:{
+            click:function(n){
+                measure.id=n.id;
+            },
+            load:function(n){
+            },
+            contextmenu: function(node, e) {
+                node.select();
+                var c = node.getOwnerTree().contextMenu;
+                c.contextNode = node;
+                c.showAt(e.getXY());
+            }
+        },
+        root: new Ext.tree.AsyncTreeNode()
+    });
+
+
     var everyWindows=new Ext.Window({
-        layout:"fit",
+        layout:'accordion',
         width:400,
         height:500,
         closable:false,
         x:1,y:30,
-        closeAction:"hide",
+        closeAction:'hide',
         plain: true,
         tbar:toolBar,
-        items:[everybody]
+        items:[{
+            title:lang.perspLabel,
+            defaults:{border:false, activeTab:0},
+            items:[everybody]
+        },{
+            title: lang.measuresLabel,
+            defaults:{border:false, activeTab:0},
+            items:[measuresTree]
+        }]
     });
 
     everyWindows.show();

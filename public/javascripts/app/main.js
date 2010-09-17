@@ -4,6 +4,8 @@ var treePanelPersp;
 
 Ext.onReady(function(){
 
+    Ext.QuickTips.init();
+
     var menuPersp= new Ext.menu.Menu({
             items:[{
                 iconCls:"new",
@@ -122,7 +124,7 @@ Ext.onReady(function(){
            }
         }]
     });
-      
+
     var toolBarOrgs = new Ext.Toolbar({
         items:[{
             iconCls:"orgs",
@@ -132,9 +134,73 @@ Ext.onReady(function(){
             iconCls:"strats",
             text:lang.stratsLabel,
             menu:menuStrats
+        },{
+            iconCls:"import",
+            text:lang.importLabel,
+            handler:function(){
+                windowUpload.show();
+            }         
         }]
     });
-    
+
+    var formUpload = new Ext.FormPanel({
+        fileUpload: true,
+        url: '/upload_file',
+        width: 400,
+        frame: true,
+        title: lang.fileUploadForm,
+        autoHeight: true,
+        bodyStyle: 'padding: 10px 10px 0 10px;',
+        labelWidth: 100,
+        defaults: {
+            anchor: '95%',
+            allowBlank: false,
+            msgTarget: 'side'
+        },
+        items: [{
+            xtype: 'fileuploadfield',
+            id: 'form-file',
+            fieldLabel: lang.fileName,
+            buttonText: '',
+            buttonCfg: {
+                iconCls: 'upload'
+            }
+        }]
+    });
+
+    var windowUpload = new Ext.Window({
+        layout:'fit',
+        width:450,
+        height:150,
+        closeAction:'hide',
+        plain: true,
+        items:[formUpload],
+        buttons:[{
+            text:lang.saveLabel,
+            iconCls:'save',
+            handler: function(){
+                formUpload.getForm().submit({
+                    method:'POST',
+                    params:{authenticity_token:AUTH_TOKEN},
+                    success: function(){
+                        formUpload.getForm().reset();
+                        windowUpload.hide();
+                    },
+                    failure: function() {
+                        Ext.Msg.alert("Error",lang.dataCorrect);
+                    }
+                });
+            }
+        },{
+            text:lang.closeLabel,
+            iconCls:'close',
+            handler:function(){
+                formUpload.getForm().reset();
+                windowUpload.hide();
+            }
+        }]
+    });
+
     treePanelPersp = new Ext.tree.TreePanel({
     	id: "tree-panel_persp",
         title: lang.perspobjLabel,

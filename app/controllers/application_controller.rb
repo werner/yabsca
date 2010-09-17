@@ -71,8 +71,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def parse_excel(upload)
+    spread_sheet=ExcelImport.new 
+    spread_sheet.file=upload
+    spread_sheet.get_data
+  end
+
   #methods to build the trees used in the application
-  def nodes_selection(node)
+  def nodes_selection(node,stop="")
     #it receives a node argument to make a regexp and then a select to a table
     #This is for reload the treeview everytime an user clicks on a node
     return_data=[]
@@ -96,7 +102,8 @@ class ApplicationController < ActionController::Base
       id=node.sub(/src:persp/,"").to_i
       data=Objective.find_all_by_perspective_id(id)
       return_data=join_nodes_objs(data)
-    elsif node.match(/src:objs/)
+    #this is for not showing measures
+    elsif node.match(/src:objs/) && stop!=:objs
       id=node.sub(/src:objs/,"").to_i
       data=Objective.find(id).measures
       return_data=join_measures(data)

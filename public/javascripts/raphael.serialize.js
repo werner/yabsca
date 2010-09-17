@@ -30,6 +30,7 @@ Raphael.fn.serialize = {
           case "ellipse":
             object = {
               type: node.type,
+              id: node.node.id,
               rx: node.attrs['rx'],
               ry: node.attrs['ry'],
               cx: node.attrs['cx'],
@@ -118,9 +119,10 @@ Raphael.fn.serialize = {
     $.each(json, function(index, node) {
       try {
         var el = paper[node.type]().attr(node);
-        if (el.type=="ellipse")
+        if (el.type=="ellipse"){
+            el.node.id=node.id;
             Property.ellipse(el);
-        else if(el.type=="path"){
+        }else if(el.type=="path"){
             if (el.attrs.path[1][0]=="C")
                 Property.curve(el);
             else if(el.attrs.path[1][0]=="L"){

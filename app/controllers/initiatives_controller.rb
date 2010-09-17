@@ -36,14 +36,13 @@ class InitiativesController < ApplicationController
   end
   
   def create
-    convert_initiative_dates
+    convert_initiative_dates unless params[:initiative][:beginning].nil?
     self.default_creation(Initiative, params[:initiative],
       ObjectiveRule,"objective_id="+params[:objective_id])
   end
 
   def update
-    convert_initiative_dates
-    debugger
+    convert_initiative_dates unless params[:initiative][:beginning].nil?
     self.default_updating(Initiative, params[:id], params[:initiative],
       ObjectiveRule,"objective_id="+params[:objective_id])
   end

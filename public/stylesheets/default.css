@@ -1,3 +1,18 @@
+.upload{
+  background-image: url("../images/page_white_get.png") !important;
+  background-repeat: no-repeat;
+}
+
+.import{
+  background-image: url("../images/import.png") !important;
+  background-repeat: no-repeat;
+}
+
+.calc{
+  background-image: url("../images/calculator.png") !important;
+  background-repeat: no-repeat;
+}
+
 .go{
   background-image: url("../images/bullet_go.png") !important;
   background-repeat: no-repeat;
@@ -210,7 +225,13 @@
   background-image: url("../images/time_go.png") !important;
   background-repeat: no-repeat;
 }
+
 .unit {
+  background-image: url("../images/tag_blue.png") !important;
+  background-repeat: no-repeat;
+}
+
+.tools {
   background-image: url("../images/wrench.png") !important;
   background-repeat: no-repeat;
 }

@@ -1,6 +1,6 @@
 class PresentationController < ApplicationController
   before_filter :require_user
-
+  
   def org_and_strat
 
     return_data=[]
@@ -101,8 +101,7 @@ class PresentationController < ApplicationController
   def generate_gantt
 
     initiatives=Initiative.find_all_by_objective_id(params[:objective_id],
-        :conditions=>["initiative_id=0"])
-
+        :conditions=>["initiative_id=0"], :order=>:beginning)
     return_data=[]
     initiatives.each do |initiative|
       return_data.push({:id=>initiative.id,
@@ -110,13 +109,26 @@ class PresentationController < ApplicationController
           :tasks=>initiative.initiatives.collect{|init|
             {:id=>init.id,:name=>init.name,
              :date=>init.beginning+1,:duration=>(init.end-init.beginning).to_i*8+8,
-             :completed=>init.completed
+             :completed=>init.completed,
+             :tasks=>init.initiatives.collect{|i|
+               {
+                 :id=>i.id,:name=>i.name,:date=>i.beginning+1,:duration=>(i.end-i.beginning).to_i*8+8,
+                 :completed=>i.completed
+               }
              }
-          }})
+             }
+          }})      
     end
 
     respond_to do |format|
       format.json {render :json => return_data}
+    end
+  end
+
+  def upload_file
+    parse_excel(params["form-file"])
+    respond_to do |format|
+      format.html
     end
   end
   

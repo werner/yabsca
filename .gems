@@ -1,8 +1,6 @@
 rails -v 2.3.8
-haml
+haml -v 3.0.17
 pg
-will_paginate -v 2.3.12 -s gems.github.com
 authlogic -v 2.1.6
-treetop
-yui-compressor
-jammit
+treetop -v 1.4.8
+spreadsheet -v 0.6.4.1

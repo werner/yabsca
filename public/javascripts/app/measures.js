@@ -332,7 +332,7 @@ measure.treePanel = new Ext.tree.TreePanel({
 });
 
 measure.allTreePanel = new Ext.tree.TreePanel({
-    id: "tree-panel_m",
+    id: "tree-panel_m_all",
     title: lang.measuresLabel,
     ddGroup: 'dataDDGroup',
     region: "center",

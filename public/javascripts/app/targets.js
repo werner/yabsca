@@ -95,6 +95,39 @@ target.toolBar=new Ext.Toolbar({
                 Ext.Msg.alert("Error",lang.targetSelection);
             }
         }
+    },{
+        text:lang.calculate,
+        iconCls:"calc",
+        handler:function(){
+            Ext.Ajax.request({
+                url:"/get_all_targets",
+                method:"GET",
+                params:{id:measure.id},
+                success:function(response){
+                    var result=JSON.parse(response.responseText);
+                    Ext.Ajax.request({
+                        url:"/get_formula",
+                        method:"GET",
+                        params:{id:measure.id},
+                        success:function(response){
+                            if (response.responseText=="")
+                                Ext.Msg.alert("Error",lang.measureNoCalc);
+                            else
+                                for (var i=0;i<result.length;i++){
+                                    Ext.Ajax.request({
+                                        url:"/save_target",
+                                        method:"POST",
+                                        params:{measure_id:measure.id,
+                                                period:result[i].target.period,
+                                                formula:response.responseText}
+                                    });
+                                }
+                            target.store.load();
+                        }
+                    });
+                }
+            });
+        }
     }]
 });
 

@@ -14,7 +14,7 @@
     - else
       = javascript_include_tag "lang/english"
       = javascript_include_tag "ext/src/locale/ext-lang-en"
-    = stylesheet_link_tag "default","scaffold"
+    = stylesheet_link_tag "default","scaffold","fileuploadfield"
     = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
     %title
       = t(:title)

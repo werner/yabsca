@@ -29,6 +29,8 @@ config.action_view.cache_template_loading            = true
 require 'treetop'
 require 'formula_node'
 require 'formula'
+require 'import'
 
 ActionController::Base.send(:include, Formula)
 ActionController::Base.send(:include, FormulaNode)
+
