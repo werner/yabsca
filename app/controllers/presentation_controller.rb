@@ -80,11 +80,9 @@ class PresentationController < ApplicationController
 
   def generate_chart
 
-	debugger 
-	
-    targets=Target.find(:all,:conditions =>
-        ["period_date between ? and ? and measure_id=? and achieved is not null",
-          Date.strptime(params[:date_from],"%m/%d/%Y"),Date.strptime(params[:date_to],"%m/%d/%Y"),params[:measure_id]])
+    targets=Target.to_charts Date.strptime(params[:date_from],"%m/%d/%Y"),
+    						 Date.strptime(params[:date_to],"%m/%d/%Y"),
+    						 params[:measure_id]
 	
     measure=Measure.find(params[:measure_id])
 
