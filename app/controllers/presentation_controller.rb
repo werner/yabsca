@@ -80,14 +80,17 @@ class PresentationController < ApplicationController
 
   def generate_chart
 
+	debugger 
+	
     targets=Target.find(:all,:conditions =>
         ["period_date between ? and ? and measure_id=? and achieved is not null",
-          params[:date_from].to_date,params[:date_to].to_date,params[:measure_id]])
-
+          Date.strptime(params[:date_from],"%m/%d/%Y"),Date.strptime(params[:date_to],"%m/%d/%Y"),params[:measure_id]])
+	
     measure=Measure.find(params[:measure_id])
 
     general=General.new
-    all_periods=general.dates_to_periods(params[:date_from].to_date,params[:date_to].to_date,measure.frecuency)
+    all_periods=general.dates_to_periods(Date.strptime(params[:date_from],"%m/%d/%Y"),
+    					Date.strptime(params[:date_to],"%m/%d/%Y"),measure.frecuency)
 
     y=[]
     return_data=targets.map do |item|
