@@ -6,6 +6,7 @@ en:
   home: Home
   admin_module: Admin Module
   strategy_map: Strategy Map
+  projection: Projection
 
   number:
     # Used in number_with_delimiter()

@@ -6,6 +6,7 @@ es:
   home: Inicio
   admin_module: Módulo Administrativo
   strategy_map: Mapa Estratégico
+  projection: Proyección
 
  # Action View
   number:

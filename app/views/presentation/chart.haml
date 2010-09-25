@@ -1,1 +1,6 @@
+= javascript_tag "var measure_id = #{params[:measure_id]};"
+= javascript_tag "var date_from = '#{params[:date_from]}';"
+= javascript_tag "var date_to = '#{params[:date_to]}';"
+= javascript_tag "var proj_options = '#{params[:proj_options]}';"
+= javascript_include_tag "FusionCharts","app/fchart"
 %div#fchart

@@ -11,6 +11,7 @@ Rails::Initializer.run do |config|
 #  config.gem "haml", :version => "3.0.17"
 #  config.gem "sqlite3-ruby", :version => "1.3.1"
 #  config.gem "treetop", :version => "1.4.8"
+#  config.gem "spreadsheet", :version => "0.6.4.1"
   
   config.time_zone = 'UTC'
 
@@ -27,11 +28,11 @@ require "tempfile"
 
 module Frecuency
   Daily=1
-  Weekly=2
-  Monthly=3
-  Bimonthly=4
-  Three_monthly=5
-  Four_monthly=6
+  Weekly=6
+  Monthly=5
+  Bimonthly=2
+  Three_monthly=3
+  Four_monthly=4
   Yearly=7
 end
 

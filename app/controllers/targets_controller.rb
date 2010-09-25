@@ -1,11 +1,10 @@
 class TargetsController < ApplicationController
   
   def index
-    @targets=Target.find_all_by_measure_id(params[:measure_id])
+    targets=Target.find_all_by_measure_id(params[:measure_id],:order=>:period_date)
 
-    sort_targets=@targets.sort_by { |t| t.to_order }
     return_data={}
-    return_data[:data]=sort_targets.collect {|u| {
+    return_data[:data]=targets.collect {|u| {
         :id => u.id,
         :period => u.period,
         :goal => u.goal,

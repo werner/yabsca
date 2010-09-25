@@ -30,6 +30,7 @@ require 'treetop'
 require 'formula_node'
 require 'formula'
 require 'import'
+require 'general'
 
 ActionController::Base.send(:include, Formula)
 ActionController::Base.send(:include, FormulaNode)

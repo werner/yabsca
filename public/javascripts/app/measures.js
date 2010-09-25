@@ -12,8 +12,8 @@ measure.method="";
 
 measure.frecuency_store=new Ext.data.ArrayStore({
    fields: ["id","name"],
-   data: [[1,lang.daily],[2,lang.weekly],[3,lang.monthly],[4,lang.bimonthly],
-          [5,lang.three_monthly],[6,lang.four_monthly],[7,lang.yearly]]
+   data: [[1,lang.daily],[6,lang.weekly],[5,lang.monthly],[2,lang.bimonthly],
+          [3,lang.three_monthly],[4,lang.four_monthly],[7,lang.yearly]]
 });
 
 measure.challenge_store=new Ext.data.ArrayStore({
@@ -283,8 +283,7 @@ measure.toolBar=new Ext.Toolbar({
        text:lang.chartLabel,
        iconCls:"chart",
        handler:function(){
-            fchart.type="FCF_Column3D.swf";
-            fchart.win.show();
+            general.graph_win.show();
        }        
     }]
 });
@@ -315,6 +314,8 @@ measure.treePanel = new Ext.tree.TreePanel({
             target.store.load();
             target.frec_store.setBaseParam("measure_id",measure.id);
             target.frec_store.load();
+            frec_store.setBaseParam("measure_id",measure.id);
+            frec_store.load();
             target.id=0;
         },
         load:function(n){

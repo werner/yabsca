@@ -179,3 +179,78 @@ var treePanelOrgs= new Ext.tree.TreePanel({
         }
     }
 });
+
+frec_proxy=new Ext.data.HttpProxy({url:"/get_targets",method:"GET"});
+
+frec_reader=new Ext.data.JsonReader({
+    idProperty: "id",
+    root: "data",
+    fields:[{name:"id"},{name:"name"}]
+});
+
+frec_store=new Ext.data.Store({
+    proxy:frec_proxy,
+    reader:frec_reader,
+    autoSave: true
+});
+
+general.graph_form=new Ext.FormPanel({
+    labelWidth:75,
+    frame:true,
+    title:lang.dataChartFormTitle,
+    bodyStyle:'padding:5px 5px 0',
+    width: 350,
+    defaults: {width: 230},
+    items:[ new Ext.form.DateField({
+        fieldLabel: lang.fromLabel,
+        id: "graph_period_from",
+        name:"graph_period_from"
+    }), new Ext.form.DateField({
+        fieldLabel: lang.toLabel,
+        id: "graph_period_to",
+        name:"graph_period_to"
+    }), new Ext.form.RadioGroup({
+        fieldLabel: lang.projectionOption,
+        itemCls: 'x-check-group-alt',
+        id:"proj_options",
+        name:"proj_options",
+        columns: 1,
+        items: [
+            {boxLabel: lang.yesLabel, name: 'proj-col', inputValue: 'yes'},
+            {boxLabel: 'No', name: 'proj-col', inputValue: 'no', checked: true}
+        ]
+    })]
+});
+
+general.graph_win=new Ext.Window({
+    layout:'fit',
+    width:400,
+    height:250,
+    closeAction:'hide',
+    plain: true,
+    items:[general.graph_form],
+    buttons:[{
+        text:lang.chartLabel,
+        iconCls:'chart',
+        handler: function(){
+            var graph_data="measure_id="+measure.id+
+                    "&date_from="+general.graph_form.items.map.graph_period_from.getValue().format('m/d/Y')+
+                    "&date_to="+general.graph_form.items.map.graph_period_to.getValue().format('m/d/Y')+
+                    "&proj_options="+general.graph_form.items.map.proj_options.getValue().inputValue;
+
+            general.graph_win.hide();
+            window.showModalDialog("/chart?"+graph_data, "Gantt",
+                        'dialogWidth:850px;dialogHeight:600px;resizable:no;toolbar:no;menubar:no;scrollbars:no;help: no');
+
+            general.graph_form.getForm().reset();
+        }
+    },{
+        text:lang.closeLabel,
+        iconCls:'close',
+        handler:function(){
+            general.graph_win.hide();
+            general.graph_form.getForm().reset();
+        }
+    }]
+});
+

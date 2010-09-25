@@ -112,5 +112,8 @@ lang={
     importLabel:'Import',
     tools:'Tools',
     fileUploadForm:'Import Excel File',
-    fileName:'File Name'
+    fileName:'File Name',
+    dataChartFormTitle:'Chart Data',
+    projectionOption:'Projection?',
+    yesLabel:'Yes'
 }

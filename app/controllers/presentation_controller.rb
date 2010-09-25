@@ -81,20 +81,47 @@ class PresentationController < ApplicationController
   def generate_chart
 
     targets=Target.find(:all,:conditions =>
-        ["measure_id=? and achieved is not null",params[:measure_id]])
+        ["period_date between ? and ? and measure_id=? and achieved is not null",
+          params[:date_from].to_date,params[:date_to].to_date,params[:measure_id]])
 
-    sort_targets=targets.sort_by { |t| t.to_order }
+    measure=Measure.find(params[:measure_id])
 
-    return_data=sort_targets.map do |item|
+    general=General.new
+    all_periods=general.dates_to_periods(params[:date_from].to_date,params[:date_to].to_date,measure.frecuency)
+
+    y=[]
+    return_data=targets.map do |item|
+      all_periods.delete_if {|x| x==item.period }
+      y.push(item.achieved)
       {
         :name => item.period,
         :value => item.achieved,
-        :color => get_fchart_color
+        :proj_value=> item.achieved,
+        :color => get_fchart_color,
+        :proj=>"no"
+      }
+    end
+    
+    lr=LinearRegression.new(y)
+
+    idx=return_data.length-1
+    return_data+=all_periods.map do |item|
+      {
+        :name=>item,
+        :proj_value=>lr.predict(idx+=1),
+        :color => get_fchart_color,
+        :proj=>"yes"
       }
     end
 
     respond_to do |format|
-      format.xml {render :xml => fusionchart_xml(return_data)}
+        format.xml {
+          render :xml => if params[:proj_options]=='yes'  
+                            fusionchart_xml_proj(return_data,measure.name)
+                         elsif params[:proj_options]=='no'
+                            fusionchart_xml(return_data)
+                         end
+          }
     end
   end
 

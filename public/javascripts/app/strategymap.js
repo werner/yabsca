@@ -248,8 +248,7 @@ Ext.onReady(function() {
                text:lang.chartLabel,
                iconCls:"chart",
                handler:function(){
-                    fchart.type="FCF_Column3D.swf";
-                    fchart.win.show();
+                    general.graph_win.show();
                }        
         }]
     });

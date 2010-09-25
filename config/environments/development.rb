@@ -20,6 +20,8 @@ require 'treetop'
 require 'formula_node'
 require 'formula'
 require 'import'
+require 'general'
+require 'linear_regression'
 
 ActionController::Base.send(:include, Formula)
 ActionController::Base.send(:include, FormulaNode)

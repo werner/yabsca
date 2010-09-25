@@ -203,10 +203,28 @@ class ApplicationController < ActionController::Base
   end
   
   #methods to create the fusion charts xml data
+  def fusionchart_xml_proj(array,measure_name)
+    xml="<graph><categories>"
+    array.map {|item| xml+="<category name='#{item[:name]}' />" }
+    xml+="</categories>"
+
+    xml+="<dataset seriesname='#{measure_name}' showValues='0' >"
+    array.map {|item| xml+="<set value='#{item[:value]}' color='#{item[:color]}' />" }
+    xml+="</dataset>"
+
+    xml+="<dataset seriesName='#{t(:projection)}' parentYAxis='S' color='F6BD0F' anchorSides='10' anchorBorderColor='F6BD0F'>"
+
+    array.map do |item,previous|      
+      xml+="<set value='#{item[:proj_value]}' />"
+    end
+    xml+="</dataset>"
+    xml+="</graph>"
+  end
+
   def fusionchart_xml(array)
     xml="<graph>"
     array.map do |item|
-      xml+="<set name='#{item[:name]}' value='#{item[:value]}' color='#{item[:color]}' />"
+      xml+="<set name='#{item[:name]}' value='#{item[:value]}' color='#{item[:color]}' />" if item[:proj]=="no"
     end
     xml+="</graph>"
   end
