@@ -21,7 +21,9 @@ class TargetsController < ApplicationController
                                               params[:measure_id],params[:period]])
     parser=FormulaParser.new
     p=parser.parse(params[:formula])
+    p.measure_id=params[:measure_id]
     p.period=params[:period]
+
     if target.update_attributes({:achieved=>eval(p.code_value)})
       render :json => {:success => true}
     else

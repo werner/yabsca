@@ -72,7 +72,8 @@ class ApplicationController < ActionController::Base
   end
 
   def parse_excel(upload)
-    spread_sheet=ExcelImport.new 
+    spread_sheet=ExcelImport.new
+    #code period goal achieved 
     spread_sheet.file=upload
     spread_sheet.get_data
   end

@@ -52,6 +52,8 @@ class MeasuresController < ApplicationController
   #check the syntax of formula is ok
   def check_formula
     parser=FormulaParser.new
+
+    #if it's true then something is wrong
     result=(parser.parse(params[:formula]).nil? ? true : false)
 
     respond_to do |format|
@@ -140,5 +142,5 @@ class MeasuresController < ApplicationController
       format.json { render :json => {:success => true}}
     end
   end
-  
+
 end

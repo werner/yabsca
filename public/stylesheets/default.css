@@ -50,10 +50,16 @@
     border-style: groove;
 }
 
+#treecanvas{
+    width:800px;
+    height: 500px;
+    border-style: groove;
+}
+
 /******************************************************/
 .top-wrap {
     cursor: pointer;
-    width: 60px;
+    width: 25px;
 }
 
 .formula-selected {
@@ -69,14 +75,23 @@
 #squares{
     font-family: monospace;
     font-size: 12px;
-    border: 1px solid #bbb;
-    height: 50px;
-    text-align: center;
-    width: 50px;
-    padding: 0px 3px 0px 0px;
+    height: 20px;
+    width: 25px;
 }
+
 .open_bracket{
   background-image: url("../images/opened_bracket.png") !important;
+  background-repeat: no-repeat;
+  margin:0 auto;
+}
+
+.sum_all{
+  background-image: url("../images/sum_all.png") !important;
+  background-repeat: no-repeat;
+}
+
+.avg{
+  background-image: url("../images/avg.png") !important;
   background-repeat: no-repeat;
 }
 
@@ -86,22 +101,22 @@
 }
 
 .divide{
-  background-image: url("../images/divide.png") !important;
+  background-image: url("../images/divide.gif") !important;
   background-repeat: no-repeat;
 }
 
 .multiply{
-  background-image: url("../images/multiply.png") !important;
+  background-image: url("../images/multiply.gif") !important;
   background-repeat: no-repeat;
 }
 
 .subtract{
-  background-image: url("../images/minus.png") !important;
+  background-image: url("../images/minus.gif") !important;
   background-repeat: no-repeat;
 }
 
 .sum{
-  background-image: url("../images/sum1.png") !important;
+  background-image: url("../images/add.gif") !important;
   background-repeat: no-repeat;
 }
 

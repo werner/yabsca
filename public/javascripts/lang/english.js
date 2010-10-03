@@ -115,5 +115,6 @@ lang={
     fileName:'File Name',
     dataChartFormTitle:'Chart Data',
     projectionOption:'Projection?',
-    yesLabel:'Yes'
+    yesLabel:'Yes',
+    treeProcess:'Process Tree'
 }

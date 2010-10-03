@@ -146,41 +146,6 @@ module Formula
     r0
   end
 
-  def _nt_value
-    start_index = index
-    if node_cache[:value].has_key?(index)
-      cached = node_cache[:value][index]
-      if cached
-        cached = SyntaxNode.new(input, index...(index + 1)) if cached == true
-        @index = cached.interval.end
-      end
-      return cached
-    end
-
-    i0 = index
-    r1 = _nt_code
-    if r1
-      r0 = r1
-    else
-      r2 = _nt_float
-      if r2
-        r0 = r2
-      else
-        r3 = _nt_integer
-        if r3
-          r0 = r3
-        else
-          @index = i0
-          r0 = nil
-        end
-      end
-    end
-
-    node_cache[:value][start_index] = r0
-
-    r0
-  end
-
   def _nt_op
     start_index = index
     if node_cache[:op].has_key?(index)
@@ -233,14 +198,167 @@ module Formula
           if r4
             r0 = r4
           else
-            @index = i0
-            r0 = nil
+            r5 = _nt_sum_all
+            if r5
+              r0 = r5
+            else
+              r6 = _nt_average
+              if r6
+                r0 = r6
+              else
+                @index = i0
+                r0 = nil
+              end
+            end
           end
         end
       end
     end
 
     node_cache[:op][start_index] = r0
+
+    r0
+  end
+
+  module SumAll0
+    def code
+      elements[1]
+    end
+
+  end
+
+  def _nt_sum_all
+    start_index = index
+    if node_cache[:sum_all].has_key?(index)
+      cached = node_cache[:sum_all][index]
+      if cached
+        cached = SyntaxNode.new(input, index...(index + 1)) if cached == true
+        @index = cached.interval.end
+      end
+      return cached
+    end
+
+    i0, s0 = index, []
+    if has_terminal?('sum(', false, index)
+      r1 = instantiate_node(SyntaxNode,input, index...(index + 4))
+      @index += 4
+    else
+      terminal_parse_failure('sum(')
+      r1 = nil
+    end
+    s0 << r1
+    if r1
+      r2 = _nt_code
+      s0 << r2
+      if r2
+        if has_terminal?(')', false, index)
+          r3 = instantiate_node(SyntaxNode,input, index...(index + 1))
+          @index += 1
+        else
+          terminal_parse_failure(')')
+          r3 = nil
+        end
+        s0 << r3
+      end
+    end
+    if s0.last
+      r0 = instantiate_node(SyntaxNode,input, i0...index, s0)
+      r0.extend(SumAll0)
+    else
+      @index = i0
+      r0 = nil
+    end
+
+    node_cache[:sum_all][start_index] = r0
+
+    r0
+  end
+
+  module Average0
+    def code
+      elements[1]
+    end
+
+  end
+
+  def _nt_average
+    start_index = index
+    if node_cache[:average].has_key?(index)
+      cached = node_cache[:average][index]
+      if cached
+        cached = SyntaxNode.new(input, index...(index + 1)) if cached == true
+        @index = cached.interval.end
+      end
+      return cached
+    end
+
+    i0, s0 = index, []
+    if has_terminal?('average(', false, index)
+      r1 = instantiate_node(SyntaxNode,input, index...(index + 8))
+      @index += 8
+    else
+      terminal_parse_failure('average(')
+      r1 = nil
+    end
+    s0 << r1
+    if r1
+      r2 = _nt_code
+      s0 << r2
+      if r2
+        if has_terminal?(')', false, index)
+          r3 = instantiate_node(SyntaxNode,input, index...(index + 1))
+          @index += 1
+        else
+          terminal_parse_failure(')')
+          r3 = nil
+        end
+        s0 << r3
+      end
+    end
+    if s0.last
+      r0 = instantiate_node(SyntaxNode,input, i0...index, s0)
+      r0.extend(Average0)
+    else
+      @index = i0
+      r0 = nil
+    end
+
+    node_cache[:average][start_index] = r0
+
+    r0
+  end
+
+  def _nt_value
+    start_index = index
+    if node_cache[:value].has_key?(index)
+      cached = node_cache[:value][index]
+      if cached
+        cached = SyntaxNode.new(input, index...(index + 1)) if cached == true
+        @index = cached.interval.end
+      end
+      return cached
+    end
+
+    i0 = index
+    r1 = _nt_code
+    if r1
+      r0 = r1
+    else
+      r2 = _nt_float
+      if r2
+        r0 = r2
+      else
+        r3 = _nt_integer
+        if r3
+          r0 = r3
+        else
+          @index = i0
+          r0 = nil
+        end
+      end
+    end
+
+    node_cache[:value][start_index] = r0
 
     r0
   end
@@ -501,3 +619,4 @@ end
 class FormulaParser < Treetop::Runtime::CompiledParser
   include Formula
 end
+

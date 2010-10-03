@@ -115,5 +115,6 @@ lang={
     fileName:'Nombre de Archivo',
     dataChartFormTitle:'Datos para graficación',
     projectionOption:'¿Con proyección?',
-    yesLabel:'Si'
+    yesLabel:'Si',
+    treeProcess:'Árbol de Procesos'
 }

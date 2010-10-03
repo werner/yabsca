@@ -215,7 +215,20 @@ measure.menuMeasures=new Ext.menu.Menu({
                     Ext.Msg.alert("Error",lang.measureSelection);
 
            }
-       }]
+       },"-",{
+           text:lang.chartLabel,
+           iconCls:"chart",
+           handler:function(){
+                general.graph_win.show();
+           }        
+        },{
+           text:lang.treeProcess,
+           iconCls:"chart",
+           handler:function(){
+                window.showModalDialog("/"+locale+"/tree", lang.treeProcess,
+                            'dialogWidth:850px;dialogHeight:600px;resizable:no;toolbar:no;menubar:no;scrollbars:no;help: no');
+           }        
+    }]
 });
 
 measure.menuMovings=new Ext.menu.Menu({
@@ -278,13 +291,6 @@ measure.toolBar=new Ext.Toolbar({
        handler:function(){
             responsible.win.show();
        }
-    },"-",
-    {
-       text:lang.chartLabel,
-       iconCls:"chart",
-       handler:function(){
-            general.graph_win.show();
-       }        
     }]
 });
 
@@ -377,9 +383,8 @@ measure.formulaText=new Ext.form.TextArea({
 });
 
 measure.topData=[{id:1, name:"sum",value:"+"},{id:2, name:"subtract",value:"-"},
-    {id:3, name:"multiply",value:"*"},
-    {id:4, name:"divide",value:"/"},{id:5, name:"open_bracket",value:"("},
-    {id:6,name:"close_bracket",value:")"}]
+    {id:3, name:"multiply",value:"*"},{id:4, name:"divide",value:"/"},{id:5, name:"open_bracket",value:"("},
+    {id:6, name:"close_bracket",value:")"},{id:7, name:"sum_all",value:"sum"},{id:8, name:"avg",value:"average"}]
 
 measure.record = Ext.data.Record.create([{name: 'id'}, {name: 'name'}, {name: 'value'}]);
 
@@ -395,14 +400,16 @@ measure.topView=new Ext.DataView({
     cls: 'top-view',
     tpl: new Ext.XTemplate(
     '<table><tr><tpl for=".">',
-        '<td><div class="top-wrap"><div id="squares" class="{name}"></div></div></td>',
+        '<td><div class="top-wrap"><button type="button" id="squares" class="{name}" value="{value}"></button></div></div></td>',
     '</tpl></tr></table>'),
     selectedClass: 'formula-selected',
     singleSelect: true,
     overClass:'top-over',
     itemSelector:'div.top-wrap',
-    listeners: {
-        render: initializeDragZone
+    listeners:{
+        click:function(dataView,index,node,e){
+            measure.formulaText.setValue(measure.formulaText.getValue()+node.children[0].value);
+        }
     }
 });
 
@@ -497,25 +504,3 @@ measure.win_formula=new Ext.Window({
         }
     }
 });
-
-function initializeDragZone(v) {
-    v.dragZone = new Ext.dd.DragZone(v.getEl(), {
-        ddGroup: 'dataDDGroup',
-        getDragData: function(e) {
-            var sourceEl = e.getTarget(v.itemSelector, 10);
-            if (sourceEl) {
-                d = sourceEl.cloneNode(true);
-                d.id = Ext.id();
-                return v.dragData = {
-                    sourceEl: sourceEl,
-                    repairXY: Ext.fly(sourceEl).getXY(),
-                    ddel: d,
-                    patientData: v.getRecord(sourceEl).data
-                }
-            }
-        },
-        getRepairXY: function() {
-            return this.dragData.repairXY;
-        }
-    });
-}

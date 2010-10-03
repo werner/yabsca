@@ -239,7 +239,7 @@ general.graph_win=new Ext.Window({
                     "&proj_options="+general.graph_form.items.map.proj_options.getValue().inputValue;
 
             general.graph_win.hide();
-            window.showModalDialog("/chart?"+graph_data, "Gantt",
+            window.showModalDialog("/"+locale+"/chart?"+graph_data, "Chart",
                         'dialogWidth:850px;dialogHeight:600px;resizable:no;toolbar:no;menubar:no;scrollbars:no;help: no');
 
             general.graph_form.getForm().reset();
