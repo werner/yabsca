@@ -221,14 +221,14 @@ measure.menuMeasures=new Ext.menu.Menu({
            handler:function(){
                 general.graph_win.show();
            }        
-        },{
+        }/*,{
            text:lang.treeProcess,
            iconCls:"chart",
            handler:function(){
-                window.showModalDialog("/"+locale+"/tree", lang.treeProcess,
+                window.showModalDialog("/"+locale+"/tree?measure_id="+measure.id, lang.treeProcess,
                             'dialogWidth:850px;dialogHeight:600px;resizable:no;toolbar:no;menubar:no;scrollbars:no;help: no');
            }        
-    }]
+    }*/]
 });
 
 measure.menuMovings=new Ext.menu.Menu({

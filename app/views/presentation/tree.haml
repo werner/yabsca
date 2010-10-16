@@ -1,5 +1,8 @@
-#treecanvas
-= javascript_include_tag "raphael-min"
-= javascript_include_tag "wso2vis.ctrls"
+= javascript_tag "var measure_id = #{params[:measure_id]};"
+= javascript_include_tag('http://www.google.com/jsapi').sub('.js', '')
+= javascript_include_tag('http://www.google.com/uds/?file=visualization&v=1&packages=gauge').sub('.js', '')
+= javascript_include_tag "http://www.google.com/uds/api/visualization/1.0/d5d69cf3c3e0e8b63e9f2b015898bb93/default,gauge.I.js"
+= javascript_include_tag('http://www.google.com/uds/?file=visualization&v=1.0&packages=table').sub('.js', '')
+= javascript_include_tag "http://www.google.com/uds/api/visualization/1.0/efdb9398400374ac755c95e00e6250bc/default,table.I.js"
 = javascript_include_tag "app/tree"
-
+#treecanvas

@@ -1,21 +1,39 @@
-var r = Raphael("treecanvas", 800, 500);
+Ext.Ajax.request({
+    url:"/measures/"+measure_id+"/edit",
+    method:"GET",
+    params:{id: measure_id},
+    success:function(data){
+        var measure=JSON.parse(data.responseText);
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Label');
+            data.addColumn('number', 'Value');
+            data.addRows(1);
+            data.setValue(0, 0, measure.data["measure[name]"]);
+            data.setValue(0, 1, 80);
 
-g1 = new wso2vis.ctrls.CGauge()
-        .dialRadius(30)
-        .smallTick(2)
-        .largeTick(50)
-        .minVal(0)
-        .maxVal(100)
-        .ltlen(15) 
-        .stlen(5) 
-        .needleCenterRadius(1) 
-        .needleBottom(10) 
-        .labelOffset(10) 
-        .labelFontSize(10) 
-        .create(r, 50, 50);
+  var dataLabel = new google.visualization.DataTable();
+  dataLabel.addColumn('string', 'Department');
+  dataLabel.addColumn('number', 'Revenues');
+  dataLabel.addRows([
+    ['Shoes', 10700],
+    ['Sports', -15400],
+    ['Toys', 12500],
+    ['Electronics', -2100],
+    ['Food', 22600],
+    ['Art', 1100]
+  ]);
 
-lb1 = new wso2vis.ctrls.Label() 
-        .text("Measure") 
-        .fontsize(10) 
-        .create(r, 110, 50); 
+  var table = new google.visualization.Table(document.getElementById('colorformat_div'));
+  
+  table.draw(dataLabel, {allowHtml: true, showRowNumber: true});
 
+            var chart = new google.visualization.Gauge(document.getElementById('treecanvas'));
+            var options = {width: 400, height: 120, redFrom: 90, redTo: 100,
+                yellowFrom:75, yellowTo: 90, minorTicks: 5};
+
+            chart.draw(data, options);
+        }
+	drawChart();
+    }
+});
