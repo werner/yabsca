@@ -15,11 +15,9 @@ class MeasuresController < ApplicationController
 
     return_data=[]
     return_data=@measures.collect do |u|
-      avg=Target.average(:achieved,:conditions=>['measure_id=?',u.id])
-      goal=Target.average(:goal,:conditions=>['measure_id=?',u.id])
       {:id => u.id,
-       :text => u.name+(avg.nil? ? "" : " ("+sprintf("%.2f", goal)+"|"+sprintf("%.2f", avg)+") "),
-       :iconCls => (avg.nil? ? "measure" : get_light(goal,u,"measure",avg)),
+       :text => u.name+(u.avg.nil? ? "" : " ("+sprintf("%.2f", u.goal)+"|"+sprintf("%.2f", u.avg)+") "),
+       :iconCls => u.color,
        :leaf => true}
     end
 
@@ -141,6 +139,25 @@ class MeasuresController < ApplicationController
     respond_to do |format|
       format.json { render :json => {:success => true}}
     end
+  end
+
+  def get_measure_tree
+    measure=Measure.find(params[:id])
+    @tree={}
+    @tree[:children]=[]
+    build_tree(@tree[:children],[measure])
+    respond_to do |format|
+      format.json { render :json => @tree }
+    end
+  end
+
+  def build_tree(node,children)
+    children.each { |child|
+      tree={:name=>child.name,:color=>child.color}
+      tree[:children]=[]
+      build_tree(tree[:children],child.child_nodes)
+      node.push(tree)
+    }
   end
 
 end

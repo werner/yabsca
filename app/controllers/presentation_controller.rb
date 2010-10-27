@@ -9,23 +9,25 @@ class PresentationController < ApplicationController
       return_data=join_nodes_orgs(data)
     elsif params[:node].match(/src:orgs/)
       id=params[:node].sub(/src:orgs/,"").to_i
-      data=Organization.find_all_by_organization_id(id)
-      if data.empty?
-        roles=current_user.roles
+      data_orgs=Organization.find_all_by_organization_id(id)
 
-        unless roles.find_all_by_id(1).empty? # Admin Role
-          data=Strategy.find_all_by_organization_id(id)
-        else # Other Roles
-          strats=StrategyRule.find_all_by_role_id(roles)
-          data=strats.collect do |i|
-            Strategy.find_all_by_id(i.strategy_id,
-              :conditions=>["organization_id=?",id])
-          end.flatten
-        end
-        return_data=join_nodes_strat(data)
-      else
-        return_data=join_nodes_orgs(data)
+      # I got permissions for strategies not for organizations
+      roles=current_user.roles
+
+      unless roles.find_all_by_id(1).empty? # Admin Role
+        data=Strategy.find_all_by_organization_id(id)
+      else # Other Roles
+        strats=StrategyRule.find_all_by_role_id(roles)
+        data=strats.collect do |i|
+          Strategy.find_all_by_id(i.strategy_id,
+            :conditions=>["organization_id=?",id])
+        end.flatten
       end
+      strats=join_nodes_strat(data)
+      orgs=join_nodes_orgs(data_orgs)
+
+      #I've got strategies and organizations
+      return_data=strats+orgs
     end
     
     respond_to do |format|

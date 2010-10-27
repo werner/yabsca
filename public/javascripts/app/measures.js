@@ -221,7 +221,7 @@ measure.menuMeasures=new Ext.menu.Menu({
            handler:function(){
                 general.graph_win.show();
            }        
-        }/*,{
+        },/*{
            text:lang.treeProcess,
            iconCls:"chart",
            handler:function(){

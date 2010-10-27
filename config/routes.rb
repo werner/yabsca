@@ -34,6 +34,7 @@ ActionController::Routing::Routes.draw do |map|
   map.login "/login", :controller => "user_sessions", :action  => "new", :path_prefix => '/:locale'
   
   map.save_file '/upload_file', :controller => 'presentation', :action=>'upload_file'
+  map.get_measure_by_formula '/get_measure_tree', :controller => 'measures', :action => 'get_measure_tree'
 
   map.root :controller => "user_sessions", :action  => "new"
 
