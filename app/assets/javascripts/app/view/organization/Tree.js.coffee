@@ -1,0 +1,10 @@
+Ext.define 'YABSCA.view.organization.Tree',
+  extend: 'Ext.tree.Panel'
+  alias: 'widget.organization_tree'
+  initComponent: ->
+    Ext.apply this,
+      store: 'Organizations'
+      rootVisible: false
+      useArrows: true
+      frame: true
+    @callParent arguments
