@@ -5,7 +5,7 @@ class CreateOrganizations < ActiveRecord::Migration
       t.text :vision
       t.text :goal
       t.text :description
-      t.integer :organization_id
+      t.integer :organization_id, :default => 0
 
       t.timestamps
     end

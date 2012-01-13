@@ -21,6 +21,8 @@ gem 'jquery-rails'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'fuubar'
+  gem 'win32console'
 end
 
 gem 'devise'

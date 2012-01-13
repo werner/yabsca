@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
   def index
-    @organizations = Organization.all
+    @organizations = Organization.tree params[:node]
 
     respond_to do |format|
       format.html # index.html.erb

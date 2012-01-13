@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(:version => 20120111222016) do
     t.text     "vision"
     t.text     "goal"
     t.text     "description"
-    t.integer  "organization_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.integer  "organization_id", :default => 0
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
 end
