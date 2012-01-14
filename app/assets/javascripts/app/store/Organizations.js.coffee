@@ -1,6 +1,6 @@
 Ext.define 'YABSCA.store.Organizations',
   extend: 'Ext.data.TreeStore'
-  model: 'Organization'
+  model: 'Tree'
   autoLoad: true
   proxy:
     type: 'ajax'

@@ -5,7 +5,6 @@ class Organization < ActiveRecord::Base
   validates_presence_of :name
 
   #methods to show in the json result so the tree can consume them
-
   def self.tree(id_node)
     if id_node.eql? 'root'
       root
@@ -16,6 +15,8 @@ class Organization < ActiveRecord::Base
       }
     end
   end
+
+  private
 
   def self.root
     {:nodeType => 'async', :text => 'Organization', :draggable => 'false', :iconCls => 'orgs', :id => 'src:root', :iddb => 0}
@@ -29,6 +30,5 @@ class Organization < ActiveRecord::Base
       :type => 'organization', 
       :leaf => organization.organizations.empty? }
   end
-
   #--------------------------------------------------------------
 end
