@@ -1,6 +1,7 @@
 class Organization < ActiveRecord::Base
   belongs_to :organization
   has_many :organizations
+  has_many :strategies
 
   validates_presence_of :name
 
@@ -19,7 +20,7 @@ class Organization < ActiveRecord::Base
   private
 
   def self.root
-    {:nodeType => 'async', :text => 'Organization', :draggable => 'false', :iconCls => 'orgs', :id => 'src:root', :iddb => 0}
+    [{:nodeType => 'async', :text => 'Organization', :draggable => 'false', :iconCls => 'orgs', :id => 'src:root', :iddb => 0}]
   end
 
   def self.node(organization)
@@ -28,7 +29,7 @@ class Organization < ActiveRecord::Base
       :text => organization.name, 
       :iconCls => 'orgs', 
       :type => 'organization', 
-      :leaf => organization.organizations.empty? }
+      :leaf => (organization.organizations.empty? && organization.strategies.empty?) }
   end
   #--------------------------------------------------------------
 end

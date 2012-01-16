@@ -1,0 +1,347 @@
+.upload{
+  background-image: url("/assets/page_white_get.png") !important;
+  background-repeat: no-repeat;
+}
+
+.import{
+  background-image: url("/assets/import.png") !important;
+  background-repeat: no-repeat;
+}
+
+.calc{
+  background-image: url("/assets/calculator.png") !important;
+  background-repeat: no-repeat;
+}
+
+.go{
+  background-image: url("/assets/bullet_go.png") !important;
+  background-repeat: no-repeat;
+}
+
+.paste{
+  background-image: url("/assets/paste.png") !important;
+  background-repeat: no-repeat;
+}
+
+.link{
+  background-image: url("/assets/link.png") !important;
+  background-repeat: no-repeat;
+}
+
+.cut{
+  background-image: url("/assets/cut.png") !important;
+  background-repeat: no-repeat;
+}
+
+.copy{
+  background-image: url("/assets/copy.png") !important;
+  background-repeat: no-repeat;
+}
+
+/*****************************************************/
+#everybody{
+    float:left;
+}
+
+#drawcanvas{
+    margin-left: 400px;
+    width:800px;
+    height: 500px;
+    border-style: groove;
+}
+
+#treecanvas{
+    width:800px;
+    height: 500px;
+    border-style: groove;
+}
+
+/******************************************************/
+.top-wrap {
+    cursor: pointer;
+    width: 25px;
+}
+
+.formula-selected {
+    background-color: #DFE8F6;
+    cursor: pointer;
+}
+
+.top-over {
+    background-color:#EFEFEF;
+    cursor: pointer;
+}
+
+#squares{
+    font-family: monospace;
+    font-size: 12px;
+    height: 20px;
+    width: 25px;
+}
+
+.open_bracket{
+  background-image: url("/assets/opened_bracket.png") !important;
+  background-repeat: no-repeat;
+  margin:0 auto;
+}
+
+.sum_all{
+  background-image: url("/assets/sum_all.png") !important;
+  background-repeat: no-repeat;
+}
+
+.avg{
+  background-image: url("/assets/avg.png") !important;
+  background-repeat: no-repeat;
+}
+
+.close_bracket{
+  background-image: url("/assets/closed_bracket.png") !important;
+  background-repeat: no-repeat;
+}
+
+.divide{
+  background-image: url("/assets/divide.gif") !important;
+  background-repeat: no-repeat;
+}
+
+.multiply{
+  background-image: url("/assets/multiply.gif") !important;
+  background-repeat: no-repeat;
+}
+
+.subtract{
+  background-image: url("/assets/minus.gif") !important;
+  background-repeat: no-repeat;
+}
+
+.sum{
+  background-image: url("/assets/add.gif") !important;
+  background-repeat: no-repeat;
+}
+
+.line{
+  background-image: url("/assets/line.png") !important;
+  background-repeat: no-repeat;
+}
+
+.curve{
+  background-image: url("/assets/curve.png") !important;
+  background-repeat: no-repeat;
+}
+
+.ellipse{
+  background-image: url("/assets/ellipse.png") !important;
+  background-repeat: no-repeat;
+}
+
+.text{
+  background-image: url("/assets/textfield.png") !important;
+  background-repeat: no-repeat;
+}
+
+.erase{
+  background-image: url("/assets/erase.png") !important;
+  background-repeat: no-repeat;
+}
+/******************************************************/
+
+.formula-over {
+    background-color:#EFEFEF;
+    cursor: pointer;
+}
+.formula-selected {
+    background-color: #DFE8F6;
+    cursor: pointer;
+}
+
+.formula_icon{
+  background-image: url("/assets/sum.png") !important;
+  background-repeat: no-repeat;
+}
+
+.exit{
+  background-image: url("/assets/exit.png") !important;
+  background-repeat: no-repeat;
+  width: 16px;
+}
+
+.admin {
+  background-image: url("/assets/lock_open.png") !important;
+  background-repeat: no-repeat;
+  width: 16px;
+}
+
+.tablebutton{
+    float: right;
+}
+
+.map {
+  background-image: url("/assets/map.png") !important;
+  background-repeat: no-repeat;
+}
+
+.role {
+  background-image: url("/assets/role.png") !important;
+  background-repeat: no-repeat;
+}
+
+.user {
+  background-image: url("/assets/user.png") !important;
+  background-repeat: no-repeat;
+}
+
+.check {
+  background-image: url("/assets/tick.png") !important;
+  background-repeat: no-repeat;
+}
+
+.gantt {
+  background-image: url("/assets/shape_align_right.png") !important;
+  background-repeat: no-repeat;
+}
+
+.responsible {
+  background-image: url("/assets/user_suit.png") !important;
+  background-repeat: no-repeat;
+}
+
+.red {
+  background-image: url("/assets/red.png") !important;
+  background-repeat: no-repeat;
+}
+
+.yellow {
+  background-image: url("/assets/yellow.png") !important;
+  background-repeat: no-repeat;
+}
+
+.green {
+  background-image: url("/assets/green.png") !important;
+  background-repeat: no-repeat;
+}
+
+.chart {
+  background-image: url("/assets/chart_bar.png") !important;
+  background-repeat: no-repeat;
+}
+
+.saving {
+  background-image: url("/assets/save.gif") !important;
+  background-repeat: no-repeat;
+}
+
+.initiative{
+  background-image: url("/assets/star_gold.png") !important;
+  background-repeat: no-repeat;
+}
+
+.measure {
+  background-image: url("/assets/time_go.png") !important;
+  background-repeat: no-repeat;
+}
+
+.unit {
+  background-image: url("/assets/tag_blue.png") !important;
+  background-repeat: no-repeat;
+}
+
+.tools {
+  background-image: url("/assets/wrench.png") !important;
+  background-repeat: no-repeat;
+}
+
+.export{
+  background-image: url("/assets/book_go.png") !important;
+  background-repeat: no-repeat;
+}
+
+.save {
+  background-image: url("/assets/accept.png") !important;
+  background-repeat: no-repeat;
+}
+
+.close {
+  background-image: url("/assets/cancel.png") !important;
+  background-repeat: no-repeat;
+}
+
+.objs {
+  background-image: url("/assets/connect.gif") !important;
+  background-repeat: no-repeat;
+}
+
+.persp {
+  background-image: url("/assets/package.png") !important;
+  background-repeat: no-repeat;
+}
+
+.del {
+  background-image: url("/assets/delete.gif") !important;
+  background-repeat: no-repeat;
+}
+
+.edit {
+  background-image: url("/assets/edit.png") !important;
+  background-repeat: no-repeat;
+}
+
+.new {
+  background-image: url("/assets/add.gif") !important;
+  background-repeat: no-repeat;
+}
+
+.home {
+  background-image: url("/assets/home.png") !important;
+  background-repeat: no-repeat;
+  width:16px;
+}
+
+.orgs {
+  background-image: url("/assets/mail.png") !important;
+  background-repeat: no-repeat;
+}
+
+.strats {
+  background-image: url("/assets/plugin.gif") !important;
+  background-repeat: no-repeat;
+}
+
+#header{
+    padding-top: 2px;
+    padding-left: 10px;
+    background: url("/assets/bar.gif") repeat-x scroll 0 0;
+    color: white;
+    height: 28px;
+}
+
+#maintitle{
+    float: left;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    font-size:16px;
+    width: 600px;
+}
+
+#header a{
+    float: right;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    font-size:12px;
+    color: white;
+    margin-right: 8px;
+}
+
+body {
+    margin: 0;
+    padding: 0 0 20px;
+    min-height: 100%;
+    font-family: "Arial", "Helvetica", "Verdana", "sans-serif";
+    font-size: 12px;
+}
+
+/*for the buttons*/
+.container { width: 550px; margin: 0 auto; }
+.column { float: left; margin-right: 10px; }
+.span-3 { width: 110px; }
+.last { margin-right: 0; }

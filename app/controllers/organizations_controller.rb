@@ -1,51 +1,16 @@
-class OrganizationsController < ApplicationController
+class OrganizationsController < StandardController
+  def initialize
+    @model = Organization
+  end
+
   def index
-    @organizations = Organization.tree params[:node]
+    organizations = Organization.tree params[:node]
+    strategies = Strategy.tree params[:node]
+    result = organizations + strategies
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: { data: @organizations } }
-    end
-  end
-
-  def show
-    @organization = Organization.find(params[:id])
-
-    respond_to do |format|
-      format.json { render json: { success: true, data: @organization } }
-    end
-  end
-
-  def create
-    @organization = Organization.new(params[:organization])
-
-    respond_to do |format|
-      if @organization.save
-        format.json { render json: { success: true, data: @organization } }
-      else
-        format.json { render json: { success: false, data: @organization.errors } }
-      end
-    end
-  end
-
-  def update
-    @organization = Organization.find(params[:id])
-
-    respond_to do |format|
-      if @organization.update_attributes(params[:organization])
-        format.json { render json: { success: true, data: @organization } }
-      else
-        format.json { render json: { success: false, data: @organization.errors } }
-      end
-    end
-  end
-
-  def destroy
-    @organization = Organization.find(params[:id])
-    @organization.destroy
-
-    respond_to do |format|
-      format.json { render json: { success: true } }
+      format.json { render json: { data: result } }
     end
   end
 end
