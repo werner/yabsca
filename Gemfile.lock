@@ -31,6 +31,8 @@ GEM
     arel (3.0.0.rc1)
     bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.0)
+    childprocess (0.3.0)
+      ffi (~> 1.0.6)
     coffee-rails (3.2.1)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0.beta)
@@ -47,12 +49,22 @@ GEM
     erubis (2.7.0)
     execjs (1.2.13)
       multi_json (~> 1.0)
+    ffi (1.0.11)
     fuubar (0.0.6)
       rspec (~> 2.0)
       rspec-instafail (~> 0.1.8)
       ruby-progressbar (~> 0.0.10)
+    haml (3.1.4)
     hike (1.2.1)
     i18n (0.6.0)
+    jasmine (1.1.2)
+      jasmine-core (>= 1.1.0)
+      rack (>= 1.1)
+      rspec (>= 1.3.1)
+      selenium-webdriver (>= 0.1.3)
+    jasmine-core (1.1.0)
+    jasminerice (0.0.8)
+      haml
     journey (1.0.0.rc4)
     jquery-rails (2.0.0)
       railties (>= 3.2.0.beta, < 5.0)
@@ -106,11 +118,17 @@ GEM
       railties (>= 3.0)
       rspec (~> 2.8.0)
     ruby-progressbar (0.0.10)
+    rubyzip (0.9.5)
     sass (3.1.12)
     sass-rails (3.2.3)
       railties (~> 3.2.0.beta)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    selenium-webdriver (2.17.0)
+      childprocess (>= 0.2.5)
+      ffi (~> 1.0.9)
+      multi_json (~> 1.0.4)
+      rubyzip
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -137,6 +155,8 @@ DEPENDENCIES
   declarative_authorization
   devise
   fuubar
+  jasmine
+  jasminerice
   jquery-rails
   rails (= 3.2.0.rc2)
   rspec-rails

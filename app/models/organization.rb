@@ -20,7 +20,7 @@ class Organization < ActiveRecord::Base
   private
 
   def self.root
-    [{:nodeType => 'async', :text => 'Organization', :draggable => 'false', :iconCls => 'orgs', :id => 'src:root', :iddb => 0}]
+    [{:nodeType => 'async', :text => 'Organizations', :draggable => 'false', :iconCls => 'orgs', :id => 'src:root', :iddb => 0}]
   end
 
   def self.node(organization)

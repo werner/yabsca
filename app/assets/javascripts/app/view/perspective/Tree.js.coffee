@@ -1,0 +1,10 @@
+Ext.define 'YABSCA.view.perspective.Tree',
+  extend: 'Ext.tree.Panel'
+  alias: 'widget.perspective_tree'
+  initComponent: ->
+    Ext.apply this,
+      store: 'Perspectives'
+      rootVisible: false
+      useArrows: true
+      frame: true
+    @callParent arguments

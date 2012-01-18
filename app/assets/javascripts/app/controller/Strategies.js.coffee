@@ -2,10 +2,12 @@ Ext.define 'YABSCA.controller.Strategies',
   extend: 'Ext.app.Controller'
   stores: ['Organizations']
   models: ['Strategy']
-  views: ['organization.Tree', 'organization.Menu', 'organization.Form']
-  requires: ['YABSCA.lib.StandardActions']
+  views: ['strategy.Form']
+  requires: ['YABSCA.lib.TreeStandardActions']
   mainForm: 'YABSCA.view.strategy.Form'
   mainModel: 'YABSCA.model.Strategy'
+  mainMenu: 'organization_menu'
+  nodeType: 'strats'
   mainStore: ->
     @getOrganizationsStore()
   init: ->
@@ -13,11 +15,11 @@ Ext.define 'YABSCA.controller.Strategies',
       'organization_menu component[action=new_strategy]':
         click: @addStrategy
       'organization_menu component[action=edit_strategy]':
-        click: @editStrategy
+        click: YABSCA.lib.TreeStandardActions.editRecord
       'organization_menu component[action=delete_strategy]':
-        click: @deleteStrategy
+        click: YABSCA.lib.TreeStandardActions.deleteRecord
       'strategy_form button[action=save]':
-        click: @saveStrategy
+        click: YABSCA.lib.TreeStandardActions.saveRecord
     )
   addStrategy: (item) ->
     window = Ext.create @mainForm
@@ -28,20 +30,3 @@ Ext.define 'YABSCA.controller.Strategies',
         node_id: menu.node_id
         organization_id: menu.iddb
     window.show()
-  editStrategy: (item) ->
-    menu = Ext.ComponentQuery.query('organization_menu')[0]
-    id = menu.iddb
-    me = this
-    if menu.node_id.match(/strats/)
-      Ext.ModelManager.getModel(me.mainModel).load id,
-        success: (record) ->
-          window = Ext.create me.mainForm
-          window.show()
-          record.raw.data.node_id = menu.node_id
-          window.down('form').loadRecord record.raw
-  deleteStrategy: (item) ->
-    menu = Ext.ComponentQuery.query('organization_menu')[0]
-    if menu.node_id.match(/strats/)
-      YABSCA.lib.StandardActions.deleteRecord menu.iddb, @mainModel, @getOrganizationsStore(), menu, true
-  saveStrategy: (button) ->
-    YABSCA.lib.StandardActions.saveRecord button, @mainModel, @getOrganizationsStore(), true

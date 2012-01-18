@@ -17,11 +17,11 @@ describe Organization do
   describe "organizations and strategies" do
 
     before do
-       org = Organization.create!(id: 1, name: "Test1")                         
+       organization = Organization.create!(id: 1, name: "Test1")                         
        Organization.create!(id: 2, name: "Test2")
-       Organization.create!(id: 3, name: "Test3", organization_id: org.id )
-       Strategy.create!(id: 1, name: "StratTest1", description: "a description", organization_id: org.id)
-       Strategy.create!(id: 2, name: "StratTest2", description: "another description", organization_id: org.id)
+       Organization.create!(id: 3, name: "Test3", organization_id: organization.id )
+       Strategy.create!(id: 1, name: "StratTest1", description: "a description", organization_id: organization.id)
+       Strategy.create!(id: 2, name: "StratTest2", description: "another description", organization_id: organization.id)
     end
 
     it "should output json format to organization nodes" do

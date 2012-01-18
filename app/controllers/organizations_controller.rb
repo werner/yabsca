@@ -9,7 +9,6 @@ class OrganizationsController < StandardController
     result = organizations + strategies
 
     respond_to do |format|
-      format.html # index.html.erb
       format.json { render json: { data: result } }
     end
   end

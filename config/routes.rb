@@ -1,6 +1,8 @@
 Yabsca32::Application.routes.draw do
   resources :organizations
   resources :strategies
+  resources :perspectives
+  resources :objectives
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

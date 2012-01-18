@@ -3,9 +3,11 @@ Ext.define 'YABSCA.controller.Organizations',
   stores: ['Organizations']
   models: ['Organization', 'Tree']
   views: ['organization.Tree', 'organization.Menu', 'organization.Form']
-  requires: ['YABSCA.lib.StandardActions']
+  requires: ['YABSCA.lib.TreeStandardActions']
   mainForm: 'YABSCA.view.organization.Form'
   mainModel: 'YABSCA.model.Organization'
+  mainMenu: 'organization_menu'
+  nodeType: 'orgs'
   mainStore: ->
     @getOrganizationsStore()
   init: ->
@@ -13,18 +15,18 @@ Ext.define 'YABSCA.controller.Organizations',
       'treepanel':
         itemcontextmenu: @showMenu
       'organization_menu':
-        hide: YABSCA.lib.StandardActions.closeMenu
+        hide: YABSCA.lib.TreeStandardActions.closeMenu
       'organization_menu component[action=new_organization]':
         click: @addOrganization
       'organization_menu component[action=edit_organization]':
-        click: @editOrganization
+        click: YABSCA.lib.TreeStandardActions.editRecord
       'organization_menu component[action=delete_organization]':
-        click: @deleteOrganization
+        click: YABSCA.lib.TreeStandardActions.deleteRecord
       'organization_form button[action=save]':
-        click: @saveOrganization
+        click: YABSCA.lib.TreeStandardActions.saveRecord
     )
   showMenu: (view, record, item, index, e) ->
-    contextMenu = YABSCA.lib.StandardActions.showMenu view, record, item, index, e, 'YABSCA.view.organization.Menu'
+    contextMenu = YABSCA.lib.TreeStandardActions.showMenu view, record, item, index, e, 'YABSCA.view.organization.Menu'
     node_id = record.raw.id
     #hide delete and edit when the node selected is root
     if node_id is 'src:root'
@@ -40,21 +42,3 @@ Ext.define 'YABSCA.controller.Organizations',
         node_id: menu.node_id
         organization_id: menu.iddb
     window.show()
-  editOrganization: (item) ->
-    menu = Ext.ComponentQuery.query('organization_menu')[0]
-    id = menu.iddb
-    me = this
-    if menu.node_id.match(/orgs/)
-      #load a record from the Model and shows it on the form
-      Ext.ModelManager.getModel(me.mainModel).load id,
-        success: (record) ->
-          window = Ext.create me.mainForm
-          window.show()
-          record.raw.data.node_id = menu.node_id
-          window.down('form').loadRecord record.raw
-  deleteOrganization: (item) ->
-    menu = Ext.ComponentQuery.query('organization_menu')[0]
-    if menu.node_id.match(/orgs/)
-      YABSCA.lib.StandardActions.deleteRecord menu.iddb, @mainModel, @getOrganizationsStore(), menu, true
-  saveOrganization: (button) ->
-    YABSCA.lib.StandardActions.saveRecord button, @mainModel, @getOrganizationsStore(), true

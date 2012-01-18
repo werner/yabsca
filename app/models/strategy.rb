@@ -1,5 +1,6 @@
 class Strategy < ActiveRecord::Base
   belongs_to :organization
+  has_many :perspectives
 
   validates_presence_of :name
 
@@ -18,7 +19,8 @@ class Strategy < ActiveRecord::Base
       :text => strategy.name,
       :iconCls => 'strats',
       :type => 'strategy',
-      :leaf => true
+      :leaf => strategy.perspectives.empty?
     }
   end
+
 end

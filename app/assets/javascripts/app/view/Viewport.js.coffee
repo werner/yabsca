@@ -19,12 +19,15 @@ Ext.define 'YABSCA.view.Viewport',
           title: 'Organizations'
           width: 300
           layout: 'fit'
-          items: [
+          items:
             xtype: 'organization_tree'
-          ]
         ,
           region: 'center'
+          title: 'Perspectives'
           width: 200
+          layout: 'fit'
+          items:
+            xtype: 'perspective_tree'
         ]
       ]
 
