@@ -19,7 +19,7 @@ class Strategy < ActiveRecord::Base
       :text => strategy.name,
       :iconCls => 'strats',
       :type => 'strategy',
-      :leaf => strategy.perspectives.empty?
+      :leaf => true 
     }
   end
 

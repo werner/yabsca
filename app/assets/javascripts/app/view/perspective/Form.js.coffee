@@ -2,7 +2,7 @@ Ext.define 'YABSCA.view.perspective.Form',
   extend: 'Ext.window.Window'
   alias: 'widget.perspective_form'
   requires: ['Ext.form.Panel']
-  height: 350
+  height: 150
   width: 400
   closeAction: 'hide'
   title: 'Perspective'

@@ -5,21 +5,18 @@ class Perspective < ActiveRecord::Base
   validates_presence_of :name
 
   def self.tree(id_node)
-    if id_node.eql? 'root'
-      root
-    else
+    if id_node.match(/src:strats/) or id_node.match(/src:root+\d+/)
       id = id_node.sub(/src:strats/,"").to_i
-      find_all_by_strategy_id(id).collect { |perspective|
+      id = id_node.sub(/src:root/,"").to_i if id == 0
+      where(:strategy_id => id).collect { |perspective|
         node perspective
       }
+    else
+      []
     end
   end
 
   private 
-
-  def self.root
-    [{:nodeType => 'async', :text => 'Perspectives', :draggable => 'false', :iconCls => 'persp', :id => 'src:root', :iddb => 0}]
-  end
 
   def self.node(perspective)
     { :id => 'src:persp' + perspective.id.to_s,

@@ -4,7 +4,6 @@ Ext.define 'YABSCA.view.organization.Tree',
   initComponent: ->
     Ext.apply this,
       store: 'Organizations'
-      rootVisible: false
       useArrows: true
       frame: true
     @callParent arguments

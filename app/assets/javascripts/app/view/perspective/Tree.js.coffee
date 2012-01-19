@@ -4,7 +4,6 @@ Ext.define 'YABSCA.view.perspective.Tree',
   initComponent: ->
     Ext.apply this,
       store: 'Perspectives'
-      rootVisible: false
       useArrows: true
       frame: true
     @callParent arguments

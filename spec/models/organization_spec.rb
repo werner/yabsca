@@ -2,18 +2,6 @@ require 'spec_helper'
 
 describe Organization do
 
-  describe "root" do
-
-    it "should output json format" do
-      tree = [{:nodeType => 'async', :text => 'Organization', :draggable => 'false', 
-              :iconCls => 'orgs', :id => 'src:root', :iddb => 0}] 
-
-      result = Organization.tree('root') + Strategy.tree('root')
-      result.should eq(tree)
-    end
-
-  end
-
   describe "organizations and strategies" do
 
     before do

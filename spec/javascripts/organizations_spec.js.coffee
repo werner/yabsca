@@ -6,6 +6,7 @@ Ext.onReady ->
     beforeEach ->
       if not controller
         controller = Application.getController('Organizations')
+        console.log controller
 
       if not store
         store = controller.getStore('Organizations')

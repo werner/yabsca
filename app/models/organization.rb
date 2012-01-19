@@ -7,21 +7,13 @@ class Organization < ActiveRecord::Base
 
   #methods to show in the json result so the tree can consume them
   def self.tree(id_node)
-    if id_node.eql? 'root'
-      root
-    else
-      id = id_node.sub(/src:orgs/,"").to_i
-      find_all_by_organization_id(id).collect { |organization|
-        node organization
-      }
-    end
+    id = id_node.sub(/src:orgs/,"").to_i
+    find_all_by_organization_id(id).collect { |organization|
+      node organization
+    }
   end
 
   private
-
-  def self.root
-    [{:nodeType => 'async', :text => 'Organizations', :draggable => 'false', :iconCls => 'orgs', :id => 'src:root', :iddb => 0}]
-  end
 
   def self.node(organization)
     { :id => 'src:orgs' + organization.id.to_s, 

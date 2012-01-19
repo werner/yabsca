@@ -3,12 +3,17 @@ Ext.define 'YABSCA.lib.TreeStandardActions',
   mainStore: ''
   mainForm: ''
   mainModel: ''
+  mainTree: ''
   showMenu: (view, record, item, index, e, menu) ->
     e.preventDefault() #cancel normal browser behaviour at double click
-    id = record.raw.iddb
     contextMenu = Ext.create menu #creates a new menu
+    if record.raw is undefined
+      id = record.data.iddb
+      contextMenu.node_id = record.data.id
+    else
+      id = record.raw.iddb
+      contextMenu.node_id = record.raw.id
     contextMenu.iddb = id #gets the id from record and save it to the menu iddb property
-    contextMenu.node_id = record.raw.id
     contextMenu.showAt e.getXY() #shows the menu at mouse cursor point
     contextMenu
   closeMenu: (menu) ->
@@ -30,6 +35,7 @@ Ext.define 'YABSCA.lib.TreeStandardActions',
     menu = Ext.ComponentQuery.query(@mainMenu)[0]
     store = @mainStore()
     model = @mainModel
+    tree = Ext.ComponentQuery.query(@mainTree)[0]
     if menu.node_id.match(@nodeType)
       Ext.MessageBox.confirm 'Delete', 'Are you sure?', (button) ->
         if button is "yes"
@@ -38,18 +44,20 @@ Ext.define 'YABSCA.lib.TreeStandardActions',
             success: (record) ->
               record.data = record.raw.data
               record.destroy()
-              me.refreshTree(menu.node_id, store)
+              me.refreshTree(menu.node_id, store, tree)
   saveRecord: (button) ->
     me = YABSCA.lib.TreeStandardActions
     store = @mainStore()
+    tree = Ext.ComponentQuery.query(@mainTree)[0]
     #save data from the form
     record = Ext.create(@mainModel, button.up('window').down('form').getValues())
     record.save
       success: ->
-        me.refreshTree(button.up('window').down('form').getValues().node_id, store)
+        me.refreshTree(button.up('window').down('form').getValues().node_id, store, tree)
         button.up('window').destroy()
-  refreshTree: (node_id, store) ->
+  refreshTree: (node_id, store, tree) ->
     #reload the tree node
-    tree = Ext.ComponentQuery.query('treepanel')[0]
     store.load
-      node: tree.getStore().getNodeById(node_id).parentNode
+      params:
+        node: tree.getStore().getNodeById(node_id).parentNode
+        node_id: tree.getRootNode().data.node_id

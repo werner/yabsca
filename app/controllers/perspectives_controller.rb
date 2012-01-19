@@ -1,10 +1,11 @@
-class PerspectivesController < ApplicationController
+class PerspectivesController < StandardController
   def initialize
     @model = Perspective
   end
 
   def index
-    perspectives = Perspective.tree params[:node]
+    params[:node_id] = params[:node] if params[:node_id].nil?
+    perspectives = Perspective.tree params[:node_id]
     objectives = Objective.tree params[:node]
     result = perspectives + objectives
 

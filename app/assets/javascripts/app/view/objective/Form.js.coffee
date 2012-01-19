@@ -2,7 +2,7 @@ Ext.define 'YABSCA.view.objective.Form',
   extend: 'Ext.window.Window'
   alias: 'widget.objective_form'
   requires: ['Ext.form.Panel']
-  height: 250
+  height: 150
   width: 400
   closeAction: 'hide'
   title: 'Objective'
