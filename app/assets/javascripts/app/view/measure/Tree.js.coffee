@@ -1,0 +1,9 @@
+Ext.define 'YABSCA.view.measure.Tree',
+  extend: 'Ext.tree.Panel'
+  alias: 'widget.measure_tree'
+  initComponent: ->
+    Ext.apply this,
+      store: 'Measures'
+      useArrows: true
+      frame: true
+    @callParent arguments

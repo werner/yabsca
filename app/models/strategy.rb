@@ -6,7 +6,7 @@ class Strategy < ActiveRecord::Base
 
   def self.tree(id_node)
     id = id_node.sub(/src:orgs/,"").to_i
-    find_all_by_organization_id(id).collect { |strategy|
+    where(:organization_id => id).collect { |strategy|
       node strategy
     }
   end

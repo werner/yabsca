@@ -2,7 +2,9 @@ class Objective < ActiveRecord::Base
   belongs_to :perspectives
   belongs_to :objective
   has_many :objectives
-
+  has_many :initiatives
+  has_and_belongs_to_many :measures
+  
   def self.tree(id_node)
     node_collects = lambda { |node_id, field|
       id = id_node.sub(node_id,"").to_i        

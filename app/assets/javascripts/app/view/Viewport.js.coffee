@@ -11,23 +11,31 @@ Ext.define 'YABSCA.view.Viewport',
         title: 'Balanced ScoreCard Application'
         layout: 'border'
         items: [
-          region: 'north'
-          xtype: 'box'
-          height: 27
-        ,
           region: 'west'
-          title: 'Organizations'
+          title: 'Organizations and Strategies'
           width: 300
           layout: 'fit'
           items:
             xtype: 'organization_tree'
         ,
           region: 'center'
-          title: 'Perspectives'
+          title: 'Perspectives and Objectives'
           width: 200
-          layout: 'fit'
-          items:
-            xtype: 'perspective_tree'
+          layout: 'border'
+          split: true
+          items: [
+            region: 'north'
+            layout: 'fit'
+            height: 300
+            items:
+              xtype: 'perspective_tree'
+          ,
+            region: 'center'
+            title: 'Measures'
+            layout: 'fit'
+            items:
+              xtype: 'measure_tree'
+          ]
         ]
       ]
 

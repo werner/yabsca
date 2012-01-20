@@ -28,6 +28,7 @@ end
 gem 'devise'
 gem 'declarative_authorization'
 
+gem 'ruby-debug19'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -41,4 +42,4 @@ gem 'declarative_authorization'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+

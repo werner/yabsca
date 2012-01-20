@@ -11,7 +11,44 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120117200642) do
+ActiveRecord::Schema.define(:version => 20120119204045) do
+
+  create_table "initiatives", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.float    "completed"
+    t.date     "beginning"
+    t.date     "end"
+    t.integer  "objective_id"
+    t.integer  "initiative_id"
+    t.integer  "responsible_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "measures", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "challenge"
+    t.float    "excellent"
+    t.float    "alert"
+    t.integer  "frecuency"
+    t.date     "period_from"
+    t.date     "period_to"
+    t.integer  "unit_id"
+    t.integer  "responsible_id"
+    t.string   "formula"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "measures_objectives", :id => false, :force => true do |t|
+    t.integer "measure_id"
+    t.integer "objective_id"
+  end
+
+  add_index "measures_objectives", ["measure_id", "objective_id"], :name => "index_measures_objectives_on_measure_id_and_objective_id", :unique => true
 
   create_table "objectives", :force => true do |t|
     t.string   "name"

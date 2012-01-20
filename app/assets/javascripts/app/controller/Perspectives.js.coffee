@@ -1,6 +1,6 @@
 Ext.define 'YABSCA.controller.Perspectives',
   extend: 'Ext.app.Controller'
-  stores: ['Perspectives']
+  stores: ['Perspectives', 'Measures']
   models: ['Perspective']
   views: ['perspective.Tree', 'perspective.Menu', 'perspective.Form']
   requires: ['YABSCA.lib.TreeStandardActions']
@@ -15,6 +15,7 @@ Ext.define 'YABSCA.controller.Perspectives',
     @control(
       'perspective_tree':
         itemcontextmenu: @showMenu
+        itemclick: @itemTreeClick
       'perspective_menu':
         hide: YABSCA.lib.TreeStandardActions.closeMenu
       'perspective_menu component[action=new_perspective]':
@@ -46,6 +47,24 @@ Ext.define 'YABSCA.controller.Perspectives',
         e.preventDefault()
     else
       e.preventDefault()
+  itemTreeClick: (view, record, item, index, e) ->
+    if record.raw?
+      node_id = record.raw.id
+      id = record.raw.iddb
+    else
+      node_id = record.data.id
+      id = record.data.iddb
+    Ext.ComponentQuery.query('measure_tree')[0].setRootNode
+      text: 'Measures'
+      id: 'src:root'
+      node_id: 'src:root' + id
+      expanded: true
+      draggable: false
+      iconCls: 'measure'
+      iddb: 0
+    @getMeasuresStore().load
+      params:
+        node_id: node_id
   addPerspective: (item) ->
     window = Ext.create @mainForm
     menu = Ext.ComponentQuery.query('perspective_menu')[0]
