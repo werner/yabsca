@@ -143,6 +143,7 @@ GEM
       ffi (~> 1.0.9)
       multi_json (~> 1.0.4)
       rubyzip
+    settingslogic (2.0.8)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -176,6 +177,7 @@ DEPENDENCIES
   rspec-rails
   ruby-debug19
   sass-rails (~> 3.2.3)
+  settingslogic
   sqlite3
   uglifier (>= 1.0.3)
   win32console

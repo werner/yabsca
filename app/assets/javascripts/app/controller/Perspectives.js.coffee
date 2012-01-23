@@ -28,9 +28,11 @@ Ext.define 'YABSCA.controller.Perspectives',
         click: YABSCA.lib.TreeStandardActions.saveRecord
     )
   showMenu: (view, record, item, index, e) ->
+    #get the node from organization_tree
     selected_node = Ext.ComponentQuery.query('organization_tree')[0].getSelectionModel().getSelection()[0]
     if selected_node?
       org_node_id = selected_node.internalId
+      #Shows menu only if it is an strategy
       if org_node_id.match(/src:strats/)
         contextMenu = YABSCA.lib.TreeStandardActions.showMenu view, record, item, index, e, 'YABSCA.view.perspective.Menu'
         node_id = record.data.id
@@ -48,12 +50,14 @@ Ext.define 'YABSCA.controller.Perspectives',
     else
       e.preventDefault()
   itemTreeClick: (view, record, item, index, e) ->
+    #Load id on root
     if record.raw?
       node_id = record.raw.id
       id = record.raw.iddb
     else
       node_id = record.data.id
       id = record.data.iddb
+    #Load the root in measures so it knows it is an objective
     Ext.ComponentQuery.query('measure_tree')[0].setRootNode
       text: 'Measures'
       id: 'src:root'

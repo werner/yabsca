@@ -297,6 +297,11 @@
   width:16px;
 }
 
+.back {
+  background-image: url("/assets/back.png") !important;
+  background-repeat: no-repeat;
+}
+
 .orgs {
   background-image: url("/assets/mail.png") !important;
   background-repeat: no-repeat;

@@ -10,6 +10,23 @@ Ext.define 'YABSCA.view.Viewport',
         id: 'viewport'
         title: 'Balanced ScoreCard Application'
         layout: 'border'
+        tbar: [
+          xtype: 'button'
+          text: 'Settings'
+          iconCls: 'tools'
+          width: 100
+          menu:
+            xtype: 'menu'
+            items: [
+              text: 'Units'
+              iconCls: 'unit'
+              action: 'units'
+            ,
+              text: 'Responsibles'
+              iconCls: 'responsible'
+              action: 'responsibles'
+            ]
+        ]
         items: [
           region: 'west'
           title: 'Organizations and Strategies'

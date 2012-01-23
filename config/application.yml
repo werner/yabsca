@@ -1,0 +1,23 @@
+defaults: &defaults
+  frecuency:
+    daily: 1
+    bimonthly: 2
+    three_monthly: 3
+    four_monthly: 4
+    monthly: 5
+    weekly: 6
+    yearly: 7
+  challenge:
+    increasing: 1
+    decreasing: 2
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+
+    
