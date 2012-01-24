@@ -2,6 +2,7 @@ class Measure < ActiveRecord::Base
   has_and_belongs_to_many :objectives
   belongs_to :unit
   belongs_to :responsible
+  has_many :targets
 
   validates_presence_of :name
   validates_uniqueness_of :code

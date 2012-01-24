@@ -29,29 +29,42 @@ Ext.define 'YABSCA.view.Viewport',
         ]
         items: [
           region: 'west'
-          title: 'Organizations and Strategies'
           width: 300
           layout: 'fit'
+          border: false
           items:
             xtype: 'organization_tree'
+            title: 'Organizations and Strategies'
+            border: false
         ,
           region: 'center'
-          title: 'Perspectives and Objectives'
           width: 200
           layout: 'border'
+          border: false
           split: true
           items: [
             region: 'north'
-            layout: 'fit'
+            layout: 'border'
+            border: false
             height: 300
-            items:
+            items: [
               xtype: 'perspective_tree'
+              region: 'west'
+              title: 'Perspectives and Objectives'
+              flex: 1
+            ,
+              xtype: 'initiative_tree'
+              region: 'center'
+              title: 'Initiatives'
+              flex: 1
+            ]
           ,
             region: 'center'
-            title: 'Measures'
             layout: 'fit'
+            border: false
             items:
               xtype: 'measure_tree'
+              title: 'Measures'
           ]
         ]
       ]

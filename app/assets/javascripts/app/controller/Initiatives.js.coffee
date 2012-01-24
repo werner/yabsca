@@ -1,29 +1,29 @@
-Ext.define 'YABSCA.controller.Measures',
+Ext.define 'YABSCA.controller.Initiatives',
   extend: 'Ext.app.Controller'
-  stores: ['Measures']
-  models: ['Measure', 'Tree']
-  views: ['measure.Tree', 'measure.Menu']
+  stores: ['Initiatives']
+  models: ['Initiative', 'Tree']
+  views: ['initiative.Tree', 'initiative.Menu']
   requires: ['YABSCA.lib.TreeStandardActions']
-  mainForm: 'YABSCA.view.measure.Form'
-  mainModel: 'YABSCA.model.Measure'
-  mainMenu: 'measure_menu'
-  mainTree: 'measure_tree'
-  nodeType: 'measure'
+  mainForm: 'YABSCA.view.initiative.Form'
+  mainModel: 'YABSCA.model.Initiative'
+  mainMenu: 'initiative_menu'
+  mainTree: 'initiative_tree'
+  nodeType: 'initiative'
   mainStore: ->
-    @getMeasuresStore()
+    @getInitiativesStore()
   init: ->
     @control(
-      'measure_tree':
+      'initiative_tree':
         itemcontextmenu: @showMenu
-      'measure_menu':
+      'initiative_menu':
         hide: YABSCA.lib.TreeStandardActions.closeMenu
-      'measure_menu component[action=new_measure]':
-        click: @addMeasure
-      'measure_menu component[action=edit_measure]':
+      'initiative_menu component[action=new_initiative]':
+        click: @addInitiative
+      'initiative_menu component[action=edit_initiative]':
         click: YABSCA.lib.TreeStandardActions.editRecord
-      'measure_menu component[action=delete_measure]':
+      'initiative_menu component[action=delete_initiative]':
         click: YABSCA.lib.TreeStandardActions.deleteRecord
-      'measure_form button[action=save]':
+      'initiative_form button[action=save]':
         click: YABSCA.lib.TreeStandardActions.saveRecord
     )
   showMenu: (view, record, item, index, e) ->
@@ -31,26 +31,26 @@ Ext.define 'YABSCA.controller.Measures',
     if selected_node?
       org_node_id = selected_node.internalId
       if org_node_id.match(/src:objs/)
-        contextMenu = YABSCA.lib.TreeStandardActions.showMenu view, record, item, index, e, 'YABSCA.view.measure.Menu'
+        contextMenu = YABSCA.lib.TreeStandardActions.showMenu view, record, item, index, e, 'YABSCA.view.initiative.Menu'
         if record.raw?
           node_id = record.raw.id
         else
           node_id = record.data.id
         #hide delete and edit when the node selected is root
         if node_id is 'src:root'
-          contextMenu.down('#edit_measure').hide()
-          contextMenu.down('#delete_measure').hide()
+          contextMenu.down('#edit_initiative').hide()
+          contextMenu.down('#delete_initiative').hide()
       else
         e.preventDefault()
     else
       e.preventDefault()
-  addMeasure: (item) ->
+  addInitiative: (item) ->
     window = Ext.create @mainForm
-    menu = Ext.ComponentQuery.query('measure_menu')[0]
+    menu = Ext.ComponentQuery.query('initiative_menu')[0]
     objective_id = Ext.ComponentQuery.query('perspective_tree')[0].getSelectionModel().getSelection()[0].raw.iddb
     #To know what node to refresh
     window.down('form').loadRecord
       data:
         node_id: menu.node_id
-        objective_ids: objective_id
+        objective_id: objective_id
     window.show()

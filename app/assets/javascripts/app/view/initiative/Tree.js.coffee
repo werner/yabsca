@@ -1,0 +1,9 @@
+Ext.define 'YABSCA.view.initiative.Tree',
+  extend: 'Ext.tree.Panel'
+  alias: 'widget.initiative_tree'
+  initComponent: ->
+    Ext.apply this,
+      store: 'Initiatives'
+      useArrows: true
+      frame: true
+    @callParent arguments

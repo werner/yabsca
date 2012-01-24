@@ -1,6 +1,6 @@
 Ext.define 'YABSCA.controller.Perspectives',
   extend: 'Ext.app.Controller'
-  stores: ['Perspectives', 'Measures']
+  stores: ['Perspectives', 'Measures', 'Initiatives']
   models: ['Perspective']
   views: ['perspective.Tree', 'perspective.Menu', 'perspective.Form']
   requires: ['YABSCA.lib.TreeStandardActions']
@@ -61,12 +61,24 @@ Ext.define 'YABSCA.controller.Perspectives',
     Ext.ComponentQuery.query('measure_tree')[0].setRootNode
       text: 'Measures'
       id: 'src:root'
-      node_id: 'src:root' + id
+      node_id: node_id
       expanded: true
       draggable: false
       iconCls: 'measure'
       iddb: 0
     @getMeasuresStore().load
+      params:
+        node_id: node_id
+    #Load the root in initiatives so it knows it is an objective
+    Ext.ComponentQuery.query('initiative_tree')[0].setRootNode
+      text: 'Initiatives'
+      id: 'src:root'
+      node_id: node_id
+      expanded: true
+      draggable: false
+      iconCls: 'initiative'
+      iddb: 0
+    @getInitiativesStore().load
       params:
         node_id: node_id
   addPerspective: (item) ->
