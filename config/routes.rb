@@ -3,10 +3,16 @@ Yabsca32::Application.routes.draw do
   resources :strategies
   resources :perspectives
   resources :objectives
-  resources :measures
+  resources :measures do
+    collection do
+      get 'get_periods'
+    end
+  end
+    
   resources :initiatives
   resources :units
   resources :responsibles
+  resources :targets
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -60,11 +60,21 @@ Ext.define 'YABSCA.view.Viewport',
             ]
           ,
             region: 'center'
-            layout: 'fit'
+            layout: 'border'
             border: false
-            items:
+            items: [
               xtype: 'measure_tree'
+              region: 'west'
               title: 'Measures'
+              border: false
+              flex: 1
+            ,
+              xtype: 'target_panel'
+              region: 'center'
+              title: 'Targets'
+              border: false
+              flex: 1
+            ]
           ]
         ]
       ]

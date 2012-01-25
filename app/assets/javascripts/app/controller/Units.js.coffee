@@ -5,6 +5,7 @@ Ext.define 'YABSCA.controller.Units',
   views: ['unit.Form', 'unit.Grid']
   requires: ['YABSCA.lib.StandardActions']
   mainModel: 'YABSCA.model.Unit'
+  mainPanel: 'unit_window'
   mainStore: ->
     @getUnitsStore()
   init: ->

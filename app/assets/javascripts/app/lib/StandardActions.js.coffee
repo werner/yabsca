@@ -2,10 +2,11 @@ Ext.define 'YABSCA.lib.StandardActions',
   singleton: true
   mainStore: ''
   mainModel: ''
+  mainPanel: ''
   addRecord: (button) ->
-    window = button.up('window')
-    window.down('form').getForm().reset()
-    window.getLayout().setActiveItem 1
+    panel = button.up(@mainPanel)
+    panel.down('form').getForm().reset()
+    panel.getLayout().setActiveItem 1
   editRecord: (button) ->
     me = this
     selected_item = button.up('grid').getSelectionModel().selected
@@ -13,9 +14,9 @@ Ext.define 'YABSCA.lib.StandardActions',
       id = selected_item.items[0].data.id
       Ext.ModelManager.getModel(me.mainModel).load id,
         success: (record) ->
-          window = button.up('window')
-          window.getLayout().setActiveItem 1
-          window.down('form').loadRecord record.raw
+          panel = button.up(me.mainPanel)
+          panel.getLayout().setActiveItem 1
+          panel.down('form').loadRecord record.raw
   deleteRecord: (button) ->
     me = this
     selected_item = button.up('grid').getSelectionModel().selected
@@ -34,8 +35,8 @@ Ext.define 'YABSCA.lib.StandardActions',
     record = Ext.create(me.mainModel, button.up('form').getValues())
     record.save
       success: ->
-        button.up('window').getLayout().setActiveItem 0
+        button.up(me.mainPanel).getLayout().setActiveItem 0
         me.mainStore().load()
   backToGrid: (button) ->
-    window = button.up('window')
-    window.getLayout().setActiveItem 0
+    panel = button.up(@mainPanel)
+    panel.getLayout().setActiveItem 0

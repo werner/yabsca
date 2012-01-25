@@ -12,6 +12,14 @@ class MeasuresController < StandardController
     end
   end
 
+  def get_periods
+    measure=Measure.find(params[:query])
+
+    respond_to do |format|
+      format.json { render json: measure.get_periods }
+    end
+  end
+
   def create
     #Here I'm trying to make habtm to works with extjs data comming
     params[:measure][:objective_ids] = [params[:objective_ids]] 

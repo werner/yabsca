@@ -1,7 +1,7 @@
 Ext.define 'YABSCA.controller.Measures',
   extend: 'Ext.app.Controller'
-  stores: ['Measures']
-  models: ['Measure', 'Tree']
+  stores: ['Measures', 'Periods']
+  models: ['Measure', 'Tree', 'Period']
   views: ['measure.Tree', 'measure.Menu']
   requires: ['YABSCA.lib.TreeStandardActions']
   mainForm: 'YABSCA.view.measure.Form'

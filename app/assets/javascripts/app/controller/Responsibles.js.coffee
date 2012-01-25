@@ -5,6 +5,7 @@ Ext.define 'YABSCA.controller.Responsibles',
   views: ['responsible.Form', 'responsible.Grid']
   requires: ['YABSCA.lib.StandardActions']
   mainModel: 'YABSCA.model.Responsible'
+  mainPanel: 'responsible_window'
   mainStore: ->
     @getResponsiblesStore()
   init: ->
