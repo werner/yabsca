@@ -101,9 +101,9 @@ class Measure < ActiveRecord::Base
       "red"=>(pvalue>get_perc_value(goal,alert)),
       default=>(pvalue==0)
     }
-    if (challenge==Challenge::Increasing)
+    if (challenge==Settings.challenge.increasing)
       value_max.each_pair { |key,value| return key if value==true  }
-    elsif (challenge==Challenge::Decreasing)
+    elsif (challenge==Settings.challenge.decreasing)
       value_min.each_pair { |key,value| return key if value==true  }
     end
   end
@@ -119,7 +119,7 @@ class Measure < ActiveRecord::Base
     { :id => 'src:measure' + measure.id.to_s,
       :iddb => measure.id,
       :text => measure.name,
-      :iconCls => 'measure',
+      :iconCls => measure.color,
       :type => 'measure',
       :leaf => true 
     }

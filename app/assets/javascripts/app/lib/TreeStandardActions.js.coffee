@@ -50,7 +50,7 @@ Ext.define 'YABSCA.lib.TreeStandardActions',
     store = @mainStore()
     tree = Ext.ComponentQuery.query(@mainTree)[0]
     #save data from the form
-    record = Ext.create(@mainModel, button.up('window').down('form').getValues())
+    record = Ext.create @mainModel, button.up('window').down('form').getValues()
     record.save
       success: ->
         me.refreshTree(button.up('window').down('form').getValues().node_id, store, tree)

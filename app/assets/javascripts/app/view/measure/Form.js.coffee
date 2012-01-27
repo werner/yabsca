@@ -57,9 +57,17 @@ Ext.define 'YABSCA.view.measure.Form',
           name: 'description'
           fieldLabel: 'Description'
         ,
-          xtype: 'numberfield'
+          xtype: 'combo'
           name: 'challenge'
           fieldLabel: 'Challenge'
+          displayField: 'name'
+          valueField: 'id'
+          store: new Ext.data.ArrayStore
+            fields: ["id", "name"]
+            data: [
+              [1, "Increasing"]
+              [2, "Decreasing"]
+            ]
         ,
           xtype: 'numberfield'
           name: 'excellent'
@@ -69,17 +77,25 @@ Ext.define 'YABSCA.view.measure.Form',
           name: 'alert'
           fieldLabel: 'Alert'
         ,
-          xtype: 'numberfield'
+          xtype: 'combo'
           name: 'frecuency'
           fieldLabel: 'Frecuency'
+          displayField: 'name'
+          valueField: 'id'
+          store: new Ext.data.ArrayStore
+            fields: ["id", "name"]
+            data: [[1,"Daily"],[6,"Weekly"],[5,"Monthly"],[2,"Bimonthly"],
+                    [3,"Three_monthly"],[4,"Four_monthly"],[7,"Yearly"]]
         ,
           xtype: 'datefield'
           name: 'period_from'
           fieldLabel: 'From'
+          submitFormat: 'Y/m/d'
         ,
           xtype: 'datefield'
           name: 'period_to'
           fieldLabel: 'To'
+          submitFormat: 'Y/m/d'
         ,
           xtype: 'textarea'
           name: 'formula'

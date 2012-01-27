@@ -1,6 +1,6 @@
 Ext.define 'YABSCA.controller.Measures',
   extend: 'Ext.app.Controller'
-  stores: ['Measures', 'Periods']
+  stores: ['Measures','Targets', 'Periods']
   models: ['Measure', 'Tree', 'Period']
   views: ['measure.Tree', 'measure.Menu']
   requires: ['YABSCA.lib.TreeStandardActions']
@@ -15,6 +15,7 @@ Ext.define 'YABSCA.controller.Measures',
     @control(
       'measure_tree':
         itemcontextmenu: @showMenu
+        itemclick: @itemTreeClick
       'measure_menu':
         hide: YABSCA.lib.TreeStandardActions.closeMenu
       'measure_menu component[action=new_measure]':
@@ -26,6 +27,12 @@ Ext.define 'YABSCA.controller.Measures',
       'measure_form button[action=save]':
         click: YABSCA.lib.TreeStandardActions.saveRecord
     )
+  itemTreeClick: (view, record, item, index, e) ->
+    if record.raw?
+      id = record.raw.iddb
+      @getTargetsStore().load
+        params:
+          measure_id: id
   showMenu: (view, record, item, index, e) ->
     selected_node = Ext.ComponentQuery.query('perspective_tree')[0].getSelectionModel().getSelection()[0]
     if selected_node?

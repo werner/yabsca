@@ -30,6 +30,9 @@ gem 'declarative_authorization'
 
 gem 'settingslogic'
 
+gem 'treetop'
+gem 'spreadsheet'
+
 #gem 'ruby-debug19'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
