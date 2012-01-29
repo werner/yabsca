@@ -25,7 +25,7 @@ group :development, :test do
   gem 'jasminerice'
 end
 
-gem 'devise'
+#gem 'devise'
 gem 'declarative_authorization'
 
 gem 'settingslogic'
@@ -33,9 +33,10 @@ gem 'settingslogic'
 gem 'treetop'
 gem 'spreadsheet'
 
-#gem 'ruby-debug19'
+gem "ruby-debug-base19x", "0.11.30.pre3", :require => nil
+
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
@@ -45,6 +46,3 @@ gem 'spreadsheet'
 
 # Deploy with Capistrano
 # gem 'capistrano'
-
-# To use debugger
-

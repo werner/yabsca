@@ -2,7 +2,7 @@ Ext.define 'YABSCA.view.measure.Form',
   extend: 'Ext.window.Window'
   alias: 'widget.measure_form'
   requires: ['Ext.form.Panel']
-  height: 450
+  height: 500
   width: 400
   closeAction: 'hide'
   title: 'Measure'
@@ -35,14 +35,6 @@ Ext.define 'YABSCA.view.measure.Form',
         ,
           xtype: 'hiddenfield'
           name: 'objective_ids'
-          value: 0
-        ,
-          xtype: 'hiddenfield'
-          name: 'unit_id'
-          value: 0
-        ,
-          xtype: 'hiddenfield'
-          name: 'responsible_id'
           value: 0
         ,
           name: 'code'
@@ -96,6 +88,20 @@ Ext.define 'YABSCA.view.measure.Form',
           name: 'period_to'
           fieldLabel: 'To'
           submitFormat: 'Y/m/d'
+        ,
+          xtype: 'combo'
+          name: 'unit_id'
+          fieldLabel: 'Unit'
+          displayField: 'name'
+          valueField: 'id'
+          store: 'Units'
+        ,
+          xtype: 'combo'
+          name: 'responsible_id'
+          fieldLabel: 'Responsible'
+          displayField: 'name'
+          valueField: 'id'
+          store: 'Responsibles'
         ,
           xtype: 'textarea'
           name: 'formula'
