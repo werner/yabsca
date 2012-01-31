@@ -19,4 +19,25 @@ describe Measure do
     @measure1.get_periods.should eq(data)
   end
 
+  it "should failed formula synatx" do
+    Measure.check_formula("<c>001</c>45.23").should be_nil
+    Measure.check_formula("<f>001</f>(45.23)").should be_nil
+    Measure.check_formula("<c>001</c><c>004</c>").should be_nil
+    Measure.check_formula("<c>001</c>+<c>002</c>*<c>003</c>123").should be_nil
+    Measure.check_formula("<c>001</c>/8*3<c>").should be_nil
+    Measure.check_formula("<c>001@</c>+23").should be_nil
+    Measure.check_formula("<c>001%$#</c>+40").should be_nil
+  end
+
+
+  it "should passed formula check synatx" do
+    Measure.check_formula("<c>001</c>+45.23").should_not be_nil
+    Measure.check_formula("<c>001</c>*(45.23)").should_not be_nil
+    Measure.check_formula("<c>001</c>/<c>004</c>").should_not be_nil
+    Measure.check_formula("<c>001</c>+<c>002</c>*<c>003</c>-123").should_not be_nil
+    Measure.check_formula("sum(<c>001</c>)/8*3").should_not be_nil
+    Measure.check_formula("average(<c>005</c>)+23").should_not be_nil
+    Measure.check_formula("sum(<c>001</c>)+average(<c>005</c>)+40").should_not be_nil
+  end
+
 end

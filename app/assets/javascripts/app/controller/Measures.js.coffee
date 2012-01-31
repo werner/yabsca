@@ -2,7 +2,7 @@ Ext.define 'YABSCA.controller.Measures',
   extend: 'Ext.app.Controller'
   stores: ['Measures','Targets', 'Periods']
   models: ['Measure', 'Tree', 'Period']
-  views: ['measure.Tree', 'measure.Menu']
+  views: ['measure.Tree', 'measure.Menu', 'measure.Form', 'measure.Formula']
   requires: ['YABSCA.lib.TreeStandardActions']
   mainForm: 'YABSCA.view.measure.Form'
   mainModel: 'YABSCA.model.Measure'
@@ -24,6 +24,10 @@ Ext.define 'YABSCA.controller.Measures',
         click: YABSCA.lib.TreeStandardActions.editRecord
       'measure_menu component[action=delete_measure]':
         click: YABSCA.lib.TreeStandardActions.deleteRecord
+      'measure_menu component[action=formula]':
+        click: @showFormula
+      'measure_formula component[action=save]':
+        click: YABSCA.lib.TreeStandardActions.saveRecord
       'measure_form button[action=save]':
         click: YABSCA.lib.TreeStandardActions.saveRecord
     )
@@ -51,6 +55,18 @@ Ext.define 'YABSCA.controller.Measures',
         e.preventDefault()
     else
       e.preventDefault()
+  showFormula: (item) ->
+    menu = Ext.ComponentQuery.query(@mainMenu)[0]
+    id = menu.iddb
+    me = this
+    if menu.node_id.match(@nodeType)
+      #load a record from the Model and shows it on the form
+      Ext.ModelManager.getModel(me.mainModel).load id,
+        success: (record) ->
+          window = Ext.create 'YABSCA.view.measure.Formula'
+          window.show()
+          record.raw.data.node_id = menu.node_id
+          window.down('form').loadRecord record.raw
   addMeasure: (item) ->
     window = Ext.create @mainForm
     menu = Ext.ComponentQuery.query('measure_menu')[0]

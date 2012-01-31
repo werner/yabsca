@@ -103,9 +103,8 @@ Ext.define 'YABSCA.view.measure.Form',
           valueField: 'id'
           store: 'Responsibles'
         ,
-          xtype: 'textarea'
+          xtype: 'hiddenfield'
           name: 'formula'
-          fieldLabel: 'Formula'
         ]
       ]
 

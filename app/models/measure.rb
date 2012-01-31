@@ -113,6 +113,12 @@ class Measure < ActiveRecord::Base
     perc+goal
   end
 
+  #check formula, nil if it's wrong
+  def self.check_formula(value)
+    parser = FormulaParser.new
+    parser.parse(value)
+  end
+
   private 
 
   def self.node(measure)

@@ -61,5 +61,12 @@ module Yabsca32
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    require 'formula_node'
+    require 'polyglot'
+    require 'treetop'
+    
+    Treetop.load "#{config.root}/lib/formula"
+
   end
 end

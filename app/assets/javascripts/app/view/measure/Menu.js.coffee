@@ -20,6 +20,11 @@ Ext.define 'YABSCA.view.measure.Menu',
         text: 'Delete'
         iconCls: 'del'
         action: 'delete_measure'
+      ,
+        id: 'formula'
+        text: 'Formula'
+        iconCls: 'formula_icon'
+        action: 'formula'
       ]
 
     @callParent arguments

@@ -1,0 +1,46 @@
+grammar Formula
+
+  rule operation
+    (parens op operation / parens) <FormulaNode>
+  end
+
+  rule parens
+    (op? '(' operation ')' / value)
+  end
+
+  rule op
+    ('+' / '-' / '*' / '/' / sum_all / average)
+  end
+
+  rule sum_all
+    'sum(' code ')'
+  end
+
+  rule average
+    'average(' code ')'
+  end
+
+  rule value
+    (code / float / integer)
+  end
+
+  rule code
+    '<c>' get_code '</c>'
+  end
+
+  rule get_code
+    [a-zA-Z0-9\-\_\.]*
+  end
+
+  rule float
+    integer '.' [0-9]+
+  end
+
+  rule integer
+    '-'? unsigned_integer
+  end
+
+  rule unsigned_integer
+    ('0' / [0-9]*)
+  end
+end

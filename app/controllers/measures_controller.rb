@@ -25,4 +25,16 @@ class MeasuresController < StandardController
     params[:measure][:objective_ids] = [params[:objective_ids]] 
     super
   end
+
+  def check_formula
+    formula = Measure.check_formula(params[:formula])
+
+    respond_to do |format|
+      if formula
+        format.json { render json: { success: true, data: formula } }
+      else
+        format.json { render json: { success: false, data: nil } }
+      end
+    end
+  end
 end
