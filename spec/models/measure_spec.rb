@@ -19,7 +19,7 @@ describe Measure do
     @measure1.get_periods.should eq(data)
   end
 
-  it "should failed formula synatx" do
+  it "should failed formula syntax check" do
     Measure.check_formula("<c>001</c>45.23").should be_nil
     Measure.check_formula("<f>001</f>(45.23)").should be_nil
     Measure.check_formula("<c>001</c><c>004</c>").should be_nil
@@ -29,8 +29,7 @@ describe Measure do
     Measure.check_formula("<c>001%$#</c>+40").should be_nil
   end
 
-
-  it "should passed formula check synatx" do
+  it "should passed formula syntax check" do
     Measure.check_formula("<c>001</c>+45.23").should_not be_nil
     Measure.check_formula("<c>001</c>*(45.23)").should_not be_nil
     Measure.check_formula("<c>001</c>/<c>004</c>").should_not be_nil
