@@ -18,6 +18,10 @@ Ext.define 'YABSCA.view.target.Grid',
           iconCls: 'del'
           text: 'Delete'
           action: 'delete'
+        ,
+          iconCls: 'calc'
+          text: 'Calculate'
+          action: 'calculate'
         ]
       ]
       columns: [

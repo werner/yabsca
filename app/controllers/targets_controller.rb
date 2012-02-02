@@ -11,4 +11,12 @@ class TargetsController < StandardController
     end
   end
 
+  def calculates_all
+    Target.calculates_all(:measure_id => params[:measure_id])
+
+    respond_to do |format|
+      format.json { render json: { success: true } }
+    end
+  end
+
 end

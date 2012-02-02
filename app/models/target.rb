@@ -5,9 +5,9 @@ class Target < ActiveRecord::Base
   scope :to_charts, lambda {|date_from,date_to,measure_id| {:conditions =>
         ["period_date between ? and ? and measure_id=? and achieved is not null", date_from, date_to, measure_id] }}
   
-  after_validation(:on => :create) do
-    self.period_date = period_to_date
-    calculate
+  after_save do |record|
+    record.period_date = period_to_date
+    record.calculate_formula(record)
   end
   
   #transform the period in a Date to do ordering
@@ -22,17 +22,22 @@ class Target < ActiveRecord::Base
     end
   end
 
-  private
+  def self.calculates_all(conditions)
+    where(conditions).collect do |t|
+      t.calculate_formula(t)
+      t.save
+    end
+  end
 
   #calculates achieved values from measure formula
-  def calculate
-    formula = self.measure.formula
+  def calculate_formula(record)
+    formula = record.measure.formula
     unless formula.blank?
       parser = FormulaParser.new
       p = parser.parse(formula)
       p.measure_id = measure.id
       p.period = period
-      self.achieved = eval(p.code_value)
+      record.achieved = eval(p.code_value)
     end
   end
   

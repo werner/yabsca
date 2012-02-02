@@ -14,6 +14,7 @@ Yabsca32::Application.routes.draw do
   resources :responsibles
   resources :targets
 
+  match 'calculates_all' => 'targets#calculates_all'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

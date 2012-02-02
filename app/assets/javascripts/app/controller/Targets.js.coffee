@@ -20,6 +20,8 @@ Ext.define 'YABSCA.controller.Targets',
         click: YABSCA.lib.StandardActions.backToGrid
       'target_form button[action=save]':
         click: @saveTarget
+      'target_grid button[action=calculate]':
+        click: @calculateTargets
     )
   addTarget: (button) ->
     selected_node = Ext.ComponentQuery.query('measure_tree')[0].getSelectionModel().getSelection()[0]
@@ -53,3 +55,15 @@ Ext.define 'YABSCA.controller.Targets',
       lib.mainStore = me.mainStore
       lib.callback = callback
       lib
+  calculateTargets: (button) ->
+    me = this
+    selected_node = Ext.ComponentQuery.query('measure_tree')[0].getSelectionModel().getSelection()[0]
+    if selected_node?
+      Ext.Ajax.request
+        url: '/calculates_all'
+        method: 'POST'
+        params:
+          measure_id: selected_node.raw.iddb
+      me.getTargetsStore().load
+        params:
+          measure_id: selected_node.raw.iddb
