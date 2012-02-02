@@ -37,6 +37,9 @@ Ext.define 'YABSCA.controller.Measures',
       @getTargetsStore().load
         params:
           measure_id: id
+    else
+      @getTargetsStore().load()
+
   showMenu: (view, record, item, index, e) ->
     selected_node = Ext.ComponentQuery.query('perspective_tree')[0].getSelectionModel().getSelection()[0]
     if selected_node?

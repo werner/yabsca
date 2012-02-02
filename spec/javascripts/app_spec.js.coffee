@@ -1,6 +1,8 @@
+#to load the ext sources
 Ext.Loader.setPath 'Ext', './assets/ext/src'
 Ext.require 'Ext.app.Application'
 
+#this way I can use variables like YABSCA out of the scope
 root = exports ? this
 
 root.Application = null
