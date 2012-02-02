@@ -15,11 +15,11 @@ Ext.define 'YABSCA.controller.Targets',
       'target_grid button[action=edit]':
         click: YABSCA.lib.StandardActions.editRecord
       'target_grid button[action=delete]':
-        click: YABSCA.lib.StandardActions.deleteRecord
+        click: @deleteTarget
       'target_form button[action=back]':
         click: YABSCA.lib.StandardActions.backToGrid
       'target_form button[action=save]':
-        click: YABSCA.lib.StandardActions.saveRecord
+        click: @saveTarget
     )
   addTarget: (button) ->
     selected_node = Ext.ComponentQuery.query('measure_tree')[0].getSelectionModel().getSelection()[0]
@@ -33,3 +33,23 @@ Ext.define 'YABSCA.controller.Targets',
         data:
           measure_id: id
       panel.down('combo').allQuery = id
+  saveTarget: (button) ->
+    lib = @loadStore()
+    lib.saveRecord button, lib.callback
+  deleteTarget: (button) ->
+    lib = @loadStore()
+    lib.deleteRecord button, lib.callback
+  loadStore: ->
+    me = this
+    selected_node = Ext.ComponentQuery.query('measure_tree')[0].getSelectionModel().getSelection()[0]
+    if selected_node?
+      callback = ->
+        me.getTargetsStore().load
+          params:
+            measure_id: selected_node.raw.iddb
+      lib = YABSCA.lib.StandardActions
+      lib.mainModel = me.mainModel
+      lib.mainPanel = me.mainPanel
+      lib.mainStore = me.mainStore
+      lib.callback = callback
+      lib

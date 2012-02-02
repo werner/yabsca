@@ -17,7 +17,7 @@ Ext.define 'YABSCA.lib.StandardActions',
           panel = button.up(me.mainPanel)
           panel.getLayout().setActiveItem 1
           panel.down('form').loadRecord record.raw
-  deleteRecord: (button) ->
+  deleteRecord: (button, callback_store) ->
     me = this
     selected_item = button.up('grid').getSelectionModel().selected
     if selected_item.length > 0
@@ -29,14 +29,20 @@ Ext.define 'YABSCA.lib.StandardActions',
               record.data = record.raw.data
               record.destroy
                 success: ->
-                  me.mainStore().load()
-  saveRecord: (button) ->
+                  if callback_store
+                    callback_store()
+                  else
+                    me.mainStore().load()
+  saveRecord: (button, callback_store) ->
     me = this
     record = Ext.create(me.mainModel, button.up('form').getValues())
     record.save
       success: ->
         button.up(me.mainPanel).getLayout().setActiveItem 0
-        me.mainStore().load()
+        if callback_store
+          callback_store()
+        else
+          me.mainStore().load()
   backToGrid: (button) ->
     panel = button.up(@mainPanel)
     panel.getLayout().setActiveItem 0
