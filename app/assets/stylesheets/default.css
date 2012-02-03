@@ -338,11 +338,20 @@
 }
 
 body {
-    margin: 0;
-    padding: 0 0 20px;
-    min-height: 100%;
-    font-family: "Arial", "Helvetica", "Verdana", "sans-serif";
-    font-size: 12px;
+    margin: 50px 0px;
+    padding: 0px;
+}
+
+/*Login Page*/
+
+.login {
+  background-image: url("/assets/house.png") !important;
+  background-repeat: no-repeat;
+}
+
+.admin {
+  background-image: url("/assets/lock_open.png") !important;
+  background-repeat: no-repeat;
 }
 
 /*for the buttons*/

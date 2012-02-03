@@ -13,8 +13,16 @@ Yabsca32::Application.routes.draw do
   resources :units
   resources :responsibles
   resources :targets
+  resources :users
 
   match 'calculates_all' => 'targets#calculates_all'
+  
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

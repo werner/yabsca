@@ -39,7 +39,7 @@ Ext.define 'YABSCA.lib.StandardActions',
     record.save
       success: ->
         button.up(me.mainPanel).getLayout().setActiveItem 0
-        if callback_store
+        if typeof(callback_store) is 'function'
           callback_store()
         else
           me.mainStore().load()

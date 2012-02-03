@@ -3,5 +3,6 @@ Ext.application
   name: 'YABSCA'
   appFolder: 'assets/app'
   controllers: ['Organizations', 'Strategies', 'Perspectives', 'Objectives',
-                'Measures', 'Menu', 'Units', 'Responsibles', 'Initiatives', 'Targets']
+                'Measures', 'Menu', 'Units', 'Responsibles', 'Initiatives',
+                'Targets', 'Users']
   autoCreateViewport: true

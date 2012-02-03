@@ -25,6 +25,10 @@ Ext.define 'YABSCA.view.Viewport',
               text: 'Responsibles'
               iconCls: 'responsible'
               action: 'responsibles'
+            ,
+              text: 'Users'
+              iconCls: 'user'
+              action: 'users'
             ]
         ]
         items: [
