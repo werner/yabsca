@@ -1,6 +1,13 @@
 Ext.Loader.setPath 'Ext', './assets/ext/src'
 Ext.onReady ->
-  form = Ext.widget 'form',
+  login = ->
+    form.getForm().submit
+      method: 'POST'
+      success: (response) ->
+        window.location = '/'
+
+  @form = Ext.widget 'form',
+    itemId: 'session_form'
     frame: true
     url: '/login'
     bodyStyle: 'padding: 15px'
@@ -20,22 +27,25 @@ Ext.onReady ->
       fieldLabel: 'Password'
       inputType: 'password'
       allowBlank: false
+      listeners:
+        keyup:
+          element: 'el'
+          fn: (text, e, eOpts) ->
+            login() if text.getCharCode() is Ext.EventObject.ENTER
     ]
     buttons: [
       text: 'Log In'
       iconCls: 'login'
+      action: 'login'
       handler: ->
-        this.up('form').getForm().submit
-          method: 'POST'
-          success: (response) ->
-            window.location = '/'
+        login()
     ]
 
   win = Ext.widget 'window',
     layout:'fit'
     title: 'Log In'
-    width:300
-    height:150
+    width:320
+    height:170
     closable: false
     resizable: false
     plain: true

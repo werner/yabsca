@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.0.rc2'
+gem 'rails', '3.2.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -20,9 +20,11 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'fuubar'
-  gem 'win32console'
   gem 'jasmine'
   gem 'jasminerice'
+  gem 'ruby-debug-base19x', '~> 0.11.30.pre4'
+  gem 'ruby-debug19'
+  gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
 end
 
 #gem 'devise'
@@ -32,8 +34,6 @@ gem 'settingslogic'
 
 gem 'treetop'
 gem 'spreadsheet'
-
-gem "ruby-debug-base19x", "0.11.30.pre3", :require => nil
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
