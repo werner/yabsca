@@ -34,7 +34,7 @@ class Target < ActiveRecord::Base
     formula = record.measure.formula
     unless formula.blank?
       parser = FormulaParser.new
-      p = parser.parse(formula)
+      p = parser.parse(formula.gsub(/ /,""))
       p.measure_id = measure.id
       p.period = period
       record.achieved = eval(p.code_value)

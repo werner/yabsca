@@ -1,5 +1,14 @@
 class SessionsController < ApplicationController
+
   skip_before_filter :authorize
+
+  def authorization
+    if User.find_by_id(session[:user_id])
+      render json: {success: true} 
+    else
+      render json: {success: false} 
+    end
+  end
 
   def create
     user = User.find_by_login(params[:login])

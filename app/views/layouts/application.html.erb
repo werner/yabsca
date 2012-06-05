@@ -2,12 +2,17 @@
 <html>
 <head>
   <title>Yabsca</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <%= yield %>
 
+<%= javascript_include_tag "application" %>
+<script language="javascript">
+  //if (Ext.Ajax != undefined)
+  //  Ext.Ajax.extraParams = { authenticity_token: "<%= form_authenticity_token %>" };
+</script>
 </body>
 </html>

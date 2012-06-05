@@ -55,10 +55,10 @@ class Measure < ActiveRecord::Base
         period.each { |u| all_periods.push(u.year) }
     end
 
-    unless all_periods.empty?    
-      all_periods.uniq!
-    else
+    if all_periods.empty?    
       []
+    else
+      all_periods.uniq
     end
   end
 
@@ -117,6 +117,11 @@ class Measure < ActiveRecord::Base
   def self.check_formula(value)
     parser = FormulaParser.new
     parser.parse(value)
+  end
+
+  #Generates the data so the extjs chart can show it
+  def generate_chart_data
+    targets.collect { |t| { :goal => t.goal, :achieved => t.achieved, :period => t.period }  }
   end
 
   private 

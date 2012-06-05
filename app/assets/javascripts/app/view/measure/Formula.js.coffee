@@ -26,6 +26,10 @@ Ext.define 'YABSCA.view.measure.Formula',
           width: 350
         defaultType: 'textarea'
         items: [
+          name: 'formula'
+          fieldLabel: 'Formula'
+          height: 200
+        ,
           xtype: 'hiddenfield'
           name: 'id'
         ,
@@ -68,10 +72,6 @@ Ext.define 'YABSCA.view.measure.Formula',
         ,
           xtype: 'hiddenfield'
           name: 'responsible_id'
-        ,
-          name: 'formula'
-          fieldLabel: 'Formula'
-          height: 200
         ]
       ]
 

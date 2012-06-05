@@ -25,6 +25,11 @@ Ext.define 'YABSCA.view.measure.Menu',
         text: 'Formula'
         iconCls: 'formula_icon'
         action: 'formula'
+      ,
+        id: 'chart'
+        text: 'Chart'
+        iconCls: 'chart'
+        action: 'chart'
       ]
 
     @callParent arguments

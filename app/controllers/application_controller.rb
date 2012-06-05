@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def authorize
     unless User.find_by_id(session[:user_id])
-      render :js => "window.location.href='/login'"
+      render :js => "Ext.ComponentQuery.query('viewport')[0].down('panel').getLayout().setActiveItem(0)"
     end
   end
 

@@ -28,7 +28,9 @@ Ext.define 'YABSCA.controller.Organizations',
         click: YABSCA.lib.TreeStandardActions.saveRecord
     )
   showMenu: (view, record, item, index, e) ->
-    contextMenu = YABSCA.lib.TreeStandardActions.showMenu view, record, item, index, e, 'YABSCA.view.organization.Menu'
+    contextMenu = YABSCA.lib.TreeStandardActions.showMenu view, record, item, index, e, 
+                  'YABSCA.view.organization.Menu'
+
     if record.raw?
       node_id = record.raw.id
     else

@@ -13,7 +13,7 @@ class MeasuresController < StandardController
   end
 
   def get_periods
-    measure=Measure.find(params[:query])
+    measure = Measure.find(params[:query])
 
     respond_to do |format|
       format.json { render json: measure.get_periods }
@@ -36,5 +36,14 @@ class MeasuresController < StandardController
         format.json { render json: { success: false, data: nil } }
       end
     end
+  end
+
+  def measure_charts
+    results = Measure.find(params[:id]).generate_chart_data
+
+    respond_to do |format|
+      format.json { render json: { success: true, data: results } }
+    end
+    
   end
 end

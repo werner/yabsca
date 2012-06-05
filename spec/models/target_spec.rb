@@ -7,7 +7,7 @@ describe Target do
 
     @measure_formula = Measure.create!(id: 2, code: "002", name: "testing_formula", 
                                 frecuency: 5, period_from: '2011/01/01', period_to: '2011/12/31', 
-                                formula: "<c>001</c>+54") 
+                                formula: "<c>001</c> + 54") 
 
     @target1 = Target.create!(goal: 100, achieved: 50, period: "01-2011", measure_id: @measure1.id)
     @target2 = Target.create!(goal: 200, achieved: 80, period: "02-2011", measure_id: @measure1.id)

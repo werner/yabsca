@@ -62,8 +62,6 @@ module Yabsca32
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    config.action_view.embed_authenticity_token_in_remote_forms = false
-    
     require 'formula_node'
     require 'polyglot'
     require 'treetop'

@@ -1,11 +1,9 @@
 Ext.define 'YABSCA.store.Organizations',
   extend: 'Ext.data.TreeStore'
   model: 'Tree'
-  autoLoad: true
   root:
     text: 'Organizations'
     id: 'src:root'
-    expanded: true
     draggable: false
     iconCls: 'orgs'
     iddb: 0
