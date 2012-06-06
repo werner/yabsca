@@ -61,9 +61,12 @@ Ext.define 'YABSCA.controller.Perspectives',
     $(".gantt").gantt
       source: "/objectives/" + id + "/gantt.json"
       scale: "weeks"
-      minScale: "weeks"
+      minScale: "days"
       maxScale: "months"
+      navigate: "scroll"
+      itemsPerPage: 10
 
+    prettyPrint()
   itemTreeClick: (view, record, item, index, e) ->
     #Load id on root
     if record.raw?

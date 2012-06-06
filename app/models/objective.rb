@@ -25,12 +25,10 @@ class Objective < ActiveRecord::Base
     initiatives.collect { |i| 
       {
         name: i.name,
-        desc: i.name,
+        desc: "",
         values: [{
-          from: "/Date(#{i.beginning.to_time.to_i})",
-          to: "/Date(#{i.end.to_time.to_i})",
-          desc: i.name,
-          label: i.name
+          from: "/Date(#{i.beginning.to_time.to_i * 1000})",
+          to: "/Date(#{i.end.to_time.to_i * 1000})",
         }]
       }
     }

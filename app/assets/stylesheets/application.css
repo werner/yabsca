@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require taitems-jQuery.Gantt/css/style
+ *= require prettify
  *= require ext/resources/css/ext-all 
  *= require_tree .
 */

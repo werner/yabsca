@@ -50,7 +50,7 @@ Ext.define 'YABSCA.view.perspective.Menu',
           ,
             id: 'gantt'
             text: 'Gantt'
-            iconCls: 'gantt'
+            iconCls: 'gantt_icon'
             action: 'show_gantt'
           ]
       ]

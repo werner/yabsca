@@ -4,6 +4,15 @@ class Initiative < ActiveRecord::Base
   belongs_to :initiative
   has_many :initiatives
 
+  def as_json(options = {})
+    {
+      id: self.id, name: self.name, code: self.code,
+      completed: self.completed, objective_id: self.objective_id,
+      initiative_id: self.initiative_id, responsible_id: self.responsible_id,
+      beginning: self.beginning.to_date, end: self.end.to_date
+    }
+  end
+
   def self.tree(id_node)
     id = id_node.sub(/src:objs/,"").to_i
     Objective.find(id).initiatives.collect { |initiative|

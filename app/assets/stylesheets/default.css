@@ -196,8 +196,8 @@
   background-repeat: no-repeat;
 }
 
-.gantt {
-  background-image: url("/assets/shape_align_right.png") !important;
+.gantt_icon {
+  background-image: url("/assets/gantt.gif") !important;
   background-repeat: no-repeat;
 }
 
