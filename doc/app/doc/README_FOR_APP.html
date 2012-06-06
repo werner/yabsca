@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>README_FOR_APP - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="../ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="../FormulaNode.html">FormulaNode</a>
+  
+    <li><a href="../HomeController.html">HomeController</a>
+  
+    <li><a href="../Initiative.html">Initiative</a>
+  
+    <li><a href="../InitiativesController.html">InitiativesController</a>
+  
+    <li><a href="../Measure.html">Measure</a>
+  
+    <li><a href="../MeasuresController.html">MeasuresController</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+    <li><a href="../Objective.html">Objective</a>
+  
+    <li><a href="../ObjectivesController.html">ObjectivesController</a>
+  
+    <li><a href="../Organization.html">Organization</a>
+  
+    <li><a href="../OrganizationsController.html">OrganizationsController</a>
+  
+    <li><a href="../Perspective.html">Perspective</a>
+  
+    <li><a href="../PerspectivesController.html">PerspectivesController</a>
+  
+    <li><a href="../Responsible.html">Responsible</a>
+  
+    <li><a href="../ResponsiblesController.html">ResponsiblesController</a>
+  
+    <li><a href="../SessionsController.html">SessionsController</a>
+  
+    <li><a href="../SessionsHelper.html">SessionsHelper</a>
+  
+    <li><a href="../Settings.html">Settings</a>
+  
+    <li><a href="../StandardController.html">StandardController</a>
+  
+    <li><a href="../StrategiesController.html">StrategiesController</a>
+  
+    <li><a href="../Strategy.html">Strategy</a>
+  
+    <li><a href="../Target.html">Target</a>
+  
+    <li><a href="../TargetsController.html">TargetsController</a>
+  
+    <li><a href="../Unit.html">Unit</a>
+  
+    <li><a href="../UnitsController.html">UnitsController</a>
+  
+    <li><a href="../User.html">User</a>
+  
+    <li><a href="../UsersController.html">UsersController</a>
+  
+    <li><a href="../UsersHelper.html">UsersHelper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<h2 id="label-Y.A.B.S.C.A.">Y.A.B.S.C.A.</h2>
+
+<p>Yet Another Balanced ScoreCard Application</p>
+
+<p>This is a simple to use Balanced ScoreCard Application focused on a kiss
+philosophy.  It is Open Source and use Ruby on Rails as a backend framework
+and ExtJS as a Front End.</p>
+
+<h2 id="label-Install">Install</h2>
+
+<p>Just install ruby in your OS, later on a command line run this:</p>
+
+<pre>gem install bundler</pre>
+
+<p>Now go to the application root path and run the following:</p>
+
+<pre>bundler install</pre>
+
+<p>With the above everything needed should be installed.</p>
+
+<p>The last commands are:</p>
+
+<pre>rake db:migrate
+rake db:seed</pre>
+
+<p>Finally to run the server just write the following:</p>
+
+<pre>rails s</pre>
+
+<h2 id="label-Quick+Start">Quick Start</h2>
+
+<p>When you go to <a href="http://localhost:3000">localhost:3000</a>, the
+first thing you see is the login page, there’s an admin user you can use,
+login: admin and password: 12345.</p>
+
+<p>Now you see at the left side the organizations or departments panel, where
+you can insert an organization  by left clicking the organization node,
+later you can insert an strategy.</p>
+
+<p>In the top middle you can insert perspectives and objectives, and in the
+bottom middle you can insert measures.</p>
+
+<p>Finally in the top right you can inser initiatives and in the bottom right
+the targets of measures.</p>
+
+<p>any doubt write me at <a
+href="mailto:werner_a_e@yahoo.es">werner_a_e@yahoo.es</a></p>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
