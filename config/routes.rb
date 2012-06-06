@@ -2,7 +2,12 @@ Yabsca32::Application.routes.draw do
   resources :organizations
   resources :strategies
   resources :perspectives
-  resources :objectives
+  resources :objectives do
+    member do
+      get 'gantt'
+    end
+  end
+
   resources :measures do
     collection do
       get 'get_periods'

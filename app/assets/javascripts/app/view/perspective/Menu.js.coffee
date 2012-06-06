@@ -47,6 +47,11 @@ Ext.define 'YABSCA.view.perspective.Menu',
              text: 'Delete'
              iconCls: 'del'
              action: 'delete_objective'
+          ,
+            id: 'gantt'
+            text: 'Gantt'
+            iconCls: 'gantt'
+            action: 'show_gantt'
           ]
       ]
 

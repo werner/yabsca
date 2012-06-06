@@ -60,10 +60,12 @@ Ext.define 'YABSCA.view.initiative.Form',
           xtype: 'datefield'
           name: 'beginning'
           fieldLabel: 'Beginning'
+          submitFormat: 'Y/m/d'
         ,
           xtype: 'datefield'
           name: 'end'
           fieldLabel: 'End'
+          submitFormat: 'Y/m/d'
         ]
       ]
 

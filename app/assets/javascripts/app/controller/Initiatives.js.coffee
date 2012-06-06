@@ -31,7 +31,8 @@ Ext.define 'YABSCA.controller.Initiatives',
     if selected_node?
       org_node_id = selected_node.internalId
       if org_node_id.match(/src:objs/)
-        contextMenu = YABSCA.lib.TreeStandardActions.showMenu view, record, item, index, e, 'YABSCA.view.initiative.Menu'
+        contextMenu = YABSCA.lib.TreeStandardActions.showMenu view, record, item, index, e, 
+                                                              'YABSCA.view.initiative.Menu'
         if record.raw?
           node_id = record.raw.id
         else

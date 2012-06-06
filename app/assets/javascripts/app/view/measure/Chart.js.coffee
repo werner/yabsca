@@ -20,7 +20,16 @@ Ext.define 'YABSCA.view.measure.Chart',
       width: 400
       height: 300
       store: 'MeasureCharts'
-      theme: 'Green'
+      theme: 'Base'
+      background:
+        gradient:
+          id: 'backgroundGradient'
+          angle: 45
+          stops:
+            0:
+              color: '#ffffff'
+            100:
+              color: '#eaf1f8'
       axes: [
         title: 'Achieved'
         type: 'Numeric'

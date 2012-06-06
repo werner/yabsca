@@ -2,7 +2,7 @@ Ext.define 'YABSCA.controller.Perspectives',
   extend: 'Ext.app.Controller'
   stores: ['Perspectives', 'Measures', 'Initiatives']
   models: ['Perspective']
-  views: ['perspective.Tree', 'perspective.Menu', 'perspective.Form']
+  views: ['perspective.Tree', 'perspective.Menu', 'perspective.Form', 'initiative.Gantt']
   requires: ['YABSCA.lib.TreeStandardActions']
   mainForm: 'YABSCA.view.perspective.Form'
   mainModel: 'YABSCA.model.Perspective'
@@ -24,6 +24,8 @@ Ext.define 'YABSCA.controller.Perspectives',
         click: YABSCA.lib.TreeStandardActions.editRecord
       'perspective_menu component[action=delete_perspective]':
         click: YABSCA.lib.TreeStandardActions.deleteRecord
+      'perspective_menu component[action=show_gantt]':
+        click: @showGantt
       'perspective_form button[action=save]':
         click: YABSCA.lib.TreeStandardActions.saveRecord
     )
@@ -49,6 +51,19 @@ Ext.define 'YABSCA.controller.Perspectives',
         e.preventDefault()
     else
       e.preventDefault()
+  showGantt: ->
+    window = Ext.create 'YABSCA.view.initiative.Gantt'
+    window.show()
+
+    menu = Ext.ComponentQuery.query(@mainMenu)[0]
+    id = menu.iddb
+
+    $(".gantt").gantt
+      source: "/objectives/" + id + "/gantt.json"
+      scale: "weeks"
+      minScale: "weeks"
+      maxScale: "months"
+
   itemTreeClick: (view, record, item, index, e) ->
     #Load id on root
     if record.raw?

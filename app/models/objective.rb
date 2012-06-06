@@ -21,6 +21,21 @@ class Objective < ActiveRecord::Base
     end
   end
 
+  def get_gantt
+    initiatives.collect { |i| 
+      {
+        name: i.name,
+        desc: i.name,
+        values: [{
+          from: "/Date(#{i.beginning.to_time.to_i})",
+          to: "/Date(#{i.end.to_time.to_i})",
+          desc: i.name,
+          label: i.name
+        }]
+      }
+    }
+  end
+
   private 
 
   def self.node(objective)

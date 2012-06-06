@@ -13,14 +13,17 @@ Ext.define 'YABSCA.view.session.Form',
       ,
         xtype: 'textfield'
         name: 'login'
+        action: 'login'
         fieldLabel: 'Login'
         allowBlank: false
       ,
         xtype: 'textfield'
         name: 'password'
+        action: 'password'
         fieldLabel: 'Password'
         inputType: 'password'
         allowBlank: false
+        enableKeyEvents: true
       ]
       buttons: [
         text: 'Login'

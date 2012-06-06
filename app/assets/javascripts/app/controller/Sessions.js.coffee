@@ -7,10 +7,12 @@ Ext.define 'YABSCA.controller.Sessions',
         click: @login
       'session_form':
         afterrender: @authenticate
+      'session_form textfield[action=password]':
+        keyup: @loginByEnter
     )
   login: (button) ->
-    form = button.up('form')
-    father = button.up('panel').up('panel').up('panel')
+    form = Ext.ComponentQuery.query('session_form')[0]
+    viewport = Ext.ComponentQuery.query('viewport')[0].down('panel')
 
     Ext.Ajax.request
       url: '/login'
@@ -21,9 +23,11 @@ Ext.define 'YABSCA.controller.Sessions',
       success: (response) ->
         result = Ext.JSON.decode(response.responseText)
         if result.success is true
-          father.getLayout().setActiveItem 1 
+          viewport.getLayout().setActiveItem 1 
         else
           Ext.MessageBox.alert "Login", "Invalid Login or Password"
+  loginByEnter: (text, e, eOpts) ->
+    @login() if e.getCharCode() is Ext.EventObject.ENTER
   authenticate: ->
     try
       YABSCA.csrfToken = Ext.select("meta[name='csrf-token']").elements[0].getAttribute('content')
