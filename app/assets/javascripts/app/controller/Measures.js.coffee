@@ -8,6 +8,7 @@ Ext.define 'YABSCA.controller.Measures',
   mainModel: 'YABSCA.model.Measure'
   mainMenu: 'measure_menu'
   mainTree: 'measure_tree'
+  motherTree: 'perspective_tree'
   nodeType: 'measure'
   mainStore: ->
     @getMeasuresStore()

@@ -8,6 +8,7 @@ Ext.define 'YABSCA.controller.Initiatives',
   mainModel: 'YABSCA.model.Initiative'
   mainMenu: 'initiative_menu'
   mainTree: 'initiative_tree'
+  motherTree: 'perspective_tree'
   nodeType: 'initiative'
   mainStore: ->
     @getInitiativesStore()

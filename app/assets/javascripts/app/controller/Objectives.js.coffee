@@ -8,6 +8,7 @@ Ext.define 'YABSCA.controller.Objectives',
   mainModel: 'YABSCA.model.Objective'
   mainMenu: 'perspective_menu'
   mainTree: 'perspective_tree'
+  motherTree: 'organization_tree'
   nodeType: 'objs'
   mainStore: ->
     @getPerspectivesStore()

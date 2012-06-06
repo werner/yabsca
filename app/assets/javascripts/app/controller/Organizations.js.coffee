@@ -8,6 +8,7 @@ Ext.define 'YABSCA.controller.Organizations',
   mainModel: 'YABSCA.model.Organization'
   mainMenu: 'organization_menu'
   mainTree: 'organization_tree'
+  motherTree: 'organization_tree'
   nodeType: 'orgs'
   mainStore: ->
     @getOrganizationsStore()

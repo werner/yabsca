@@ -9,7 +9,7 @@ class Initiative < ActiveRecord::Base
       id: self.id, name: self.name, code: self.code,
       completed: self.completed, objective_id: self.objective_id,
       initiative_id: self.initiative_id, responsible_id: self.responsible_id,
-      beginning: self.beginning.to_date, end: self.end.to_date
+      beginning: (self.beginning.to_date rescue nil), end: (self.end.to_date rescue nil)
     }
   end
 

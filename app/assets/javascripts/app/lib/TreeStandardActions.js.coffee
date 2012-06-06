@@ -4,6 +4,7 @@ Ext.define 'YABSCA.lib.TreeStandardActions',
   mainForm: ''
   mainModel: ''
   mainTree: ''
+  motherTree: ''
   showMenu: (view, record, item, index, e, menu) ->
     e.preventDefault() #cancel normal browser behaviour at double click
     contextMenu = Ext.create menu #creates a new menu
@@ -36,6 +37,7 @@ Ext.define 'YABSCA.lib.TreeStandardActions',
     store = @mainStore()
     model = @mainModel
     tree = Ext.ComponentQuery.query(@mainTree)[0]
+    mother_tree = @motherTree
     if menu.node_id.match(@nodeType)
       Ext.MessageBox.confirm 'Delete', 'Are you sure?', (button) ->
         if button is "yes"
@@ -44,20 +46,22 @@ Ext.define 'YABSCA.lib.TreeStandardActions',
             success: (record) ->
               record.data = record.raw.data
               record.destroy()
-              me.refreshTree(menu.node_id, store, tree)
+              me.refreshTree(menu.node_id, store, tree, mother_tree)
   saveRecord: (button) ->
     me = YABSCA.lib.TreeStandardActions
     store = @mainStore()
     tree = Ext.ComponentQuery.query(@mainTree)[0]
     #save data from the form
     record = Ext.create @mainModel, button.up('window').down('form').getValues()
+    mother_tree = @motherTree
     record.save
       success: ->
-        me.refreshTree(button.up('window').down('form').getValues().node_id, store, tree)
+        me.refreshTree(button.up('window').down('form').getValues().node_id, store, tree, mother_tree)
         button.up('window').destroy()
-  refreshTree: (node_id, store, tree) ->
+  refreshTree: (node_id, store, tree, mother_tree) ->
+    mother_tree = Ext.ComponentQuery.query(mother_tree)[0]
     #reload the tree node
     store.load
       params:
         node: tree.getStore().getNodeById(node_id).parentNode
-        node_id: tree.getRootNode().data.node_id
+        node_id: mother_tree.getSelectionModel().getSelection()[0].data.id

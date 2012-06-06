@@ -8,6 +8,7 @@ Ext.define 'YABSCA.controller.Perspectives',
   mainModel: 'YABSCA.model.Perspective'
   mainMenu: 'perspective_menu'
   mainTree: 'perspective_tree'
+  motherTree: 'organization_tree'
   nodeType: 'persp'
   mainStore: ->
     @getPerspectivesStore()
