@@ -32,6 +32,8 @@ end
 #gem 'devise'
 gem 'declarative_authorization'
 
+gem 'cancan'
+
 gem 'settingslogic'
 
 gem 'treetop'
