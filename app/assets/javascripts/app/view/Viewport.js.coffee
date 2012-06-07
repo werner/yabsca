@@ -13,8 +13,9 @@ Ext.define 'YABSCA.view.Viewport',
         items: [
           xtype: 'panel'
           id: 'login_viewport'
-          layout: 'fit'
+          layout: 'anchor'
           items: [
+            anchor: '30%'
             xtype: 'session_form'
           ]
         ,
