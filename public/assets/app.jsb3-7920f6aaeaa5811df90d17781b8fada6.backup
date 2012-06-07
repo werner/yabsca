@@ -1,0 +1,1451 @@
+{
+    "projectName": "Project Name",
+    "licenseText": "Copyright(c) 2012 Company Name",
+    "builds": [
+        {
+            "name": "All Classes",
+            "target": "all-classes.js",
+            "options": {
+                "debug": true
+            },
+            "files": [
+                {
+                    "clsName": "Ext.util.Observable",
+                    "name": "Observable.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.data.IdGenerator",
+                    "name": "IdGenerator.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.data.Operation",
+                    "name": "Operation.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.data.validations",
+                    "name": "validations.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.data.association.Association",
+                    "name": "Association.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/association/"
+                },
+                {
+                    "clsName": "Ext.data.SortTypes",
+                    "name": "SortTypes.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.util.HashMap",
+                    "name": "HashMap.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.util.Floating",
+                    "name": "Floating.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.util.Filter",
+                    "name": "Filter.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.util.Sorter",
+                    "name": "Sorter.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.util.Renderable",
+                    "name": "Renderable.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.util.ElementContainer",
+                    "name": "ElementContainer.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.util.Animate",
+                    "name": "Animate.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.ComponentQuery",
+                    "name": "ComponentQuery.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.util.ProtoElement",
+                    "name": "ProtoElement.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.util.KeyMap",
+                    "name": "KeyMap.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.util.Memento",
+                    "name": "Memento.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.state.Provider",
+                    "name": "Provider.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/state/"
+                },
+                {
+                    "clsName": "Ext.fx.CubicBezier",
+                    "name": "CubicBezier.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/fx/"
+                },
+                {
+                    "clsName": "Ext.panel.Proxy",
+                    "name": "Proxy.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/panel/"
+                },
+                {
+                    "clsName": "Ext.Template",
+                    "name": "Template.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.fx.Queue",
+                    "name": "Queue.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/fx/"
+                },
+                {
+                    "clsName": "Ext.ZIndexManager",
+                    "name": "ZIndexManager.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.XTemplateParser",
+                    "name": "XTemplateParser.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.fx.target.Target",
+                    "name": "Target.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/fx/target/"
+                },
+                {
+                    "clsName": "Ext.draw.Color",
+                    "name": "Color.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/draw/"
+                },
+                {
+                    "clsName": "Ext.layout.container.boxOverflow.None",
+                    "name": "None.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/container/boxOverflow/"
+                },
+                {
+                    "clsName": "Ext.util.Offset",
+                    "name": "Offset.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.util.ClickRepeater",
+                    "name": "ClickRepeater.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.util.TextMetrics",
+                    "name": "TextMetrics.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.app.Controller",
+                    "name": "Controller.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/app/"
+                },
+                {
+                    "clsName": "Ext.AbstractManager",
+                    "name": "AbstractManager.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.ComponentManager",
+                    "name": "ComponentManager.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.ModelManager",
+                    "name": "ModelManager.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.util.AbstractMixedCollection",
+                    "name": "AbstractMixedCollection.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.data.Types",
+                    "name": "Types.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.data.Field",
+                    "name": "Field.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.util.Sortable",
+                    "name": "Sortable.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.util.MixedCollection",
+                    "name": "MixedCollection.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.data.StoreManager",
+                    "name": "StoreManager.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.data.Errors",
+                    "name": "Errors.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.data.Model",
+                    "name": "Model.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.state.Manager",
+                    "name": "Manager.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/state/"
+                },
+                {
+                    "clsName": "Ext.state.Stateful",
+                    "name": "Stateful.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/state/"
+                },
+                {
+                    "clsName": "Ext.AbstractComponent",
+                    "name": "AbstractComponent.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.Component",
+                    "name": "Component.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.app.EventBus",
+                    "name": "EventBus.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/app/"
+                },
+                {
+                    "clsName": "Ext.container.DockingContainer",
+                    "name": "DockingContainer.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/container/"
+                },
+                {
+                    "clsName": "Ext.fx.Easing",
+                    "name": "Easing.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/fx/"
+                },
+                {
+                    "clsName": "Ext.XTemplateCompiler",
+                    "name": "XTemplateCompiler.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.XTemplate",
+                    "name": "XTemplate.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.toolbar.Fill",
+                    "name": "Fill.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/toolbar/"
+                },
+                {
+                    "clsName": "Ext.fx.target.Element",
+                    "name": "Element.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/fx/target/"
+                },
+                {
+                    "clsName": "Ext.fx.target.ElementCSS",
+                    "name": "ElementCSS.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/fx/target/"
+                },
+                {
+                    "clsName": "Ext.fx.target.CompositeElement",
+                    "name": "CompositeElement.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/fx/target/"
+                },
+                {
+                    "clsName": "Ext.fx.target.CompositeElementCSS",
+                    "name": "CompositeElementCSS.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/fx/target/"
+                },
+                {
+                    "clsName": "Ext.fx.target.Sprite",
+                    "name": "Sprite.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/fx/target/"
+                },
+                {
+                    "clsName": "Ext.fx.target.CompositeSprite",
+                    "name": "CompositeSprite.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/fx/target/"
+                },
+                {
+                    "clsName": "Ext.draw.Draw",
+                    "name": "Draw.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/draw/"
+                },
+                {
+                    "clsName": "Ext.fx.PropertyHandler",
+                    "name": "PropertyHandler.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/fx/"
+                },
+                {
+                    "clsName": "Ext.fx.target.Component",
+                    "name": "Component.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/fx/target/"
+                },
+                {
+                    "clsName": "Ext.fx.Manager",
+                    "name": "Manager.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/fx/"
+                },
+                {
+                    "clsName": "Ext.fx.Animator",
+                    "name": "Animator.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/fx/"
+                },
+                {
+                    "clsName": "Ext.fx.Anim",
+                    "name": "Anim.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/fx/"
+                },
+                {
+                    "clsName": "Ext.dd.StatusProxy",
+                    "name": "StatusProxy.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/dd/"
+                },
+                {
+                    "clsName": "Ext.layout.Layout",
+                    "name": "Layout.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/"
+                },
+                {
+                    "clsName": "Ext.layout.component.Component",
+                    "name": "Component.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/component/"
+                },
+                {
+                    "clsName": "Ext.layout.component.Dock",
+                    "name": "Dock.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/component/"
+                },
+                {
+                    "clsName": "Ext.util.Region",
+                    "name": "Region.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.dd.DragDropManager",
+                    "name": "DragDropManager.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/dd/"
+                },
+                {
+                    "clsName": "Ext.layout.container.Container",
+                    "name": "Container.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/container/"
+                },
+                {
+                    "clsName": "Ext.layout.container.Auto",
+                    "name": "Auto.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/container/"
+                },
+                {
+                    "clsName": "Ext.container.AbstractContainer",
+                    "name": "AbstractContainer.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/container/"
+                },
+                {
+                    "clsName": "Ext.container.Container",
+                    "name": "Container.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/container/"
+                },
+                {
+                    "clsName": "Ext.panel.Header",
+                    "name": "Header.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/panel/"
+                },
+                {
+                    "clsName": "Ext.dd.DragDrop",
+                    "name": "DragDrop.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/dd/"
+                },
+                {
+                    "clsName": "Ext.dd.DD",
+                    "name": "DD.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/dd/"
+                },
+                {
+                    "clsName": "Ext.dd.DDProxy",
+                    "name": "DDProxy.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/dd/"
+                },
+                {
+                    "clsName": "Ext.dd.DragSource",
+                    "name": "DragSource.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/dd/"
+                },
+                {
+                    "clsName": "Ext.panel.DD",
+                    "name": "DD.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/panel/"
+                },
+                {
+                    "clsName": "Ext.layout.container.boxOverflow.Scroller",
+                    "name": "Scroller.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/container/boxOverflow/"
+                },
+                {
+                    "clsName": "Ext.menu.Manager",
+                    "name": "Manager.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/menu/"
+                },
+                {
+                    "clsName": "Ext.toolbar.Item",
+                    "name": "Item.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/toolbar/"
+                },
+                {
+                    "clsName": "Ext.toolbar.Separator",
+                    "name": "Separator.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/toolbar/"
+                },
+                {
+                    "clsName": "Ext.layout.component.Auto",
+                    "name": "Auto.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/component/"
+                },
+                {
+                    "clsName": "Ext.layout.component.Button",
+                    "name": "Button.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/component/"
+                },
+                {
+                    "clsName": "Ext.button.Button",
+                    "name": "Button.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/button/"
+                },
+                {
+                    "clsName": "Ext.layout.container.boxOverflow.Menu",
+                    "name": "Menu.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/container/boxOverflow/"
+                },
+                {
+                    "clsName": "Ext.layout.container.Box",
+                    "name": "Box.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/container/"
+                },
+                {
+                    "clsName": "Ext.layout.container.HBox",
+                    "name": "HBox.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/container/"
+                },
+                {
+                    "clsName": "Ext.layout.container.VBox",
+                    "name": "VBox.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/container/"
+                },
+                {
+                    "clsName": "Ext.toolbar.Toolbar",
+                    "name": "Toolbar.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/toolbar/"
+                },
+                {
+                    "clsName": "Ext.panel.AbstractPanel",
+                    "name": "AbstractPanel.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/panel/"
+                },
+                {
+                    "clsName": "Ext.panel.Panel",
+                    "name": "Panel.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/panel/"
+                },
+                {
+                    "clsName": "Ext.tip.Tip",
+                    "name": "Tip.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/tip/"
+                },
+                {
+                    "clsName": "Ext.tip.ToolTip",
+                    "name": "ToolTip.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/tip/"
+                },
+                {
+                    "clsName": "Ext.tip.QuickTip",
+                    "name": "QuickTip.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/tip/"
+                },
+                {
+                    "clsName": "Ext.tip.QuickTipManager",
+                    "name": "QuickTipManager.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/tip/"
+                },
+                {
+                    "clsName": "Ext.app.Application",
+                    "name": "Application.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/app/"
+                },
+                {
+                    "clsName": "Ext.util.Point",
+                    "name": "Point.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.Layer",
+                    "name": "Layer.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.PluginManager",
+                    "name": "PluginManager.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.resizer.Resizer",
+                    "name": "Resizer.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/resizer/"
+                },
+                {
+                    "clsName": "Ext.panel.Tool",
+                    "name": "Tool.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/panel/"
+                },
+                {
+                    "clsName": "Ext.util.CSS",
+                    "name": "CSS.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.layout.component.Body",
+                    "name": "Body.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/component/"
+                },
+                {
+                    "clsName": "Ext.Img",
+                    "name": "Img.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.ElementLoader",
+                    "name": "ElementLoader.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.dd.DragTracker",
+                    "name": "DragTracker.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/dd/"
+                },
+                {
+                    "clsName": "Ext.util.Queue",
+                    "name": "Queue.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.util.Bindable",
+                    "name": "Bindable.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.layout.component.Draw",
+                    "name": "Draw.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/component/"
+                },
+                {
+                    "clsName": "Ext.layout.container.Fit",
+                    "name": "Fit.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/container/"
+                },
+                {
+                    "clsName": "Ext.menu.Item",
+                    "name": "Item.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/menu/"
+                },
+                {
+                    "clsName": "Ext.menu.Separator",
+                    "name": "Separator.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/menu/"
+                },
+                {
+                    "clsName": "Ext.util.LruCache",
+                    "name": "LruCache.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.layout.ClassList",
+                    "name": "ClassList.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/"
+                },
+                {
+                    "clsName": "Ext.data.proxy.Proxy",
+                    "name": "Proxy.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/proxy/"
+                },
+                {
+                    "clsName": "Ext.draw.CompositeSprite",
+                    "name": "CompositeSprite.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/draw/"
+                },
+                {
+                    "clsName": "Ext.util.KeyNav",
+                    "name": "KeyNav.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.data.proxy.Server",
+                    "name": "Server.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/proxy/"
+                },
+                {
+                    "clsName": "Ext.data.ResultSet",
+                    "name": "ResultSet.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.data.Connection",
+                    "name": "Connection.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.data.writer.Writer",
+                    "name": "Writer.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/writer/"
+                },
+                {
+                    "clsName": "Ext.ComponentLoader",
+                    "name": "ComponentLoader.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.LoadMask",
+                    "name": "LoadMask.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.util.ComponentDragger",
+                    "name": "ComponentDragger.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.window.Window",
+                    "name": "Window.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/window/"
+                },
+                {
+                    "clsName": "Ext.layout.ContextItem",
+                    "name": "ContextItem.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/"
+                },
+                {
+                    "clsName": "Ext.layout.Context",
+                    "name": "Context.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/"
+                },
+                {
+                    "clsName": "Ext.draw.Surface",
+                    "name": "Surface.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/draw/"
+                },
+                {
+                    "clsName": "Ext.draw.Component",
+                    "name": "Component.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/draw/"
+                },
+                {
+                    "clsName": "Ext.menu.CheckItem",
+                    "name": "CheckItem.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/menu/"
+                },
+                {
+                    "clsName": "Ext.data.AbstractStore",
+                    "name": "AbstractStore.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.data.writer.Json",
+                    "name": "Json.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/writer/"
+                },
+                {
+                    "clsName": "Ext.data.proxy.Client",
+                    "name": "Client.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/proxy/"
+                },
+                {
+                    "clsName": "Ext.data.proxy.Memory",
+                    "name": "Memory.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/proxy/"
+                },
+                {
+                    "clsName": "Ext.FocusManager",
+                    "name": "FocusManager.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.menu.KeyNav",
+                    "name": "KeyNav.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/menu/"
+                },
+                {
+                    "clsName": "Ext.menu.Menu",
+                    "name": "Menu.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/menu/"
+                },
+                {
+                    "clsName": "Ext.data.reader.Reader",
+                    "name": "Reader.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/reader/"
+                },
+                {
+                    "clsName": "Ext.data.reader.Json",
+                    "name": "Json.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/reader/"
+                },
+                {
+                    "clsName": "Ext.data.reader.Array",
+                    "name": "Array.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/reader/"
+                },
+                {
+                    "clsName": "Ext.Ajax",
+                    "name": "Ajax.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.data.proxy.Ajax",
+                    "name": "Ajax.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/proxy/"
+                },
+                {
+                    "clsName": "Ext.data.Store",
+                    "name": "Store.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.data.ArrayStore",
+                    "name": "ArrayStore.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.resizer.ResizeTracker",
+                    "name": "ResizeTracker.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/resizer/"
+                },
+                {
+                    "clsName": "Ext.data.Batch",
+                    "name": "Batch.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.data.Request",
+                    "name": "Request.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.draw.engine.SvgExporter",
+                    "name": "SvgExporter.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/draw/engine/"
+                },
+                {
+                    "clsName": "Ext.draw.engine.ImageExporter",
+                    "name": "ImageExporter.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/draw/engine/"
+                },
+                {
+                    "clsName": "Ext.util.Grouper",
+                    "name": "Grouper.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.ShadowPool",
+                    "name": "ShadowPool.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.draw.Matrix",
+                    "name": "Matrix.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/draw/"
+                },
+                {
+                    "clsName": "Ext.draw.SpriteDD",
+                    "name": "SpriteDD.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/draw/"
+                },
+                {
+                    "clsName": "Ext.Shadow",
+                    "name": "Shadow.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.draw.Sprite",
+                    "name": "Sprite.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/draw/"
+                },
+                {
+                    "clsName": "Ext.draw.engine.Vml",
+                    "name": "Vml.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/draw/engine/"
+                },
+                {
+                    "clsName": "Ext.draw.engine.Svg",
+                    "name": "Svg.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/draw/engine/"
+                },
+                {
+                    "clsName": "Ext.util.Cookies",
+                    "name": "Cookies.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/util/"
+                },
+                {
+                    "clsName": "YABSCA.lib.TreeStandardActions",
+                    "name": "TreeStandardActions.js",
+                    "path": "app/lib/"
+                },
+                {
+                    "clsName": "Ext.container.Viewport",
+                    "name": "Viewport.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/container/"
+                },
+                {
+                    "clsName": "YABSCA.view.unit.Window",
+                    "name": "Window.js",
+                    "path": "app/view/unit/"
+                },
+                {
+                    "clsName": "YABSCA.view.responsible.Window",
+                    "name": "Window.js",
+                    "path": "app/view/responsible/"
+                },
+                {
+                    "clsName": "YABSCA.view.user.Window",
+                    "name": "Window.js",
+                    "path": "app/view/user/"
+                },
+                {
+                    "clsName": "YABSCA.lib.StandardActions",
+                    "name": "StandardActions.js",
+                    "path": "app/lib/"
+                },
+                {
+                    "clsName": "Ext.data.proxy.Rest",
+                    "name": "Rest.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/proxy/"
+                },
+                {
+                    "clsName": "Ext.panel.Table",
+                    "name": "Table.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/panel/"
+                },
+                {
+                    "clsName": "Ext.form.FieldAncestor",
+                    "name": "FieldAncestor.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/form/"
+                },
+                {
+                    "clsName": "Ext.form.action.Action",
+                    "name": "Action.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/form/action/"
+                },
+                {
+                    "clsName": "Ext.layout.container.Anchor",
+                    "name": "Anchor.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/container/"
+                },
+                {
+                    "clsName": "Ext.form.field.VTypes",
+                    "name": "VTypes.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/form/field/"
+                },
+                {
+                    "clsName": "Ext.form.Labelable",
+                    "name": "Labelable.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/form/"
+                },
+                {
+                    "clsName": "Ext.layout.component.ProgressBar",
+                    "name": "ProgressBar.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/component/"
+                },
+                {
+                    "clsName": "Ext.form.field.Field",
+                    "name": "Field.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/form/field/"
+                },
+                {
+                    "clsName": "Ext.selection.Model",
+                    "name": "Model.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/selection/"
+                },
+                {
+                    "clsName": "Ext.layout.component.field.Field",
+                    "name": "Field.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/component/field/"
+                },
+                {
+                    "clsName": "YABSCA.view.Viewport",
+                    "name": "Viewport.js",
+                    "path": "app/view/"
+                },
+                {
+                    "clsName": "YABSCA.model.Unit",
+                    "name": "Unit.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "YABSCA.model.Responsible",
+                    "name": "Responsible.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "YABSCA.store.Units",
+                    "name": "Units.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "YABSCA.store.Responsibles",
+                    "name": "Responsibles.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "Ext.form.action.Load",
+                    "name": "Load.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/form/action/"
+                },
+                {
+                    "clsName": "Ext.form.action.Submit",
+                    "name": "Submit.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/form/action/"
+                },
+                {
+                    "clsName": "Ext.ProgressBar",
+                    "name": "ProgressBar.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/"
+                },
+                {
+                    "clsName": "Ext.form.field.Base",
+                    "name": "Base.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/form/field/"
+                },
+                {
+                    "clsName": "Ext.form.field.Display",
+                    "name": "Display.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/form/field/"
+                },
+                {
+                    "clsName": "Ext.layout.component.field.Text",
+                    "name": "Text.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/component/field/"
+                },
+                {
+                    "clsName": "Ext.form.field.Text",
+                    "name": "Text.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/form/field/"
+                },
+                {
+                    "clsName": "Ext.layout.component.field.TextArea",
+                    "name": "TextArea.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/layout/component/field/"
+                },
+                {
+                    "clsName": "Ext.form.field.TextArea",
+                    "name": "TextArea.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/form/field/"
+                },
+                {
+                    "clsName": "Ext.window.MessageBox",
+                    "name": "MessageBox.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/window/"
+                },
+                {
+                    "clsName": "Ext.form.Basic",
+                    "name": "Basic.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/form/"
+                },
+                {
+                    "clsName": "Ext.form.Panel",
+                    "name": "Panel.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/form/"
+                },
+                {
+                    "clsName": "YABSCA.view.unit.Form",
+                    "name": "Form.js",
+                    "path": "app/view/unit/"
+                },
+                {
+                    "clsName": "YABSCA.view.responsible.Form",
+                    "name": "Form.js",
+                    "path": "app/view/responsible/"
+                },
+                {
+                    "clsName": "YABSCA.view.user.Form",
+                    "name": "Form.js",
+                    "path": "app/view/user/"
+                },
+                {
+                    "clsName": "YABSCA.view.session.Form",
+                    "name": "Form.js",
+                    "path": "app/view/session/"
+                },
+                {
+                    "clsName": "YABSCA.controller.Sessions",
+                    "name": "Sessions.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "Ext.selection.DataViewModel",
+                    "name": "DataViewModel.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/selection/"
+                },
+                {
+                    "clsName": "Ext.view.AbstractView",
+                    "name": "AbstractView.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/view/"
+                },
+                {
+                    "clsName": "Ext.view.View",
+                    "name": "View.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/view/"
+                },
+                {
+                    "clsName": "Ext.view.Table",
+                    "name": "Table.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/view/"
+                },
+                {
+                    "clsName": "Ext.grid.View",
+                    "name": "View.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/grid/"
+                },
+                {
+                    "clsName": "Ext.grid.Panel",
+                    "name": "Panel.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/grid/"
+                },
+                {
+                    "clsName": "YABSCA.view.unit.Grid",
+                    "name": "Grid.js",
+                    "path": "app/view/unit/"
+                },
+                {
+                    "clsName": "YABSCA.view.responsible.Grid",
+                    "name": "Grid.js",
+                    "path": "app/view/responsible/"
+                },
+                {
+                    "clsName": "YABSCA.view.user.Grid",
+                    "name": "Grid.js",
+                    "path": "app/view/user/"
+                },
+                {
+                    "clsName": "YABSCA.controller.Menu",
+                    "name": "Menu.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "YABSCA.controller.Units",
+                    "name": "Units.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "YABSCA.controller.Responsibles",
+                    "name": "Responsibles.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "YABSCA.model.Objective",
+                    "name": "Objective.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "YABSCA.view.objective.Form",
+                    "name": "Form.js",
+                    "path": "app/view/objective/"
+                },
+                {
+                    "clsName": "YABSCA.model.Organization",
+                    "name": "Organization.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "YABSCA.model.Tree",
+                    "name": "Tree.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "YABSCA.view.organization.Menu",
+                    "name": "Menu.js",
+                    "path": "app/view/organization/"
+                },
+                {
+                    "clsName": "YABSCA.view.organization.Form",
+                    "name": "Form.js",
+                    "path": "app/view/organization/"
+                },
+                {
+                    "clsName": "YABSCA.model.Strategy",
+                    "name": "Strategy.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "YABSCA.view.strategy.Form",
+                    "name": "Form.js",
+                    "path": "app/view/strategy/"
+                },
+                {
+                    "clsName": "YABSCA.model.Perspective",
+                    "name": "Perspective.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "YABSCA.view.perspective.Menu",
+                    "name": "Menu.js",
+                    "path": "app/view/perspective/"
+                },
+                {
+                    "clsName": "YABSCA.view.perspective.Form",
+                    "name": "Form.js",
+                    "path": "app/view/perspective/"
+                },
+                {
+                    "clsName": "YABSCA.view.initiative.Gantt",
+                    "name": "Gantt.js",
+                    "path": "app/view/initiative/"
+                },
+                {
+                    "clsName": "YABSCA.model.Measure",
+                    "name": "Measure.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "YABSCA.model.Period",
+                    "name": "Period.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "YABSCA.model.MeasureChart",
+                    "name": "MeasureChart.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "YABSCA.view.measure.Menu",
+                    "name": "Menu.js",
+                    "path": "app/view/measure/"
+                },
+                {
+                    "clsName": "YABSCA.view.measure.Form",
+                    "name": "Form.js",
+                    "path": "app/view/measure/"
+                },
+                {
+                    "clsName": "YABSCA.view.measure.Formula",
+                    "name": "Formula.js",
+                    "path": "app/view/measure/"
+                },
+                {
+                    "clsName": "YABSCA.store.Periods",
+                    "name": "Periods.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "YABSCA.store.MeasureCharts",
+                    "name": "MeasureCharts.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "YABSCA.model.Initiative",
+                    "name": "Initiative.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "YABSCA.view.initiative.Menu",
+                    "name": "Menu.js",
+                    "path": "app/view/initiative/"
+                },
+                {
+                    "clsName": "YABSCA.model.Target",
+                    "name": "Target.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "YABSCA.view.target.Form",
+                    "name": "Form.js",
+                    "path": "app/view/target/"
+                },
+                {
+                    "clsName": "YABSCA.view.target.Grid",
+                    "name": "Grid.js",
+                    "path": "app/view/target/"
+                },
+                {
+                    "clsName": "YABSCA.view.target.Panel",
+                    "name": "Panel.js",
+                    "path": "app/view/target/"
+                },
+                {
+                    "clsName": "YABSCA.model.User",
+                    "name": "User.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "YABSCA.store.Users",
+                    "name": "Users.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "Ext.data.NodeInterface",
+                    "name": "NodeInterface.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.data.Tree",
+                    "name": "Tree.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.data.NodeStore",
+                    "name": "NodeStore.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.selection.RowModel",
+                    "name": "RowModel.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/selection/"
+                },
+                {
+                    "clsName": "Ext.grid.ColumnComponentLayout",
+                    "name": "ColumnComponentLayout.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/grid/"
+                },
+                {
+                    "clsName": "Ext.grid.ColumnLayout",
+                    "name": "ColumnLayout.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/grid/"
+                },
+                {
+                    "clsName": "Ext.grid.plugin.HeaderResizer",
+                    "name": "HeaderResizer.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/grid/plugin/"
+                },
+                {
+                    "clsName": "Ext.dd.DragZone",
+                    "name": "DragZone.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/dd/"
+                },
+                {
+                    "clsName": "Ext.dd.Registry",
+                    "name": "Registry.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/dd/"
+                },
+                {
+                    "clsName": "Ext.dd.ScrollManager",
+                    "name": "ScrollManager.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/dd/"
+                },
+                {
+                    "clsName": "Ext.dd.DDTarget",
+                    "name": "DDTarget.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/dd/"
+                },
+                {
+                    "clsName": "YABSCA.controller.Users",
+                    "name": "Users.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "YABSCA.store.Targets",
+                    "name": "Targets.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "YABSCA.controller.Targets",
+                    "name": "Targets.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "Ext.data.TreeStore",
+                    "name": "TreeStore.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/data/"
+                },
+                {
+                    "clsName": "YABSCA.store.Perspectives",
+                    "name": "Perspectives.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "YABSCA.controller.Objectives",
+                    "name": "Objectives.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "YABSCA.store.Organizations",
+                    "name": "Organizations.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "YABSCA.controller.Strategies",
+                    "name": "Strategies.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "YABSCA.store.Measures",
+                    "name": "Measures.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "YABSCA.store.Initiatives",
+                    "name": "Initiatives.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "Ext.tree.View",
+                    "name": "View.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/tree/"
+                },
+                {
+                    "clsName": "Ext.selection.TreeModel",
+                    "name": "TreeModel.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/selection/"
+                },
+                {
+                    "clsName": "Ext.grid.header.DragZone",
+                    "name": "DragZone.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/grid/header/"
+                },
+                {
+                    "clsName": "Ext.dd.DropTarget",
+                    "name": "DropTarget.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/dd/"
+                },
+                {
+                    "clsName": "Ext.dd.DropZone",
+                    "name": "DropZone.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/dd/"
+                },
+                {
+                    "clsName": "Ext.grid.header.DropZone",
+                    "name": "DropZone.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/grid/header/"
+                },
+                {
+                    "clsName": "Ext.grid.plugin.HeaderReorderer",
+                    "name": "HeaderReorderer.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/grid/plugin/"
+                },
+                {
+                    "clsName": "Ext.grid.header.Container",
+                    "name": "Container.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/grid/header/"
+                },
+                {
+                    "clsName": "Ext.grid.column.Column",
+                    "name": "Column.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/grid/column/"
+                },
+                {
+                    "clsName": "Ext.tree.Column",
+                    "name": "Column.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/tree/"
+                },
+                {
+                    "clsName": "Ext.tree.Panel",
+                    "name": "Panel.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/tree/"
+                },
+                {
+                    "clsName": "YABSCA.view.organization.Tree",
+                    "name": "Tree.js",
+                    "path": "app/view/organization/"
+                },
+                {
+                    "clsName": "YABSCA.controller.Organizations",
+                    "name": "Organizations.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "YABSCA.view.perspective.Tree",
+                    "name": "Tree.js",
+                    "path": "app/view/perspective/"
+                },
+                {
+                    "clsName": "YABSCA.controller.Perspectives",
+                    "name": "Perspectives.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "YABSCA.view.measure.Tree",
+                    "name": "Tree.js",
+                    "path": "app/view/measure/"
+                },
+                {
+                    "clsName": "YABSCA.controller.Measures",
+                    "name": "Measures.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "YABSCA.view.initiative.Tree",
+                    "name": "Tree.js",
+                    "path": "app/view/initiative/"
+                },
+                {
+                    "clsName": "YABSCA.controller.Initiatives",
+                    "name": "Initiatives.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "Ext.grid.PagingScroller",
+                    "name": "PagingScroller.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/grid/"
+                },
+                {
+                    "clsName": "Ext.view.TableChunker",
+                    "name": "TableChunker.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/view/"
+                },
+                {
+                    "clsName": "Ext.grid.LockingView",
+                    "name": "LockingView.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/grid/"
+                },
+                {
+                    "clsName": "Ext.grid.Lockable",
+                    "name": "Lockable.js",
+                    "path": "../../../vendor/assets/javascripts/ext/src/grid/"
+                }
+            ]
+        },
+        {
+            "name": "Application - Production",
+            "target": "app-all.js",
+            "compress": true,
+            "files": [
+                {
+                    "path": "",
+                    "name": "all-classes.js"
+                },
+                {
+                    "path": "",
+                    "name": "app.js"
+                }
+            ]
+        }
+    ],
+    "resources": []
+}
