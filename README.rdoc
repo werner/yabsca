@@ -1,6 +1,8 @@
 == Y.A.B.S.C.A.
 Yet Another Balanced ScoreCard Application
 
+Demo: http://yabsca.herokuapp.com/ (user: admin, password: 12345)
+
 This is a simple to use Balanced ScoreCard Application focused on a kiss philosophy. 
 It is Open Source and use Ruby on Rails as a backend framework and ExtJS as a Front End.
 
