@@ -3,6 +3,7 @@
 <head>
   <title>Yabsca</title>
   <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= stylesheet_link_tag "ext/resources/css/ext-all", :media => "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -11,8 +12,10 @@
 
 <% if Rails.env.development? %>
   <%= javascript_include_tag "ext/ext-debug" %>
+  <%= javascript_include_tag "app" %>
 <% elsif Rails.env.production? %>
   <%= javascript_include_tag "ext/ext" %>
+  <%= javascript_include_tag "app-all" %>
 <% end %>
 <%= javascript_include_tag "application" %>
 </body>

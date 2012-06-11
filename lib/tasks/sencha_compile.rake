@@ -4,12 +4,15 @@ require 'find'
 namespace :sencha do
 
   desc 'Compiles Ext JS application CoffeeScript and performs JSB3 build and create.'
-  task :compile do
+  task :create do
+
+    Rake::Task['assets:clean'].invoke
 
     tmp_js = "#{File.dirname(__FILE__)}/../../tmp/sencha"
 
-    src_app = "#{File.dirname(__FILE__)}/../../app/assets/javascripts/app"
-    tmp_app = File.expand_path("#{tmp_js}/assets/app")
+    src_app = "#{File.dirname(__FILE__)}/../../app/assets/javascripts"
+
+    tmp_app = File.expand_path("#{tmp_js}/assets")
 
     FileUtils.rm_rf tmp_js
 
@@ -30,28 +33,35 @@ namespace :sencha do
     # Moves app.js to top-level.
     FileUtils.mv "#{tmp_app}/app.js", "#{tmp_js}/app.js"
     
-    # Copies template app.html needed for Sencha SDK Tools.
-    FileUtils.cp "#{File.dirname(__FILE__)}/../assets/app.html", "#{tmp_js}/app.html"
-    
     ## Create Ext JS library symlink.
-    ext = "#{File.dirname(__FILE__)}/../../public/ext"
-    ext_symlink = "#{tmp_js}/ext"
+    ext = "#{File.dirname(__FILE__)}/../../vendor/assets/javascripts/ext/"
+    ext_symlink = "#{tmp_app}/ext"
 
     File.symlink(ext, ext_symlink)
 
     # Create JSB3 file for Docs app
-    system("sencha", "create", "jsb", "-a", "#{tmp_js}/app.html", "-p", "#{tmp_js}/app.jsb3")
-    
+    # requires the server up and running
+    system("/opt/SenchaSDKTools-2.0.0-beta3/sencha", "create", "jsb", "-a", 
+            "http://localhost:3000", "-p", "#{tmp_js}/app.jsb3")
+  end
+
+  task :compile do
+    tmp_js = "#{File.dirname(__FILE__)}/../../tmp/sencha"
+
     # Update JSB3 meta-data.
     jsb3 = File.read("#{tmp_js}/app.jsb3")
     
-    jsb3 = jsb3.gsub("Project Name", "My Project")
-    jsb3 = jsb3.gsub("Company Name", "My Company")
+    jsb3 = jsb3.gsub("Project Name", "YABSCA")
     
     File.open("#{tmp_js}/app.jsb3", "w") do |f|
       f.write jsb3
     end
     
-    system("sencha", "build", "-p", "#{tmp_js}/app.jsb3", "-d", tmp_js)
+    system("/opt/SenchaSDKTools-2.0.0-beta3/sencha", "build", "-p", "#{tmp_js}/app.jsb3", "-d", tmp_js)
+
+    FileUtils.mv "#{tmp_js}/all-classes.js", "#{File.dirname(__FILE__)}/../../app/assets/javascripts/all-classes.js"
+    FileUtils.mv "#{tmp_js}/app-all.js", "#{File.dirname(__FILE__)}/../../app/assets/javascripts/app-all.js"
+
+    Rake::Task['assets:precompile'].invoke
   end
 end
