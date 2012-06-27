@@ -1,6 +1,6 @@
 Ext.Loader.setPath 'Ext', './assets/ext/src'
 Ext.require ['Ext.layout.container.Card', 'Ext.layout.container.Border', 
-             'Ext.form.field.Hidden', 'Ext.form.field.ComboBox']
+             'Ext.form.field.Hidden', 'Ext.form.field.ComboBox', 'Ext.form.field.Date']
 Ext.application
   name: 'YABSCA'
   appFolder: 'assets/app'
