@@ -2,6 +2,8 @@ class Target < ActiveRecord::Base
   belongs_to :measure
   attr_accessor :to_order
 
+  validates_uniqueness_of :measure_id, :scope => [:goal, :achieved, :period]
+
   scope :to_charts, lambda {|date_from,date_to,measure_id| {:conditions =>
         ["period_date between ? and ? and measure_id=? and achieved is not null", date_from, date_to, measure_id] }}
   
