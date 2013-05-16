@@ -25,6 +25,7 @@ group :development, :test do
   gem 'fuubar'
   gem 'jasmine'
   gem 'jasminerice'
+  gem 'debugger'
 end
 
 #gem 'devise'
