@@ -6,6 +6,7 @@ class Organization < ActiveRecord::Base
   has_many :strategies
 
   validates_presence_of :name
+  validates_uniqueness_of :name
 
   def set_organization_id
     self.organization_id = 0 if self.organization_id.nil?
