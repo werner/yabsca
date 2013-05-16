@@ -1,6 +1,17 @@
 Ext.define 'YABSCA.view.Viewport',
   extend: 'Ext.Viewport'
   layout: 'fit'
+  lang_title: 'Balanced ScoreCard Application'
+  lang_settings: 'Settings'
+  lang_units: 'Units'
+  lang_resp: 'Responsibles'
+  lang_users: 'Users'
+  lang_log_out: 'Log Out'
+  lang_org_strat: 'Organizations and Strategies'
+  lang_persp_obj: 'Perspectives and Objectives'
+  lang_initiative: 'Initiatives'
+  lang_measure: 'Measures'
+  lang_target: 'Targets'
   initComponent: ->
     me = this
 
@@ -8,7 +19,7 @@ Ext.define 'YABSCA.view.Viewport',
       items: [
         xtype: 'panel'
         id: 'viewport'
-        title: 'Balanced ScoreCard Application'
+        title: @lang_title
         layout: 'card'
         items: [
           xtype: 'panel'
@@ -23,32 +34,32 @@ Ext.define 'YABSCA.view.Viewport',
           layout: 'border'
           tbar: [
             xtype: 'button'
-            text: 'Settings'
+            text: @lang_settings
             iconCls: 'tools'
             width: 100
             menu:
               xtype: 'menu'
               items: [
-                text: 'Units'
+                text: @lang_units
                 iconCls: 'unit'
                 action: 'units'
               ,
-                text: 'Responsibles'
+                text: @lang_resp
                 iconCls: 'responsible'
                 action: 'responsibles'
               ,
-                text: 'Users'
+                text: @lang_users
                 iconCls: 'user'
                 action: 'users'
               ,
-                text: 'Log Out'
+                text: @lang_log_out
                 iconCls: 'exit'
                 handler: ->
                   Ext.Ajax.request
                     url: '/logout'
                     method: 'DELETE'
                     success: (response) ->
-                      window.location.href = "/"
+                      window.location.href = "/" + location.href.split('/')[3]
               ]
           ]
           items: [
@@ -58,7 +69,7 @@ Ext.define 'YABSCA.view.Viewport',
             border: false
             items:
               xtype: 'organization_tree'
-              title: 'Organizations and Strategies'
+              title: @lang_org_strat
               border: false
           ,
             region: 'center'
@@ -74,12 +85,12 @@ Ext.define 'YABSCA.view.Viewport',
               items: [
                 xtype: 'perspective_tree'
                 region: 'west'
-                title: 'Perspectives and Objectives'
+                title: @lang_persp_obj
                 flex: 1
               ,
                 xtype: 'initiative_tree'
                 region: 'center'
-                title: 'Initiatives'
+                title: @lang_initiative
                 flex: 1
               ]
             ,
@@ -89,13 +100,13 @@ Ext.define 'YABSCA.view.Viewport',
               items: [
                 xtype: 'measure_tree'
                 region: 'west'
-                title: 'Measures'
+                title: @lang_measure
                 border: false
                 flex: 1
               ,
                 xtype: 'target_panel'
                 region: 'center'
-                title: 'Targets'
+                title: @lang_target
                 border: false
                 flex: 1
               ]

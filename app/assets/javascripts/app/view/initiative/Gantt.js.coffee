@@ -6,9 +6,10 @@ Ext.define 'YABSCA.view.initiative.Gantt',
   closeAction: 'hide'
   title: 'Gantt'
   layout: 'fit'
+  close: 'Close'
   initComponent: ->
     @buttons = [
-      text: 'Close'
+      text: @close
       iconCls: 'close'
       scope: this
       handler: @destroy

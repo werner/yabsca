@@ -23,7 +23,7 @@ Ext.define 'YABSCA.controller.Sessions',
       success: (response) ->
         result = Ext.JSON.decode(response.responseText)
         if result.success is true
-          viewport.getLayout().setActiveItem 1 
+          viewport.getLayout().setActiveItem 1
         else
           Ext.MessageBox.alert "Login", "Invalid Login or Password"
   loginByEnter: (text, e, eOpts) ->
@@ -38,6 +38,6 @@ Ext.define 'YABSCA.controller.Sessions',
           'Accept': 'application/json'
           'X-CSRF-Token': YABSCA.csrfToken
         , r.headers || {})
-      );
+      )
     catch e
       console.log 'CSRF protection appears to be disabled'

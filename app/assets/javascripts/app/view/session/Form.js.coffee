@@ -1,6 +1,9 @@
 Ext.define 'YABSCA.view.session.Form',
   extend: 'Ext.form.Panel'
   alias: 'widget.session_form'
+  login: 'Login'
+  password: 'Password'
+  login_button: 'login'
   initComponent: ->
     Ext.apply this,
       bodyStyle: 'padding: 15px'
@@ -14,78 +17,22 @@ Ext.define 'YABSCA.view.session.Form',
         xtype: 'textfield'
         name: 'login'
         action: 'login'
-        fieldLabel: 'Login'
+        fieldLabel: @login
         allowBlank: false
       ,
         xtype: 'textfield'
         name: 'password'
         action: 'password'
-        fieldLabel: 'Password'
+        fieldLabel: @password
         inputType: 'password'
         allowBlank: false
         enableKeyEvents: true
       ]
       buttons: [
-        text: 'Login'
+        text: @login_button
         iconCls: 'login'
         action: 'login'
       ]
 
     @callParent arguments
 
-#Ext.Loader.setPath 'Ext', './assets/ext/src'
-#Ext.onReady ->
-#  login = ->
-#    form.getForm().submit
-#      method: 'POST'
-#      success: (response) ->
-#        window.location = '/'
-#
-#  @form = Ext.widget 'form',
-#    itemId: 'session_form'
-#    frame: true
-#    url: '/login'
-#    bodyStyle: 'padding: 15px'
-#    width: 350
-#    labelWidth: 75
-#    items: [
-#      xtype: 'hiddenfield'
-#      name: 'id'
-#    ,
-#      xtype: 'textfield'
-#      name: 'login'
-#      fieldLabel: 'Login'
-#      allowBlank: false
-#    ,
-#      xtype: 'textfield'
-#      name: 'password'
-#      fieldLabel: 'Password'
-#      inputType: 'password'
-#      allowBlank: false
-#      listeners:
-#        keyup:
-#          element: 'el'
-#          fn: (text, e, eOpts) ->
-#            login() if text.getCharCode() is Ext.EventObject.ENTER
-#    ]
-#    buttons: [
-#      text: 'Log In'
-#      iconCls: 'login'
-#      action: 'login'
-#      handler: ->
-#        login()
-#    ]
-#
-#  win = Ext.widget 'window',
-#    layout:'fit'
-#    title: 'Log In'
-#    width:320
-#    height:170
-#    closable: false
-#    resizable: false
-#    plain: true
-#    border: false
-#    items: [form]
-#
-#  win.show()
-#    

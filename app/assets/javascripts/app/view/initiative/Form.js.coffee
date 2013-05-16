@@ -7,14 +7,21 @@ Ext.define 'YABSCA.view.initiative.Form',
   closeAction: 'hide'
   title: 'Initiative'
   layout: 'fit'
+  save: 'Save'
+  close: 'Close'
+  code: 'Code'
+  name: 'Name'
+  completed: '% Completed'
+  beginning: 'Beginning'
+  end: 'End'
   initComponent: ->
     Ext.apply this,
       buttons: [
-        text: 'Save'
+        text: @save
         iconCls: 'save'
         action: 'save'
       ,
-        text: 'Close'
+        text: @close
         iconCls: 'close'
         scope: this
         handler: @destroy
@@ -46,25 +53,25 @@ Ext.define 'YABSCA.view.initiative.Form',
           value: 0
         ,
           name: 'code'
-          fieldLabel: 'Code'
+          fieldLabel: @code
           allowBlank: false
         ,
           name: 'name'
-          fieldLabel: 'Name'
+          fieldLabel: @name
           allowBlank: false
         ,
           xtype: 'numberfield'
           name: 'completed'
-          fieldLabel: 'Completed'
+          fieldLabel: @completed
         ,
           xtype: 'datefield'
           name: 'beginning'
-          fieldLabel: 'Beginning'
+          fieldLabel: @beginning
           submitFormat: 'Y/m/d'
         ,
           xtype: 'datefield'
           name: 'end'
-          fieldLabel: 'End'
+          fieldLabel: @end
           submitFormat: 'Y/m/d'
         ]
       ]

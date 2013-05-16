@@ -30,6 +30,8 @@ Yabsca32::Application.routes.draw do
     get 'authorization'
   end
 
-  root :to => 'home#index'
+  scope "/:locale", :locale => /en|es/ do
+    root :to => 'home#index'
+  end
 
 end

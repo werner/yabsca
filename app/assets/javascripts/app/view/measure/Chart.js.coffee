@@ -7,9 +7,12 @@ Ext.define 'YABSCA.view.measure.Chart',
   closeAction: 'hide'
   title: 'Chart'
   layout: 'fit'
+  close: 'Close'
+  title_period: 'Period'
+  title_achieved: 'achieved'
   initComponent: ->
     @buttons = [
-      text: 'Close'
+      text: @close
       iconCls: 'close'
       scope: this
       handler: @destroy
@@ -31,13 +34,13 @@ Ext.define 'YABSCA.view.measure.Chart',
             100:
               color: '#eaf1f8'
       axes: [
-        title: 'Achieved'
+        title: @title_achieved
         type: 'Numeric'
         position: 'left'
         fields: ['achieved', 'goal']
         minimum: 0
       ,
-        title: 'Period'
+        title: @title_period
         type: 'Category'
         position: 'bottom'
         fields: ['period']

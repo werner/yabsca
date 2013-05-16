@@ -17,6 +17,10 @@
   <%= javascript_include_tag "ext/ext" %>
   <%= javascript_include_tag "app-all" %>
 <% end %>
+<% if params[:locale] == "es" %>
+  <%= javascript_include_tag "ext/locale/ext-lang-es" %>
+  <%= javascript_include_tag "locale/Spanish" %>
+<% end %>
 <%= javascript_include_tag "application" %>
 </body>
 </html>

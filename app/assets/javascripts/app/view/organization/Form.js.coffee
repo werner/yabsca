@@ -7,6 +7,10 @@ Ext.define 'YABSCA.view.organization.Form',
   closeAction: 'hide'
   title: 'Organization'
   layout: 'fit'
+  name: 'Name'
+  vision: 'Vision'
+  goal: 'Goal'
+  description: 'Description'
   initComponent: ->
     Ext.apply this,
       buttons: [
@@ -39,17 +43,17 @@ Ext.define 'YABSCA.view.organization.Form',
         ,
           xtype: 'textfield'
           name: 'name'
-          fieldLabel: 'Name'
+          fieldLabel: @name
           allowBlank: false
         ,
           name: 'vision'
-          fieldLabel: 'Vision'
+          fieldLabel: @vision
         ,
           name: 'goal'
-          fieldLabel: 'Goal'
+          fieldLabel: @goal
         ,
           name: 'description'
-          fieldLabel: 'Description'
+          fieldLabel: @description
         ]
       ]
 
