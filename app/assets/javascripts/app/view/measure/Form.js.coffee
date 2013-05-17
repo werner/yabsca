@@ -7,13 +7,26 @@ Ext.define 'YABSCA.view.measure.Form',
   closeAction: 'hide'
   title: 'Measure'
   layout: 'fit'
+  save: 'Save'
+  close: 'Close'
+  code: 'Code'
+  name: 'Nombre'
+  description: 'Description'
+  challenge: 'challenge'
+  excellent: 'Excellent'
+  alert: 'Alert'
+  frecuency: 'Frecuency'
+  from: 'From'
+  to: 'To'
+  unit: 'Unit'
+  responsible: 'Responsible'
   initComponent: ->
     @buttons = [
-      text: 'Save'
+      text: @save
       iconCls: 'save'
       action: 'save'
     ,
-      text: 'Close'
+      text: @close
       iconCls: 'close'
       scope: this
       handler: @destroy
@@ -39,20 +52,20 @@ Ext.define 'YABSCA.view.measure.Form',
         value: 0
       ,
         name: 'code'
-        fieldLabel: 'Code'
+        fieldLabel: @code
         allowBlank: false
       ,
         name: 'name'
-        fieldLabel: 'Name'
+        fieldLabel: @name
         allowBlank: false
       ,
         xtype: 'textarea'
         name: 'description'
-        fieldLabel: 'Description'
+        fieldLabel: @description
       ,
         xtype: 'combo'
         name: 'challenge'
-        fieldLabel: 'Challenge'
+        fieldLabel: @challenge
         displayField: 'name'
         valueField: 'id'
         store: new Ext.data.ArrayStore
@@ -64,15 +77,15 @@ Ext.define 'YABSCA.view.measure.Form',
       ,
         xtype: 'numberfield'
         name: 'excellent'
-        fieldLabel: 'Excellent'
+        fieldLabel: @excellent
       ,
         xtype: 'numberfield'
         name: 'alert'
-        fieldLabel: 'Alert'
+        fieldLabel: @alert
       ,
         xtype: 'combo'
         name: 'frecuency'
-        fieldLabel: 'Frecuency'
+        fieldLabel: @frecuency
         displayField: 'name'
         valueField: 'id'
         store: new Ext.data.ArrayStore
@@ -82,24 +95,24 @@ Ext.define 'YABSCA.view.measure.Form',
       ,
         xtype: 'datefield'
         name: 'period_from'
-        fieldLabel: 'From'
+        fieldLabel: @from
         submitFormat: 'Y/m/d'
       ,
         xtype: 'datefield'
         name: 'period_to'
-        fieldLabel: 'To'
+        fieldLabel: @to
         submitFormat: 'Y/m/d'
       ,
         xtype: 'combo'
         name: 'unit_id'
-        fieldLabel: 'Unit'
+        fieldLabel: @unit
         displayField: 'name'
         valueField: 'id'
         store: 'Units'
       ,
         xtype: 'combo'
         name: 'responsible_id'
-        fieldLabel: 'Responsible'
+        fieldLabel: @responsible
         displayField: 'name'
         valueField: 'id'
         store: 'Responsibles'

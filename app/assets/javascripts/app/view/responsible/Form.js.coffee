@@ -1,6 +1,10 @@
 Ext.define 'YABSCA.view.responsible.Form',
   extend: 'Ext.form.Panel'
   alias: 'widget.responsible_form'
+  title: 'Responsible'
+  save: 'Save'
+  name: 'Name'
+  back: 'Back'
   initComponent: ->
     Ext.apply this,
       bodyStyle: 'padding: 15px'
@@ -13,15 +17,15 @@ Ext.define 'YABSCA.view.responsible.Form',
       ,
         xtype: 'textfield'
         name: 'name'
-        fieldLabel: 'Name'
+        fieldLabel: @name
         allowBlank: false
       ]
       buttons: [
-        text: 'Save'
+        text: @save
         iconCls: 'save'
         action: 'save'
       ,
-        text: 'Back'
+        text: @back
         iconCls: 'back'
         action: 'back'
       ]

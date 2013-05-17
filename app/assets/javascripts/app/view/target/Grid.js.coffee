@@ -1,6 +1,13 @@
 Ext.define 'YABSCA.view.target.Grid',
   extend: 'Ext.grid.Panel'
   alias: 'widget.target_grid'
+  lang_add: 'Add'
+  edit: 'Edit'
+  delete: 'Delete'
+  calculate: 'Calculate'
+  period: 'Period'
+  goal: 'Goal'
+  achieved: 'Achieved'
   initComponent: ->
     Ext.apply this,
       store: 'Targets'
@@ -8,32 +15,32 @@ Ext.define 'YABSCA.view.target.Grid',
         xtype: 'toolbar'
         items: [
           iconCls: 'new'
-          text: 'Add'
+          text: @lang_add
           action: 'add'
         ,
           iconCls: 'edit'
-          text: 'Edit'
+          text: @edit
           action: 'edit'
         ,
           iconCls: 'del'
-          text: 'Delete'
+          text: @delete
           action: 'delete'
         ,
           iconCls: 'calc'
-          text: 'Calculate'
+          text: @calculate
           action: 'calculate'
         ]
       ]
       columns: [
-        text: 'Period'
+        text: @period
         dataIndex: 'period'
         width: 150
       ,
-        text: 'Goal'
+        text: @goal
         dataIndex: 'goal'
         width: 150
       ,
-        text: 'Achieved'
+        text: @achieved
         dataIndex: 'achieved'
         width: 150
       ]

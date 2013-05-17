@@ -7,14 +7,18 @@ Ext.define 'YABSCA.view.strategy.Form',
   closeAction: 'hide'
   title: 'Strategy'
   layout: 'fit'
+  save: 'Save'
+  name: 'Name'
+  close: 'Close'
+  description: 'Description'
   initComponent: ->
     Ext.apply this,
       buttons: [
-        text: 'Save'
+        text: @save
         iconCls: 'save'
         action: 'save'
       ,
-        text: 'Close'
+        text: @close
         iconCls: 'close'
         scope: this
         handler: @destroy
@@ -38,12 +42,12 @@ Ext.define 'YABSCA.view.strategy.Form',
         ,
           xtype: 'textfield'
           name: 'name'
-          fieldLabel: 'Name'
+          fieldLabel: @name
           allowBlank: false
         ,
           xtype: 'textareafield'
           name: 'description'
-          fieldLabel: 'Description'
+          fieldLabel: @description
         ]
       ]
 

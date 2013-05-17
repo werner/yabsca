@@ -6,10 +6,11 @@ Ext.define 'YABSCA.view.responsible.Window',
   closeAction: 'hide'
   title: 'Responsibles'
   layout: 'card'
+  close: 'Close'
   initComponent: ->
     Ext.apply this,
       buttons: [
-        text: 'Close'
+        text: @close
         iconCls: 'close'
         scope: this
         handler: @destroy

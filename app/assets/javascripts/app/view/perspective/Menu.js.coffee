@@ -1,50 +1,55 @@
 Ext.define 'YABSCA.view.perspective.Menu',
   extend: 'Ext.menu.Menu'
   alias: 'widget.perspective_menu'
+  new: 'New'
+  edit: 'Edit'
+  delete: 'Delete'
+  perspectives: 'Perspectives'
+  objectives: 'Objectives'
   initComponent: ->
     Ext.apply this,
       node_id: '' #to know what node is
       iddb: 0 #this is a property to edit and delete records easily
       items: [
-        text: 'Perspectives'
+        text: @perspectives
         iconCls: 'persp'
         menu:
           xtype: 'menu'
           items: [
             id: 'new_perspective'
-            text: 'New'
+            text: @new
             iconCls: 'new'
             action: 'new_perspective'
           ,
             id: 'edit_perspective'
-            text: 'Edit'
+            text: @edit
             iconCls: 'edit'
             action: 'edit_perspective'
           ,
             id: 'delete_perspective'
-            text: 'Delete'
+            text: @delete
             iconCls: 'del'
             action: 'delete_perspective'
           ]
       ,
         id: 'objective_menu'
-        text: 'Objectives'
+        text: @objectives
         iconCls: 'objs'
         menu:
           xtype: 'menu'
           items: [
              id: 'new_objective'
-             text: 'New'
+             text: @new
              iconCls: 'new'
              action: 'new_objective'
            ,
              id: 'edit_objective'
-             text: 'Edit'
+             text: @edit
              iconCls: 'edit'
              action: 'edit_objective'
            ,
              id: 'delete_objective'
-             text: 'Delete'
+             text: @delete
              iconCls: 'del'
              action: 'delete_objective'
           ,

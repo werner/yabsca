@@ -1,6 +1,11 @@
 Ext.define 'YABSCA.view.target.Form',
   extend: 'Ext.form.Panel'
   alias: 'widget.target_form'
+  save: 'Save'
+  period: 'Period'
+  goal: 'Goal'
+  achieved: 'Achieved'
+  back: 'Back'
   initComponent: ->
 
     Ext.apply this,
@@ -17,25 +22,25 @@ Ext.define 'YABSCA.view.target.Form',
       ,
         xtype: 'combo'
         name: 'period'
-        fieldLabel: 'Period'
+        fieldLabel: @period
         store: 'Periods'
         displayField: 'name'
         valueField: 'name'
       ,
         xtype: 'numberfield'
         name: 'goal'
-        fieldLabel: 'Goal'
+        fieldLabel: @goal
       ,
         xtype: 'numberfield'
         name: 'achieved'
-        fieldLabel: 'Achieved'
+        fieldLabel: @achieved
       ]
       buttons: [
-        text: 'Save'
+        text: @save
         iconCls: 'save'
         action: 'save'
       ,
-        text: 'Back'
+        text: @back
         iconCls: 'back'
         action: 'back'
       ]

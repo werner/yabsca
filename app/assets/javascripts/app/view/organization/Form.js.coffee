@@ -11,14 +11,16 @@ Ext.define 'YABSCA.view.organization.Form',
   vision: 'Vision'
   goal: 'Goal'
   description: 'Description'
+  save: 'Save'
+  close: 'Close'
   initComponent: ->
     Ext.apply this,
       buttons: [
-        text: 'Save'
+        text: @save
         iconCls: 'save'
         action: 'save'
       ,
-        text: 'Close'
+        text: @close
         iconCls: 'close'
         scope: this
         handler: @destroy

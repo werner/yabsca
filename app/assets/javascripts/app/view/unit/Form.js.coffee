@@ -1,6 +1,9 @@
 Ext.define 'YABSCA.view.unit.Form',
   extend: 'Ext.form.Panel'
   alias: 'widget.unit_form'
+  save: 'Save'
+  name: 'Name'
+  back: 'Back'
   initComponent: ->
     Ext.apply this,
       bodyStyle: 'padding: 15px'
@@ -13,15 +16,15 @@ Ext.define 'YABSCA.view.unit.Form',
       ,
         xtype: 'textfield'
         name: 'name'
-        fieldLabel: 'Name'
+        fieldLabel: @name
         allowBlank: false
       ]
       buttons: [
-        text: 'Save'
+        text: @save
         iconCls: 'save'
         action: 'save'
       ,
-        text: 'Back'
+        text: @back
         iconCls: 'back'
         action: 'back'
       ]

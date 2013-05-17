@@ -1,6 +1,10 @@
 Ext.define 'YABSCA.view.responsible.Grid',
   extend: 'Ext.grid.Panel'
   alias: 'widget.responsible_grid'
+  lang_add: 'Add'
+  edit: 'Edit'
+  delete: 'Delete'
+  name: 'Name'
   initComponent: ->
     Ext.apply this,
       store: 'Responsibles'
@@ -8,20 +12,20 @@ Ext.define 'YABSCA.view.responsible.Grid',
         xtype: 'toolbar'
         items: [
           iconCls: 'new'
-          text: 'Add'
+          text: @lang_add
           action: 'add'
         ,
           iconCls: 'edit'
-          text: 'Edit'
+          text: @edit
           action: 'edit'
         ,
           iconCls: 'del'
-          text: 'Delete'
+          text: @delete
           action: 'delete'
         ]
       ]
       columns: [
-        text: 'Name'
+        text: @name
         dataIndex: 'name'
         width: 300
       ]

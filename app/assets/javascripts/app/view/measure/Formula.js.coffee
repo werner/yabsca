@@ -7,14 +7,17 @@ Ext.define 'YABSCA.view.measure.Formula',
   closeAction: 'hide'
   title: 'Measure'
   layout: 'fit'
+  save: 'Save'
+  close: 'Close'
+  formula: 'Formula'
   initComponent: ->
     Ext.apply this,
       buttons: [
-        text: 'Save'
+        text: @save
         iconCls: 'save'
         action: 'save'
       ,
-        text: 'Close'
+        text: @close
         iconCls: 'close'
         scope: this
         handler: @destroy
@@ -27,7 +30,7 @@ Ext.define 'YABSCA.view.measure.Formula',
         defaultType: 'textarea'
         items: [
           name: 'formula'
-          fieldLabel: 'Formula'
+          fieldLabel: @formula
           height: 200
         ,
           xtype: 'hiddenfield'

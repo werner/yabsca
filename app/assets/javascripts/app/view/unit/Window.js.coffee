@@ -6,10 +6,11 @@ Ext.define 'YABSCA.view.unit.Window',
   closeAction: 'hide'
   title: 'Units'
   layout: 'card'
+  close: 'Close'
   initComponent: ->
     Ext.apply this,
       buttons: [
-        text: 'Close'
+        text: @close
         iconCls: 'close'
         scope: this
         handler: @destroy
