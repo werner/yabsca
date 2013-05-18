@@ -4,7 +4,7 @@ class InitiativesController < StandardController
   end
 
   def index
-    params[:node_id] = params[:node] if params[:node_id].nil?
+    params[:node_id] ||= params[:node]
     initiatives = Initiative.tree params[:node_id]
 
     respond_to do |format|

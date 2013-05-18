@@ -4,7 +4,7 @@ class PerspectivesController < StandardController
   end
 
   def index
-    params[:node_id] = params[:node] if params[:node_id].nil?
+    params[:node_id] ||= params[:node]
     perspectives = Perspective.tree params[:node_id]
     objectives = Objective.tree params[:node]
     result = perspectives + objectives
