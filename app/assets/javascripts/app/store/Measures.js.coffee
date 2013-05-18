@@ -2,7 +2,7 @@ Ext.define 'YABSCA.store.Measures',
   extend: 'Ext.data.TreeStore'
   model: 'Tree'
   root:
-    text: 'Measures'
+    text: 'Indicadores'
     id: 'src:root'
     draggable: false
     iconCls: 'measure'
